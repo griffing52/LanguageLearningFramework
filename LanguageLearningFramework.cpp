@@ -23,9 +23,8 @@ int main()
 	string saveFile = "memory.txt";
 
 	loader::loadWords(wordList, wordFile);
-    cout << wordList.size() << endl;
-
     loader::wordListToMap(wordList, wordMap);
+
     //loader::loadMemoryFile(phraseList, saveFile);
     loader::addPhrases(phraseList, wordMap, phraseFile);
 	//loader::saveMemoryFile(phraseList, saveFile);

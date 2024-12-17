@@ -7,7 +7,7 @@
 using namespace std;
 using std::cout;
 
-void loader::loadWords(vector<util::Word*> &wordList, string filename) {
+void loader::loadWords(vector<util::Word*> &wordList, const string filename) {
 	ifstream file(filename);
 	if (file.is_open()) {
 		string line;
@@ -29,7 +29,7 @@ void loader::loadWords(vector<util::Word*> &wordList, string filename) {
 					break;
 				}
 			}
-			cout << *word << endl;
+			//cout << *word << endl;
 
 			wordList.push_back(word);
 		}
@@ -49,7 +49,7 @@ void loader::wordListToMap(vector<util::Word*> wordList, map<string, util::Word*
 }
 
 
-void loader::addPhrases(vector<util::Phrase*> phraseList, map<string, util::Word*> wordMap, string filename) {
+void loader::addPhrases(vector<util::Phrase*> &phraseList, map<string, util::Word*> wordMap, string filename) {
 	ifstream file(filename);
 	if (file.is_open()) {
 		string line;
@@ -57,7 +57,7 @@ void loader::addPhrases(vector<util::Phrase*> phraseList, map<string, util::Word
 			util::Phrase* phrase = new util::Phrase;
 
 			int numSpaces = 0;
-			int prevSpaceIdx = 0;
+			int prevSpaceIdx = -1;
 
 			for (int i = 0; i < line.length(); i++) {
 				if (line[i] == WORD_DELIMITER) {
@@ -68,7 +68,7 @@ void loader::addPhrases(vector<util::Phrase*> phraseList, map<string, util::Word
 				else if (line[i] == ' ') {
 					numSpaces++;
 
-					string word = line.substr(prevSpaceIdx, i - prevSpaceIdx);
+					string word = line.substr(prevSpaceIdx + 1, i - prevSpaceIdx - 1);
 
 					if (wordMap.count(word) <= 0) {
 						// cerr?
@@ -93,10 +93,10 @@ void loader::addPhrases(vector<util::Phrase*> phraseList, map<string, util::Word
 	file.close();
 }
 
-void loader::saveMemoryFile(vector<util::Phrase*> phraseList, string name) {
+void loader::saveMemoryFile(vector<util::Phrase*> &phraseList, const string name) {
 
 }
 
-void loader::loadMemoryFile(vector<util::Phrase*> phraseList, string name) {
+void loader::loadMemoryFile(vector<util::Phrase*> &phraseList, const string name) {
 
 }
