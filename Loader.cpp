@@ -5,8 +5,9 @@
 #define WORD_DELIMITER '='
 
 using namespace std;
+using std::cout;
 
-void loader::loadWords(vector<util::Word*> wordList, string filename) {
+void loader::loadWords(vector<util::Word*> &wordList, string filename) {
 	ifstream file(filename);
 	if (file.is_open()) {
 		string line;
@@ -39,7 +40,16 @@ void loader::loadWords(vector<util::Word*> wordList, string filename) {
 	file.close();
 }
 
-void loader::addPhrases(vector<util::Phrase*> phraseList, string filename) {
+void loader::wordListToMap(vector<util::Word*> wordList, map<string, util::Word*> &wordMap) {
+	for (int i = 0; i < wordList.size(); i++) {
+		wordMap[wordList[i]->value] = wordList[i];
+
+		cout << wordMap[wordList[i]->value]->value << endl;
+	}
+}
+
+
+void loader::addPhrases(vector<util::Phrase*> phraseList, map<string, util::Word*> wordMap, string filename) {
 	ifstream file(filename);
 	if (file.is_open()) {
 		string line;
@@ -47,6 +57,7 @@ void loader::addPhrases(vector<util::Phrase*> phraseList, string filename) {
 			util::Phrase* phrase = new util::Phrase;
 
 			int numSpaces = 0;
+			int prevSpaceIdx = 0;
 
 			for (int i = 0; i < line.length(); i++) {
 				if (line[i] == WORD_DELIMITER) {
@@ -56,6 +67,18 @@ void loader::addPhrases(vector<util::Phrase*> phraseList, string filename) {
 				}
 				else if (line[i] == ' ') {
 					numSpaces++;
+
+					string word = line.substr(prevSpaceIdx, i - prevSpaceIdx);
+
+					if (wordMap.count(word) <= 0) {
+						// cerr?
+						cout << word << " not found in dictionary" << endl;
+						return;
+					}
+
+					phrase->dependencies.push(wordMap[word]);
+
+					prevSpaceIdx = i;
 				}
 			}
 

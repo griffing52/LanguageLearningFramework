@@ -9,6 +9,7 @@ using namespace std;
 int main()
 {
     vector<util::Word*> wordList;
+    map<string, util::Word*> wordMap;
     vector<util::Phrase*> phraseList;
 
     string wordFile = "words.txt";
@@ -22,7 +23,10 @@ int main()
 	string saveFile = "memory.txt";
 
 	loader::loadWords(wordList, wordFile);
+    cout << wordList.size() << endl;
+
+    loader::wordListToMap(wordList, wordMap);
     //loader::loadMemoryFile(phraseList, saveFile);
-    loader::addPhrases(phraseList, phraseFile);
+    loader::addPhrases(phraseList, wordMap, phraseFile);
 	//loader::saveMemoryFile(phraseList, saveFile);
 }
