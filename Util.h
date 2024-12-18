@@ -1,6 +1,7 @@
 #pragma once
 #include <string>
 #include <queue>
+#include <set>
 
 using namespace std;
 
@@ -33,7 +34,8 @@ namespace util {
 	};
 
 	struct Phrase : public Word {
-		priority_queue<Word*> dependencies;
+		set<Word*> words;
+		priority_queue<Phrase*> dependencies;
 		//priority_queue<Word*, vector<Word*>, Compare> dependencies;
 		//Word* dependencies = nullptr;
 	};
