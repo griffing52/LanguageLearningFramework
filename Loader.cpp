@@ -132,7 +132,7 @@ void loader::addPhrases(vector<util::Phrase*>& phraseList, map<string, util::Wor
 
 		cout << "Phrase: " << p.value << endl;
 		auto& pq = p.dependencies;
-		cout << "Priority Queue: ";
+		cout << "Priority Queue: " << endl;
 		while (!pq.empty()) {
 			cout << *pq.top() << endl;
 			pq.pop();
