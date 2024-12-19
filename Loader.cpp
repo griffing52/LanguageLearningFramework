@@ -4,6 +4,7 @@
 
 #define WORD_DELIMITER '='
 #define KNOWN_WORD '!'
+#define DEBUG 1
 
 using namespace std;
 using std::cout;
@@ -106,7 +107,7 @@ void loader::addPhrases(vector<util::Phrase*>& phraseList, map<string, util::Wor
 					phrase->words.insert(wordMap[word]);
 					//phrase->dependencies.push((util::Phrase*) wordMap[word]);
 
-					prevSpaceIdx = i;
+					prevSpaceIdx = (int) i;
 				}
 			}
 
@@ -127,6 +128,7 @@ void loader::addPhrases(vector<util::Phrase*>& phraseList, map<string, util::Wor
 		savePhraseDependencies(phrase, phraseList);
 	}
 
+#ifdef DEBUG
 	for (auto& phrase : phraseList) {
 		util::Phrase p = *phrase;
 
@@ -139,6 +141,7 @@ void loader::addPhrases(vector<util::Phrase*>& phraseList, map<string, util::Wor
 		}
 		cout << endl;
 	}
+#endif
 }
 
 void loader::saveMemoryFile(vector<util::Phrase*> &phraseList, const string name) {
