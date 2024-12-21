@@ -127,11 +127,14 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="Debug.cpp" />
     <ClCompile Include="LanguageLearningFramework.cpp" />
     <ClCompile Include="Loader.cpp" />
+    <ClCompile Include="Timer.cpp" />
     <ClCompile Include="Util.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Debug.h" />
     <ClInclude Include="Loader.h" />
     <ClInclude Include="Util.h" />
   </ItemGroup>

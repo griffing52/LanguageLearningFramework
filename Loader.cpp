@@ -1,4 +1,5 @@
 #include "Loader.h"
+#include "Debug.h"
 #include <fstream>
 #include <iostream>
 
@@ -26,7 +27,7 @@ void loader::loadWords(vector<util::Word*>& wordList, const string filename) {
 					// known word marker
 					if (line[0] == KNOWN_WORD) {
 						offset = 1;
-						word->complexity = -1;
+						word->complexity = 0;
 						word->age = -1;
 					}
 					word->value = line.substr(offset, i);
@@ -67,7 +68,7 @@ void savePhraseDependencies(util::Phrase* phrase_ptr, vector<util::Phrase*> phra
 				goto next_phrase;
 			}
 		}
-		phrase->dependencies.push(phrase_ptr);
+		phrase->dependencies.insert(phrase_ptr);
 	next_phrase:;
 	}
 }
@@ -79,7 +80,7 @@ void loader::addPhrases(vector<util::Phrase*>& phraseList, map<string, util::Wor
 		while (getline(file, line)) {
 			util::Phrase* phrase = new util::Phrase;
 
-			int numSpaces = 0;
+			//int numSpaces = 0;
 			int prevSpaceIdx = -1;
 
 			size_t ln = line.length();
@@ -94,7 +95,7 @@ void loader::addPhrases(vector<util::Phrase*>& phraseList, map<string, util::Wor
 
 				// get individual words
 				if (line[i] == ' ' || line[i] == WORD_DELIMITER) {
-					numSpaces++;
+					//numSpaces++;
 
 					string word = line.substr(prevSpaceIdx + 1, i - prevSpaceIdx - 1);
 
@@ -104,7 +105,10 @@ void loader::addPhrases(vector<util::Phrase*>& phraseList, map<string, util::Wor
 						return;
 					}
 
-					phrase->words.insert(wordMap[word]);
+					util::Word* w = wordMap[word];
+
+					phrase->words.insert(w);
+					phrase->complexity += w->complexity;
 					//phrase->dependencies.push((util::Phrase*) wordMap[word]);
 
 					prevSpaceIdx = (int) i;
@@ -112,7 +116,7 @@ void loader::addPhrases(vector<util::Phrase*>& phraseList, map<string, util::Wor
 			}
 
 			// number of words + 1
-			phrase->complexity = numSpaces + 2;
+			//phrase->complexity = numSpaces + 2;
 
 			//cout << *phrase << endl;
 
@@ -128,26 +132,123 @@ void loader::addPhrases(vector<util::Phrase*>& phraseList, map<string, util::Wor
 		savePhraseDependencies(phrase, phraseList);
 	}
 
-#ifdef DEBUG
-	for (auto& phrase : phraseList) {
-		util::Phrase p = *phrase;
-
-		cout << "Phrase: " << p.value << endl;
-		auto& pq = p.dependencies;
-		cout << "Priority Queue: " << endl;
-		while (!pq.empty()) {
-			cout << *pq.top() << endl;
-			pq.pop();
-		}
-		cout << endl;
-	}
-#endif
 }
 
 void loader::saveMemoryFile(vector<util::Phrase*> &phraseList, const string name) {
+	ofstream fout(name);
 
+	fout << phraseList.size() << endl;
+
+	for (auto& phrase : phraseList) {
+		fout << phrase->value << endl;
+		fout << phrase->translation << endl;
+		fout << phrase->complexity << endl;
+		fout << phrase->frequency << endl;
+		fout << phrase->age << endl;
+		fout << phrase->dependencies.size() << endl;
+		/*for (auto& dep : phrase->dependencies) {
+			fout << dep->value << endl;
+		}*/
+	}
+
+	for (auto& phrase : phraseList) {
+
+		//fout << "Test: " << phrase->value << endl;
+		for (auto& dep : phrase->dependencies) {
+			auto it = find(phraseList.begin(), phraseList.end(), dep);
+			if (it == phraseList.end()) {
+				cout << "Error finding dependency " << dep->value << " in phrase list" << endl;
+				return;
+			}
+
+			size_t index = it - phraseList.begin();
+
+			fout << index << endl;
+		}
+	}
+
+	fout.close();
 }
 
-void loader::loadMemoryFile(vector<util::Phrase*> &phraseList, const string name) {
+void loader::loadMemoryFile(vector<util::Phrase*>& phraseList, map<string, util::Word*> wordMap, const string name) {
+	ifstream fin(name);
 
+	if (!fin.is_open()) {
+		cout << "Unable to open file " << name << endl;
+		return;
+	}
+
+	size_t numPhrases;
+	fin >> numPhrases;
+
+	struct PhraseLoadData {
+		util::Phrase* ptr;
+	};
+
+	size_t* numOfDependencies = new size_t[numPhrases];
+	//util::Phrase** idxToPhrase = new util::Phrase*[numPhrases];
+	for (size_t i = 0; i < numPhrases; i++) {
+		util::Phrase* phrase = new util::Phrase;
+
+		fin.ignore(1);
+
+		string line;
+
+		getline(fin, line);
+		phrase->value = line;
+
+		getline(fin, line);
+		phrase->translation = line;
+
+		fin >> phrase->complexity;
+		fin >> phrase->frequency;
+		fin >> phrase->age;
+
+		fin >> numOfDependencies[i];
+
+		//idxToPhrase[i] = phrase;
+
+		// phrase words
+		size_t ln = phrase->value.length();
+
+		int prevSpaceIdx = -1;
+		// separate phrase into words and translation
+		for (size_t i = 0; i <= ln; i++) {
+		//	// get individual words
+			if (i == ln || phrase->value[i] == ' ') {
+
+				string word = phrase->value.substr(prevSpaceIdx + 1, i - prevSpaceIdx - 1);
+
+				if (wordMap.count(word) <= 0) {
+					// cerr?
+					cout << word << " not found in dictionary" << endl;
+					return;
+				}
+
+				util::Word* w = wordMap[word];
+
+				phrase->words.insert(w);
+				phrase->complexity += w->complexity;
+				//phrase->dependencies.push((util::Phrase*) wordMap[word]);
+
+				prevSpaceIdx = (int)i;
+			}
+		}
+
+		phraseList.push_back(phrase);
+	}
+
+	for (size_t i = 0; i < numPhrases; i++) {
+		// phrase dependencies
+		for (size_t j = 0; j < numOfDependencies[i]; j++) {
+			size_t depIdx;
+			fin >> depIdx;
+
+			phraseList[i]->dependencies.insert(phraseList[depIdx]);
+		}
+	}
+
+	// TODO
+
+	fin.close();
 }

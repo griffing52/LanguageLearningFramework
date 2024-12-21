@@ -5,6 +5,11 @@ VisualStudioVersion = 17.11.35208.52
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "LanguageLearningFramework", "LanguageLearningFramework.vcxproj", "{4E1C9FC5-F91B-4DA1-AA0F-79A26CFDD090}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{F40459FF-FDFB-45FD-AB96-B6364CF11510}"
+	ProjectSection(SolutionItems) = preProject
+		memory.txt = memory.txt
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x64 = Debug|x64

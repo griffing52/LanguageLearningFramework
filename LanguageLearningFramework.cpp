@@ -25,7 +25,7 @@ int main()
 	loader::loadWords(wordList, wordFile);
     loader::wordListToMap(wordList, wordMap);
 
-    //loader::loadMemoryFile(phraseList, saveFile);
-    loader::addPhrases(phraseList, wordMap, phraseFile);
+    loader::loadMemoryFile(phraseList, wordMap, saveFile);
+    //loader::addPhrases(phraseList, wordMap, phraseFile);
 	//loader::saveMemoryFile(phraseList, saveFile);
 }
