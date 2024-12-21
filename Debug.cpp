@@ -12,6 +12,40 @@ namespace debug {
 		}
 	}
 
+	void printPhrase(string phrase, vector<util::Phrase*> phraseList) {
+		for (auto& phrase_ptr : phraseList) {
+			if (phrase_ptr->value == phrase) {
+				cout << *phrase_ptr << endl;
+				return;
+			}
+		}
+	}
+	void printPhraseDependencies(string phrase, vector<util::Phrase*> phraseList) {
+		for (auto& phrase_ptr : phraseList) {
+			if (phrase_ptr->value == phrase) {
+				printDependencies(phrase_ptr->dependencies);
+				return;
+			}
+		}
+	}
+
+	void printPhraseFromTranslation(string translation, vector<util::Phrase*> phraseList) {
+		for (auto& phrase_ptr : phraseList) {
+			if (phrase_ptr->translation == translation) {
+				cout << *phrase_ptr << endl;
+				return;
+			}
+		}
+	}
+	void printPhraseDependenciesFromTranslation(string translation, vector<util::Phrase*> phraseList) {
+		for (auto& phrase_ptr : phraseList) {
+			if (phrase_ptr->translation == translation) {
+				printDependencies(phrase_ptr->dependencies);
+				return;
+			}
+		}
+	}
+
 	void printDependencies(set<util::Phrase*> dependencies) {
 		for (auto& phrase : dependencies) {
 			cout << phrase->value << endl;
