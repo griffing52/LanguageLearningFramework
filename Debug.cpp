@@ -13,37 +13,45 @@ namespace debug {
 	}
 
 	void printPhrase(string phrase, vector<util::Phrase*> phraseList) {
+		cout << "Searching for phrase: \"" << phrase << '\"' << endl;
 		for (auto& phrase_ptr : phraseList) {
 			if (phrase_ptr->value == phrase) {
 				cout << *phrase_ptr << endl;
 				return;
 			}
 		}
+		cout << "No valid phrase found" << endl;
 	}
 	void printPhraseDependencies(string phrase, vector<util::Phrase*> phraseList) {
+		cout << "Searching for dependencies of phrase: \"" << phrase << '\"' << endl;
 		for (auto& phrase_ptr : phraseList) {
 			if (phrase_ptr->value == phrase) {
 				printDependencies(phrase_ptr->dependencies);
 				return;
 			}
 		}
+		cout << "No valid phrase found" << endl;
 	}
 
 	void printPhraseFromTranslation(string translation, vector<util::Phrase*> phraseList) {
+		cout << "Searching for translation: \"" << translation << '\"' << endl;
 		for (auto& phrase_ptr : phraseList) {
 			if (phrase_ptr->translation == translation) {
 				cout << *phrase_ptr << endl;
 				return;
 			}
 		}
+		cout << "No valid phrase found" << endl;
 	}
 	void printPhraseDependenciesFromTranslation(string translation, vector<util::Phrase*> phraseList) {
+		cout << "Searching for dependencies of translation: \"" << translation << '\"' << endl;
 		for (auto& phrase_ptr : phraseList) {
 			if (phrase_ptr->translation == translation) {
 				printDependencies(phrase_ptr->dependencies);
 				return;
 			}
 		}
+		cout << "No valid phrase found" << endl;
 	}
 
 	void printDependencies(set<util::Phrase*> dependencies) {

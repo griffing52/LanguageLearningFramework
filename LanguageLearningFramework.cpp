@@ -27,6 +27,21 @@ int main()
 		size_t ln = line.length();
 		int prevSpace = -1;
 		for (size_t i = 0; i <= ln; i++) {
+			if (line[i] == '\"') {
+				i++;
+
+				int start = i;
+
+				while (line[i] != '\"') {
+					i++;
+				};
+
+				string arg = line.substr(start, i - start);
+				args.push_back(arg);
+				prevSpace = ++i;
+				continue;
+			}
+
 			if (i == ln || line[i] == ' ') {
 				string arg = line.substr(prevSpace + 1, i - prevSpace - 1);
 				args.push_back(arg);
@@ -86,8 +101,7 @@ int main()
 				debug::printAllDependencies(phraseList);
 			}
 			else {
-				cout << "Invalid argument\n";
-				cout << args[1] << endl;
+				cout << '>' << "Invalid argument " << args[1] << endl;
 			}
 		}
 		else if (args[0] == "load") {
@@ -148,24 +162,27 @@ int main()
 
 		}
 		else if (args[0] == "help") {
-			cout << "exit" << endl;
-			cout << "print" << endl;
-			cout << '\t' << "words" << endl;
-			cout << '\t' << "phrases" << endl;
-			cout << '\t' << "phrase" << endl;
-			cout << "load" << endl;
-			cout << '\t' << "words <word file>" << endl;
-			cout << '\t' << "phrases <phrase file>" << endl;
-			cout << '\t' << "mem <memory file>" << endl;
-			cout << '\t' << "<memory file>" << endl;
-			cout << "clear" << endl;
-			cout << '\t' << "words" << endl;
-			cout << '\t' << "phrases" << endl;
-			cout << "save <memory file name>" << endl;
-			cout << "add" << endl;
-			cout << "remove" << endl;
-			cout << "list" << endl;
-			cout << "help" << endl;
+			cout << '\t' << "exit" << endl;
+			cout << '\t' << "print" << endl;
+			cout << '\t' << '\t' << "words" << endl;
+			cout << '\t' << '\t' << "phrases" << endl;
+			cout << '\t' << '\t' << "phrase \"PHRASE\" " << endl;
+			cout << '\t' << '\t' << "phrase_deps \"PHRASE\" " << endl;
+			cout << '\t' << '\t' << "phrase_trans \"TRANSLATION\" " << endl;
+			cout << '\t' << '\t' << "phrase_trans_deps \"TRANSLATION\" " << endl;
+			cout << '\t' << "load" << endl;
+			cout << '\t' << '\t' << "words <word file>" << endl;
+			cout << '\t' << '\t' << "phrases <phrase file>" << endl;
+			cout << '\t' << '\t' << "mem <memory file>" << endl;
+			cout << '\t' << '\t' << "<memory file>" << endl;
+			cout << '\t' << "clear" << endl;
+			cout << '\t' << '\t' << "words" << endl;
+			cout << '\t' << '\t' << "phrases" << endl;
+			cout << '\t' << "save <memory file name>" << endl;
+			cout << '\t' << "add" << endl;
+			cout << '\t' << "remove" << endl;
+			cout << '\t' << "list" << endl;
+			cout << '\t' << "help" << endl;
 		}
 		else {
 			cout << "Invalid command\n";
