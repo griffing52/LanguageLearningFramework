@@ -9,7 +9,7 @@ namespace util {
 	struct Word {
 		string value;
 		string translation;
-		int complexity = 0;
+		int complexity = 1;
 		int frequency = 0;
 		int age = 0;
 
@@ -35,7 +35,7 @@ namespace util {
 
 	struct Phrase : public Word {
 		set<Word*> words;
-		priority_queue<Phrase*> dependencies;
+		set<Phrase*> dependencies;
 		//priority_queue<Word*, vector<Word*>, Compare> dependencies;
 		//Word* dependencies = nullptr;
 	};

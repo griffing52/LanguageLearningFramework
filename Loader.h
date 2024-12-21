@@ -13,5 +13,5 @@ namespace loader {
 	void addPhrases(vector<util::Phrase*> &phraseList, map<string, util::Word*>, const string filename);
 
 	void saveMemoryFile(vector<util::Phrase*> &phraseList, const string name);
-	void loadMemoryFile(vector<util::Phrase*> &phraseList, const string name);
+	void loadMemoryFile(vector<util::Phrase*> &phraseList, map<string, util::Word*> wordMap, const string name);
 }
