@@ -4,7 +4,11 @@
 #include <iostream>
 
 #define WORD_DELIMITER '='
-#define KNOWN_WORD '!'
+#define KNOWN_WORD '*'
+#define IMPORTANT_WORD '!'
+
+#define KNOWN_WORD_FREQUENCY 100
+
 #define DEBUG 1
 
 using namespace std;
@@ -28,7 +32,18 @@ void loader::loadWords(vector<util::Word*>& wordList, const string filename) {
 					if (line[0] == KNOWN_WORD) {
 						offset = 1;
 						word->complexity = 0;
+
+						// TODO TUNE VALUES
 						word->age = -1;
+						word->frequency = KNOWN_WORD_FREQUENCY;
+					}
+					// repeat important words more often
+					else if (line[0] == IMPORTANT_WORD) {
+						offset = 1;
+
+						// TODO TUNE VALUES
+						word->complexity += 2;
+						word->age = 20;
 					}
 					word->value = line.substr(offset, i);
 					word->translation = line.substr(i + 1, line.length() - i - 1 - offset);
@@ -142,7 +157,6 @@ void loader::saveMemoryFile(vector<util::Phrase*> &phraseList, const string name
 	for (auto& phrase : phraseList) {
 		fout << phrase->value << endl;
 		fout << phrase->translation << endl;
-		fout << phrase->complexity << endl;
 		fout << phrase->frequency << endl;
 		fout << phrase->age << endl;
 		fout << phrase->dependencies.size() << endl;
@@ -200,7 +214,6 @@ void loader::loadMemoryFile(vector<util::Phrase*>& phraseList, map<string, util:
 		getline(fin, line);
 		phrase->translation = line;
 
-		fin >> phrase->complexity;
 		fin >> phrase->frequency;
 		fin >> phrase->age;
 

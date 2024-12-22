@@ -139,6 +139,8 @@
     <ClInclude Include="Util.h" />
   </ItemGroup>
   <ItemGroup>
+    <Text Include="known_phrases.txt" />
+    <Text Include="known_words.txt" />
     <Text Include="lesson1.txt" />
     <Text Include="words.txt" />
   </ItemGroup>

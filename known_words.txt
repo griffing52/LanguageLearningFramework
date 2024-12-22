@@ -1,0 +1,5 @@
+*s=the
+*d=the
+*de=the
+*z=to
+*Auto=car

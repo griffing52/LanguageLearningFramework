@@ -1,9 +1,7 @@
 #include "Debug.h"
 #include <iostream>
 
-
 using namespace std;
-
 
 namespace debug {
 	void printPhraseList(vector<util::Phrase*> phraseList) {
