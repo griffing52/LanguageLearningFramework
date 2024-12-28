@@ -4,6 +4,16 @@
 using namespace std;
 
 namespace debug {
+	void printWordFromString(string word, map<string, util::Word*> wordMap) {
+		cout << "Searching for word: \"" << word << '\"' << endl;
+		if (wordMap.find(word) != wordMap.end()) {
+			cout << *wordMap[word] << endl;
+		}
+		else {
+			cout << "No valid word found" << endl;
+		}
+	}
+
 	void printPhraseList(vector<util::Phrase*> phraseList) {
 		for (auto& phrase : phraseList) {
 			cout << phrase->value << endl;

@@ -1,11 +1,13 @@
 #pragma once
 
 #include <vector>
+#include <map>
 #include "Util.h"
 
 using namespace std;
 
 namespace debug {
+	void printWordFromString(string word, map<string, util::Word*> wordMap);
 	void printPhraseList(vector<util::Phrase*> phraseList);
 	void printPhrase(string phrase, vector<util::Phrase*> phraseList);
 	void printPhraseDependencies(string phrase, vector<util::Phrase*> phraseList);
