@@ -47,8 +47,8 @@ void loader::loadWords(vector<util::Word*>& wordList, const string filename) {
 						word->complexity += 2;
 						word->age = 20;
 					}
-					word->value = line.substr(offset, i);
-					word->translation = line.substr(i + 1, line.length() - i - 1 - offset);
+					word->value = line.substr(offset, i - offset);
+					word->translation = line.substr(i + 1, line.length() - i - 1);
 					break;
 				}
 			}
@@ -117,8 +117,8 @@ void loader::addPhrases(vector<util::Phrase*>& phraseList, map<string, util::Wor
 				}
 
 				if (line[i] == WORD_DELIMITER) {
-					phrase->value = line.substr(offset, i);
-					phrase->translation = line.substr(i + offset + 1, line.length() - i - offset - 1);
+					phrase->value = line.substr(offset, i - offset);
+					phrase->translation = line.substr(i + 1, line.length() - i- 1);
 					break;
 				}
 

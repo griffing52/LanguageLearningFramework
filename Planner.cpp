@@ -18,14 +18,13 @@ namespace planner {
 		return nullptr;
 	}
 
-	float calculateCost(util::Word* word, util::Word* currWord) {
+	float calculateCost(util::Word* word) {
 		// TODO: Implement this function
 		if (word->complexity == 0) return 0;
 
 		float C = word->complexity;
 		float F = word->frequency;
 		float A = word->age;
-
 
 		// Generate a random number in the range [-alpha, alpha].
 		double R = ((static_cast<float>(rand()) / RAND_MAX) * 2 * ALPHA) - ALPHA;
