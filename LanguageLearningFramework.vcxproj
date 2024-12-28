@@ -130,12 +130,14 @@
     <ClCompile Include="Debug.cpp" />
     <ClCompile Include="LanguageLearningFramework.cpp" />
     <ClCompile Include="Loader.cpp" />
+    <ClCompile Include="Planner.cpp" />
     <ClCompile Include="Timer.cpp" />
     <ClCompile Include="Util.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Debug.h" />
     <ClInclude Include="Loader.h" />
+    <ClInclude Include="Planner.h" />
     <ClInclude Include="Util.h" />
   </ItemGroup>
   <ItemGroup>
