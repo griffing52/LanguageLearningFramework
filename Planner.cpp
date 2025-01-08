@@ -15,6 +15,49 @@ namespace planner {
 			cout << "Phrase is null" << endl;
 		}
 
+		// Generate a random number in the range [0, 1).
+		double randNum = (static_cast<float>(rand()) / RAND_MAX);
+
+		// check if new-ish word frequency < phase complexity
+		for (auto& word : phrase->words) {
+			if (word->complexity == 0) continue;
+
+			if (word->frequency < phrase->complexity - 2) {
+
+				double prob = 1 / (0.15 * word->frequency + 1);
+
+				if (randNum < prob) continue;
+
+				return word;
+			}
+		}
+
+		// go through dependencies
+		for (auto& dep : phrase->dependencies) {
+			if (dep->complexity * dep->frequency < dep->complexity + phrase->complexity) {
+
+				double prob = 1 / (0.15 * dep->frequency + 1);
+
+				if (randNum < prob) continue;
+
+				return dep;
+			}
+		}
+
+		// go through all words until word frequency == phrase complexity
+		for (auto& word : phrase->words) {
+			if (word->complexity == 0) continue;
+
+			if (word->frequency <= phrase->complexity) {
+				double prob = 1 / (0.15 * word->frequency + 1);
+
+				if (randNum < prob) continue;
+
+				return word;
+			}
+		}
+
+
 		return nullptr;
 	}
 

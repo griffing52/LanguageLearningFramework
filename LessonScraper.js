@@ -12,8 +12,10 @@
     .filter(elm => elm.innerHTML.trim() != '')
     //.map(elm => [elm.innerHTML.trim().replace(/[!.;]/g, "\n").split('\n')])
     .map(elm => {
+        let string = elm.innerHTML.trim().replace(/[?.;!"#$%&()*+,-./:;<=>?@[\]^_`{|}~]/g, "")
+
         return {
-            'phrase': elm.innerHTML.trim().replace(/[?.;!"#$%&()*+,-./:;<=>?@[\]^_`{|}~]/g, ""),
+            'phrase': string.charAt(0).toUpperCase() + string.slice(1),
             'translation': (elm.nextSibling.data || '').trim(),
             'phrase-original': elm.innerHTML.trim()
         }
