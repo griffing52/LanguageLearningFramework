@@ -10,7 +10,7 @@
 using namespace std;
 using std::cout;
 
-void loader::loadWords(vector<util::Word*>& wordList, const string filename) {
+void loader::loadWords(vector<util::Word*> &wordList, map<string, util::Word*> &wordMap, const string filename) {
 	ifstream file(filename);
 	if (file.is_open()) {
 		string line;
@@ -37,6 +37,7 @@ void loader::loadWords(vector<util::Word*>& wordList, const string filename) {
 			}
 
 			wordList.push_back(word);
+			wordMap[word->value] = word;
 		}
 	}
 	else {
@@ -45,7 +46,7 @@ void loader::loadWords(vector<util::Word*>& wordList, const string filename) {
 	file.close();
 }
 
-// takes word list and converts it to a map from 
+// DEPRECATED
 void loader::wordListToMap(vector<util::Word*> wordList, map<string, util::Word*>& wordMap) {
 	for (int i = 0; i < wordList.size(); i++) {
 		wordMap[wordList[i]->value] = wordList[i];

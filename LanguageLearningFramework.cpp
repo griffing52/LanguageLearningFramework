@@ -57,8 +57,7 @@ int main()
 			exit(0);
 		}
 		else if (args[0] == "start") {
-			loader::loadWords(wordList, DEFAULT_WORD_FILE);
-			loader::wordListToMap(wordList, wordMap);
+			loader::loadWords(wordList, wordMap, DEFAULT_WORD_FILE);
 
 			loader::loadMemoryFile(phraseList, wordMap, DEFAULT_MEM_FILE);
 		}
@@ -106,16 +105,14 @@ int main()
 		}
 		else if (args[0] == "load") {
 			if (args.size() == 1) {
-				loader::loadWords(wordList, DEFAULT_WORD_FILE);
-				loader::wordListToMap(wordList, wordMap);
+				loader::loadWords(wordList, wordMap, DEFAULT_WORD_FILE);
 
 				loader::loadMemoryFile(phraseList, wordMap, DEFAULT_MEM_FILE);
 				continue;
 			}
 
 			if (args[1] == "words") {
-				loader::loadWords(wordList, args[2]);
-				loader::wordListToMap(wordList, wordMap);
+				loader::loadWords(wordList, wordMap, args[2]);
 			}
 			else if (args[1] == "phrases") {
 				loader::addPhrases(phraseList, wordMap, args[2]);
@@ -200,7 +197,6 @@ int main()
 	//string saveFile = "memory.txt";
 
 	/*loader::loadWords(wordList, wordFile);
-    loader::wordListToMap(wordList, wordMap);
 
     loader::loadMemoryFile(phraseList, wordMap, saveFile);
     loader::addPhrases(phraseList, wordMap, phraseFile);*/
