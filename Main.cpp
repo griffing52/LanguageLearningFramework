@@ -67,7 +67,16 @@ int main()
 				continue;
 			}
 
-			if (args[1] == "words") {
+			if (args[1] == "word") {
+				cout << "Searching for word: \"" << args[2] << '\"' << endl;
+				if (wordMap.count(args[2]) > 0) {
+					cout << *wordMap[args[2]] << endl;
+				}
+				else {
+					cout << "No valid word found" << endl;
+				}
+			}
+			else if (args[1] == "words") {
 				for (auto& word : wordList) {
 					cout << word->value << " " << word->translation << endl;
 				}
@@ -152,6 +161,26 @@ int main()
 		else if (args[0] == "add") {
 
 		}
+		else if (args[0] == "set") { 
+			if (args[1] == "word") {
+				cout << "Searching for word: \"" << args[2] << '\"' << endl;
+				if (wordMap.count(args[2]) > 0) {
+					if (args[3] == "frequency") {
+						wordMap[args[2]]->frequency = stoi(args[4]);
+					}
+					else if (args[3] == "complexity") {
+						wordMap[args[2]]->complexity = stoi(args[4]);
+					}
+					else if (args[3] == "translation") {
+						wordMap[args[2]]->translation = args[4];
+					}
+					cout << "Setting " << args[3] << " to " << args[4] << endl;
+				}
+				else {
+					cout << "No valid word found" << endl;
+				}
+			}
+		}
 		else if (args[0] == "remove") {
 
 		}
@@ -176,6 +205,10 @@ int main()
 			cout << '\t' << '\t' << "words" << endl;
 			cout << '\t' << '\t' << "phrases" << endl;
 			cout << '\t' << "save <memory file name>" << endl;
+			cout << '\t' << "set" << endl;
+			cout << '\t' << '\t' << "word \"WORD\" frequency <int>" << endl;
+			cout << '\t' << '\t' << "word \"WORD\" complexity <int>" << endl;
+			cout << '\t' << '\t' << "word \"WORD\" translation <string>" << endl;
 			cout << '\t' << "add" << endl;
 			cout << '\t' << "remove" << endl;
 			cout << '\t' << "list" << endl;
