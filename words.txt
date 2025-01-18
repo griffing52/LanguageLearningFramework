@@ -1,6 +1,6 @@
 mier=we
 gönd=we go
-gah,goh=I go
+goh,gah=I go
 danke=thank you
 und=and
 uf=to or for

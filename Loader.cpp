@@ -4,6 +4,7 @@
 #include <iostream>
 
 #define WORD_DELIMITER '='
+#define SYNONYM_DELIMITER ','
 #define KNOWN_WORD '!'
 #define DEBUG 1
 
@@ -19,18 +20,25 @@ void loader::loadWords(vector<util::Word*> &wordList, map<string, util::Word*> &
 
 			// TODO int idx = line.find(WORD_DELIMITER);
 
-			// get every word and its translation
-			for (int i = 0; i < line.length(); i++) {
-				if (line[i] == WORD_DELIMITER) {
-					int offset = 0;
+			int offset = 0;
 
-					// known word marker
-					if (line[0] == KNOWN_WORD) {
-						offset = 1;
-						word->complexity = 0;
-						word->age = -1;
-					}
-					word->value = line.substr(offset, i);
+			// known word marker
+			if (line[0] == KNOWN_WORD) {
+				offset = 1;
+				word->complexity = 0;
+				word->age = -1;
+			}
+
+			int prevSeperator = -1 + offset;
+			// get every word and its translation
+			for (int i = offset; i < line.length(); i++) {
+				if (line[i] == SYNONYM_DELIMITER) {
+					string synonym = line.substr(prevSeperator + 1, i - offset);
+					prevSeperator = i;
+					wordMap[synonym] = word;
+				}
+				else if (line[i] == WORD_DELIMITER) {
+					word->value = line.substr(prevSeperator + 1, i - prevSeperator - 1);
 					word->translation = line.substr(i + 1, line.length() - i - 1 - offset);
 					break;
 				}
