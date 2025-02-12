@@ -17,7 +17,9 @@ const downloadAllAndMoveOn = (save_audio) => {
 
     if (currIdx == -1) return;
 
-    savePhrases(getPhrases(), currPage)
+    let phrases = getPhrases()
+    saveFile(JSON.stringify(phrases), currPage)
+    saveFile(phrases.map(a => `${a['phrase']}=${a['translation']}\n`), currPage)
 
     if (save_audio) saveAudio()
 
@@ -31,11 +33,11 @@ const saveAudio = () => {
     // need to do
 }
 
-const savePhrases = (phrases, currPage) => {
+const saveFile = (content, currPage) => {
     var a = document.createElement("a");
-    var file = new Blob([JSON.stringify(phrases)], { type: 'text/plain' });
+    var file = new Blob([content], { type: 'text/plain' });
     a.href = URL.createObjectURL(file);
-    a.download = currPage+'.json';
+    a.download = '_'+currPage+'.json';
     a.click();
 }
 
