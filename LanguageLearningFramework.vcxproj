@@ -128,7 +128,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="Debug.cpp" />
-    <ClCompile Include="LanguageLearningFramework.cpp" />
+    <ClCompile Include="Main.cpp" />
     <ClCompile Include="Loader.cpp" />
     <ClCompile Include="Planner.cpp" />
     <ClCompile Include="Timer.cpp" />
