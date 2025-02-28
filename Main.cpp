@@ -81,6 +81,14 @@ int main()
 					cout << word->value << " " << word->translation << endl;
 				}
 			}
+			else if (args[1] == "word") {
+				if (args.size() == 2) {
+					cout << "Missing arguments\n";
+					continue;
+				}
+
+				debug::printWordFromString(args[2], wordMap);
+			}
 			else if (args[1] == "phrases") {
 				for (auto& phrase : phraseList) {
 					cout << phrase->value << " " << phrase->translation << endl;
@@ -190,6 +198,7 @@ int main()
 		else if (args[0] == "help") {
 			cout << '\t' << "exit" << endl;
 			cout << '\t' << "print" << endl;
+			cout << '\t' << '\t' << "word <word>" << endl;
 			cout << '\t' << '\t' << "words" << endl;
 			cout << '\t' << '\t' << "phrases" << endl;
 			cout << '\t' << '\t' << "phrase \"PHRASE\" " << endl;

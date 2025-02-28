@@ -7,7 +7,11 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "LanguageLearningFramework",
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{F40459FF-FDFB-45FD-AB96-B6364CF11510}"
 	ProjectSection(SolutionItems) = preProject
+		dataCleaner.py = dataCleaner.py
+		LessonScraper.js = LessonScraper.js
 		memory.txt = memory.txt
+		..\..\..\Downloads\SwissGermanLinks.txt = ..\..\..\Downloads\SwissGermanLinks.txt
+		..\..\..\Downloads\TESTSwiss German.html = ..\..\..\Downloads\TESTSwiss German.html
 	EndProjectSection
 EndProject
 Global
