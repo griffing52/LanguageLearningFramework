@@ -45,5 +45,7 @@
   <ItemGroup>
     <Text Include="lesson1.txt" />
     <Text Include="words.txt" />
+    <Text Include="known_words.txt" />
+    <Text Include="known_phrases.txt" />
   </ItemGroup>
 </Project>

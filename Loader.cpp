@@ -2,9 +2,15 @@
 #include "Debug.h"
 #include <fstream>
 #include <iostream>
+#include <cstdlib>  // For rand
+#include <ctime>    // For seeding random
 
 #define WORD_DELIMITER '='
-#define KNOWN_WORD '!'
+#define KNOWN_WORD '*'
+#define IMPORTANT_WORD '!'
+
+#define KNOWN_WORD_FREQUENCY 100
+
 #define DEBUG 1
 
 using namespace std;
@@ -28,10 +34,21 @@ void loader::loadWords(vector<util::Word*>& wordList, const string filename) {
 					if (line[0] == KNOWN_WORD) {
 						offset = 1;
 						word->complexity = 0;
+
+						// TODO TUNE VALUES
 						word->age = -1;
+						word->frequency = KNOWN_WORD_FREQUENCY;
 					}
-					word->value = line.substr(offset, i);
-					word->translation = line.substr(i + 1, line.length() - i - 1 - offset);
+					// repeat important words more often
+					else if (line[0] == IMPORTANT_WORD) {
+						offset = 1;
+
+						// TODO TUNE VALUES
+						word->complexity += 2;
+						word->age = 20;
+					}
+					word->value = line.substr(offset, i - offset);
+					word->translation = line.substr(i + 1, line.length() - i - 1);
 					break;
 				}
 			}
@@ -74,6 +91,8 @@ void savePhraseDependencies(util::Phrase* phrase_ptr, vector<util::Phrase*> phra
 }
 
 void loader::addPhrases(vector<util::Phrase*>& phraseList, map<string, util::Word*> wordMap, string filename) {
+	srand(time(NULL)); // seed random for calculateCost
+	
 	ifstream file(filename);
 	if (file.is_open()) {
 		string line;
@@ -86,10 +105,20 @@ void loader::addPhrases(vector<util::Phrase*>& phraseList, map<string, util::Wor
 			size_t ln = line.length();
 
 			// separate phrase into words and translation
+			int offset = 0;
 			for (size_t i = 0; i < ln; i++) {
+
+				if (line[0] == KNOWN_WORD) {
+					offset = 1;
+
+					phrase->complexity = 0;
+					phrase->age = -1;
+					phrase->frequency = KNOWN_WORD_FREQUENCY;
+				}
+
 				if (line[i] == WORD_DELIMITER) {
-					phrase->value = line.substr(0, i);
-					phrase->translation = line.substr(i + 1, line.length() - i - 1);
+					phrase->value = line.substr(offset, i - offset);
+					phrase->translation = line.substr(i + 1, line.length() - i- 1);
 					break;
 				}
 
@@ -142,7 +171,6 @@ void loader::saveMemoryFile(vector<util::Phrase*> &phraseList, const string name
 	for (auto& phrase : phraseList) {
 		fout << phrase->value << endl;
 		fout << phrase->translation << endl;
-		fout << phrase->complexity << endl;
 		fout << phrase->frequency << endl;
 		fout << phrase->age << endl;
 		fout << phrase->dependencies.size() << endl;
@@ -200,7 +228,6 @@ void loader::loadMemoryFile(vector<util::Phrase*>& phraseList, map<string, util:
 		getline(fin, line);
 		phrase->translation = line;
 
-		fin >> phrase->complexity;
 		fin >> phrase->frequency;
 		fin >> phrase->age;
 
