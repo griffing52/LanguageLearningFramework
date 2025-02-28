@@ -33,13 +33,13 @@ void loader::loadWords(vector<util::Word*> &wordList, map<string, util::Word*> &
 			// get every word and its translation
 			for (int i = offset; i < line.length(); i++) {
 				if (line[i] == SYNONYM_DELIMITER) {
-					string synonym = line.substr(prevSeperator + 1, i - offset);
+					string synonym = line.substr(prevSeperator + 1, i - prevSeperator - 1);
 					prevSeperator = i;
 					wordMap[synonym] = word;
 				}
 				else if (line[i] == WORD_DELIMITER) {
 					word->value = line.substr(prevSeperator + 1, i - prevSeperator - 1);
-					word->translation = line.substr(i + 1, line.length() - i - 1 - offset);
+					word->translation = line.substr(i + 1, line.length() - i - 1);
 					break;
 				}
 			}
