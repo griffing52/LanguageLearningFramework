@@ -13,7 +13,7 @@ namespace planner {
 
 		if (phrase == nullptr) {
 			cout << "Phrase is null" << endl;
-			return nullptr
+			return nullptr;
 		}
 
 		// Generate a random number in the range [0, 1).
