@@ -11,12 +11,13 @@
 
 #define KNOWN_WORD_FREQUENCY 100
 
+#define SYNONYM_DELIMITER ','
 #define DEBUG 1
 
 using namespace std;
 using std::cout;
 
-void loader::loadWords(vector<util::Word*>& wordList, const string filename) {
+void loader::loadWords(vector<util::Word*> &wordList, map<string, util::Word*> &wordMap, const string filename) {
 	ifstream file(filename);
 	if (file.is_open()) {
 		string line;
@@ -25,35 +26,39 @@ void loader::loadWords(vector<util::Word*>& wordList, const string filename) {
 
 			// TODO int idx = line.find(WORD_DELIMITER);
 
+			int offset = 0;
+
+			// known word marker
+			if (line[0] == KNOWN_WORD) {
+				offset = 1;
+				word->complexity = 0;
+				word->age = -1;
+			}
+			else if (line[0] == IMPORTANT_WORD) {
+				offset = 1;
+
+				// TODO TUNE VALUES
+				word->complexity += 2;
+				word->age = 20;
+			}
+
+			int prevSeperator = -1 + offset;
 			// get every word and its translation
-			for (int i = 0; i < line.length(); i++) {
-				if (line[i] == WORD_DELIMITER) {
-					int offset = 0;
-
-					// known word marker
-					if (line[0] == KNOWN_WORD) {
-						offset = 1;
-						word->complexity = 0;
-
-						// TODO TUNE VALUES
-						word->age = -1;
-						word->frequency = KNOWN_WORD_FREQUENCY;
-					}
-					// repeat important words more often
-					else if (line[0] == IMPORTANT_WORD) {
-						offset = 1;
-
-						// TODO TUNE VALUES
-						word->complexity += 2;
-						word->age = 20;
-					}
-					word->value = line.substr(offset, i - offset);
+			for (int i = offset; i < line.length(); i++) {
+				if (line[i] == SYNONYM_DELIMITER) {
+					string synonym = line.substr(prevSeperator + 1, i - prevSeperator - 1);
+					prevSeperator = i;
+					wordMap[synonym] = word;
+				}
+				else if (line[i] == WORD_DELIMITER) {
+					word->value = line.substr(prevSeperator + 1, i - prevSeperator - 1);
 					word->translation = line.substr(i + 1, line.length() - i - 1);
 					break;
 				}
 			}
 
 			wordList.push_back(word);
+			wordMap[word->value] = word;
 		}
 	}
 	else {
@@ -62,7 +67,7 @@ void loader::loadWords(vector<util::Word*>& wordList, const string filename) {
 	file.close();
 }
 
-// takes word list and converts it to a map from 
+// DEPRECATED
 void loader::wordListToMap(vector<util::Word*> wordList, map<string, util::Word*>& wordMap) {
 	for (int i = 0; i < wordList.size(); i++) {
 		wordMap[wordList[i]->value] = wordList[i];
