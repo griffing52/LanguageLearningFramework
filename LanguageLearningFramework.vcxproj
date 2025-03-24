@@ -144,6 +144,7 @@
     <Text Include="known_phrases.txt" />
     <Text Include="known_words.txt" />
     <Text Include="lesson1.txt" />
+    <Text Include="memory.txt" />
     <Text Include="words.txt" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

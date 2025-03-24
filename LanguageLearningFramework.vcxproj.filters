@@ -15,19 +15,22 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="LanguageLearningFramework.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="Loader.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="Util.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="Timer.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Planner.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
     <ClCompile Include="Debug.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Timer.cpp">
+    <ClCompile Include="Main.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
@@ -41,11 +44,25 @@
     <ClInclude Include="Debug.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="Planner.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <Text Include="lesson1.txt" />
-    <Text Include="words.txt" />
-    <Text Include="known_words.txt" />
-    <Text Include="known_phrases.txt" />
+    <Text Include="known_phrases.txt">
+      <Filter>Resource Files</Filter>
+    </Text>
+    <Text Include="known_words.txt">
+      <Filter>Resource Files</Filter>
+    </Text>
+    <Text Include="lesson1.txt">
+      <Filter>Resource Files</Filter>
+    </Text>
+    <Text Include="words.txt">
+      <Filter>Resource Files</Filter>
+    </Text>
+    <Text Include="memory.txt">
+      <Filter>Resource Files</Filter>
+    </Text>
   </ItemGroup>
 </Project>
