@@ -10,7 +10,7 @@
 
 using namespace std;
 
-int main()
+int main2()
 {
     vector<util::Word*> wordList;
     map<string, util::Word*> wordMap;
