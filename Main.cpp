@@ -14,7 +14,8 @@ int main()
 {
     vector<util::Word*> wordList;
     map<string, util::Word*> wordMap;
-    vector<util::Phrase*> phraseList;
+	vector<util::Phrase*> phraseList;
+	vector<util::Phrase*> currPhrases;
 
 
 	while (true) {
@@ -137,6 +138,9 @@ int main()
 			else if (args[1] == "mem") {
 				loader::loadMemoryFile(phraseList, wordMap, args[2]);
 			}
+			else if (args[1] == "lesson") {
+				loader::loadLessonPlan(args[2], currPhrases, phraseList, wordMap);
+			}
 			else {
 				loader::loadMemoryFile(phraseList, wordMap, args[1]);
 			}
@@ -161,6 +165,7 @@ int main()
 			}
 			else if (args[1] == "phrases") {
 				phraseList.clear();
+				currPhrases.clear();
 			}
 			else {
 				cout << "Invalid argument\n";
@@ -209,6 +214,7 @@ int main()
 			cout << '\t' << '\t' << "words <word file>" << endl;
 			cout << '\t' << '\t' << "phrases <phrase file>" << endl;
 			cout << '\t' << '\t' << "mem <memory file>" << endl;
+			cout << '\t' << '\t' << "lesson <lesson file>" << endl;
 			cout << '\t' << '\t' << "<memory file>" << endl;
 			cout << '\t' << "clear" << endl;
 			cout << '\t' << '\t' << "words" << endl;

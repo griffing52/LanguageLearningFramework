@@ -62,6 +62,7 @@ namespace planner {
 		return nullptr;
 	}
 
+	// DEPRECATED
 	float calculateCost(util::Word* word) {
 		// TODO: Implement this function
 		if (word->complexity == 0) return 0;

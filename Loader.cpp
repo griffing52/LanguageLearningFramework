@@ -95,9 +95,8 @@ void savePhraseDependencies(util::Phrase* phrase_ptr, vector<util::Phrase*> phra
 	}
 }
 
+// COMPARE TO ADD PHRASES FILE -------------------------------------------
 void loader::addPhrases(vector<util::Phrase*>& phraseList, map<string, util::Word*> wordMap, string filename) {
-	srand(time(NULL)); // seed random for calculateCost
-	
 	ifstream file(filename);
 	if (file.is_open()) {
 		string line;
@@ -283,4 +282,80 @@ void loader::loadMemoryFile(vector<util::Phrase*>& phraseList, map<string, util:
 	// TODO
 
 	fin.close();
+}
+
+// similar to add phrases
+void loader::loadLessonPlan(const string filename, vector<util::Phrase*>& currPhrases, vector<util::Phrase*>& phraseList, map<string, util::Word*> wordMap) {
+	currPhrases.clear();
+	
+	ifstream file(filename);
+
+	if (!file.is_open()) {
+		cout << "Unable to open file " << filename << endl;
+		return;
+	}
+
+	// COMPARE TO ADD PHRASES FILE -------------------------------------------
+	string line;
+	while (getline(file, line)) {
+		util::Phrase* phrase = new util::Phrase;
+
+		//int numSpaces = 0;
+		int prevSpaceIdx = -1;
+
+		size_t ln = line.length();
+
+		// separate phrase into words and translation
+		int offset = 0;
+		for (size_t i = 0; i < ln; i++) {
+
+			if (line[0] == KNOWN_WORD) {
+				offset = 1;
+
+				phrase->complexity = 0;
+				phrase->age = -1;
+				phrase->frequency = KNOWN_WORD_FREQUENCY;
+			}
+
+			if (line[i] == WORD_DELIMITER) {
+				phrase->value = line.substr(offset, i - offset);
+				phrase->translation = line.substr(i + 1, line.length() - i - 1);
+				break;
+			}
+
+			// get individual words
+			if (line[i] == ' ' || line[i] == WORD_DELIMITER) {
+				//numSpaces++;
+
+				string word = line.substr(prevSpaceIdx + 1, i - prevSpaceIdx - 1);
+
+				if (wordMap.count(word) <= 0) {
+					// cerr?
+					cout << word << " not found in dictionary" << endl;
+					return;
+				}
+
+				util::Word* w = wordMap[word];
+
+				phrase->words.insert(w);
+				phrase->complexity += w->complexity;
+				//phrase->dependencies.push((util::Phrase*) wordMap[word]);
+
+				prevSpaceIdx = (int)i;
+			}
+		}
+
+		// number of words + 1
+		//phrase->complexity = numSpaces + 2;
+
+		//cout << *phrase << endl;
+
+		phraseList.push_back(phrase);
+		currPhrases.push_back(phrase);
+	}
+	file.close();
+
+	for (auto& phrase : phraseList) {
+		savePhraseDependencies(phrase, phraseList);
+	}
 }
