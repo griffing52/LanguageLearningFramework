@@ -1,5 +1,6 @@
 #include "Planner.h"
 #include <iostream>
+#include <map>
 #include <cmath>    // For sqrt
 #include <cstdlib>  // For rand
 #include <ctime>    // For seeding random
@@ -9,6 +10,31 @@
 using namespace std;
 
 namespace planner {
+	void plan(const string lessonName, vector<util::Phrase*>& currPhrases, map<string, util::Word*> wordMap) {
+		// Seed the random number generator.
+		unsigned int seed = 0;
+		for (char c : lessonName) {
+			seed += c;
+		}
+		srand(seed); // reproduceable random numbers
+
+		// Iterate through the lesson plan.
+		for (auto& phrase : currPhrases) {
+			// Choose the next word.
+			util::Word* nextWord = chooseNext(phrase);
+
+			// If there is no next word, skip this phrase.
+			if (nextWord == nullptr) {
+				cout << "No next word found for phrase: " << phrase->value << endl;
+				continue;
+			}
+
+			// Print the next word and its cost.
+			cout << "Next word: " << nextWord->value << " Cost: " << cost << endl;
+		}
+	}
+
+
 	util::Word* chooseNext(util::Phrase* phrase) {
 
 		if (phrase == nullptr) {
