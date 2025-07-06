@@ -17,6 +17,7 @@ speaker_embeddings = torch.load("C:/Users/griff/source/repos/LanguageLearningFra
 
 # text = "Hesch du hüt am Morge öpper im Büro gseh."
 text = "Du möchtisch öppis Schöns undernäh"
+# text = "This is a test to see if the TTS model can generate speech in a different language."
 
 final_text = format_text(text)
 
