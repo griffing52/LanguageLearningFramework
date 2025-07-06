@@ -4,6 +4,7 @@
 #include <iostream>
 #include "Loader.h"
 #include "Debug.h"
+#include "Planner.h"
 
 #define DEFAULT_WORD_FILE "words.txt"
 #define DEFAULT_MEM_FILE "mem0"
@@ -16,7 +17,7 @@ int main()
     map<string, util::Word*> wordMap;
 	vector<util::Phrase*> phraseList;
 	vector<util::Phrase*> currPhrases;
-
+	int currentCycle = 0;
 
 	while (true) {
 		cout << ">";
@@ -145,13 +146,24 @@ int main()
 				loader::loadMemoryFile(phraseList, wordMap, args[1]);
 			}
 		}
+		else if (args[0] == "plan") {
+			if (args.size() == 1) {
+				cout << "Missing arguments\n";
+				continue;
+			}
+			if (currPhrases.empty()) {
+				cout << "No phrases loaded, please load phrases first\n";
+				continue;
+			}
+			planner::plan(args[1], currPhrases, wordMap, currentCycle);
+		}
 		else if (args[0] == "save") {
 			if (args.size() == 2) {
-				loader::saveMemoryFile(phraseList, args[1]);
+				loader::saveMemoryFile(phraseList, args[1], currentCycle);
 				continue;
 			}
 
-			else loader::saveMemoryFile(phraseList, DEFAULT_MEM_FILE);
+			else loader::saveMemoryFile(phraseList, DEFAULT_MEM_FILE, currentCycle);
 		}
 		else if (args[0] == "clear") {
 			if (args.size() == 1) {
@@ -216,6 +228,7 @@ int main()
 			cout << '\t' << '\t' << "mem <memory file>" << endl;
 			cout << '\t' << '\t' << "lesson <lesson file>" << endl;
 			cout << '\t' << '\t' << "<memory file>" << endl;
+			cout << '\t' << "plan" << "<lesson name>" << endl;
 			cout << '\t' << "clear" << endl;
 			cout << '\t' << '\t' << "words" << endl;
 			cout << '\t' << '\t' << "phrases" << endl;
@@ -233,7 +246,9 @@ int main()
 			cout << "Invalid command\n";
 		}
 	}
-    
+	
+	return 0;
+
     //string wordFile = "words.txt";
     //cout << "Please enter word file: \n";
     //cin >> wordFile;

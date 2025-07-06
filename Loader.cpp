@@ -167,9 +167,10 @@ void loader::addPhrases(vector<util::Phrase*>& phraseList, map<string, util::Wor
 
 }
 
-void loader::saveMemoryFile(vector<util::Phrase*> &phraseList, const string name) {
+void loader::saveMemoryFile(vector<util::Phrase*> &phraseList, const string name, int currentCycle) {
 	ofstream fout(name);
 
+	fout << currentCycle << endl; // save current cycle
 	fout << phraseList.size() << endl;
 
 	for (auto& phrase : phraseList) {
@@ -202,7 +203,7 @@ void loader::saveMemoryFile(vector<util::Phrase*> &phraseList, const string name
 	fout.close();
 }
 
-void loader::loadMemoryFile(vector<util::Phrase*>& phraseList, map<string, util::Word*> wordMap, const string name) {
+void loader::loadMemoryFile(vector<util::Phrase*>& phraseList, map<string, util::Word*> wordMap, const string name, int& currentCycle) {
 	ifstream fin(name);
 
 	if (!fin.is_open()) {
@@ -210,6 +211,8 @@ void loader::loadMemoryFile(vector<util::Phrase*>& phraseList, map<string, util:
 		return;
 	}
 
+	fin >> currentCycle; // load current cycle
+	
 	size_t numPhrases;
 	fin >> numPhrases;
 

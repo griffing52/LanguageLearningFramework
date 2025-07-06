@@ -14,7 +14,7 @@ using json = nlohmann::json;
 namespace planner {
 
 	const int neededReinforcement = 3;
-	const int forgettingThreshold = 2;
+	const int forgettingThreshold = 4;
 
 	bool needsReview(util::Word* word, int currentCycle) {
 		return word->frequency < neededReinforcement ||
@@ -26,11 +26,10 @@ namespace planner {
 		word->age = currentCycle;
 	}
 
-	void plan(const string& lessonName, vector<util::Phrase*>& currPhrases, map<string, util::Word*> wordMap) {
+	void plan(const string& lessonName, vector<util::Phrase*>& currPhrases, map<string, util::Word*> wordMap, int &currentCycle) {
 		unsigned int seed = 0;
 		for (char c : lessonName) seed += c;
 		srand(seed);
-		int currentCycle = seed % 10000;
 
 		set<util::Word*> newlyTaughtWords;
 		set<util::Phrase*> plannedPhrases;
@@ -56,7 +55,7 @@ namespace planner {
 				}
 				if (relevant && plannedPhrases.find(dep) == plannedPhrases.end()) {
 					steps.push_back("Reinforce phrase: " + dep->value + " = " + dep->translation);
-					for (util::Word* w : dep->words) {
+					for (util::Word* w : dep->words) { 
 						 reinforceWord(w, currentCycle);
 						newlyTaughtWords.insert(w);
 					}
@@ -96,15 +95,22 @@ namespace planner {
 			}
 		}
 
-		// Save to JSON
-		json j;
-		j["lesson_name"] = lessonName;
-		j["cycle"] = currentCycle;
-		j["steps"] = steps;
+		currentCycle++;
 
-		ofstream out("lesson_" + lessonName + ".json");
-		out << j.dump(4);  // pretty print
-		out.close();
+		for (int i = 0; i < steps.size(); i++) {
+			cout << steps[i] << endl;
+		}
+
+		  
+		// Save to JSON
+		//json j;
+		//j["lesson_name"] = lessonName;
+		//j["cycle"] = currentCycle;
+		//j["steps"] = steps;
+
+		//ofstream out("lesson_" + lessonName + ".json");
+		//out << j.dump(4);  // pretty print
+		//out.close();
 	}
 
 	//void printPlan(

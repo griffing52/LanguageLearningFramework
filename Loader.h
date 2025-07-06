@@ -13,8 +13,8 @@ namespace loader {
 	void wordListToMap(vector<util::Word*> wordList, map<string, util::Word*> &wordMap);
 	void addPhrases(vector<util::Phrase*> &phraseList, map<string, util::Word*>, const string filename);
 
-	void saveMemoryFile(vector<util::Phrase*> &phraseList, const string name);
-	void loadMemoryFile(vector<util::Phrase*> &phraseList, map<string, util::Word*> wordMap, const string name);
+	void saveMemoryFile(vector<util::Phrase*> &phraseList, const string name, int currentCycle);
+	void loadMemoryFile(vector<util::Phrase*> &phraseList, map<string, util::Word*> wordMap, const string name, int &currentCycle);
 
 	void loadLessonPlan(const string filename, vector<util::Phrase*>& currPhrases, vector<util::Phrase*>& phraseList, map<string, util::Word*> wordMap);
 }
