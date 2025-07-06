@@ -1,106 +1,111 @@
+#include <fstream>
 #include "Planner.h"
+#include "json.hpp"
+#include "Util.h"
 #include <iostream>
+#include <vector>
 #include <map>
-#include <cmath>    // For sqrt
-#include <cstdlib>  // For rand
-#include <ctime>    // For seeding random
-
-#define ALPHA 0.1 // The range of the random number generated in calculateCost
+#include <set>
+#include <algorithm>
+#include <cstdlib>
+#include <sstream>
 
 using namespace std;
+using json = nlohmann::json;
 
 namespace planner {
-	void plan(const string lessonName, vector<util::Phrase*>& currPhrases, map<string, util::Word*> wordMap) {
-		// Seed the random number generator.
+
+	const int neededReinforcement = 3;
+	const int forgettingThreshold = 2;
+
+	bool needsReview(util::Word* word, int currentCycle) {
+		return word->frequency < neededReinforcement ||
+			(currentCycle - word->age >= forgettingThreshold);
+	}
+
+	void reinforceWord(util::Word* word, int currentCycle) {
+		word->frequency += 1;
+		word->age = currentCycle;
+	}
+
+	void plan(const string& lessonName, vector<util::Phrase*>& currPhrases, map<string, util::Word*> wordMap) {
 		unsigned int seed = 0;
-		for (char c : lessonName) {
-			seed += c;
-		}
-		srand(seed); // reproduceable random numbers
+		for (char c : lessonName) seed += c;
+		srand(seed);
+		int currentCycle = seed % 10000;
 
-		// Iterate through the lesson plan.
-		for (auto& phrase : currPhrases) {
-			// Choose the next word.
-			util::Word* nextWord = chooseNext(phrase);
+		set<util::Word*> newlyTaughtWords;
+		set<util::Phrase*> plannedPhrases;
+		vector<string> steps;
 
-			// If there is no next word, skip this phrase.
-			if (nextWord == nullptr) {
-				cout << "No next word found for phrase: " << phrase->value << endl;
-				continue;
+		steps.push_back("Lesson: " + lessonName);
+
+		for (util::Phrase* phrase : currPhrases) {
+			vector<util::Word*> needsTeaching;
+			for (util::Word* word : phrase->words) {
+				if (needsReview(word, currentCycle)) {
+					needsTeaching.push_back(word);
+				}
 			}
 
-			// Print the next word and its cost.
-			cout << "Next word: " << nextWord->value << " Cost: " << cost << endl;
-		}
-	}
-
-
-	util::Word* chooseNext(util::Phrase* phrase) {
-
-		if (phrase == nullptr) {
-			cout << "Phrase is null" << endl;
-			return nullptr;
-		}
-
-		// Generate a random number in the range [0, 1).
-		double randNum = (static_cast<float>(rand()) / RAND_MAX);
-
-		// check if new-ish word frequency < phase complexity
-		for (auto& word : phrase->words) {
-			if (word->complexity == 0) continue;
-
-			if (word->frequency < phrase->complexity - 2) {
-
-				double prob = 1 / (0.15 * word->frequency + 1);
-
-				if (randNum < prob) continue;
-
-				return word;
+			for (util::Phrase* dep : phrase->dependencies) {
+				bool relevant = false;
+				for (util::Word* w : dep->words) {
+					if (needsReview(w, currentCycle)) {
+						relevant = true;
+						break;
+					}
+				}
+				if (relevant && plannedPhrases.find(dep) == plannedPhrases.end()) {
+					steps.push_back("Reinforce phrase: " + dep->value + " = " + dep->translation);
+					for (util::Word* w : dep->words) {
+						reinforceWord(w, currentCycle);
+						newlyTaughtWords.insert(w);
+					}
+					plannedPhrases.insert(dep);
+				}
 			}
-		}
 
-		// go through dependencies
-		for (auto& dep : phrase->dependencies) {
-			if (dep->complexity * dep->frequency < dep->complexity + phrase->complexity) {
-
-				double prob = 1 / (0.15 * dep->frequency + 1);
-
-				if (randNum < prob) continue;
-
-				return dep;
+			for (util::Word* word : needsTeaching) {
+				if (newlyTaughtWords.find(word) == newlyTaughtWords.end()) {
+					if (word->frequency == 0) {
+						steps.push_back("Introduce new word: " + word->value + " = " + word->translation);
+						steps.push_back("Repeat word: " + word->value);
+						reinforceWord(word, currentCycle);
+						reinforceWord(word, currentCycle);
+					}
+					else {
+						steps.push_back("Review word: " + word->value + " = " + word->translation);
+						reinforceWord(word, currentCycle);
+					}
+					newlyTaughtWords.insert(word);
+				}
 			}
-		}
 
-		// go through all words until word frequency == phrase complexity
-		for (auto& word : phrase->words) {
-			if (word->complexity == 0) continue;
-
-			if (word->frequency <= phrase->complexity) {
-				double prob = 1 / (0.15 * word->frequency + 1);
-
-				if (randNum < prob) continue;
-
-				return word;
+			bool phraseReady = true;
+			for (util::Word* word : phrase->words) {
+				if (needsReview(word, currentCycle)) {
+					phraseReady = false;
+					break;
+				}
+			}
+			if (phraseReady && plannedPhrases.find(phrase) == plannedPhrases.end()) {
+				steps.push_back("Teach main phrase: " + phrase->value + " = " + phrase->translation);
+				for (util::Word* w : phrase->words) {
+					reinforceWord(w, currentCycle);
+				}
+				plannedPhrases.insert(phrase);
 			}
 		}
 
+		// Save to JSON
+		json j;
+		j["lesson_name"] = lessonName;
+		j["cycle"] = currentCycle;
+		j["steps"] = steps;
 
-		return nullptr;
-	}
-
-	// DEPRECATED
-	float calculateCost(util::Word* word) {
-		// TODO: Implement this function
-		if (word->complexity == 0) return 0;
-
-		float C = word->complexity;
-		float F = word->frequency;
-		float A = word->age;
-
-		// Generate a random number in the range [-alpha, alpha].
-		double R = ((static_cast<float>(rand()) / RAND_MAX) * 2 * ALPHA) - ALPHA;
-
-		// Perform the calculation.
-		return (C / ((F + 1) * sqrt(A + 1))) * (1 + R);
+		ofstream out("lesson_" + lessonName + ".json");
+		out << j.dump(4);  // pretty print
+		out.close();
 	}
 }
