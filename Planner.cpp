@@ -1,10 +1,8 @@
 #include <fstream>
 #include "Planner.h"
 #include "json.hpp"
-#include "Util.h"
 #include <iostream>
 #include <vector>
-#include <map>
 #include <set>
 #include <algorithm>
 #include <cstdlib>
@@ -59,7 +57,7 @@ namespace planner {
 				if (relevant && plannedPhrases.find(dep) == plannedPhrases.end()) {
 					steps.push_back("Reinforce phrase: " + dep->value + " = " + dep->translation);
 					for (util::Word* w : dep->words) {
-						reinforceWord(w, currentCycle);
+						 reinforceWord(w, currentCycle);
 						newlyTaughtWords.insert(w);
 					}
 					plannedPhrases.insert(dep);
@@ -108,4 +106,6 @@ namespace planner {
 		out << j.dump(4);  // pretty print
 		out.close();
 	}
+
+	//void printPlan(
 }
