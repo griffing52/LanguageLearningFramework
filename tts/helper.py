@@ -1,6 +1,5 @@
 import re
 
-
 number_words = {
     0: "null", 1: "eis", 2: "zwöi", 3: "drü", 4: "vier", 5: "füf", 6: "sächs", 7: "sibe", 8: "acht", 9: "nün",
     10: "zäh", 11: "elf", 12: "zwölf", 13: "drüzäh", 14: "vierzäh", 15: "füfzäh", 16: "sächzäh",
@@ -16,7 +15,7 @@ def number_to_words(number):
         if unit == 0:
             return number_words[tens * 10]
         else:
-            return f"{number_words[unit]}-e-{number_words[tens * 10]}"
+            return f"{number_words[unit]}e{number_words[tens * 10]}"
     elif number < 1000:
         hundreds, remainder = divmod(number, 100)
         result = "hundert" if hundreds == 1 else f"{number_words[hundreds]} hundert"
@@ -35,7 +34,7 @@ def replace_numbers_with_words(text):
         return number_to_words(number)
 
     # Find the numbers and change with words.
-    result = re.sub(r'\b\d+\b', replace, text)
+    result = re.sub(r'\b\d+(?=\D)', replace, text)
 
     return result
 
