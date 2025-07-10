@@ -61,7 +61,7 @@ int main()
 		else if (args[0] == "start") {
 			loader::loadWords(wordList, wordMap, DEFAULT_WORD_FILE);
 
-			loader::loadMemoryFile(phraseList, wordMap, DEFAULT_MEM_FILE);
+			loader::loadMemoryFile(phraseList, wordMap, DEFAULT_MEM_FILE, currentCycle);
 		}
 		else if (args[0] == "print") {
 			if (args.size() == 1) {
@@ -126,7 +126,7 @@ int main()
 			if (args.size() == 1) {
 				loader::loadWords(wordList, wordMap, DEFAULT_WORD_FILE);
 
-				loader::loadMemoryFile(phraseList, wordMap, DEFAULT_MEM_FILE);
+				loader::loadMemoryFile(phraseList, wordMap, DEFAULT_MEM_FILE, currentCycle);
 				continue;
 			}
 
@@ -137,13 +137,13 @@ int main()
 				loader::addPhrases(phraseList, wordMap, args[2]);
 			}
 			else if (args[1] == "mem") {
-				loader::loadMemoryFile(phraseList, wordMap, args[2]);
+				loader::loadMemoryFile(phraseList, wordMap, args[2], currentCycle);
 			}
 			else if (args[1] == "lesson") {
 				loader::loadLessonPlan(args[2], currPhrases, phraseList, wordMap);
 			}
 			else {
-				loader::loadMemoryFile(phraseList, wordMap, args[1]);
+				loader::loadMemoryFile(phraseList, wordMap, args[1], currentCycle);
 			}
 		}
 		else if (args[0] == "plan") {

@@ -1,24 +1,44 @@
 #include <fstream>
 #include "Planner.h"
-#include "json.hpp"
 #include <iostream>
 #include <vector>
 #include <set>
 #include <algorithm>
 #include <cstdlib>
 #include <sstream>
+#include <filesystem>
 
 using namespace std;
-using json = nlohmann::json;
+namespace fs = filesystem;
 
 namespace planner {
 
 	const int neededReinforcement = 3;
 	const int forgettingThreshold = 4;
 
+	vector<string> intros = {
+	"Listen to the way you say",
+	"Let's learn how to say",
+	"Listen and repeat the following which means"
+	};
+
+	vector<string> starters = {
+		"How do you say",
+		"Let's hear you say"
+	};
+
+	string chooseIntro(const string& phrase) {
+		return intros[rand() % intros.size()] + " \"" + phrase + "\"";
+	}
+
+	string chooseStarter(const string& phrase) {
+		return starters[rand() % starters.size()] + " \"" + phrase + "\"?";
+	}
+
 	bool needsReview(util::Word* word, int currentCycle) {
-		return word->frequency < neededReinforcement ||
-			(currentCycle - word->age >= forgettingThreshold);
+		return word->complexity != 0 && 
+			(word->frequency < neededReinforcement ||
+			(currentCycle - word->age >= forgettingThreshold));
 	}
 
 	void reinforceWord(util::Word* word, int currentCycle) {
@@ -26,80 +46,108 @@ namespace planner {
 		word->age = currentCycle;
 	}
 
+	void reinforcePhraseWords(util::Phrase* phrase, int currentCycle) {
+		for (util::Word* word : phrase->words) {
+			reinforceWord(word, currentCycle);
+		}
+	}
+
+	void addWaitTime(util::Word* word, ofstream& out) {
+		out << "[WAIT" << word->complexity << "]" << endl;
+	}
+
+	void introducePhraseInPlan(util::Word* phrase, int currentCycle, ofstream &out) {
+		out << "[INTRO] " << chooseIntro(phrase->translation) << endl;
+		out << "[PHRASE] " << phrase->value << endl;
+		reinforceWord(phrase, currentCycle);
+	}
+
+	void usePhraseInPlan(util::Word* phrase, string identifier, int currentCycle, ofstream& out) {
+		out << "[NARRATION] " << chooseIntro(phrase->translation) << endl;
+		addWaitTime(phrase, out);
+		out << "[PHRASE] " << phrase->value << endl;
+		reinforceWord(phrase, currentCycle);
+	}
+
+	void introduceWordInPlan(util::Word* word, int currentCycle, ofstream& out) {
+		out << "[INTRO] " << chooseIntro(word->translation) << endl;
+		out << "[WORD] " << word->value << endl;
+		reinforceWord(word, currentCycle);
+	}
+
+	void useWordInPlan(util::Word* word, int currentCycle, ofstream& out) {
+		out << "[NARRATION] " << chooseIntro(word->translation) << endl;
+		addWaitTime(word, out);
+		out << "[WORD] " << word->value << endl;
+		reinforceWord(word, currentCycle);
+	}
+
 	void plan(const string& lessonName, vector<util::Phrase*>& currPhrases, map<string, util::Word*> wordMap, int &currentCycle) {
 		unsigned int seed = 0;
 		for (char c : lessonName) seed += c;
 		srand(seed);
 
-		set<util::Word*> newlyTaughtWords;
-		set<util::Phrase*> plannedPhrases;
-		vector<string> steps;
+		fs::path folder_name = "output_data";
+		fs::path file_name = "my_output.txt";
+		fs::path full_path = folder_name / file_name;
 
-		steps.push_back("Lesson: " + lessonName);
+		ofstream out("lesson_" + lessonName + ".txt");
+		set<util::Phrase*> plannedPhrases;
+
+		//steps.push_back("[LESSON]: " + lessonName);
 
 		for (util::Phrase* phrase : currPhrases) {
-			vector<util::Word*> needsTeaching;
+			if (phrase->frequency == 0) {
+				introducePhraseInPlan(phrase, currentCycle, out);
+			}
 			for (util::Word* word : phrase->words) {
-				if (needsReview(word, currentCycle)) {
-					needsTeaching.push_back(word);
+				if (needsReview(word, currentCycle))
+				{
+					// TODO ADD RANDOMNESS? AND MAKE SURE ALL WORDS DON"T NEED REVIEW BEFORE MOVING ON OR CHECK IF THE WORDS ARE KNOWN ENOUGH TO USE DEPENDENCY PHRASE
+					if (word->frequency == 0) {
+						introduceWordInPlan(word, currentCycle, out);
+					}
+					useWordInPlan(word, currentCycle, out);
 				}
 			}
-
+			// TODO
 			for (util::Phrase* dep : phrase->dependencies) {
-				bool relevant = false;
-				for (util::Word* w : dep->words) {
-					if (needsReview(w, currentCycle)) {
-						relevant = true;
-						break;
-					}
-				}
-				if (relevant && plannedPhrases.find(dep) == plannedPhrases.end()) {
-					steps.push_back("Reinforce phrase: " + dep->value + " = " + dep->translation);
-					for (util::Word* w : dep->words) { 
-						 reinforceWord(w, currentCycle);
-						newlyTaughtWords.insert(w);
-					}
+				if (plannedPhrases.find(dep) != plannedPhrases.end()) continue;
+
+				if (phrase->complexity < dep->complexity * dep->frequency) {
 					plannedPhrases.insert(dep);
 				}
-			}
-
-			for (util::Word* word : needsTeaching) {
-				if (newlyTaughtWords.find(word) == newlyTaughtWords.end()) {
-					if (word->frequency == 0) {
-						steps.push_back("Introduce new word: " + word->value + " = " + word->translation);
-						steps.push_back("Repeat word: " + word->value);
-						reinforceWord(word, currentCycle);
-						reinforceWord(word, currentCycle);
+				else {
+					for (util::Word* w : dep->words) {
+						if (needsReview(w, currentCycle)) {
+							plannedPhrases.insert(dep);
+							break;
+						}
 					}
-					else {
-						steps.push_back("Review word: " + word->value + " = " + word->translation);
-						reinforceWord(word, currentCycle);
-					}
-					newlyTaughtWords.insert(word);
 				}
 			}
 
-			bool phraseReady = true;
-			for (util::Word* word : phrase->words) {
-				if (needsReview(word, currentCycle)) {
-					phraseReady = false;
-					break;
+
+			if (!plannedPhrases.empty()) {
+				auto first = *plannedPhrases.begin();
+				if (first->frequency == 0) {
+					introducePhraseInPlan(first, currentCycle, out);
+				}
+				usePhraseInPlan(first, "PHRASE", currentCycle, out);
+				if (plannedPhrases.size() > 1) {
+					usePhraseInPlan(*(--plannedPhrases.end()), "PHRASE", currentCycle, out);
 				}
 			}
-			if (phraseReady && plannedPhrases.find(phrase) == plannedPhrases.end()) {
-				steps.push_back("Teach main phrase: " + phrase->value + " = " + phrase->translation);
-				for (util::Word* w : phrase->words) {
-					reinforceWord(w, currentCycle);
-				}
-				plannedPhrases.insert(phrase);
-			}
+
+			usePhraseInPlan(phrase, "PHRASE", currentCycle, out);
 		}
 
 		currentCycle++;
 
-		for (int i = 0; i < steps.size(); i++) {
+		/*for (int i = 0; i < steps.size(); i++) {
+			out << steps[i] << endl;
 			cout << steps[i] << endl;
-		}
+		}*/
 
 		  
 		// Save to JSON
@@ -108,9 +156,9 @@ namespace planner {
 		//j["cycle"] = currentCycle;
 		//j["steps"] = steps;
 
-		//ofstream out("lesson_" + lessonName + ".json");
+
 		//out << j.dump(4);  // pretty print
-		//out.close();
+		out.close();
 	}
 
 	//void printPlan(

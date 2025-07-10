@@ -1,0 +1,192 @@
+[INTRO] Listen and repeat the following which means "we are going"
+[PHRASE] mier gönd
+[INTRO] Listen and repeat the following which means "we"
+[WORD] mier
+[NARRATION] Listen to the way you say "we"
+[WAIT1]
+[WORD] mier
+[NARRATION] Listen and repeat the following which means "we are going"
+[WAIT2]
+[PHRASE] mier gönd
+[INTRO] Let's learn how to say "we are going to Italy"
+[PHRASE] mier gönd uf Italie
+[NARRATION] Listen and repeat the following which means "we"
+[WAIT1]
+[WORD] mier
+[INTRO] Listen to the way you say "we go"
+[WORD] gönd
+[NARRATION] Listen to the way you say "we go"
+[WAIT1]
+[WORD] gönd
+[INTRO] Listen to the way you say "to or for"
+[WORD] uf
+[NARRATION] Listen and repeat the following which means "to or for"
+[WAIT1]
+[WORD] uf
+[INTRO] Let's learn how to say "we are going"
+[PHRASE] mier gönd
+[NARRATION] Let's learn how to say "we are going"
+[WAIT3]
+[PHRASE] mier gönd
+[NARRATION] Listen and repeat the following which means "we are going to Italy"
+[WAIT4]
+[PHRASE] mier gönd uf Italie
+[INTRO] Listen and repeat the following which means "we want to"
+[PHRASE] mier hend luscht
+[INTRO] Listen to the way you say "have"
+[WORD] hend
+[NARRATION] Listen to the way you say "have"
+[WAIT1]
+[WORD] hend
+[NARRATION] Let's learn how to say "we are going"
+[WAIT3]
+[PHRASE] mier gönd
+[NARRATION] Let's learn how to say "we are going"
+[WAIT2]
+[PHRASE] mier gönd
+[NARRATION] Let's learn how to say "we want to"
+[WAIT3]
+[PHRASE] mier hend luscht
+[INTRO] Listen and repeat the following which means "we are going to Italy this weekend"
+[PHRASE] mier gönd das wuchenendi uf Italie
+[NARRATION] Let's learn how to say "we go"
+[WAIT1]
+[WORD] gönd
+[NARRATION] Let's learn how to say "to or for"
+[WAIT1]
+[WORD] uf
+[INTRO] Listen to the way you say "this"
+[WORD] das
+[NARRATION] Listen and repeat the following which means "this"
+[WAIT1]
+[WORD] das
+[INTRO] Let's learn how to say "weekend"
+[WORD] wuchenendi
+[NARRATION] Let's learn how to say "weekend"
+[WAIT1]
+[WORD] wuchenendi
+[NARRATION] Listen to the way you say "we are going"
+[WAIT3]
+[PHRASE] mier gönd
+[NARRATION] Listen to the way you say "this weekend"
+[WAIT2]
+[PHRASE] das wuchenendi
+[NARRATION] Listen to the way you say "we are going to Italy this weekend"
+[WAIT6]
+[PHRASE] mier gönd das wuchenendi uf Italie
+[NARRATION] Listen to the way you say "this"
+[WAIT1]
+[WORD] das
+[NARRATION] Let's learn how to say "we are going"
+[WAIT3]
+[PHRASE] mier gönd
+[NARRATION] Let's learn how to say "this weekend"
+[WAIT2]
+[PHRASE] das wuchenendi
+[NARRATION] Listen and repeat the following which means "this weekend"
+[WAIT2]
+[PHRASE] das wuchenendi
+[INTRO] Listen and repeat the following which means "we are going to Italy because we want to"
+[PHRASE] mier gönd uf Italie weil mier luscht hend
+[INTRO] Listen to the way you say "Italy"
+[WORD] Italie
+[NARRATION] Listen to the way you say "Italy"
+[WAIT1]
+[WORD] Italie
+[INTRO] Listen and repeat the following which means "desire or lust"
+[WORD] luscht
+[NARRATION] Let's learn how to say "desire or lust"
+[WAIT1]
+[WORD] luscht
+[INTRO] Listen to the way you say "because"
+[WORD] weil
+[NARRATION] Let's learn how to say "because"
+[WAIT1]
+[WORD] weil
+[NARRATION] Let's learn how to say "we are going"
+[WAIT3]
+[PHRASE] mier gönd
+[NARRATION] Let's learn how to say "this weekend"
+[WAIT2]
+[PHRASE] das wuchenendi
+[NARRATION] Listen to the way you say "we are going to Italy because we want to"
+[WAIT8]
+[PHRASE] mier gönd uf Italie weil mier luscht hend
+[INTRO] Listen to the way you say "we want pizza"
+[PHRASE] mier hend luscht uf Pizza
+[NARRATION] Listen to the way you say "have"
+[WAIT1]
+[WORD] hend
+[NARRATION] Listen and repeat the following which means "desire or lust"
+[WAIT1]
+[WORD] luscht
+[NARRATION] Listen and repeat the following which means "we are going"
+[WAIT3]
+[PHRASE] mier gönd
+[NARRATION] Let's learn how to say "this weekend"
+[WAIT2]
+[PHRASE] das wuchenendi
+[NARRATION] Listen and repeat the following which means "we want pizza"
+[WAIT5]
+[PHRASE] mier hend luscht uf Pizza
+[INTRO] Listen to the way you say "Pizza and Spaghetti Bolognese"
+[PHRASE] Pizza und SpaghettiBolognese
+[INTRO] Listen to the way you say "and"
+[WORD] und
+[NARRATION] Let's learn how to say "and"
+[WAIT1]
+[WORD] und
+[NARRATION] Listen to the way you say "we are going"
+[WAIT3]
+[PHRASE] mier gönd
+[NARRATION] Listen and repeat the following which means "this weekend"
+[WAIT2]
+[PHRASE] das wuchenendi
+[NARRATION] Let's learn how to say "Pizza and Spaghetti Bolognese"
+[WAIT2]
+[PHRASE] Pizza und SpaghettiBolognese
+[INTRO] Listen to the way you say "we want pizza and spaghetti bolognese"
+[PHRASE] mier hend luscht uf Pizza und SpaghettiBolognese
+[NARRATION] Listen and repeat the following which means "and"
+[WAIT1]
+[WORD] und
+[NARRATION] Listen and repeat the following which means "we are going"
+[WAIT3]
+[PHRASE] mier gönd
+[NARRATION] Listen to the way you say "we want pizza"
+[WAIT5]
+[PHRASE] mier hend luscht uf Pizza
+[NARRATION] Listen to the way you say "we want pizza and spaghetti bolognese"
+[WAIT6]
+[PHRASE] mier hend luscht uf Pizza und SpaghettiBolognese
+[INTRO] Listen and repeat the following which means "we are going because we want pizza and spaghetti bolognese"
+[PHRASE] mier gönd weil mier luscht hend uf Pizza und SpaghettiBolognese
+[NARRATION] Listen and repeat the following which means "because"
+[WAIT1]
+[WORD] weil
+[NARRATION] Listen and repeat the following which means "we are going"
+[WAIT3]
+[PHRASE] mier gönd
+[NARRATION] Listen and repeat the following which means "we want pizza and spaghetti bolognese"
+[WAIT6]
+[PHRASE] mier hend luscht uf Pizza und SpaghettiBolognese
+[NARRATION] Listen and repeat the following which means "we are going because we want pizza and spaghetti bolognese"
+[WAIT9]
+[PHRASE] mier gönd weil mier luscht hend uf Pizza und SpaghettiBolognese
+[INTRO] Listen to the way you say "We are going to Italy this weekend because we want pizza and spaghetti bolognese"
+[PHRASE] mier gönd das wuchenendi uf Italie weil mier luscht hend uf Pizza und SpaghettiBolognese
+[NARRATION] Listen to the way you say "Italy"
+[WAIT1]
+[WORD] Italie
+[NARRATION] Let's learn how to say "weekend"
+[WAIT1]
+[WORD] wuchenendi
+[NARRATION] Let's learn how to say "we are going"
+[WAIT3]
+[PHRASE] mier gönd
+[NARRATION] Let's learn how to say "we are going because we want pizza and spaghetti bolognese"
+[WAIT9]
+[PHRASE] mier gönd weil mier luscht hend uf Pizza und SpaghettiBolognese
+[NARRATION] Listen to the way you say "We are going to Italy this weekend because we want pizza and spaghetti bolognese"
+[WAIT13]
+[PHRASE] mier gönd das wuchenendi uf Italie weil mier luscht hend uf Pizza und SpaghettiBolognese

@@ -11,6 +11,7 @@ def hash_text(text):
 # Main processor
 def process_lesson(lesson_file, output_file="final_lesson.wav"):
     audio_sequence = []
+    lessonName = lesson_file.split("/")[-1].split(".")[0]
     
     with open(lesson_file, "r", encoding="utf-8") as f:
         for i, line in enumerate(f):
@@ -18,9 +19,11 @@ def process_lesson(lesson_file, output_file="final_lesson.wav"):
             tag, content = line.strip().split("] ", 1)
             tag = tag[1:]  # Remove leading [
 
-            if tag in ["NARRATION", "INTRO"]:
+            if tag == "TITLE":
+                lessonName = content.strip()
+            elif tag in ["NARRATION", "INTRO"]:
                 fname = f"{hash_text(content)}.wav"
-                path = f"audio_cache/prompts/{fname}"
+                path = f"audio_cache/prompts/{fname}" 
                 if not os.path.exists(path):
                     tts.generate_audio(content, path) # POTENTIALLY MAKE THIS GENERATION DIFFERENT (English)
                 outpath = f"audio_sequence/{i:04d}_{tag}.wav"
@@ -36,7 +39,7 @@ def process_lesson(lesson_file, output_file="final_lesson.wav"):
                 audio_sequence.append(outpath)
                 
             elif tag == "WORD":
-                fname = f"{content}.wav"
+                fname = f"{hash_text(content)}.wav"
                 path = f"audio_cache/words/{fname}"
                 if not os.path.exists(path):
                     tts.generate_audio(content, path) # Swiss German
@@ -45,7 +48,7 @@ def process_lesson(lesson_file, output_file="final_lesson.wav"):
                 audio_sequence.append(outpath)
 
             elif tag == "PHRASE":
-                fname = f"{hash_text(content)}.wav"
+                fname = f"{  (content)}.wav"
                 path = f"audio_cache/phrases/{fname}"
                 if not os.path.exists(path):
                     tts.generate_audio(content, path) # Swiss German
