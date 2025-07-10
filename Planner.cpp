@@ -62,7 +62,7 @@ namespace planner {
 	}
 
 	void usePhraseInPlan(util::Word* phrase, string identifier, int currentCycle, ofstream& out) {
-		out << "[NARRATION] " << chooseIntro() << endl;
+		out << "[NARRATION] " << chooseStarter() << endl;
 		out << "[NARRATION] " << phrase->translation << endl;
 		addWaitTime(phrase, out);
 		out << "[PHRASE] " << phrase->value << endl;
@@ -77,7 +77,7 @@ namespace planner {
 	}
 
 	void useWordInPlan(util::Word* word, int currentCycle, ofstream& out) {
-		out << "[NARRATION] " << chooseIntro() << endl;
+		out << "[NARRATION] " << chooseStarter() << endl;
 		out << "[NARRATION] " << word->translation << endl;
 		addWaitTime(word, out);
 		out << "[WORD] " << word->value << endl;

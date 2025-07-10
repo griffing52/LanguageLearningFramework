@@ -69,7 +69,7 @@ def generate_audio(text, path):
     # coqui TTS
     # tts.tts_to_file(text=text, file_path=path, speaker_wav=None, language=None, sample_rate=16000)
 
-def generate_wav_pyttsx3(text, output_path, sample_rate=16000):
+def generate_wav_pyttsx3(text, output_path):
     engine.save_to_file(text, output_path)
 
     # Resample if needed
@@ -81,8 +81,12 @@ def generate_wav_pyttsx3(text, output_path, sample_rate=16000):
 
 def generate_all_pyttsx3():
     engine.runAndWait()
+    
+
+def resample(sample_rate, path):
+    """ Resample an audio file to a target sample rate. """
     # Resample if needed
-    # y, sr = librosa.load(temp_path, sr=None)
-    # if sr != sample_rate:
-    #     y = librosa.resample(y, orig_sr=sr, target_sr=sample_rate)
-    # sf.write(output_path, y, sample_rate)
+    y, sr = librosa.load(path, sr=None)
+    if sr != sample_rate:
+        y = librosa.resample(y, orig_sr=sr, target_sr=sample_rate)
+    sf.write(path, y, sample_rate)

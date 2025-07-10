@@ -135,6 +135,7 @@
     <ClCompile Include="Util.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Config.h" />
     <ClInclude Include="Debug.h" />
     <ClInclude Include="Loader.h" />
     <ClInclude Include="Planner.h" />
