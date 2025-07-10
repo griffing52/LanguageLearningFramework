@@ -6,10 +6,8 @@
 #include <algorithm>
 #include <cstdlib>
 #include <sstream>
-#include <filesystem>
 
 using namespace std;
-namespace fs = filesystem;
 
 namespace planner {
 
@@ -27,12 +25,12 @@ namespace planner {
 		"Let's hear you say"
 	};
 
-	string chooseIntro(const string& phrase) {
-		return intros[rand() % intros.size()] + " \"" + phrase + "\"";
+	string chooseIntro() {
+		return intros[rand() % intros.size()];
 	}
 
-	string chooseStarter(const string& phrase) {
-		return starters[rand() % starters.size()] + " \"" + phrase + "\"?";
+	string chooseStarter() {
+		return starters[rand() % starters.size()];
 	}
 
 	bool needsReview(util::Word* word, int currentCycle) {
@@ -53,30 +51,34 @@ namespace planner {
 	}
 
 	void addWaitTime(util::Word* word, ofstream& out) {
-		out << "[WAIT" << word->complexity << "]" << endl;
+		out << "[WAIT] " << word->complexity << endl;
 	}
 
 	void introducePhraseInPlan(util::Word* phrase, int currentCycle, ofstream &out) {
-		out << "[INTRO] " << chooseIntro(phrase->translation) << endl;
+		out << "[INTRO] " << chooseIntro() << endl;
+		out << "[NARRATION] " << phrase->translation << endl;
 		out << "[PHRASE] " << phrase->value << endl;
 		reinforceWord(phrase, currentCycle);
 	}
 
 	void usePhraseInPlan(util::Word* phrase, string identifier, int currentCycle, ofstream& out) {
-		out << "[NARRATION] " << chooseIntro(phrase->translation) << endl;
+		out << "[NARRATION] " << chooseIntro() << endl;
+		out << "[NARRATION] " << phrase->translation << endl;
 		addWaitTime(phrase, out);
 		out << "[PHRASE] " << phrase->value << endl;
 		reinforceWord(phrase, currentCycle);
 	}
 
 	void introduceWordInPlan(util::Word* word, int currentCycle, ofstream& out) {
-		out << "[INTRO] " << chooseIntro(word->translation) << endl;
+		out << "[INTRO] " << chooseIntro() << endl;
+		out << "[NARRATION] " << word->translation << endl;
 		out << "[WORD] " << word->value << endl;
 		reinforceWord(word, currentCycle);
 	}
 
 	void useWordInPlan(util::Word* word, int currentCycle, ofstream& out) {
-		out << "[NARRATION] " << chooseIntro(word->translation) << endl;
+		out << "[NARRATION] " << chooseIntro() << endl;
+		out << "[NARRATION] " << word->translation << endl;
 		addWaitTime(word, out);
 		out << "[WORD] " << word->value << endl;
 		reinforceWord(word, currentCycle);
@@ -87,11 +89,7 @@ namespace planner {
 		for (char c : lessonName) seed += c;
 		srand(seed);
 
-		fs::path folder_name = "output_data";
-		fs::path file_name = "my_output.txt";
-		fs::path full_path = folder_name / file_name;
-
-		ofstream out("lesson_" + lessonName + ".txt");
+		ofstream out("lessons/lesson_" + lessonName + ".txt");
 		set<util::Phrase*> plannedPhrases;
 
 		//steps.push_back("[LESSON]: " + lessonName);

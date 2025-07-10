@@ -1,5 +1,5 @@
 mier=we
-gönd=we go
+goend=we go
 goh,gah=I go
 danke=thank you
 und=and
@@ -15,6 +15,6 @@ weil=because
 ich=I
 ha=to have
 dich=you
-gärn=to like
+gaern=to like
 bi=am
 19i=19 years old
