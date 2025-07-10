@@ -28,7 +28,7 @@ print("Model and processor loaded successfully.")
 print("Loading English TTS model...")
 # tts = gTTS(text=text, lang='en')
 # tts.save("test.mp3")
-engine = pyttsx3.init()
+engine = pyttsx3.init(driverName='sapi5')
 print("English TTS model loaded successfully.")
 
 # print(speaker_embeddings.shape)
