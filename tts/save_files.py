@@ -10,23 +10,30 @@ def hash_text(text):
     return hashlib.sha1(text.encode()).hexdigest()
     # return text
 
+def get_num_lines(file_path):
+    """Counts the number of lines in a file."""
+    with open(file_path, "r", encoding="utf-8") as fp:
+        return sum(1 for _ in fp)
+
 # Main processor
 def process_lesson(lesson_file, output_file="final_lesson.wav"):
     audio_sequence = []
     lessonName = lesson_file.split("/")[-1].split(".")[0]
     print(f"Processing lesson: {lessonName}")
+
+    total_lines = get_num_lines(lesson_file) 
     
     with open(lesson_file, "r", encoding="utf-8") as f:
-        for i, line in enumerate(f):
+        for i, line in enumerate(tqdm(f, total=total_lines, desc=f"Processing {lessonName}")):
             if not line.strip(): continue
             tag, content = line.strip().split("] ", 1)
             tag = tag[1:]  # Remove leading [
 
             if tag in ["NARRATION", "INTRO"]:
-                fname = f"{hash_text(content)}.mp3"
+                fname = f"{hash_text(content)}.wav"
                 path = f"audio_cache/prompts/{fname}" 
                 if not os.path.exists(path):
-                    tts.generate_audio_gtts_en(content, path) 
+                    tts.generate_wav_pyttsx3(content, path) # English text-to-speech
                 # outpath = f"audio_sequence/{i:04d}_{tag}.wav"
                 # os.system(f'cp "{path}" "{outpath}"')
                 audio_sequence.append(path)
@@ -35,7 +42,7 @@ def process_lesson(lesson_file, output_file="final_lesson.wav"):
                 sec = int(content)
                 pause_file = f"audio_cache/pauses/pause_{sec}s.wav"
                 if not os.path.exists(pause_file):
-                    AudioSegment.silent(duration=sec * 1000).export(pause_file, format="wav")
+                    AudioSegment.silent(duration=sec * 1000).set_frame_rate(16000).export(pause_file, format="wav")
                 # os.system(f'cp "{pause_file}" "{outpath}"')
                 audio_sequence.append(pause_file)
                 
@@ -59,6 +66,8 @@ def process_lesson(lesson_file, output_file="final_lesson.wav"):
 
             else:
                 print(f"Unknown tag: {tag}")
+
+    tts.generate_all_pyttsx3()
 
     # Write list for ffmpeg
     with open("audio_list.txt", "w") as f:

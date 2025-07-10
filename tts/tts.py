@@ -3,7 +3,10 @@ print("Loading SpeechT5 model and processor...")
 from transformers import SpeechT5ForTextToSpeech, SpeechT5HifiGan, SpeechT5Processor
 import soundfile as sf
 import torch
-from TTS.api import TTS
+# from gtts import gTTS
+import pyttsx3 
+import tempfile
+import librosa
 
 from helper import format_text
 
@@ -23,7 +26,9 @@ print("Model and processor loaded successfully.")
 
 # Load a pre-trained English TTS model
 print("Loading English TTS model...")
-tts = TTS(model_name="tts_models/en/ljspeech/tacotron2-DDC", progress_bar=False)
+# tts = gTTS(text=text, lang='en')
+# tts.save("test.mp3")
+engine = pyttsx3.init()
 print("English TTS model loaded successfully.")
 
 # print(speaker_embeddings.shape)
@@ -49,11 +54,35 @@ def generate_audio(text, path):
     # Save the audio to a file (e.g., 'output.wav')
     sf.write(path, speech.numpy(), 16000)
 
-def generate_audio_gtts_en(text, path):
-    """
-    Generate speech from text using gTTS (Google Text-to-Speech).
-    :param text: The input text to convert to speech.
-    :return: The generated speech saved to a file.
-    """
+# def generate_audio_gtts_en(text, path):
+#     """
+#     Generate speech from text using gTTS (Google Text-to-Speech).
+#     :param text: The input text to convert to speech.
+#     :return: The generated speech saved to a file.
+#     """
+
+#     tts = gTTS(text=text, lang='en')
+#     tts.save(path)
+
+# def generate_audio_coqui_tts(text, path):
     # Generate 16kHz wav directly
-    tts.tts_to_file(text=text, file_path=path, speaker_wav=None, language=None, sample_rate=16000)
+    # coqui TTS
+    # tts.tts_to_file(text=text, file_path=path, speaker_wav=None, language=None, sample_rate=16000)
+
+def generate_wav_pyttsx3(text, output_path, sample_rate=16000):
+    engine.save_to_file(text, output_path)
+
+    # Resample if needed
+    # y, sr = librosa.load(temp_path, sr=None)
+    # if sr != sample_rate:
+        # y = librosa.resample(y, orig_sr=sr, target_sr=sample_rate)
+    # sf.write(output_path, y, sample_rate)
+
+
+def generate_all_pyttsx3():
+    engine.runAndWait()
+    # Resample if needed
+    # y, sr = librosa.load(temp_path, sr=None)
+    # if sr != sample_rate:
+    #     y = librosa.resample(y, orig_sr=sr, target_sr=sample_rate)
+    # sf.write(output_path, y, sample_rate)
