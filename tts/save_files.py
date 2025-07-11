@@ -4,6 +4,7 @@ import hashlib
 import subprocess
 from pydub import AudioSegment
 from tqdm import tqdm
+import config
 
 # Hash function to avoid illegal filenames
 def hash_text(text):
@@ -20,6 +21,7 @@ def process_lesson(lesson_file, output_file="final_lesson.wav"):
     audio_sequence = []
     lessonName = lesson_file.split("/")[-1].split(".")[0]
     need_resampling = []
+    gtts_conversion = []
     print(f"Processing lesson: {lessonName}")
 
     total_lines = get_num_lines(lesson_file) 
@@ -34,8 +36,12 @@ def process_lesson(lesson_file, output_file="final_lesson.wav"):
                 fname = f"{hash_text(content)}.wav"
                 path = f"audio_cache/prompts/{fname}" 
                 if not os.path.exists(path):
-                    tts.generate_wav_pyttsx3(content, path) # English text-to-speech
-                    need_resampling.append(path)
+                    tts.choose_tts_model(content, path)
+                    if config.NARRATION_TTS == "gTTS":
+                        gtts_conversion.append(path)
+                    else:
+                        need_resampling.append(path)
+                    # tts.generate_wav_pyttsx3(content, path) # English text-to-speech
                 # outpath = f"audio_sequence/{i:04d}_{tag}.wav"
                 # os.system(f'cp "{path}" "{outpath}"')
                 audio_sequence.append(path)
@@ -69,8 +75,23 @@ def process_lesson(lesson_file, output_file="final_lesson.wav"):
             else:
                 print(f"Unknown tag: {tag}")
 
-    print("Generating missing English audio files...")
-    tts.generate_all_pyttsx3()
+    if config.NARRATION_TTS == "pyttsx3":
+        print("Generating missing English audio files...")
+        tts.generate_all_pyttsx3()
+
+    for path in tqdm(gtts_conversion, desc="Converting gTTS MP3 to WAV"):        
+        # Convert gTTS mp3 to wav
+        in_path = path.replace(".wav", ".mp3")
+        subprocess.run([
+            "ffmpeg", "-y", "-loglevel", "quiet",
+            "-i", in_path,            # Can be .wav or .mp3
+            "-ar", "16000",              # Resample to 16kHz
+            "-ac", "1",                  # Mono channel
+            "-c:a", "pcm_s16le",         # WAV format
+            path
+        ])
+        os.remove(in_path)  # Remove the original mp3 file
+
     for path in tqdm(need_resampling, desc="Resampling Audio Files"):
         tts.resample(16000, path)
 

@@ -3,10 +3,9 @@ print("Loading SpeechT5 model and processor...")
 from transformers import SpeechT5ForTextToSpeech, SpeechT5HifiGan, SpeechT5Processor
 import soundfile as sf
 import torch
-# from gtts import gTTS
-import pyttsx3 
 import tempfile
 import librosa
+import config
 
 from helper import format_text
 
@@ -25,11 +24,20 @@ vocoder = SpeechT5HifiGan.from_pretrained("microsoft/speecht5_hifigan")
 print("Model and processor loaded successfully.")
 
 # Load a pre-trained English TTS model
-print("Loading English TTS model...")
-# tts = gTTS(text=text, lang='en')
-# tts.save("test.mp3")
-engine = pyttsx3.init(driverName='sapi5')
-print("English TTS model loaded successfully.")
+print(f"Loading Narration TTS model ({config.NARRATION_TTS})...")
+if config.NARRATION_TTS == "gTTS":
+    from gtts import gTTS
+elif config.NARRATION_TTS == "pyttsx3":
+    import pyttsx3 
+    engine = pyttsx3.init(driverName='sapi5')
+elif config.NARRATION_TTS == "coqui-tts":
+    from TTS.api import TTS
+    tts = TTS(model_name="tts_models/en/ljspeech/tacotron2-DDC", progress_bar=False, gpu=False)
+elif config.NARRATION_TTS == "speechT5":
+    # Already loaded above
+    pass
+
+print("Narration TTS model loaded successfully.")
 
 # print(speaker_embeddings.shape)
 
@@ -54,22 +62,27 @@ def generate_audio(text, path):
     # Save the audio to a file (e.g., 'output.wav')
     sf.write(path, speech.numpy(), 16000)
 
-# def generate_audio_gtts_en(text, path):
-#     """
-#     Generate speech from text using gTTS (Google Text-to-Speech).
-#     :param text: The input text to convert to speech.
-#     :return: The generated speech saved to a file.
-#     """
+def generate_audio_gtts_en(text, path):
+    """
+    Generate speech from text using gTTS (Google Text-to-Speech).
+    :param text: The input text to convert to speech.
+    :return: The generated speech saved to a file.
+    """
+    if config.NARRATION_TTS != "gTTS":
+        raise ValueError("NARRATION_TTS is not set to 'gtts'. Cannot use gTTS for audio generation.")
+    tts = gTTS(text=text, lang='en')
+    tts.save(path.replace('.wav', '.mp3'))
 
-#     tts = gTTS(text=text, lang='en')
-#     tts.save(path)
-
-# def generate_audio_coqui_tts(text, path):
+def generate_audio_coqui_tts(text, path):
     # Generate 16kHz wav directly
     # coqui TTS
-    # tts.tts_to_file(text=text, file_path=path, speaker_wav=None, language=None, sample_rate=16000)
+    if config.NARRATION_TTS != "coqui-tts":
+        raise ValueError("NARRATION_TTS is not set to 'coqui-tts'. Cannot use coqui-tts for audio generation.")
+    tts.tts_to_file(text=text, file_path=path, speaker_wav=None, language=None, sample_rate=16000)
 
 def generate_wav_pyttsx3(text, output_path):
+    if config.NARRATION_TTS != "pyttsx3":
+        raise ValueError("NARRATION_TTS is not set to 'pyttsx3'. Cannot use pyttsx3 for audio generation.")
     engine.save_to_file(text, output_path)
 
     # Resample if needed
@@ -80,8 +93,21 @@ def generate_wav_pyttsx3(text, output_path):
 
 
 def generate_all_pyttsx3():
+    if config.NARRATION_TTS != "pyttsx3":
+        raise ValueError("NARRATION_TTS is not set to 'pyttsx3'. Cannot use pyttsx3 for audio generation.")
     engine.runAndWait()
-    
+
+def choose_tts_model(text, path):
+    if config.NARRATION_TTS == "gTTS":
+        return generate_audio_gtts_en(text, path)
+    elif config.NARRATION_TTS == "pyttsx3":
+        return generate_wav_pyttsx3(text, path)
+    elif config.NARRATION_TTS == "coqui-tts":
+        return generate_audio_coqui_tts(text, path)
+    elif config.NARRATION_TTS == "speechT5":
+        return generate_audio(text, path)
+    else:
+        raise ValueError(f"Unknown TTS model: {config.NARRATION_TTS}")
 
 def resample(sample_rate, path):
     """ Resample an audio file to a target sample rate. """
