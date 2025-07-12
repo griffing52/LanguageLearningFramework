@@ -51,13 +51,14 @@ namespace planner {
 	}
 
 	void addWaitTime(util::Word* word, ofstream& out) {
-		out << "[WAIT] " << word->complexity << endl;
+		out << "[WAIT] " << max(word->complexity, 2) << endl;
 	}
 
 	void introducePhraseInPlan(util::Word* phrase, int currentCycle, ofstream &out) {
 		out << "[INTRO] " << chooseIntro() << endl;
 		out << "[NARRATION] " << phrase->translation << endl;
 		out << "[PHRASE] " << phrase->value << endl;
+		addWaitTime(phrase, out);
 		reinforceWord(phrase, currentCycle);
 	}
 
@@ -66,6 +67,7 @@ namespace planner {
 		out << "[NARRATION] " << phrase->translation << endl;
 		addWaitTime(phrase, out);
 		out << "[PHRASE] " << phrase->value << endl;
+		addWaitTime(phrase, out);
 		reinforceWord(phrase, currentCycle);
 	}
 
