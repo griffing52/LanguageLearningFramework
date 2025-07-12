@@ -75,6 +75,7 @@ namespace planner {
 		out << "[INTRO] " << chooseIntro() << endl;
 		out << "[NARRATION] " << word->translation << endl;
 		out << "[WORD] " << word->value << endl;
+		addWaitTime(word, out);
 		reinforceWord(word, currentCycle);
 	}
 
