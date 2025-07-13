@@ -8,4 +8,5 @@ using util::Phrase;
 
 namespace planner {
 	void plan(const string& lessonName, vector<util::Phrase*>& currPhrases, map<string, util::Word*> wordMap, int& currentCycle);
+	void formAudioLesson(const string& lessonName);
 }

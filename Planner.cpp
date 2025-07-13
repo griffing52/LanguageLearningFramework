@@ -6,13 +6,12 @@
 #include <algorithm>
 #include <cstdlib>
 #include <sstream>
+#include "Config.h"
+#include <cstdlib>
 
 using namespace std;
 
 namespace planner {
-
-	const int neededReinforcement = 3;
-	const int forgettingThreshold = 4;
 
 	vector<string> intros = {
 	"Listen to the way you say",
@@ -92,7 +91,7 @@ namespace planner {
 		for (char c : lessonName) seed += c;
 		srand(seed);
 
-		ofstream out("lessons/lesson_" + lessonName + ".txt");
+		ofstream out("lessons/" + lessonName + ".txt");
 		set<util::Phrase*> plannedPhrases;
 
 		//steps.push_back("[LESSON]: " + lessonName);
@@ -145,22 +144,15 @@ namespace planner {
 
 		currentCycle++;
 
-		/*for (int i = 0; i < steps.size(); i++) {
-			out << steps[i] << endl;
-			cout << steps[i] << endl;
-		}*/
-
-		  
-		// Save to JSON
-		//json j;
-		//j["lesson_name"] = lessonName;
-		//j["cycle"] = currentCycle;
-		//j["steps"] = steps;
-
-
-		//out << j.dump(4);  // pretty print
 		out.close();
 	}
 
-	//void printPlan(
+	void formAudioLesson(const string& lessonName) {
+		if (!util::fileExists("lessons/" + lessonName + ".txt")) {
+			cerr << "Lesson file does not exist: " << lessonName << endl;
+			return;
+		}
+
+		system((RUN_PYTHON_SCRIPT + lessonName).c_str());
+	}
 }
