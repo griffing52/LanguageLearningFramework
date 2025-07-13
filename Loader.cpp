@@ -18,7 +18,7 @@ using namespace std;
 using std::cout;
 
 void loader::loadWords(vector<util::Word*> &wordList, map<string, util::Word*> &wordMap, const string filename) {
-	ifstream file(filename);
+	ifstream file("input/"+filename);
 	if (file.is_open()) {
 		string line;
 		while (getline(file, line)) {
@@ -62,7 +62,7 @@ void loader::loadWords(vector<util::Word*> &wordList, map<string, util::Word*> &
 		}
 	}
 	else {
-		cout << "Unable to open file" << filename << endl;
+		cout << "Unable to open file " << filename << endl;
 	}
 	file.close();
 }
@@ -97,7 +97,7 @@ void savePhraseDependencies(util::Phrase* phrase_ptr, vector<util::Phrase*> phra
 
 // COMPARE TO ADD PHRASES FILE -------------------------------------------
 void loader::addPhrases(vector<util::Phrase*>& phraseList, map<string, util::Word*> wordMap, string filename) {
-	ifstream file(filename);
+	ifstream file("input/"+filename);
 	if (file.is_open()) {
 		string line;
 		while (getline(file, line)) {
@@ -168,7 +168,7 @@ void loader::addPhrases(vector<util::Phrase*>& phraseList, map<string, util::Wor
 }
 
 void loader::saveMemoryFile(vector<util::Phrase*> &phraseList, const string name, int currentCycle) {
-	ofstream fout("/input/" + name);
+	ofstream fout("input/" + name);
 
 	fout << currentCycle << endl; // save current cycle
 	fout << phraseList.size() << endl;
@@ -204,7 +204,7 @@ void loader::saveMemoryFile(vector<util::Phrase*> &phraseList, const string name
 }
 
 void loader::loadMemoryFile(vector<util::Phrase*>& phraseList, map<string, util::Word*> wordMap, const string name, int& currentCycle) {
-	ifstream fin(name);
+	ifstream fin("input/" + name);
 
 	if (!fin.is_open()) {
 		cout << "Unable to open file " << name << endl;
@@ -291,7 +291,7 @@ void loader::loadMemoryFile(vector<util::Phrase*>& phraseList, map<string, util:
 void loader::loadLessonPlan(const string filename, vector<util::Phrase*>& currPhrases, vector<util::Phrase*>& phraseList, map<string, util::Word*> wordMap) {
 	currPhrases.clear();
 	
-	ifstream file(filename);
+	ifstream file("input/"+filename);
 
 	if (!file.is_open()) {
 		cout << "Unable to open file " << filename << endl;

@@ -2,12 +2,77 @@
 // @name         LessonScraper
 // @namespace    http://tampermonkey.net/
 // @version      2025-02-25
-// @description  try to take over the world!
+// @description  Learn Swiss German!
 // @author       You
 // @match        https://app.swiss-german-online.com/videos
 // @icon         https://www.google.com/s2/favicons?sz=64&domain=swiss-german-online.com
 // @grant        none
 // ==/UserScript==
+
+const numberWords = {
+  0: "null", 1: "eis", 2: "zwöi", 3: "drü", 4: "vier", 5: "füf", 6: "sächs", 7: "sibe", 8: "acht", 9: "nün",
+  10: "zäh", 11: "elf", 12: "zwölf", 13: "drüzäh", 14: "vierzäh", 15: "füfzäh", 16: "sächzäh",
+  17: "sibezäh", 18: "achtzäh", 19: "nünzäh", 20: "zwänzg", 30: "dryssg", 40: "vierzg",
+  50: "füfzg", 60: "sächzg", 70: "sibezg", 80: "achtzg", 90: "nünzg", 100: "hundert", 1000: "tusig"
+};
+
+function numberToWords(number) {
+  if (number < 20) {
+    return numberWords[number];
+  } else if (number < 100) {
+    const tens = Math.floor(number / 10) * 10;
+    const unit = number % 10;
+    return unit === 0
+      ? numberWords[tens]
+      : `${numberWords[unit]}e${numberWords[tens]}`;
+  } else if (number < 1000) {
+    const hundreds = Math.floor(number / 100);
+    const remainder = number % 100;
+    const result = hundreds === 1
+      ? "hundert"
+      : `${numberWords[hundreds]} hundert`;
+    return remainder ? `${result} ${numberToWords(remainder)}` : result;
+  } else if (number < 1_000_000) {
+    const thousands = Math.floor(number / 1000);
+    const remainder = number % 1000;
+    const result = thousands === 1
+      ? "tusig"
+      : `${numberToWords(thousands)} tusig`;
+    return remainder ? `${result} ${numberToWords(remainder)}` : result;
+  } else {
+    return String(number);
+  }
+}
+
+function replaceNumbersWithWords(text) {
+  return text.replace(/\b\d+(?=\D)/g, match => numberToWords(parseInt(match)));
+}
+
+const replacements = [
+  ["â", "a"], ["ä", "ae"], ["ç", "ch"], ["ğ", "gh"], ["ı", "i"], ["î", "i"],
+  ["ö", "oe"], ["ş", "sh"], ["ü", "ue"], ["û", "u"]
+];
+
+function cleanupText(text) {
+  for (const [src, dst] of replacements) {
+    text = text.replaceAll(src, dst);
+  }
+  return text;
+}
+
+function normalizeText(text) {
+  text = text.toLowerCase();
+  text = text.replace(/[^\w\s']/g, '');  // Keep apostrophes
+  return text.trim().replace(/\s+/g, ' ');
+}
+
+function formatText(text) {
+  const convertedText = replaceNumbersWithWords(text);
+  const cleanedText = cleanupText(convertedText);
+  const finalText = normalizeText(cleanedText);
+  return finalText;
+}
+
 
 (function () {
     'use strict';
@@ -55,6 +120,7 @@
         a.download = currPage + '.' + extension;
         a.click();
     }
+    
 
     // This gathers all the phrases and translations from the lesson
     // TODO seperate sentences on same line using puncuation like
@@ -65,11 +131,11 @@
             .filter(elm => elm.innerHTML.trim() != '')
             //.map(elm => [elm.innerHTML.trim().replace(/[!.;]/g, "\n").split('\n')])
             .map(elm => {
-                let string = elm.innerHTML.trim().replace(/[?.;!"#$%&()*+,-./�:;<=>?@[\]^_`{|}~]/g, "")
+                let string = elm.innerHTML.trim().replace(/[?.;!"#$%&()*+,-./�:;<=>?@[\\\]^_`{|}~]/g, "")
 
                 return {
                     'phrase': string.charAt(0).toUpperCase() + string.slice(1),
-                    'translation': (elm.nextSibling.data || '').trim().replaceAll('�', '\''),
+                    'translation': (elm.nextSibling.data || '').trim().replaceAll('�', '\''),
                     'phrase-original': elm.innerHTML.trim()
                 }
             })

@@ -142,10 +142,10 @@
     <ClInclude Include="Util.h" />
   </ItemGroup>
   <ItemGroup>
-    <Text Include="known_phrases.txt" />
-    <Text Include="known_words.txt" />
-    <Text Include="lesson1.txt" />
-    <Text Include="words.txt" />
+    <None Include="input\mem0" />
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="input\words.txt" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
