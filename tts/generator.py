@@ -36,10 +36,11 @@ def process_lesson(lesson_file, output_file="final_lesson.wav"):
                 fname = f"{hash_text(content)}.wav"
                 path = f"audio_cache/prompts/{fname}" 
                 if not os.path.exists(path):
-                    tts.choose_tts_model(content, path.replace(".wav", ".mp3")) # English text-to-speech
                     if config.NARRATION_TTS == "gTTS":
+                        tts.choose_tts_model(content, path.replace(".wav", ".mp3")) # English text-to-speech
                         gtts_conversion.append(path)
                     else:
+                        tts.choose_tts_model(content, path) # English text-to-speech
                         need_resampling.append(path)
                     # tts.generate_wav_pyttsx3(content, path) # English text-to-speech
                 # outpath = f"audio_sequence/{i:04d}_{tag}.wav"
@@ -90,7 +91,8 @@ def process_lesson(lesson_file, output_file="final_lesson.wav"):
             "-c:a", "pcm_s16le",         # WAV format
             path
         ])
-        os.remove(in_path)  # Remove the original mp3 file
+        if not os.path.exists(in_path):
+            os.remove(in_path)  # Remove the original mp3 file
 
     for path in tqdm(need_resampling, desc="Resampling Audio Files"):
         tts.resample(16000, path)
@@ -111,6 +113,7 @@ def process_lesson(lesson_file, output_file="final_lesson.wav"):
         "-c:a", "pcm_s16le",  # WAV format
         output_file
     ])
+    os.remove("audio_list.txt")
     print(f"Lesson built: {output_file}")
 
 # Example usage

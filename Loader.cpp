@@ -168,7 +168,7 @@ void loader::addPhrases(vector<util::Phrase*>& phraseList, map<string, util::Wor
 }
 
 void loader::saveMemoryFile(vector<util::Phrase*> &phraseList, const string name, int currentCycle) {
-	ofstream fout(name);
+	ofstream fout("/input/" + name);
 
 	fout << currentCycle << endl; // save current cycle
 	fout << phraseList.size() << endl;
