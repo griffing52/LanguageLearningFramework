@@ -11,13 +11,234 @@
 
 using namespace std;
 
+vector<util::Word*> wordList;
+map<string, util::Word*> wordMap;
+vector<util::Phrase*> phraseList;
+vector<util::Phrase*> currPhrases;
+int currentCycle = 0;
+
+void executeCommand(vector<string>& args) {
+	if (args.size() == 0) {
+		return;
+	}
+
+	if (args[0] == "exit") {
+		exit(0);
+	}
+	else if (args[0] == "start") {
+		loader::loadWords(wordList, wordMap, DEFAULT_WORD_FILE);
+
+		loader::loadMemoryFile(phraseList, wordMap, DEFAULT_MEM_FILE, currentCycle);
+	}
+	else if (args[0] == "print") {
+		if (args.size() == 1) {
+			cout << "Missing arguments\n";
+			return;
+		}
+
+		if (args[1] == "word") {
+			cout << "Searching for word: \"" << args[2] << '\"' << endl;
+			if (wordMap.count(args[2]) > 0) {
+				cout << *wordMap[args[2]] << endl;
+			}
+			else {
+				cout << "No valid word found" << endl;
+			}
+		}
+		else if (args[1] == "words") {
+			for (auto& word : wordList) {
+				cout << word->value << " " << word->translation << endl;
+			}
+		}
+		else if (args[1] == "word") {
+			if (args.size() == 2) {
+				cout << "Missing arguments\n";
+				return;
+			}
+
+			debug::printWordFromString(args[2], wordMap);
+		}
+		else if (args[1] == "phrases") {
+			for (auto& phrase : phraseList) {
+				cout << phrase->value << " " << phrase->translation << endl;
+			}
+		}
+		/*
+		printPhrase(string phrase, vector<util::Phrase*> phraseList);
+		printPhraseDependencies(string phrase, vector<util::Phrase*> phraseList);
+		printPhraseFromTranslation(string tranlsation, vector<util::Phrase*> phraseList);
+		printPhraseDependenciesFromTranslation(string tranlsation, vector<util::Phrase*> phraseList);
+		*/
+		// TODO ADD SIZE CHECK AND ADD TO HELP MENU
+		else if (args[1] == "phrase") {
+			debug::printPhrase(args[2], phraseList);
+		}
+		else if (args[1] == "phrase_deps") {
+			debug::printPhraseDependencies(args[2], phraseList);
+		}
+		else if (args[1] == "phrase_trans") {
+			debug::printPhraseFromTranslation(args[2], phraseList);
+		}
+		else if (args[1] == "phrase_trans_deps") {
+			debug::printPhraseDependenciesFromTranslation(args[2], phraseList);
+		}
+		else if (args[1] == "deps") {
+			debug::printAllDependencies(phraseList);
+		}
+		else {
+			cout << '>' << "Invalid argument " << args[1] << endl;
+		}
+	}
+	else if (args[0] == "load") {
+		if (args.size() == 1) {
+			loader::loadWords(wordList, wordMap, DEFAULT_WORD_FILE);
+
+			loader::loadMemoryFile(phraseList, wordMap, DEFAULT_MEM_FILE, currentCycle);
+			return;
+		}
+
+		if (args[1] == "words") {
+			loader::loadWords(wordList, wordMap, args[2]);
+		}
+		else if (args[1] == "phrases") {
+			loader::addPhrases(phraseList, wordMap, args[2]);
+		}
+		else if (args[1] == "mem") {
+			loader::loadMemoryFile(phraseList, wordMap, args[2], currentCycle);
+		}
+		else if (args[1] == "lesson") {
+			loader::loadLessonPlan(args[2], currPhrases, phraseList, wordMap);
+		}
+		else {
+			loader::loadMemoryFile(phraseList, wordMap, args[1], currentCycle);
+		}
+	}
+	else if (args[0] == "plan") {
+		if (args.size() == 1) {
+			cout << "Missing arguments\n";
+			return;
+		}
+		if (currPhrases.empty()) {
+			cout << "No phrases loaded, please load phrases first\n";
+			return;
+		}
+		planner::plan(args[1], currPhrases, wordMap, currentCycle);
+	}
+	else if (args[0] == "gen") {
+		if (args.size() == 1) {
+			cout << "Missing arguments\n";
+			return;
+		}
+		planner::formAudioLesson(args[1]);
+	}
+	else if (args[0] == "lesson") {
+		if (args.size() < 3) {
+			cout << "Missing arguments\n";
+			return;
+		}
+		loader::loadLessonPlan(args[1], currPhrases, phraseList, wordMap);
+		cout << "Loaded lesson: " << args[1] << endl;
+		if (currPhrases.empty()) {
+			cout << "No phrases loaded, please load phrases first\n";
+			return;
+		}
+		planner::plan(args[2], currPhrases, wordMap, currentCycle);
+		planner::formAudioLesson(args[2]);
+	}
+	else if (args[0] == "save") {
+		if (args.size() == 2) {
+			loader::saveMemoryFile(phraseList, args[1], currentCycle);
+			return;
+		}
+
+		else loader::saveMemoryFile(phraseList, DEFAULT_MEM_FILE, currentCycle);
+	}
+	else if (args[0] == "clear") {
+		if (args.size() == 1) {
+			cout << "Missing arguments\n";
+			return;
+		}
+
+		if (args[1] == "words") {
+			wordList.clear();
+			wordMap.clear();
+		}
+		else if (args[1] == "phrases") {
+			phraseList.clear();
+			currPhrases.clear();
+		}
+		else {
+			cout << "Invalid argument\n";
+		}
+	}
+	else if (args[0] == "add") {
+
+	}
+	else if (args[0] == "set") {
+		if (args[1] == "word") {
+			cout << "Searching for word: \"" << args[2] << '\"' << endl;
+			if (wordMap.count(args[2]) > 0) {
+				if (args[3] == "frequency") {
+					wordMap[args[2]]->frequency = stoi(args[4]);
+				}
+				else if (args[3] == "complexity") {
+					wordMap[args[2]]->complexity = stoi(args[4]);
+				}
+				else if (args[3] == "translation") {
+					wordMap[args[2]]->translation = args[4];
+				}
+				cout << "Setting " << args[3] << " to " << args[4] << endl;
+			}
+			else {
+				cout << "No valid word found" << endl;
+			}
+		}
+	}
+	else if (args[0] == "remove") {
+
+	}
+	else if (args[0] == "list") {
+
+	}
+	else if (args[0] == "help") {
+		cout << '\t' << "exit" << endl;
+		cout << '\t' << "print" << endl;
+		cout << '\t' << '\t' << "word <word>" << endl;
+		cout << '\t' << '\t' << "words" << endl;
+		cout << '\t' << '\t' << "phrases" << endl;
+		cout << '\t' << '\t' << "phrase \"PHRASE\" " << endl;
+		cout << '\t' << '\t' << "phrase_deps \"PHRASE\" " << endl;
+		cout << '\t' << '\t' << "phrase_trans \"TRANSLATION\" " << endl;
+		cout << '\t' << '\t' << "phrase_trans_deps \"TRANSLATION\" " << endl;
+		cout << '\t' << "load" << endl;
+		cout << '\t' << '\t' << "words <word file>" << endl;
+		cout << '\t' << '\t' << "phrases <phrase file>" << endl;
+		cout << '\t' << '\t' << "mem <memory file>" << endl;
+		cout << '\t' << '\t' << "lesson <lesson file>" << endl;
+		cout << '\t' << '\t' << "<memory file>" << endl;
+		cout << '\t' << "plan <lesson name>" << endl;
+		cout << '\t' << "gen <lesson name>" << '\t' << "--uses text to speech to generate full lesson after plan" << endl;
+		cout << '\t' << "lesson <lesson name>" << endl;
+		cout << '\t' << "clear" << endl;
+		cout << '\t' << '\t' << "words" << endl;
+		cout << '\t' << '\t' << "phrases" << endl;
+		cout << '\t' << "save <memory file name>" << endl;
+		cout << '\t' << "set" << endl;
+		cout << '\t' << '\t' << "word \"WORD\" frequency <int>" << endl;
+		cout << '\t' << '\t' << "word \"WORD\" complexity <int>" << endl;
+		cout << '\t' << '\t' << "word \"WORD\" translation <string>" << endl;
+		cout << '\t' << "add" << endl;
+		cout << '\t' << "remove" << endl;
+		cout << '\t' << "list" << endl;
+		cout << '\t' << "help" << endl;
+	}
+	else {
+		cout << "Invalid command\n";
+	}
+}
+
 int main()
 {
-    vector<util::Word*> wordList;
-    map<string, util::Word*> wordMap;
-	vector<util::Phrase*> phraseList;
-	vector<util::Phrase*> currPhrases;
-	int currentCycle = 0;
 
 	while (true) {
 		cout << ">";
@@ -51,200 +272,7 @@ int main()
 			}
 		}
 		
-		if (args.size() == 0) {
-			continue;
-		}
-
-		if (args[0] == "exit") {
-			exit(0);
-		}
-		else if (args[0] == "start") {
-			loader::loadWords(wordList, wordMap, DEFAULT_WORD_FILE);
-
-			loader::loadMemoryFile(phraseList, wordMap, DEFAULT_MEM_FILE, currentCycle);
-		}
-		else if (args[0] == "print") {
-			if (args.size() == 1) {
-				cout << "Missing arguments\n";
-				continue;
-			}
-
-			if (args[1] == "word") {
-				cout << "Searching for word: \"" << args[2] << '\"' << endl;
-				if (wordMap.count(args[2]) > 0) {
-					cout << *wordMap[args[2]] << endl;
-				}
-				else {
-					cout << "No valid word found" << endl;
-				}
-			}
-			else if (args[1] == "words") {
-				for (auto& word : wordList) {
-					cout << word->value << " " << word->translation << endl;
-				}
-			}
-			else if (args[1] == "word") {
-				if (args.size() == 2) {
-					cout << "Missing arguments\n";
-					continue;
-				}
-
-				debug::printWordFromString(args[2], wordMap);
-			}
-			else if (args[1] == "phrases") {
-				for (auto& phrase : phraseList) {
-					cout << phrase->value << " " << phrase->translation << endl;
-				}
-			}
-			/*
-			printPhrase(string phrase, vector<util::Phrase*> phraseList);
-			printPhraseDependencies(string phrase, vector<util::Phrase*> phraseList);
-			printPhraseFromTranslation(string tranlsation, vector<util::Phrase*> phraseList);
-			printPhraseDependenciesFromTranslation(string tranlsation, vector<util::Phrase*> phraseList);
-			*/
-			// TODO ADD SIZE CHECK AND ADD TO HELP MENU
-			else if (args[1] == "phrase") {
-				debug::printPhrase(args[2], phraseList);
-			}
-			else if (args[1] == "phrase_deps") {
-				debug::printPhraseDependencies(args[2], phraseList);
-			}
-			else if (args[1] == "phrase_trans") {
-				debug::printPhraseFromTranslation(args[2], phraseList);
-			} 
-			else if (args[1] == "phrase_trans_deps") {
-				debug::printPhraseDependenciesFromTranslation(args[2], phraseList);
-			}
-			else if (args[1] == "deps") {
-				debug::printAllDependencies(phraseList);
-			}
-			else {
-				cout << '>' << "Invalid argument " << args[1] << endl;
-			}
-		}
-		else if (args[0] == "load") {
-			if (args.size() == 1) {
-				loader::loadWords(wordList, wordMap, DEFAULT_WORD_FILE);
-
-				loader::loadMemoryFile(phraseList, wordMap, DEFAULT_MEM_FILE, currentCycle);
-				continue;
-			}
-
-			if (args[1] == "words") {
-				loader::loadWords(wordList, wordMap, args[2]);
-			}
-			else if (args[1] == "phrases") {
-				loader::addPhrases(phraseList, wordMap, args[2]);
-			}
-			else if (args[1] == "mem") {
-				loader::loadMemoryFile(phraseList, wordMap, args[2], currentCycle);
-			}
-			else if (args[1] == "lesson") {
-				loader::loadLessonPlan(args[2], currPhrases, phraseList, wordMap);
-			}
-			else {
-				loader::loadMemoryFile(phraseList, wordMap, args[1], currentCycle);
-			}
-		}
-		else if (args[0] == "plan") {
-			if (args.size() == 1) {
-				cout << "Missing arguments\n";
-				continue;
-			}
-			if (currPhrases.empty()) {
-				cout << "No phrases loaded, please load phrases first\n";
-				continue;
-			}
-			planner::plan(args[1], currPhrases, wordMap, currentCycle);
-		}
-		else if (args[0] == "save") {
-			if (args.size() == 2) {
-				loader::saveMemoryFile(phraseList, args[1], currentCycle);
-				continue;
-			}
-
-			else loader::saveMemoryFile(phraseList, DEFAULT_MEM_FILE, currentCycle);
-		}
-		else if (args[0] == "clear") {
-			if (args.size() == 1) {
-				cout << "Missing arguments\n";
-				continue;
-			}
-
-			if (args[1] == "words") {
-				wordList.clear();
-				wordMap.clear();
-			}
-			else if (args[1] == "phrases") {
-				phraseList.clear();
-				currPhrases.clear();
-			}
-			else {
-				cout << "Invalid argument\n";
-			}
-		}
-		else if (args[0] == "add") {
-
-		}
-		else if (args[0] == "set") { 
-			if (args[1] == "word") {
-				cout << "Searching for word: \"" << args[2] << '\"' << endl;
-				if (wordMap.count(args[2]) > 0) {
-					if (args[3] == "frequency") {
-						wordMap[args[2]]->frequency = stoi(args[4]);
-					}
-					else if (args[3] == "complexity") {
-						wordMap[args[2]]->complexity = stoi(args[4]);
-					}
-					else if (args[3] == "translation") {
-						wordMap[args[2]]->translation = args[4];
-					}
-					cout << "Setting " << args[3] << " to " << args[4] << endl;
-				}
-				else {
-					cout << "No valid word found" << endl;
-				}
-			}
-		}
-		else if (args[0] == "remove") {
-
-		}
-		else if (args[0] == "list") {
-
-		}
-		else if (args[0] == "help") {
-			cout << '\t' << "exit" << endl;
-			cout << '\t' << "print" << endl;
-			cout << '\t' << '\t' << "word <word>" << endl;
-			cout << '\t' << '\t' << "words" << endl;
-			cout << '\t' << '\t' << "phrases" << endl;
-			cout << '\t' << '\t' << "phrase \"PHRASE\" " << endl;
-			cout << '\t' << '\t' << "phrase_deps \"PHRASE\" " << endl;
-			cout << '\t' << '\t' << "phrase_trans \"TRANSLATION\" " << endl;
-			cout << '\t' << '\t' << "phrase_trans_deps \"TRANSLATION\" " << endl;
-			cout << '\t' << "load" << endl;
-			cout << '\t' << '\t' << "words <word file>" << endl;
-			cout << '\t' << '\t' << "phrases <phrase file>" << endl;
-			cout << '\t' << '\t' << "mem <memory file>" << endl;
-			cout << '\t' << '\t' << "lesson <lesson file>" << endl;
-			cout << '\t' << '\t' << "<memory file>" << endl;
-			cout << '\t' << "plan" << "<lesson name>" << endl;
-			cout << '\t' << "clear" << endl;
-			cout << '\t' << '\t' << "words" << endl;
-			cout << '\t' << '\t' << "phrases" << endl;
-			cout << '\t' << "save <memory file name>" << endl;
-			cout << '\t' << "set" << endl;
-			cout << '\t' << '\t' << "word \"WORD\" frequency <int>" << endl;
-			cout << '\t' << '\t' << "word \"WORD\" complexity <int>" << endl;
-			cout << '\t' << '\t' << "word \"WORD\" translation <string>" << endl;
-			cout << '\t' << "add" << endl;
-			cout << '\t' << "remove" << endl;
-			cout << '\t' << "list" << endl;
-			cout << '\t' << "help" << endl;
-		}
-		else {
-			cout << "Invalid command\n";
-		}
+		executeCommand(args);
 	}
 	
 	return 0;

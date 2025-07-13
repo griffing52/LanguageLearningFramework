@@ -63,8 +63,9 @@ namespace util {
 	};
 
 	ostream& operator<<(ostream& os, const Word& word);
-	bool fileExists(const string& filename) {
-		ifstream file(filename);
-		return file.good(); // Checks if the stream is in a good state (e.g., file opened successfully)
-	}
+
+	//bool fileExists(const string& filename) {
+	//	ifstream file(filename);
+	//	return file.good(); // Checks if the stream is in a good state (e.g., file opened successfully)
+	//}
 }

@@ -148,11 +148,11 @@ namespace planner {
 	}
 
 	void formAudioLesson(const string& lessonName) {
-		if (!util::fileExists("lessons/" + lessonName + ".txt")) {
+		/*if (!util::fileExists("lessons/" + lessonName + ".txt")) {
 			cerr << "Lesson file does not exist: " << lessonName << endl;
 			return;
-		}
+		}*/
 
-		system((RUN_PYTHON_SCRIPT + lessonName).c_str());
+		system((RUN_PYTHON_SCRIPT + "lessons/" + lessonName + ".txt").c_str());
 	}
 }

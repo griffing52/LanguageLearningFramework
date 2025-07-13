@@ -36,7 +36,7 @@ def process_lesson(lesson_file, output_file="final_lesson.wav"):
                 fname = f"{hash_text(content)}.wav"
                 path = f"audio_cache/prompts/{fname}" 
                 if not os.path.exists(path):
-                    tts.choose_tts_model(content, path)
+                    tts.choose_tts_model(content, path.replace(".wav", ".mp3")) # English text-to-speech
                     if config.NARRATION_TTS == "gTTS":
                         gtts_conversion.append(path)
                     else:
@@ -114,4 +114,4 @@ def process_lesson(lesson_file, output_file="final_lesson.wav"):
     print(f"Lesson built: {output_file}")
 
 # Example usage
-process_lesson("lessons/lesson_1.txt")
+# process_lesson("lessons/lesson_1.txt")
