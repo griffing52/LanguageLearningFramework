@@ -61,7 +61,7 @@ namespace planner {
 		reinforceWord(phrase, currentCycle);
 	}
 
-	void usePhraseInPlan(util::Word* phrase, string identifier, int currentCycle, ofstream& out) {
+	void usePhraseInPlan(util::Word* phrase, int currentCycle, ofstream& out) {
 		out << "[NARRATION] " << chooseStarter() << endl;
 		out << "[NARRATION] " << phrase->translation << endl;
 		addWaitTime(phrase, out);
@@ -92,7 +92,7 @@ namespace planner {
 		srand(seed);
 
 		ofstream out("lessons/" + lessonName + ".txt");
-		set<util::Phrase*> plannedPhrases;
+		vector<util::Phrase*> plannedPhrases;
 
 		//steps.push_back("[LESSON]: " + lessonName);
 
@@ -112,34 +112,31 @@ namespace planner {
 			}
 			// TODO
 			for (util::Phrase* dep : phrase->dependencies) {
-				if (plannedPhrases.find(dep) != plannedPhrases.end()) continue;
-
 				if (phrase->complexity < dep->complexity * dep->frequency) {
-					plannedPhrases.insert(dep);
+					plannedPhrases.push_back(dep);
 				}
 				else {
 					for (util::Word* w : dep->words) {
 						if (needsReview(w, currentCycle)) {
-							plannedPhrases.insert(dep);
+							plannedPhrases.push_back(dep);
 							break;
 						}
 					}
 				}
 			}
 
+			for (int i = 0; i < min(static_cast<size_t>(rand() % 2), plannedPhrases.size()); i++) {
+				int idx = rand() % plannedPhrases.size(); // gives random phrase
+				
+				util::Phrase* p = plannedPhrases.at(idx);
 
-			if (!plannedPhrases.empty()) {
-				auto first = *plannedPhrases.begin();
-				if (first->frequency == 0) {
-					introducePhraseInPlan(first, currentCycle, out);
+				if (p->frequency == 0) {
+					introducePhraseInPlan(p, currentCycle, out);
 				}
-				usePhraseInPlan(first, "PHRASE", currentCycle, out);
-				if (plannedPhrases.size() > 1) {
-					usePhraseInPlan(*(--plannedPhrases.end()), "PHRASE", currentCycle, out);
-				}
+				usePhraseInPlan(p, currentCycle, out);
 			}
 
-			usePhraseInPlan(phrase, "PHRASE", currentCycle, out);
+			usePhraseInPlan(phrase, currentCycle, out);
 		}
 
 		currentCycle++;
