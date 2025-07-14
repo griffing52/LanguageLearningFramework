@@ -7,7 +7,7 @@ import tempfile
 import librosa
 import config
 
-from helper import format_text
+from tts.cleaner import format_text
 
 
 checkpoint = "microsoft/speecht5_tts"

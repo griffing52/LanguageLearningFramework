@@ -134,8 +134,8 @@ void loader::addPhrases(vector<util::Phrase*>& phraseList, map<string, util::Wor
 
 					if (wordMap.count(word) <= 0) {
 						// cerr?
-						cout << word << " not found in dictionary" << endl;
-						return;
+						cout << "\"" << word << "\" not found in dictionary" << endl;
+						continue;
 					}
 
 					util::Word* w = wordMap[word];
@@ -255,8 +255,8 @@ void loader::loadMemoryFile(vector<util::Phrase*>& phraseList, map<string, util:
 
 				if (wordMap.count(word) <= 0) {
 					// cerr?
-					cout << word << " not found in dictionary" << endl;
-					return;
+					cout << "\"" << word << "\" not found in dictionary" << endl;
+					continue;
 				}
 
 				util::Word* w = wordMap[word];
@@ -331,11 +331,12 @@ void loader::loadLessonPlan(const string filename, vector<util::Phrase*>& currPh
 				//numSpaces++;
 
 				string word = line.substr(prevSpaceIdx + 1, i - prevSpaceIdx - 1);
+				prevSpaceIdx = (int)i;
 
 				if (wordMap.count(word) <= 0) {
 					// cerr?
-					cout << word << " not found in dictionary" << endl;
-					return;
+					cout << "\"" << word << "\" not found in dictionary" << endl;
+					continue;
 				}
 
 				util::Word* w = wordMap[word];
@@ -344,8 +345,7 @@ void loader::loadLessonPlan(const string filename, vector<util::Phrase*>& currPh
 				phrase->complexity += w->complexity;
 				//phrase->dependencies.push((util::Phrase*) wordMap[word]);
 
-				prevSpaceIdx = (int)i;
-			}
+		   	}
 		}
 
 		// number of words + 1

@@ -47,7 +47,7 @@ replacements = [
     ("î", "i"),   # Long i
     ("ö", "oe"),  # Similar to German ö
     ("ş", "sh"),  # Sh as in "shoe"
-    ("üü", "uue"),  # Similar to German ü
+    ("üü", "uu"),  # Similar to German ü
     ("ü", "ue"),  # Similar to German ü
     ("û", "u"),   # Long u
 ]
@@ -75,10 +75,3 @@ def format_text(text):
     normalized_text = normalize_text(converted_text)
     final_text = cleanup_text(normalized_text)
     return final_text
-
-def clean_file(path):
-    with open(path, "r", encoding="utf-8") as f:
-        lines = f.readlines()
-
-    cleaned_lines = [format_text(line) for line in lines]
-    return cleaned_lines

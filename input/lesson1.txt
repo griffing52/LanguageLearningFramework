@@ -9,3 +9,4 @@ Pizza und SpaghettiBolognese=Pizza and Spaghetti Bolognese
 mier hend luscht uf Pizza und SpaghettiBolognese=we want pizza and spaghetti bolognese
 mier goend weil mier luscht hend uf Pizza und SpaghettiBolognese=we are going because we want pizza and spaghetti bolognese
 mier goend das wuchenendi uf Italie weil mier luscht hend uf Pizza und SpaghettiBolognese=We are going to Italy this weekend because we want pizza and spaghetti bolognese
+test one mier=this is a test
