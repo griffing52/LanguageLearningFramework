@@ -1,6 +1,6 @@
 import os
 import json
-from cleaner import format_text
+from cleaner import format_text, cleanup_text
 import numpy as np
 
 def clean_raw_data(directory_path):
@@ -38,11 +38,14 @@ def clean_formatted_file(path):
 
 # add support for known words?  
 def generate_words_from_csv(path):
-    data = np.loadtxt(path, delimiter=',', dtype=str) 
+    data = np.loadtxt(path, delimiter=',', dtype=str, encoding='utf-8') 
     with open("input/words_gen.txt", "w", encoding="utf-8") as f:
         for swiss, english in data:
+            if english == "" or swiss == "":
+                print(f"Skipping empty entry: Swiss='{swiss}', English='{english}'")
+                continue
             swiss_clean = format_text(swiss)
-            english_clean = english.strip()
+            english_clean = cleanup_text(english).strip()
             f.write(f"{swiss_clean}={english_clean}\n")
 
 generate_words_from_csv('tts/swiss_dict.csv')

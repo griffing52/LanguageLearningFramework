@@ -34,12 +34,13 @@ def replace_numbers_with_words(text):
         return number_to_words(number)
 
     # Find the numbers and change with words.
-    result = re.sub(r'\b\d+(?=\D)', replace, text)
+    result = re.sub(r'\b\d+(?=\D|$)', replace, text)
 
     return result
 
 replacements = [
     ("â", "a"),  # Long a
+    ("ä", "ae"),  # Long a
     ("ä", "ae"),  # Long a
     ("ç", "ch"),  # Ch as in "chair"
     ("ğ", "gh"),  # Silent g or slight elongation of the preceding vowel
