@@ -1,0 +1,1882 @@
+[INTRO] Listen to the way you say
+[NARRATION] I want
+[PHRASE] ich wott
+[WAIT] 2
+[INTRO] Let's learn how to say
+[NARRATION] I
+[WORD] ich
+[WAIT] 2
+[NARRATION] How do you say
+[NARRATION] I
+[WAIT] 2
+[WORD] ich
+[NARRATION] How do you say
+[NARRATION] I want
+[WAIT] 2
+[PHRASE] ich wott
+[WAIT] 2
+[INTRO] Listen and repeat the following which means
+[NARRATION] I want to go out into the nature.
+[PHRASE] ich wott use i d natur
+[WAIT] 6
+[NARRATION] How do you say
+[NARRATION] I
+[WAIT] 2
+[WORD] ich
+[INTRO] Listen and repeat the following which means
+[NARRATION] in
+[WORD] i
+[WAIT] 2
+[NARRATION] How do you say
+[NARRATION] in
+[WAIT] 2
+[WORD] i
+[INTRO] Let's learn how to say
+[NARRATION] the
+[WORD] d
+[WAIT] 2
+[NARRATION] How do you say
+[NARRATION] the
+[WAIT] 2
+[WORD] d
+[INTRO] Listen to the way you say
+[NARRATION] I want
+[WORD] wott
+[WAIT] 2
+[NARRATION] How do you say
+[NARRATION] I want
+[WAIT] 2
+[WORD] wott
+[INTRO] Listen to the way you say
+[NARRATION] use
+[WORD] use
+[WAIT] 2
+[NARRATION] Let's hear you say
+[NARRATION] use
+[WAIT] 2
+[WORD] use
+[INTRO] Listen to the way you say
+[NARRATION] I must
+[PHRASE] ich mues
+[WAIT] 2
+[NARRATION] Let's hear you say
+[NARRATION] I must
+[WAIT] 2
+[PHRASE] ich mues
+[WAIT] 2
+[NARRATION] Let's hear you say
+[NARRATION] I want to go out into the nature.
+[WAIT] 6
+[PHRASE] ich wott use i d natur
+[WAIT] 6
+[INTRO] Listen to the way you say
+[NARRATION] I can
+[PHRASE] ich cha
+[WAIT] 2
+[INTRO] Listen and repeat the following which means
+[NARRATION] I should
+[PHRASE] ich soett
+[WAIT] 2
+[NARRATION] How do you say
+[NARRATION] I should
+[WAIT] 2
+[PHRASE] ich soett
+[WAIT] 2
+[NARRATION] Let's hear you say
+[NARRATION] I can
+[WAIT] 2
+[PHRASE] ich cha
+[WAIT] 2
+[INTRO] Listen to the way you say
+[NARRATION] I can make a fire well.
+[PHRASE] ich cha guet fuur mache
+[WAIT] 5
+[INTRO] Listen to the way you say
+[NARRATION] good
+[WORD] guet
+[WAIT] 2
+[NARRATION] Let's hear you say
+[NARRATION] good
+[WAIT] 2
+[WORD] guet
+[INTRO] Let's learn how to say
+[NARRATION] I can
+[WORD] cha
+[WAIT] 2
+[NARRATION] How do you say
+[NARRATION] I can
+[WAIT] 2
+[WORD] cha
+[INTRO] Let's learn how to say
+[NARRATION] fire
+[WORD] fuur
+[WAIT] 2
+[NARRATION] Let's hear you say
+[NARRATION] fire
+[WAIT] 2
+[WORD] fuur
+[NARRATION] Let's hear you say
+[NARRATION] I can make a fire well.
+[WAIT] 5
+[PHRASE] ich cha guet fuur mache
+[WAIT] 5
+[NARRATION] Let's hear you say
+[NARRATION] I must
+[WAIT] 2
+[PHRASE] ich mues
+[WAIT] 2
+[INTRO] Listen to the way you say
+[NARRATION] I have to drive carefully.
+[PHRASE] ich mues vorsichtig fahre
+[WAIT] 4
+[INTRO] Listen and repeat the following which means
+[NARRATION] I must
+[WORD] mues
+[WAIT] 2
+[NARRATION] Let's hear you say
+[NARRATION] I must
+[WAIT] 2
+[WORD] mues
+[INTRO] Listen and repeat the following which means
+[NARRATION] catious
+[WORD] vorsichtig
+[WAIT] 2
+[NARRATION] Let's hear you say
+[NARRATION] catious
+[WAIT] 2
+[WORD] vorsichtig
+[NARRATION] Let's hear you say
+[NARRATION] I should
+[WAIT] 2
+[PHRASE] ich soett
+[WAIT] 2
+[NARRATION] How do you say
+[NARRATION] I have to drive carefully.
+[WAIT] 4
+[PHRASE] ich mues vorsichtig fahre
+[WAIT] 4
+[NARRATION] How do you say
+[NARRATION] I should
+[WAIT] 2
+[PHRASE] ich soett
+[WAIT] 2
+[INTRO] Listen and repeat the following which means
+[NARRATION] I should get help.
+[PHRASE] ich soett hilf hole
+[WAIT] 4
+[INTRO] Listen to the way you say
+[NARRATION] should
+[WORD] soett
+[WAIT] 2
+[NARRATION] How do you say
+[NARRATION] should
+[WAIT] 2
+[WORD] soett
+[INTRO] Listen to the way you say
+[NARRATION] help
+[WORD] hilf
+[WAIT] 2
+[NARRATION] Let's hear you say
+[NARRATION] help
+[WAIT] 2
+[WORD] hilf
+[INTRO] Listen and repeat the following which means
+[NARRATION] I have the strength, time, or capacity
+[PHRASE] ich mag
+[WAIT] 2
+[NARRATION] How do you say
+[NARRATION] I have the strength, time, or capacity
+[WAIT] 2
+[PHRASE] ich mag
+[WAIT] 2
+[NARRATION] Let's hear you say
+[NARRATION] I should get help.
+[WAIT] 4
+[PHRASE] ich soett hilf hole
+[WAIT] 4
+[INTRO] Listen to the way you say
+[NARRATION] I am allowed to
+[PHRASE] ich daf
+[WAIT] 2
+[NARRATION] How do you say
+[NARRATION] I must
+[WAIT] 2
+[PHRASE] ich mues
+[WAIT] 2
+[NARRATION] How do you say
+[NARRATION] I am allowed to
+[WAIT] 2
+[PHRASE] ich daf
+[WAIT] 2
+[INTRO] Listen and repeat the following which means
+[NARRATION] “I'm not allowed” to forget this.
+[PHRASE] ich daf das nid vergaesse
+[WAIT] 5
+[INTRO] Let's learn how to say
+[NARRATION] the
+[WORD] das
+[WAIT] 2
+[NARRATION] Let's hear you say
+[NARRATION] the
+[WAIT] 2
+[WORD] das
+[INTRO] Let's learn how to say
+[NARRATION] not
+[WORD] nid
+[WAIT] 2
+[NARRATION] Let's hear you say
+[NARRATION] not
+[WAIT] 2
+[WORD] nid
+[INTRO] Listen and repeat the following which means
+[NARRATION] unclear
+[WORD] daf
+[WAIT] 2
+[NARRATION] Let's hear you say
+[NARRATION] unclear
+[WAIT] 2
+[WORD] daf
+[NARRATION] How do you say
+[NARRATION] “I'm not allowed” to forget this.
+[WAIT] 5
+[PHRASE] ich daf das nid vergaesse
+[WAIT] 5
+[NARRATION] How do you say
+[NARRATION] I have the strength, time, or capacity
+[WAIT] 2
+[PHRASE] ich mag
+[WAIT] 2
+[INTRO] Listen to the way you say
+[NARRATION] I don't have the strength, capacity anymore (depends on the context)
+[PHRASE] ich mag nuemm
+[WAIT] 3
+[INTRO] Listen and repeat the following which means
+[NARRATION] to like/continue
+[WORD] mag
+[WAIT] 2
+[NARRATION] How do you say
+[NARRATION] to like/continue
+[WAIT] 2
+[WORD] mag
+[NARRATION] Let's hear you say
+[NARRATION] I should
+[WAIT] 2
+[PHRASE] ich soett
+[WAIT] 2
+[NARRATION] Let's hear you say
+[NARRATION] I don't have the strength, capacity anymore (depends on the context)
+[WAIT] 3
+[PHRASE] ich mag nuemm
+[WAIT] 3
+[INTRO] Let's learn how to say
+[NARRATION] I need some time alone.
+[PHRASE] ich bruuche chli ziit fuer mich
+[WAIT] 6
+[INTRO] Listen to the way you say
+[NARRATION] for
+[WORD] fuer
+[WAIT] 2
+[NARRATION] Let's hear you say
+[NARRATION] for
+[WAIT] 2
+[WORD] fuer
+[INTRO] Let's learn how to say
+[NARRATION] little
+[WORD] chli
+[WAIT] 2
+[NARRATION] How do you say
+[NARRATION] little
+[WAIT] 2
+[WORD] chli
+[INTRO] Listen to the way you say
+[NARRATION] time
+[WORD] ziit
+[WAIT] 2
+[NARRATION] Let's hear you say
+[NARRATION] time
+[WAIT] 2
+[WORD] ziit
+[INTRO] Listen to the way you say
+[NARRATION] I need
+[WORD] bruuche
+[WAIT] 2
+[NARRATION] How do you say
+[NARRATION] I need
+[WAIT] 2
+[WORD] bruuche
+[NARRATION] How do you say
+[NARRATION] I need some time alone.
+[WAIT] 6
+[PHRASE] ich bruuche chli ziit fuer mich
+[WAIT] 6
+[INTRO] Listen to the way you say
+[NARRATION] I need to clear my head again.
+[PHRASE] ich mues wider e klare chopf uebercho
+[WAIT] 7
+[INTRO] Listen to the way you say
+[NARRATION] a
+[WORD] e
+[WAIT] 2
+[NARRATION] Let's hear you say
+[NARRATION] a
+[WAIT] 2
+[WORD] e
+[INTRO] Listen to the way you say
+[NARRATION] again
+[WORD] wider
+[WAIT] 2
+[NARRATION] How do you say
+[NARRATION] again
+[WAIT] 2
+[WORD] wider
+[NARRATION] How do you say
+[NARRATION] I must
+[WAIT] 2
+[WORD] mues
+[INTRO] Let's learn how to say
+[NARRATION] head
+[WORD] chopf
+[WAIT] 2
+[NARRATION] How do you say
+[NARRATION] head
+[WAIT] 2
+[WORD] chopf
+[INTRO] Listen and repeat the following which means
+[NARRATION] clear
+[WORD] klare
+[WAIT] 2
+[NARRATION] How do you say
+[NARRATION] clear
+[WAIT] 2
+[WORD] klare
+[NARRATION] Let's hear you say
+[NARRATION] I need to clear my head again.
+[WAIT] 7
+[PHRASE] ich mues wider e klare chopf uebercho
+[WAIT] 7
+[INTRO] Listen and repeat the following which means
+[NARRATION] Life is too short.
+[PHRASE] s laebe isch so churz
+[WAIT] 5
+[INTRO] Listen to the way you say
+[NARRATION] is
+[WORD] isch
+[WAIT] 2
+[NARRATION] Let's hear you say
+[NARRATION] is
+[WAIT] 2
+[WORD] isch
+[INTRO] Let's learn how to say
+[NARRATION] the
+[WORD] s
+[WAIT] 2
+[NARRATION] Let's hear you say
+[NARRATION] the
+[WAIT] 2
+[WORD] s
+[INTRO] Let's learn how to say
+[NARRATION] so
+[WORD] so
+[WAIT] 2
+[NARRATION] Let's hear you say
+[NARRATION] so
+[WAIT] 2
+[WORD] so
+[INTRO] Let's learn how to say
+[NARRATION] life
+[WORD] laebe
+[WAIT] 2
+[NARRATION] How do you say
+[NARRATION] life
+[WAIT] 2
+[WORD] laebe
+[NARRATION] How do you say
+[NARRATION] Life is too short.
+[WAIT] 5
+[PHRASE] s laebe isch so churz
+[WAIT] 5
+[INTRO] Listen to the way you say
+[NARRATION] I'm much too busy.
+[PHRASE] ich bi vil z beschaeftiget
+[WAIT] 5
+[INTRO] Listen to the way you say
+[NARRATION] I am
+[WORD] bi
+[WAIT] 2
+[NARRATION] Let's hear you say
+[NARRATION] I am
+[WAIT] 2
+[WORD] bi
+[INTRO] Listen and repeat the following which means
+[NARRATION] to
+[WORD] z
+[WAIT] 2
+[NARRATION] Let's hear you say
+[NARRATION] to
+[WAIT] 2
+[WORD] z
+[INTRO] Listen to the way you say
+[NARRATION] too much
+[WORD] vil
+[WAIT] 2
+[NARRATION] How do you say
+[NARRATION] too much
+[WAIT] 2
+[WORD] vil
+[NARRATION] How do you say
+[NARRATION] I want
+[WAIT] 2
+[PHRASE] ich wott
+[WAIT] 2
+[NARRATION] How do you say
+[NARRATION] I'm much too busy.
+[WAIT] 5
+[PHRASE] ich bi vil z beschaeftiget
+[WAIT] 5
+[INTRO] Listen to the way you say
+[NARRATION] I shouldn't work so much.
+[PHRASE] ich soett nid so vil schaffe
+[WAIT] 6
+[NARRATION] How do you say
+[NARRATION] not
+[WAIT] 2
+[WORD] nid
+[NARRATION] Let's hear you say
+[NARRATION] so
+[WAIT] 2
+[WORD] so
+[NARRATION] How do you say
+[NARRATION] too much
+[WAIT] 2
+[WORD] vil
+[NARRATION] How do you say
+[NARRATION] should
+[WAIT] 2
+[WORD] soett
+[NARRATION] Let's hear you say
+[NARRATION] I shouldn't work so much.
+[WAIT] 6
+[PHRASE] ich soett nid so vil schaffe
+[WAIT] 6
+[INTRO] Listen to the way you say
+[NARRATION] This will be an amazing time-out.
+[PHRASE] das wird e grossartigi uusziit
+[WAIT] 5
+[NARRATION] How do you say
+[NARRATION] the
+[WAIT] 2
+[WORD] das
+[NARRATION] How do you say
+[NARRATION] a
+[WAIT] 2
+[WORD] e
+[INTRO] Let's learn how to say
+[NARRATION] will be
+[WORD] wird
+[WAIT] 2
+[NARRATION] Let's hear you say
+[NARRATION] will be
+[WAIT] 2
+[WORD] wird
+[INTRO] Listen and repeat the following which means
+[NARRATION] amazing
+[WORD] grossartigi
+[WAIT] 2
+[NARRATION] How do you say
+[NARRATION] amazing
+[WAIT] 2
+[WORD] grossartigi
+[NARRATION] How do you say
+[NARRATION] I have the strength, time, or capacity
+[WAIT] 2
+[PHRASE] ich mag
+[WAIT] 2
+[NARRATION] How do you say
+[NARRATION] This will be an amazing time-out.
+[WAIT] 5
+[PHRASE] das wird e grossartigi uusziit
+[WAIT] 5
+[INTRO] Listen to the way you say
+[NARRATION] Just me and the nature.
+[PHRASE] nur ich und d natur
+[WAIT] 5
+[NARRATION] How do you say
+[NARRATION] the
+[WAIT] 2
+[WORD] d
+[INTRO] Listen to the way you say
+[NARRATION] and
+[WORD] und
+[WAIT] 2
+[NARRATION] Let's hear you say
+[NARRATION] and
+[WAIT] 2
+[WORD] und
+[INTRO] Let's learn how to say
+[NARRATION] only
+[WORD] nur
+[WAIT] 2
+[NARRATION] Let's hear you say
+[NARRATION] only
+[WAIT] 2
+[WORD] nur
+[NARRATION] How do you say
+[NARRATION] Just me and the nature.
+[WAIT] 5
+[PHRASE] nur ich und d natur
+[WAIT] 5
+[INTRO] Listen and repeat the following which means
+[NARRATION] I'm allowed just to be.
+[PHRASE] ich daf eifach sii
+[WAIT] 4
+[INTRO] Listen to the way you say
+[NARRATION] simply
+[WORD] eifach
+[WAIT] 2
+[NARRATION] How do you say
+[NARRATION] simply
+[WAIT] 2
+[WORD] eifach
+[NARRATION] Let's hear you say
+[NARRATION] unclear
+[WAIT] 2
+[WORD] daf
+[NARRATION] Let's hear you say
+[NARRATION] I'm allowed just to be.
+[WAIT] 4
+[PHRASE] ich daf eifach sii
+[WAIT] 4
+[INTRO] Listen to the way you say
+[NARRATION] Here is an amazing view of the mountains.
+[PHRASE] do isch e wunderbari uussicht uf d baerge
+[WAIT] 8
+[NARRATION] How do you say
+[NARRATION] is
+[WAIT] 2
+[WORD] isch
+[INTRO] Listen to the way you say
+[NARRATION] there
+[WORD] do
+[WAIT] 2
+[NARRATION] Let's hear you say
+[NARRATION] there
+[WAIT] 2
+[WORD] do
+[INTRO] Let's learn how to say
+[NARRATION] to/for
+[WORD] uf
+[WAIT] 2
+[NARRATION] Let's hear you say
+[NARRATION] to/for
+[WAIT] 2
+[WORD] uf
+[INTRO] Listen and repeat the following which means
+[NARRATION] view
+[WORD] uussicht
+[WAIT] 2
+[NARRATION] How do you say
+[NARRATION] view
+[WAIT] 2
+[WORD] uussicht
+[INTRO] Let's learn how to say
+[NARRATION] wonderful
+[WORD] wunderbari
+[WAIT] 2
+[NARRATION] How do you say
+[NARRATION] wonderful
+[WAIT] 2
+[WORD] wunderbari
+[NARRATION] How do you say
+[NARRATION] I have the strength, time, or capacity
+[WAIT] 2
+[PHRASE] ich mag
+[WAIT] 2
+[NARRATION] How do you say
+[NARRATION] Here is an amazing view of the mountains.
+[WAIT] 8
+[PHRASE] do isch e wunderbari uussicht uf d baerge
+[WAIT] 8
+[INTRO] Let's learn how to say
+[NARRATION] I can do everything I want here.
+[PHRASE] ich cha do alles mache woni wott
+[WAIT] 7
+[NARRATION] How do you say
+[NARRATION] there
+[WAIT] 2
+[WORD] do
+[NARRATION] Let's hear you say
+[NARRATION] I can
+[WAIT] 2
+[WORD] cha
+[INTRO] Listen and repeat the following which means
+[NARRATION] I make
+[WORD] mache
+[WAIT] 2
+[NARRATION] How do you say
+[NARRATION] I make
+[WAIT] 2
+[WORD] mache
+[INTRO] Let's learn how to say
+[NARRATION] everything
+[WORD] alles
+[WAIT] 2
+[NARRATION] How do you say
+[NARRATION] everything
+[WAIT] 2
+[WORD] alles
+[INTRO] Listen to the way you say
+[NARRATION] where
+[WORD] woni
+[WAIT] 2
+[NARRATION] How do you say
+[NARRATION] where
+[WAIT] 2
+[WORD] woni
+[NARRATION] How do you say
+[NARRATION] I can do everything I want here.
+[WAIT] 7
+[PHRASE] ich cha do alles mache woni wott
+[WAIT] 7
+[INTRO] Listen to the way you say
+[NARRATION] Above all, I can reflect on what's really important in Life.
+[PHRASE] vor allem chani mi wider uf das besinne wo wichtig isch im laebe
+[WAIT] 13
+[INTRO] Listen to the way you say
+[NARRATION] in the
+[WORD] im
+[WAIT] 2
+[NARRATION] Let's hear you say
+[NARRATION] in the
+[WAIT] 2
+[WORD] im
+[NARRATION] How do you say
+[NARRATION] to/for
+[WAIT] 2
+[WORD] uf
+[INTRO] Let's learn how to say
+[NARRATION] where
+[WORD] wo
+[WAIT] 2
+[NARRATION] Let's hear you say
+[NARRATION] where
+[WAIT] 2
+[WORD] wo
+[NARRATION] How do you say
+[NARRATION] again
+[WAIT] 2
+[WORD] wider
+[INTRO] Let's learn how to say
+[NARRATION] before
+[WORD] vor
+[WAIT] 2
+[NARRATION] Let's hear you say
+[NARRATION] before
+[WAIT] 2
+[WORD] vor
+[INTRO] Listen and repeat the following which means
+[NARRATION] my
+[WORD] mi
+[WAIT] 2
+[NARRATION] How do you say
+[NARRATION] my
+[WAIT] 2
+[WORD] mi
+[INTRO] Let's learn how to say
+[NARRATION] important
+[WORD] wichtig
+[WAIT] 2
+[NARRATION] Let's hear you say
+[NARRATION] important
+[WAIT] 2
+[WORD] wichtig
+[INTRO] Let's learn how to say
+[NARRATION] all
+[WORD] allem
+[WAIT] 2
+[NARRATION] Let's hear you say
+[NARRATION] all
+[WAIT] 2
+[WORD] allem
+[INTRO] Listen and repeat the following which means
+[NARRATION] I can
+[WORD] chani
+[WAIT] 2
+[NARRATION] How do you say
+[NARRATION] I can
+[WAIT] 2
+[WORD] chani
+[INTRO] Listen to the way you say
+[NARRATION] reflect
+[WORD] besinne
+[WAIT] 2
+[NARRATION] Let's hear you say
+[NARRATION] reflect
+[WAIT] 2
+[WORD] besinne
+[NARRATION] Let's hear you say
+[NARRATION] Above all, I can reflect on what's really important in Life.
+[WAIT] 13
+[PHRASE] vor allem chani mi wider uf das besinne wo wichtig isch im laebe
+[WAIT] 13
+[INTRO] Let's learn how to say
+[NARRATION] This is easy work.
+[PHRASE] das isch jo ganz eifach gange
+[WAIT] 6
+[INTRO] Listen to the way you say
+[NARRATION] yes
+[WORD] jo
+[WAIT] 2
+[NARRATION] How do you say
+[NARRATION] yes
+[WAIT] 2
+[WORD] jo
+[NARRATION] Let's hear you say
+[NARRATION] simply
+[WAIT] 2
+[WORD] eifach
+[INTRO] Listen to the way you say
+[NARRATION] entire
+[WORD] ganz
+[WAIT] 2
+[NARRATION] Let's hear you say
+[NARRATION] entire
+[WAIT] 2
+[WORD] ganz
+[NARRATION] Let's hear you say
+[NARRATION] I can
+[WAIT] 2
+[PHRASE] ich cha
+[WAIT] 2
+[NARRATION] How do you say
+[NARRATION] This is easy work.
+[WAIT] 6
+[PHRASE] das isch jo ganz eifach gange
+[WAIT] 6
+[INTRO] Let's learn how to say
+[NARRATION] Lighting up the fire is easy peasy.
+[PHRASE] es isch ganz eifach gsi das fuur z mache
+[WAIT] 9
+[INTRO] Let's learn how to say
+[NARRATION] a
+[WORD] es
+[WAIT] 2
+[NARRATION] How do you say
+[NARRATION] a
+[WAIT] 2
+[WORD] es
+[INTRO] Listen to the way you say
+[NARRATION] past tense
+[WORD] gsi
+[WAIT] 2
+[NARRATION] Let's hear you say
+[NARRATION] past tense
+[WAIT] 2
+[WORD] gsi
+[NARRATION] Let's hear you say
+[NARRATION] to
+[WAIT] 2
+[WORD] z
+[NARRATION] How do you say
+[NARRATION] entire
+[WAIT] 2
+[WORD] ganz
+[NARRATION] Let's hear you say
+[NARRATION] fire
+[WAIT] 2
+[WORD] fuur
+[NARRATION] How do you say
+[NARRATION] I have the strength, time, or capacity
+[WAIT] 2
+[PHRASE] ich mag
+[WAIT] 2
+[NARRATION] Let's hear you say
+[NARRATION] Lighting up the fire is easy peasy.
+[WAIT] 9
+[PHRASE] es isch ganz eifach gsi das fuur z mache
+[WAIT] 9
+[INTRO] Listen and repeat the following which means
+[NARRATION] Going camping in winter?
+[PHRASE] caempe im winter
+[WAIT] 3
+[NARRATION] Let's hear you say
+[NARRATION] in the
+[WAIT] 2
+[WORD] im
+[INTRO] Listen to the way you say
+[NARRATION] camp
+[WORD] caempe
+[WAIT] 2
+[NARRATION] Let's hear you say
+[NARRATION] camp
+[WAIT] 2
+[WORD] caempe
+[NARRATION] Let's hear you say
+[NARRATION] Going camping in winter?
+[WAIT] 3
+[PHRASE] caempe im winter
+[WAIT] 3
+[INTRO] Let's learn how to say
+[NARRATION] This is a piece of cake.
+[PHRASE] das isch es chinderschpil
+[WAIT] 4
+[NARRATION] Let's hear you say
+[NARRATION] a
+[WAIT] 2
+[WORD] es
+[NARRATION] How do you say
+[NARRATION] I should
+[WAIT] 2
+[PHRASE] ich soett
+[WAIT] 2
+[NARRATION] How do you say
+[NARRATION] This is a piece of cake.
+[WAIT] 4
+[PHRASE] das isch es chinderschpil
+[WAIT] 4
+[INTRO] Let's learn how to say
+[NARRATION] I'll grill up a sausage on this.
+[PHRASE] ich tue als erschts mol e cervelat broetle
+[WAIT] 8
+[INTRO] Listen to the way you say
+[NARRATION] time
+[WORD] mol
+[WAIT] 2
+[NARRATION] How do you say
+[NARRATION] time
+[WAIT] 2
+[WORD] mol
+[INTRO] Listen and repeat the following which means
+[NARRATION] I do
+[WORD] tue
+[WAIT] 2
+[NARRATION] How do you say
+[NARRATION] I do
+[WAIT] 2
+[WORD] tue
+[INTRO] Listen to the way you say
+[NARRATION] as
+[WORD] als
+[WAIT] 2
+[NARRATION] How do you say
+[NARRATION] as
+[WAIT] 2
+[WORD] als
+[INTRO] Listen to the way you say
+[NARRATION] first
+[WORD] erschts
+[WAIT] 2
+[NARRATION] How do you say
+[NARRATION] first
+[WAIT] 2
+[WORD] erschts
+[INTRO] Listen and repeat the following which means
+[NARRATION] sausage
+[WORD] cervelat
+[WAIT] 2
+[NARRATION] How do you say
+[NARRATION] sausage
+[WAIT] 2
+[WORD] cervelat
+[NARRATION] How do you say
+[NARRATION] I'll grill up a sausage on this.
+[WAIT] 8
+[PHRASE] ich tue als erschts mol e cervelat broetle
+[WAIT] 8
+[INTRO] Let's learn how to say
+[NARRATION] I love to be spontaneous.
+[PHRASE] ich bi sehr gaern schpontan
+[WAIT] 5
+[NARRATION] Let's hear you say
+[NARRATION] I am
+[WAIT] 2
+[WORD] bi
+[INTRO] Let's learn how to say
+[NARRATION] to like
+[WORD] gaern
+[WAIT] 2
+[NARRATION] How do you say
+[NARRATION] to like
+[WAIT] 2
+[WORD] gaern
+[INTRO] Listen to the way you say
+[NARRATION] very
+[WORD] sehr
+[WAIT] 2
+[NARRATION] How do you say
+[NARRATION] very
+[WAIT] 2
+[WORD] sehr
+[NARRATION] How do you say
+[NARRATION] I love to be spontaneous.
+[WAIT] 5
+[PHRASE] ich bi sehr gaern schpontan
+[WAIT] 5
+[INTRO] Let's learn how to say
+[NARRATION] What's wrong?
+[PHRASE] oje was isch do los
+[WAIT] 5
+[INTRO] Listen and repeat the following which means
+[NARRATION] what
+[WORD] was
+[WAIT] 2
+[NARRATION] How do you say
+[NARRATION] what
+[WAIT] 2
+[WORD] was
+[INTRO] Listen and repeat the following which means
+[NARRATION] oh
+[WORD] oje
+[WAIT] 2
+[NARRATION] Let's hear you say
+[NARRATION] oh
+[WAIT] 2
+[WORD] oje
+[NARRATION] How do you say
+[NARRATION] What's wrong?
+[WAIT] 5
+[PHRASE] oje was isch do los
+[WAIT] 5
+[INTRO] Listen and repeat the following which means
+[NARRATION] What happened here?
+[PHRASE] was isch do passiert
+[WAIT] 4
+[NARRATION] How do you say
+[NARRATION] what
+[WAIT] 2
+[WORD] was
+[NARRATION] How do you say
+[NARRATION] What happened here?
+[WAIT] 4
+[PHRASE] was isch do passiert
+[WAIT] 4
+[INTRO] Listen to the way you say
+[NARRATION] Dammit, I have a flat tire.
+[PHRASE] verflixt ich hane platte
+[WAIT] 4
+[INTRO] Listen and repeat the following which means
+[NARRATION] dammit
+[WORD] verflixt
+[WAIT] 2
+[NARRATION] Let's hear you say
+[NARRATION] dammit
+[WAIT] 2
+[WORD] verflixt
+[INTRO] Listen and repeat the following which means
+[NARRATION] have a
+[WORD] hane
+[WAIT] 2
+[NARRATION] How do you say
+[NARRATION] have a
+[WAIT] 2
+[WORD] hane
+[NARRATION] Let's hear you say
+[NARRATION] Dammit, I have a flat tire.
+[WAIT] 4
+[PHRASE] verflixt ich hane platte
+[WAIT] 4
+[INTRO] Listen to the way you say
+[NARRATION] This never happened to me before.
+[PHRASE] das isch mir no nie passiert
+[WAIT] 6
+[INTRO] Listen to the way you say
+[NARRATION] to me
+[WORD] mir
+[WAIT] 2
+[NARRATION] Let's hear you say
+[NARRATION] to me
+[WAIT] 2
+[WORD] mir
+[INTRO] Let's learn how to say
+[NARRATION] still
+[WORD] no
+[WAIT] 2
+[NARRATION] Let's hear you say
+[NARRATION] still
+[WAIT] 2
+[WORD] no
+[INTRO] Let's learn how to say
+[NARRATION] never
+[WORD] nie
+[WAIT] 2
+[NARRATION] How do you say
+[NARRATION] never
+[WAIT] 2
+[WORD] nie
+[NARRATION] Let's hear you say
+[NARRATION] This never happened to me before.
+[WAIT] 6
+[PHRASE] das isch mir no nie passiert
+[WAIT] 6
+[INTRO] Listen to the way you say
+[NARRATION] Why does this have to happen just now?
+[PHRASE] wiso mues das uusgraechnet jetz passiere
+[WAIT] 6
+[INTRO] Listen and repeat the following which means
+[NARRATION] now
+[WORD] jetz
+[WAIT] 2
+[NARRATION] Let's hear you say
+[NARRATION] now
+[WAIT] 2
+[WORD] jetz
+[INTRO] Let's learn how to say
+[NARRATION] why
+[WORD] wiso
+[WAIT] 2
+[NARRATION] How do you say
+[NARRATION] why
+[WAIT] 2
+[WORD] wiso
+[INTRO] Listen and repeat the following which means
+[NARRATION] of all things
+[WORD] uusgraechnet
+[WAIT] 2
+[NARRATION] Let's hear you say
+[NARRATION] of all things
+[WAIT] 2
+[WORD] uusgraechnet
+[NARRATION] How do you say
+[NARRATION] I should
+[WAIT] 2
+[PHRASE] ich soett
+[WAIT] 2
+[NARRATION] Let's hear you say
+[NARRATION] Why does this have to happen just now?
+[WAIT] 6
+[PHRASE] wiso mues das uusgraechnet jetz passiere
+[WAIT] 6
+[INTRO] Let's learn how to say
+[NARRATION] I must have a spare in the boot.
+[PHRASE] irgendwo mues i no es ersatzrad ha
+[WAIT] 7
+[NARRATION] Let's hear you say
+[NARRATION] in
+[WAIT] 2
+[WORD] i
+[NARRATION] Let's hear you say
+[NARRATION] still
+[WAIT] 2
+[WORD] no
+[INTRO] Listen and repeat the following which means
+[NARRATION] spare wheel
+[WORD] ersatzrad
+[WAIT] 2
+[NARRATION] Let's hear you say
+[NARRATION] spare wheel
+[WAIT] 2
+[WORD] ersatzrad
+[INTRO] Listen to the way you say
+[NARRATION] somewhere
+[WORD] irgendwo
+[WAIT] 2
+[NARRATION] Let's hear you say
+[NARRATION] somewhere
+[WAIT] 2
+[WORD] irgendwo
+[NARRATION] Let's hear you say
+[NARRATION] I must have a spare in the boot.
+[WAIT] 7
+[PHRASE] irgendwo mues i no es ersatzrad ha
+[WAIT] 7
+[INTRO] Listen and repeat the following which means
+[NARRATION] But I can't find any.
+[PHRASE] ich cha s aber nid finde
+[WAIT] 6
+[NARRATION] How do you say
+[NARRATION] the
+[WAIT] 2
+[WORD] s
+[INTRO] Listen to the way you say
+[NARRATION] but
+[WORD] aber
+[WAIT] 2
+[NARRATION] How do you say
+[NARRATION] but
+[WAIT] 2
+[WORD] aber
+[NARRATION] How do you say
+[NARRATION] I want
+[WAIT] 2
+[PHRASE] ich wott
+[WAIT] 2
+[NARRATION] Let's hear you say
+[NARRATION] But I can't find any.
+[WAIT] 6
+[PHRASE] ich cha s aber nid finde
+[WAIT] 6
+[INTRO] Let's learn how to say
+[NARRATION] This is too hard for me alone.
+[PHRASE] das isch z schwirig fuer mich elei
+[WAIT] 7
+[NARRATION] Let's hear you say
+[NARRATION] for
+[WAIT] 2
+[WORD] fuer
+[INTRO] Let's learn how to say
+[NARRATION] me
+[WORD] mich
+[WAIT] 2
+[NARRATION] How do you say
+[NARRATION] me
+[WAIT] 2
+[WORD] mich
+[INTRO] Let's learn how to say
+[NARRATION] difficult
+[WORD] schwirig
+[WAIT] 2
+[NARRATION] How do you say
+[NARRATION] difficult
+[WAIT] 2
+[WORD] schwirig
+[NARRATION] How do you say
+[NARRATION] I want
+[WAIT] 2
+[PHRASE] ich wott
+[WAIT] 2
+[NARRATION] How do you say
+[NARRATION] This is too hard for me alone.
+[WAIT] 7
+[PHRASE] das isch z schwirig fuer mich elei
+[WAIT] 7
+[INTRO] Let's learn how to say
+[NARRATION] I don't have the strength to do this on my own.
+[PHRASE] ich mag das elei nid mache
+[WAIT] 6
+[INTRO] Listen to the way you say
+[NARRATION] alone
+[WORD] elei
+[WAIT] 2
+[NARRATION] How do you say
+[NARRATION] alone
+[WAIT] 2
+[WORD] elei
+[NARRATION] How do you say
+[NARRATION] to like/continue
+[WAIT] 2
+[WORD] mag
+[NARRATION] Let's hear you say
+[NARRATION] I must
+[WAIT] 2
+[PHRASE] ich mues
+[WAIT] 2
+[NARRATION] How do you say
+[NARRATION] I don't have the strength to do this on my own.
+[WAIT] 6
+[PHRASE] ich mag das elei nid mache
+[WAIT] 6
+[INTRO] Let's learn how to say
+[NARRATION] I have to find another solution.
+[PHRASE] ich mues enanderi loesig sueche
+[WAIT] 5
+[INTRO] Listen to the way you say
+[NARRATION] another
+[WORD] enanderi
+[WAIT] 2
+[NARRATION] How do you say
+[NARRATION] another
+[WAIT] 2
+[WORD] enanderi
+[INTRO] Listen and repeat the following which means
+[NARRATION] solution
+[WORD] loesig
+[WAIT] 2
+[NARRATION] How do you say
+[NARRATION] solution
+[WAIT] 2
+[WORD] loesig
+[NARRATION] Let's hear you say
+[NARRATION] I have to find another solution.
+[WAIT] 5
+[PHRASE] ich mues enanderi loesig sueche
+[WAIT] 5
+[INTRO] Listen to the way you say
+[NARRATION] At the moment I have to forget about my car.
+[PHRASE] im momaent chani miis auto vergaesse
+[WAIT] 6
+[INTRO] Let's learn how to say
+[NARRATION] my
+[WORD] miis
+[WAIT] 2
+[NARRATION] How do you say
+[NARRATION] my
+[WAIT] 2
+[WORD] miis
+[INTRO] Listen and repeat the following which means
+[NARRATION] moment
+[WORD] momaent
+[WAIT] 2
+[NARRATION] How do you say
+[NARRATION] moment
+[WAIT] 2
+[WORD] momaent
+[INTRO] Listen and repeat the following which means
+[NARRATION] car
+[WORD] auto
+[WAIT] 2
+[NARRATION] How do you say
+[NARRATION] car
+[WAIT] 2
+[WORD] auto
+[NARRATION] How do you say
+[NARRATION] I can
+[WAIT] 2
+[WORD] chani
+[NARRATION] Let's hear you say
+[NARRATION] At the moment I have to forget about my car.
+[WAIT] 6
+[PHRASE] im momaent chani miis auto vergaesse
+[WAIT] 6
+[INTRO] Listen to the way you say
+[NARRATION] Luckily there are buses in the mountains.
+[PHRASE] zum glueck git s poschtauto
+[WAIT] 5
+[INTRO] Listen and repeat the following which means
+[NARRATION] to
+[WORD] zum
+[WAIT] 2
+[NARRATION] Let's hear you say
+[NARRATION] to
+[WAIT] 2
+[WORD] zum
+[INTRO] Let's learn how to say
+[NARRATION] gives
+[WORD] git
+[WAIT] 2
+[NARRATION] Let's hear you say
+[NARRATION] gives
+[WAIT] 2
+[WORD] git
+[INTRO] Listen and repeat the following which means
+[NARRATION] luck
+[WORD] glueck
+[WAIT] 2
+[NARRATION] How do you say
+[NARRATION] luck
+[WAIT] 2
+[WORD] glueck
+[NARRATION] How do you say
+[NARRATION] I want
+[WAIT] 2
+[PHRASE] ich wott
+[WAIT] 2
+[NARRATION] How do you say
+[NARRATION] Luckily there are buses in the mountains.
+[WAIT] 5
+[PHRASE] zum glueck git s poschtauto
+[WAIT] 5
+[INTRO] Listen and repeat the following which means
+[NARRATION] A life alone in nature isn't only idyllic.
+[PHRASE] es laebe elei i de natur isch nid nur idyllisch
+[WAIT] 10
+[INTRO] Let's learn how to say
+[NARRATION] the
+[WORD] de
+[WAIT] 2
+[NARRATION] How do you say
+[NARRATION] the
+[WAIT] 2
+[WORD] de
+[NARRATION] Let's hear you say
+[NARRATION] only
+[WAIT] 2
+[WORD] nur
+[NARRATION] How do you say
+[NARRATION] life
+[WAIT] 2
+[WORD] laebe
+[NARRATION] Let's hear you say
+[NARRATION] alone
+[WAIT] 2
+[WORD] elei
+[INTRO] Let's learn how to say
+[NARRATION] nature
+[WORD] natur
+[WAIT] 2
+[NARRATION] How do you say
+[NARRATION] nature
+[WAIT] 2
+[WORD] natur
+[NARRATION] Let's hear you say
+[NARRATION] What happened here?
+[WAIT] 4
+[PHRASE] was isch do passiert
+[WAIT] 4
+[NARRATION] How do you say
+[NARRATION] A life alone in nature isn't only idyllic.
+[WAIT] 10
+[PHRASE] es laebe elei i de natur isch nid nur idyllisch
+[WAIT] 10
+[INTRO] Listen to the way you say
+[NARRATION] Just imagine, that I would be stuck in the Siberian tundra.
+[PHRASE] schtell dir vor ich waer jetz i de sibirische tundra schtecke blibe
+[WAIT] 12
+[NARRATION] How do you say
+[NARRATION] the
+[WAIT] 2
+[WORD] de
+[INTRO] Let's learn how to say
+[NARRATION] to you
+[WORD] dir
+[WAIT] 2
+[NARRATION] Let's hear you say
+[NARRATION] to you
+[WAIT] 2
+[WORD] dir
+[INTRO] Let's learn how to say
+[NARRATION] who
+[WORD] waer
+[WAIT] 2
+[NARRATION] How do you say
+[NARRATION] who
+[WAIT] 2
+[WORD] waer
+[NARRATION] How do you say
+[NARRATION] now
+[WAIT] 2
+[WORD] jetz
+[NARRATION] Let's hear you say
+[NARRATION] before
+[WAIT] 2
+[WORD] vor
+[INTRO] Listen to the way you say
+[NARRATION] imagine
+[WORD] schtell
+[WAIT] 2
+[NARRATION] Let's hear you say
+[NARRATION] imagine
+[WAIT] 2
+[WORD] schtell
+[INTRO] Listen to the way you say
+[NARRATION] Siberian
+[WORD] sibirische
+[WAIT] 2
+[NARRATION] How do you say
+[NARRATION] Siberian
+[WAIT] 2
+[WORD] sibirische
+[INTRO] Listen to the way you say
+[NARRATION] Tundra
+[WORD] tundra
+[WAIT] 2
+[NARRATION] How do you say
+[NARRATION] Tundra
+[WAIT] 2
+[WORD] tundra
+[INTRO] Listen to the way you say
+[NARRATION] stuck
+[WORD] schtecke
+[WAIT] 2
+[NARRATION] How do you say
+[NARRATION] stuck
+[WAIT] 2
+[WORD] schtecke
+[NARRATION] How do you say
+[NARRATION] Just imagine, that I would be stuck in the Siberian tundra.
+[WAIT] 12
+[PHRASE] schtell dir vor ich waer jetz i de sibirische tundra schtecke blibe
+[WAIT] 12
+[INTRO] Listen and repeat the following which means
+[NARRATION] There you can't overthrow your plans so easily.
+[PHRASE] det chamer nid so eifach sini plaen ueber de huufe rueere
+[WAIT] 11
+[INTRO] Let's learn how to say
+[NARRATION] the
+[WORD] det
+[WAIT] 2
+[NARRATION] Let's hear you say
+[NARRATION] the
+[WAIT] 2
+[WORD] det
+[INTRO] Listen and repeat the following which means
+[NARRATION] about
+[WORD] ueber
+[WAIT] 2
+[NARRATION] How do you say
+[NARRATION] about
+[WAIT] 2
+[WORD] ueber
+[INTRO] Listen and repeat the following which means
+[NARRATION] his
+[WORD] sini
+[WAIT] 2
+[NARRATION] Let's hear you say
+[NARRATION] his
+[WAIT] 2
+[WORD] sini
+[INTRO] Listen and repeat the following which means
+[NARRATION] plan
+[WORD] plaen
+[WAIT] 2
+[NARRATION] Let's hear you say
+[NARRATION] plan
+[WAIT] 2
+[WORD] plaen
+[INTRO] Let's learn how to say
+[NARRATION] a lot
+[WORD] huufe
+[WAIT] 2
+[NARRATION] Let's hear you say
+[NARRATION] a lot
+[WAIT] 2
+[WORD] huufe
+[INTRO] Listen and repeat the following which means
+[NARRATION] we can
+[WORD] chamer
+[WAIT] 2
+[NARRATION] Let's hear you say
+[NARRATION] we can
+[WAIT] 2
+[WORD] chamer
+[NARRATION] Let's hear you say
+[NARRATION] There you can't overthrow your plans so easily.
+[WAIT] 11
+[PHRASE] det chamer nid so eifach sini plaen ueber de huufe rueere
+[WAIT] 11
+[INTRO] Let's learn how to say
+[NARRATION] ... when something goes wrong.
+[PHRASE] wenn oeppis schief goht
+[WAIT] 4
+[INTRO] Let's learn how to say
+[NARRATION] something
+[WORD] oeppis
+[WAIT] 2
+[NARRATION] Let's hear you say
+[NARRATION] something
+[WAIT] 2
+[WORD] oeppis
+[INTRO] Let's learn how to say
+[NARRATION] when/if
+[WORD] wenn
+[WAIT] 2
+[NARRATION] Let's hear you say
+[NARRATION] when/if
+[WAIT] 2
+[WORD] wenn
+[INTRO] Listen to the way you say
+[NARRATION] wrong
+[WORD] schief
+[WAIT] 2
+[NARRATION] Let's hear you say
+[NARRATION] wrong
+[WAIT] 2
+[WORD] schief
+[NARRATION] How do you say
+[NARRATION] I should
+[WAIT] 2
+[PHRASE] ich soett
+[WAIT] 2
+[NARRATION] How do you say
+[NARRATION] ... when something goes wrong.
+[WAIT] 4
+[PHRASE] wenn oeppis schief goht
+[WAIT] 4
+[INTRO] Listen to the way you say
+[NARRATION] Tomorrow I'll come again with a spare wheel and my friends.
+[PHRASE] morn chumi mit emene ersatzrad und mine fruende wider
+[WAIT] 9
+[INTRO] Listen and repeat the following which means
+[NARRATION] with
+[WORD] mit
+[WAIT] 2
+[NARRATION] How do you say
+[NARRATION] with
+[WAIT] 2
+[WORD] mit
+[NARRATION] Let's hear you say
+[NARRATION] and
+[WAIT] 2
+[WORD] und
+[INTRO] Let's learn how to say
+[NARRATION] my
+[WORD] mine
+[WAIT] 2
+[NARRATION] Let's hear you say
+[NARRATION] my
+[WAIT] 2
+[WORD] mine
+[INTRO] Listen and repeat the following which means
+[NARRATION] a
+[WORD] emene
+[WAIT] 2
+[NARRATION] Let's hear you say
+[NARRATION] a
+[WAIT] 2
+[WORD] emene
+[INTRO] Listen to the way you say
+[NARRATION] tomorrow
+[WORD] morn
+[WAIT] 2
+[NARRATION] How do you say
+[NARRATION] tomorrow
+[WAIT] 2
+[WORD] morn
+[INTRO] Listen and repeat the following which means
+[NARRATION] friends
+[WORD] fruende
+[WAIT] 2
+[NARRATION] How do you say
+[NARRATION] friends
+[WAIT] 2
+[WORD] fruende
+[NARRATION] How do you say
+[NARRATION] spare wheel
+[WAIT] 2
+[WORD] ersatzrad
+[INTRO] Listen to the way you say
+[NARRATION] I'll come
+[WORD] chumi
+[WAIT] 2
+[NARRATION] Let's hear you say
+[NARRATION] I'll come
+[WAIT] 2
+[WORD] chumi
+[NARRATION] Let's hear you say
+[NARRATION] Tomorrow I'll come again with a spare wheel and my friends.
+[WAIT] 9
+[PHRASE] morn chumi mit emene ersatzrad und mine fruende wider
+[WAIT] 9
+[INTRO] Listen and repeat the following which means
+[NARRATION] I believe, this will be an even better adventure.
+[PHRASE] ich glaube das wird no es bessers abentuur
+[WAIT] 8
+[NARRATION] How do you say
+[NARRATION] will be
+[WAIT] 2
+[WORD] wird
+[INTRO] Listen to the way you say
+[NARRATION] I believe
+[WORD] glaube
+[WAIT] 2
+[NARRATION] Let's hear you say
+[NARRATION] I believe
+[WAIT] 2
+[WORD] glaube
+[INTRO] Let's learn how to say
+[NARRATION] better
+[WORD] bessers
+[WAIT] 2
+[NARRATION] Let's hear you say
+[NARRATION] better
+[WAIT] 2
+[WORD] bessers
+[NARRATION] How do you say
+[NARRATION] I am allowed to
+[WAIT] 2
+[PHRASE] ich daf
+[WAIT] 2
+[NARRATION] How do you say
+[NARRATION] I believe, this will be an even better adventure.
+[WAIT] 8
+[PHRASE] ich glaube das wird no es bessers abentuur
+[WAIT] 8
+[INTRO] Listen and repeat the following which means
+[NARRATION] What do you want to do next weekend?
+[PHRASE] was wottsch du s noechschte wuchenaend mache
+[WAIT] 7
+[INTRO] Let's learn how to say
+[NARRATION] you
+[WORD] du
+[WAIT] 2
+[NARRATION] Let's hear you say
+[NARRATION] you
+[WAIT] 2
+[WORD] du
+[INTRO] Listen to the way you say
+[NARRATION] you want
+[WORD] wottsch
+[WAIT] 2
+[NARRATION] Let's hear you say
+[NARRATION] you want
+[WAIT] 2
+[WORD] wottsch
+[INTRO] Listen and repeat the following which means
+[NARRATION] next
+[WORD] noechschte
+[WAIT] 2
+[NARRATION] Let's hear you say
+[NARRATION] next
+[WAIT] 2
+[WORD] noechschte
+[INTRO] Listen and repeat the following which means
+[NARRATION] weekend
+[WORD] wuchenaend
+[WAIT] 2
+[NARRATION] Let's hear you say
+[NARRATION] weekend
+[WAIT] 2
+[WORD] wuchenaend
+[NARRATION] How do you say
+[NARRATION] I can
+[WAIT] 2
+[PHRASE] ich cha
+[WAIT] 2
+[NARRATION] Let's hear you say
+[NARRATION] What do you want to do next weekend?
+[WAIT] 7
+[PHRASE] was wottsch du s noechschte wuchenaend mache
+[WAIT] 7
+[INTRO] Let's learn how to say
+[NARRATION] What does one absolutely have to pack, when one goes camping?
+[PHRASE] was muesmer umbedingt iipacke wenn mer goht go caempe
+[WAIT] 9
+[INTRO] Listen to the way you say
+[NARRATION] he/she goes
+[WORD] goht
+[WAIT] 2
+[NARRATION] How do you say
+[NARRATION] he/she goes
+[WAIT] 2
+[WORD] goht
+[INTRO] Listen and repeat the following which means
+[NARRATION] to do
+[WORD] go
+[WAIT] 2
+[NARRATION] How do you say
+[NARRATION] to do
+[WAIT] 2
+[WORD] go
+[NARRATION] Let's hear you say
+[NARRATION] when/if
+[WAIT] 2
+[WORD] wenn
+[INTRO] Let's learn how to say
+[NARRATION] we
+[WORD] mer
+[WAIT] 2
+[NARRATION] Let's hear you say
+[NARRATION] we
+[WAIT] 2
+[WORD] mer
+[INTRO] Listen and repeat the following which means
+[NARRATION] pack
+[WORD] iipacke
+[WAIT] 2
+[NARRATION] Let's hear you say
+[NARRATION] pack
+[WAIT] 2
+[WORD] iipacke
+[INTRO] Listen and repeat the following which means
+[NARRATION] must we
+[WORD] muesmer
+[WAIT] 2
+[NARRATION] How do you say
+[NARRATION] must we
+[WAIT] 2
+[WORD] muesmer
+[INTRO] Listen and repeat the following which means
+[NARRATION] absolutely
+[WORD] umbedingt
+[WAIT] 2
+[NARRATION] Let's hear you say
+[NARRATION] absolutely
+[WAIT] 2
+[WORD] umbedingt
+[NARRATION] How do you say
+[NARRATION] What does one absolutely have to pack, when one goes camping?
+[WAIT] 9
+[PHRASE] was muesmer umbedingt iipacke wenn mer goht go caempe
+[WAIT] 9
+[INTRO] Listen to the way you say
+[NARRATION] What are you allowed to do in nature, and what not?
+[PHRASE] was daf mer i de natur mache und was nid
+[WAIT] 10
+[NARRATION] Let's hear you say
+[NARRATION] I make
+[WAIT] 2
+[WORD] mache
+[NARRATION] How do you say
+[NARRATION] we
+[WAIT] 2
+[WORD] mer
+[NARRATION] Let's hear you say
+[NARRATION] nature
+[WAIT] 2
+[WORD] natur
+[NARRATION] How do you say
+[NARRATION] What are you allowed to do in nature, and what not?
+[WAIT] 10
+[PHRASE] was daf mer i de natur mache und was nid
+[WAIT] 10
+[INTRO] Let's learn how to say
+[NARRATION] Can you change the wheel?
+[PHRASE] chasch du s rad waechsle
+[WAIT] 5
+[NARRATION] How do you say
+[NARRATION] you
+[WAIT] 2
+[WORD] du
+[INTRO] Listen and repeat the following which means
+[NARRATION] you have
+[WORD] chasch
+[WAIT] 2
+[NARRATION] Let's hear you say
+[NARRATION] you have
+[WAIT] 2
+[WORD] chasch
+[INTRO] Listen and repeat the following which means
+[NARRATION] wheel
+[WORD] rad
+[WAIT] 2
+[NARRATION] How do you say
+[NARRATION] wheel
+[WAIT] 2
+[WORD] rad
+[NARRATION] How do you say
+[NARRATION] Can you change the wheel?
+[WAIT] 5
+[PHRASE] chasch du s rad waechsle
+[WAIT] 5
+[INTRO] Let's learn how to say
+[NARRATION] When did you have to overthrow your plans the last time?
+[PHRASE] wenn hesch du zum letschte mol dini plaen muesse ueber de huufe rueere
+[WAIT] 13
+[INTRO] Listen and repeat the following which means
+[NARRATION] you have
+[WORD] hesch
+[WAIT] 2
+[NARRATION] How do you say
+[NARRATION] you have
+[WAIT] 2
+[WORD] hesch
+[NARRATION] Let's hear you say
+[NARRATION] to
+[WAIT] 2
+[WORD] zum
+[NARRATION] How do you say
+[NARRATION] time
+[WAIT] 2
+[WORD] mol
+[INTRO] Let's learn how to say
+[NARRATION] your
+[WORD] dini
+[WAIT] 2
+[NARRATION] Let's hear you say
+[NARRATION] your
+[WAIT] 2
+[WORD] dini
+[NARRATION] How do you say
+[NARRATION] about
+[WAIT] 2
+[WORD] ueber
+[INTRO] Let's learn how to say
+[NARRATION] must
+[WORD] muesse
+[WAIT] 2
+[NARRATION] How do you say
+[NARRATION] must
+[WAIT] 2
+[WORD] muesse
+[INTRO] Let's learn how to say
+[NARRATION] last
+[WORD] letschte
+[WAIT] 2
+[NARRATION] How do you say
+[NARRATION] last
+[WAIT] 2
+[WORD] letschte
+[NARRATION] Let's hear you say
+[NARRATION] plan
+[WAIT] 2
+[WORD] plaen
+[NARRATION] Let's hear you say
+[NARRATION] a lot
+[WAIT] 2
+[WORD] huufe
+[NARRATION] Let's hear you say
+[NARRATION] I must
+[WAIT] 2
+[PHRASE] ich mues
+[WAIT] 2
+[NARRATION] Let's hear you say
+[NARRATION] When did you have to overthrow your plans the last time?
+[WAIT] 13
+[PHRASE] wenn hesch du zum letschte mol dini plaen muesse ueber de huufe rueere
+[WAIT] 13
+[INTRO] Let's learn how to say
+[NARRATION] When is the last time, you had a time-out?
+[PHRASE] wenn hesch du zletscht enuusziit gha
+[WAIT] 6
+[NARRATION] How do you say
+[NARRATION] you have
+[WAIT] 2
+[WORD] hesch
+[INTRO] Listen to the way you say
+[NARRATION] a time out
+[WORD] enuusziit
+[WAIT] 2
+[NARRATION] How do you say
+[NARRATION] a time out
+[WAIT] 2
+[WORD] enuusziit
+[INTRO] Listen to the way you say
+[NARRATION] to last time
+[WORD] zletscht
+[WAIT] 2
+[NARRATION] Let's hear you say
+[NARRATION] to last time
+[WAIT] 2
+[WORD] zletscht
+[NARRATION] How do you say
+[NARRATION] I want
+[WAIT] 2
+[PHRASE] ich wott
+[WAIT] 2
+[NARRATION] How do you say
+[NARRATION] When is the last time, you had a time-out?
+[WAIT] 6
+[PHRASE] wenn hesch du zletscht enuusziit gha
+[WAIT] 6
+[INTRO] Let's learn how to say
+[NARRATION] What do you think about living in nature, far away from civilisation?
+[PHRASE] wie findsch du s laebe i de natur wiit ewaeg vo de zivilisation
+[WAIT] 13
+[INTRO] Let's learn how to say
+[NARRATION] how
+[WORD] wie
+[WAIT] 2
+[NARRATION] Let's hear you say
+[NARRATION] how
+[WAIT] 2
+[WORD] wie
+[INTRO] Listen to the way you say
+[NARRATION] of
+[WORD] vo
+[WAIT] 2
+[NARRATION] How do you say
+[NARRATION] of
+[WAIT] 2
+[WORD] vo
+[INTRO] Let's learn how to say
+[NARRATION] you find
+[WORD] findsch
+[WAIT] 2
+[NARRATION] How do you say
+[NARRATION] you find
+[WAIT] 2
+[WORD] findsch
+[INTRO] Listen and repeat the following which means
+[NARRATION] far
+[WORD] wiit
+[WAIT] 2
+[NARRATION] Let's hear you say
+[NARRATION] far
+[WAIT] 2
+[WORD] wiit
+[INTRO] Listen and repeat the following which means
+[NARRATION] away
+[WORD] ewaeg
+[WAIT] 2
+[NARRATION] How do you say
+[NARRATION] away
+[WAIT] 2
+[WORD] ewaeg
+[NARRATION] Let's hear you say
+[NARRATION] I must
+[WAIT] 2
+[PHRASE] ich mues
+[WAIT] 2
+[NARRATION] How do you say
+[NARRATION] What do you think about living in nature, far away from civilisation?
+[WAIT] 13
+[PHRASE] wie findsch du s laebe i de natur wiit ewaeg vo de zivilisation
+[WAIT] 13

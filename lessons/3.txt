@@ -1,0 +1,2332 @@
+[INTRO] Let's learn how to say
+[NARRATION] Come, let's go out.
+[PHRASE] chum mir goend uus
+[WAIT] 4
+[INTRO] Let's learn how to say
+[NARRATION] to me
+[WORD] mir
+[WAIT] 2
+[NARRATION] Let's hear you say
+[NARRATION] to me
+[WAIT] 2
+[WORD] mir
+[INTRO] Listen to the way you say
+[NARRATION] to come
+[WORD] chum
+[WAIT] 2
+[NARRATION] How do you say
+[NARRATION] to come
+[WAIT] 2
+[WORD] chum
+[INTRO] Listen and repeat the following which means
+[NARRATION] we go
+[WORD] goend
+[WAIT] 2
+[NARRATION] How do you say
+[NARRATION] we go
+[WAIT] 2
+[WORD] goend
+[NARRATION] Let's hear you say
+[NARRATION] Come, let's go out.
+[WAIT] 4
+[PHRASE] chum mir goend uus
+[WAIT] 4
+[INTRO] Listen to the way you say
+[NARRATION] Where do you want to go?
+[PHRASE] woaene wottsch goh
+[WAIT] 3
+[INTRO] Let's learn how to say
+[NARRATION] you want
+[WORD] wottsch
+[WAIT] 2
+[NARRATION] Let's hear you say
+[NARRATION] you want
+[WAIT] 2
+[WORD] wottsch
+[INTRO] Listen to the way you say
+[NARRATION] where to
+[WORD] woaene
+[WAIT] 2
+[NARRATION] Let's hear you say
+[NARRATION] where to
+[WAIT] 2
+[WORD] woaene
+[INTRO] Let's learn how to say
+[NARRATION] Where do you want to go?
+[PHRASE] woaene wottsch goh
+[WAIT] 3
+[NARRATION] Let's hear you say
+[NARRATION] Where do you want to go?
+[WAIT] 3
+[PHRASE] woaene wottsch goh
+[WAIT] 3
+[NARRATION] How do you say
+[NARRATION] Where do you want to go?
+[WAIT] 3
+[PHRASE] woaene wottsch goh
+[WAIT] 3
+[INTRO] Listen and repeat the following which means
+[NARRATION] Come, let's go to Zurich.
+[PHRASE] chum mir goend uf zueri
+[WAIT] 5
+[NARRATION] Let's hear you say
+[NARRATION] to me
+[WAIT] 2
+[WORD] mir
+[INTRO] Let's learn how to say
+[NARRATION] to/for
+[WORD] uf
+[WAIT] 2
+[NARRATION] Let's hear you say
+[NARRATION] to/for
+[WAIT] 2
+[WORD] uf
+[NARRATION] Let's hear you say
+[NARRATION] to come
+[WAIT] 2
+[WORD] chum
+[NARRATION] Let's hear you say
+[NARRATION] we go
+[WAIT] 2
+[WORD] goend
+[INTRO] Listen to the way you say
+[NARRATION] Come, let's go out.
+[PHRASE] chum mir goend uus
+[WAIT] 4
+[NARRATION] How do you say
+[NARRATION] Come, let's go out.
+[WAIT] 4
+[PHRASE] chum mir goend uus
+[WAIT] 4
+[NARRATION] How do you say
+[NARRATION] Come, let's go to Zurich.
+[WAIT] 5
+[PHRASE] chum mir goend uf zueri
+[WAIT] 5
+[INTRO] Listen and repeat the following which means
+[NARRATION] Why not go to Winterthur for once?
+[PHRASE] wiso nid einisch uf winti
+[WAIT] 5
+[NARRATION] Let's hear you say
+[NARRATION] to/for
+[WAIT] 2
+[WORD] uf
+[INTRO] Let's learn how to say
+[NARRATION] not
+[WORD] nid
+[WAIT] 2
+[NARRATION] How do you say
+[NARRATION] not
+[WAIT] 2
+[WORD] nid
+[INTRO] Let's learn how to say
+[NARRATION] once
+[WORD] einisch
+[WAIT] 2
+[NARRATION] Let's hear you say
+[NARRATION] once
+[WAIT] 2
+[WORD] einisch
+[INTRO] Listen and repeat the following which means
+[NARRATION] why
+[WORD] wiso
+[WAIT] 2
+[NARRATION] How do you say
+[NARRATION] why
+[WAIT] 2
+[WORD] wiso
+[NARRATION] Let's hear you say
+[NARRATION] Where do you want to go?
+[WAIT] 3
+[PHRASE] woaene wottsch goh
+[WAIT] 3
+[NARRATION] Let's hear you say
+[NARRATION] Why not go to Winterthur for once?
+[WAIT] 5
+[PHRASE] wiso nid einisch uf winti
+[WAIT] 5
+[INTRO] Listen and repeat the following which means
+[NARRATION] We'll surely find something there.
+[PHRASE] det findemer scho oeppis
+[WAIT] 4
+[INTRO] Listen to the way you say
+[NARRATION] already
+[WORD] scho
+[WAIT] 2
+[NARRATION] Let's hear you say
+[NARRATION] already
+[WAIT] 2
+[WORD] scho
+[INTRO] Let's learn how to say
+[NARRATION] the
+[WORD] det
+[WAIT] 2
+[NARRATION] Let's hear you say
+[NARRATION] the
+[WAIT] 2
+[WORD] det
+[INTRO] Listen and repeat the following which means
+[NARRATION] we find
+[WORD] findemer
+[WAIT] 2
+[NARRATION] How do you say
+[NARRATION] we find
+[WAIT] 2
+[WORD] findemer
+[NARRATION] How do you say
+[NARRATION] Where do you want to go?
+[WAIT] 3
+[PHRASE] woaene wottsch goh
+[WAIT] 3
+[NARRATION] Let's hear you say
+[NARRATION] We'll surely find something there.
+[WAIT] 4
+[PHRASE] det findemer scho oeppis
+[WAIT] 4
+[INTRO] Listen and repeat the following which means
+[NARRATION] Yes. Why not, actually?
+[PHRASE] jo werum eigentlich nid
+[WAIT] 4
+[INTRO] Let's learn how to say
+[NARRATION] yes
+[WORD] jo
+[WAIT] 2
+[NARRATION] How do you say
+[NARRATION] yes
+[WAIT] 2
+[WORD] jo
+[INTRO] Listen and repeat the following which means
+[NARRATION] actually
+[WORD] eigentlich
+[WAIT] 2
+[NARRATION] Let's hear you say
+[NARRATION] actually
+[WAIT] 2
+[WORD] eigentlich
+[INTRO] Listen and repeat the following which means
+[NARRATION] why
+[WORD] werum
+[WAIT] 2
+[NARRATION] Let's hear you say
+[NARRATION] why
+[WAIT] 2
+[WORD] werum
+[NARRATION] How do you say
+[NARRATION] Yes. Why not, actually?
+[WAIT] 4
+[PHRASE] jo werum eigentlich nid
+[WAIT] 4
+[INTRO] Let's learn how to say
+[NARRATION] When are we going?
+[PHRASE] wenn goemer
+[WAIT] 2
+[INTRO] Listen and repeat the following which means
+[NARRATION] when/if
+[WORD] wenn
+[WAIT] 2
+[NARRATION] Let's hear you say
+[NARRATION] when/if
+[WAIT] 2
+[WORD] wenn
+[INTRO] Listen and repeat the following which means
+[NARRATION] Come, let's go out.
+[PHRASE] chum mir goend uus
+[WAIT] 4
+[NARRATION] How do you say
+[NARRATION] Come, let's go out.
+[WAIT] 4
+[PHRASE] chum mir goend uus
+[WAIT] 4
+[NARRATION] How do you say
+[NARRATION] When are we going?
+[WAIT] 2
+[PHRASE] wenn goemer
+[WAIT] 2
+[INTRO] Listen to the way you say
+[NARRATION] Right now, I'm ready.
+[PHRASE] jetzt grad ich bi parat
+[WAIT] 5
+[INTRO] Listen and repeat the following which means
+[NARRATION] I
+[WORD] ich
+[WAIT] 2
+[NARRATION] How do you say
+[NARRATION] I
+[WAIT] 2
+[WORD] ich
+[INTRO] Let's learn how to say
+[NARRATION] I am
+[WORD] bi
+[WAIT] 2
+[NARRATION] How do you say
+[NARRATION] I am
+[WAIT] 2
+[WORD] bi
+[INTRO] Listen to the way you say
+[NARRATION] right now
+[WORD] grad
+[WAIT] 2
+[NARRATION] Let's hear you say
+[NARRATION] right now
+[WAIT] 2
+[WORD] grad
+[INTRO] Listen and repeat the following which means
+[NARRATION] now
+[WORD] jetzt
+[WAIT] 2
+[NARRATION] How do you say
+[NARRATION] now
+[WAIT] 2
+[WORD] jetzt
+[NARRATION] Let's hear you say
+[NARRATION] Come, let's go out.
+[WAIT] 4
+[PHRASE] chum mir goend uus
+[WAIT] 4
+[NARRATION] How do you say
+[NARRATION] Right now, I'm ready.
+[WAIT] 5
+[PHRASE] jetzt grad ich bi parat
+[WAIT] 5
+[INTRO] Listen to the way you say
+[NARRATION] Great, me too.
+[PHRASE] super ich au
+[WAIT] 3
+[NARRATION] How do you say
+[NARRATION] I
+[WAIT] 2
+[WORD] ich
+[INTRO] Let's learn how to say
+[NARRATION] super
+[WORD] super
+[WAIT] 2
+[NARRATION] How do you say
+[NARRATION] super
+[WAIT] 2
+[WORD] super
+[NARRATION] Let's hear you say
+[NARRATION] Come, let's go out.
+[WAIT] 4
+[PHRASE] chum mir goend uus
+[WAIT] 4
+[NARRATION] Let's hear you say
+[NARRATION] Great, me too.
+[WAIT] 3
+[PHRASE] super ich au
+[WAIT] 3
+[INTRO] Let's learn how to say
+[NARRATION] The train leaves in 10 minutes.
+[PHRASE] de zug fahrt i zaeh minute
+[WAIT] 6
+[INTRO] Listen to the way you say
+[NARRATION] the
+[WORD] de
+[WAIT] 2
+[NARRATION] Let's hear you say
+[NARRATION] the
+[WAIT] 2
+[WORD] de
+[INTRO] Listen to the way you say
+[NARRATION] in
+[WORD] i
+[WAIT] 2
+[NARRATION] How do you say
+[NARRATION] in
+[WAIT] 2
+[WORD] i
+[INTRO] Listen and repeat the following which means
+[NARRATION] bus
+[WORD] zug
+[WAIT] 2
+[NARRATION] Let's hear you say
+[NARRATION] bus
+[WAIT] 2
+[WORD] zug
+[INTRO] Let's learn how to say
+[NARRATION] to drive
+[WORD] fahrt
+[WAIT] 2
+[NARRATION] How do you say
+[NARRATION] to drive
+[WAIT] 2
+[WORD] fahrt
+[INTRO] Let's learn how to say
+[NARRATION] ten
+[WORD] zaeh
+[WAIT] 2
+[NARRATION] Let's hear you say
+[NARRATION] ten
+[WAIT] 2
+[WORD] zaeh
+[INTRO] Listen to the way you say
+[NARRATION] Come, let's go out.
+[PHRASE] chum mir goend uus
+[WAIT] 4
+[NARRATION] How do you say
+[NARRATION] Come, let's go out.
+[WAIT] 4
+[PHRASE] chum mir goend uus
+[WAIT] 4
+[NARRATION] How do you say
+[NARRATION] The train leaves in 10 minutes.
+[WAIT] 6
+[PHRASE] de zug fahrt i zaeh minute
+[WAIT] 6
+[INTRO] Listen to the way you say
+[NARRATION] Perfect, we need to go!
+[PHRASE] perfekt mir muend los
+[WAIT] 4
+[INTRO] Listen and repeat the following which means
+[NARRATION] we must
+[WORD] muend
+[WAIT] 2
+[NARRATION] How do you say
+[NARRATION] we must
+[WAIT] 2
+[WORD] muend
+[INTRO] Listen and repeat the following which means
+[NARRATION] perfect
+[WORD] perfekt
+[WAIT] 2
+[NARRATION] How do you say
+[NARRATION] perfect
+[WAIT] 2
+[WORD] perfekt
+[NARRATION] Let's hear you say
+[NARRATION] Perfect, we need to go!
+[WAIT] 4
+[PHRASE] perfekt mir muend los
+[WAIT] 4
+[NARRATION] How do you say
+[NARRATION] Come, let's go out.
+[WAIT] 4
+[PHRASE] chum mir goend uus
+[WAIT] 4
+[INTRO] Listen to the way you say
+[NARRATION] Where do you want to go?
+[PHRASE] woaene wottsch goh
+[WAIT] 3
+[NARRATION] Let's hear you say
+[NARRATION] you want
+[WAIT] 2
+[WORD] wottsch
+[NARRATION] How do you say
+[NARRATION] where to
+[WAIT] 2
+[WORD] woaene
+[NARRATION] Let's hear you say
+[NARRATION] Where do you want to go?
+[WAIT] 3
+[PHRASE] woaene wottsch goh
+[WAIT] 3
+[INTRO] Listen to the way you say
+[NARRATION] I don't know…
+[PHRASE] ich weiss nid
+[WAIT] 3
+[INTRO] Listen to the way you say
+[NARRATION] I know
+[WORD] weiss
+[WAIT] 2
+[NARRATION] How do you say
+[NARRATION] I know
+[WAIT] 2
+[WORD] weiss
+[INTRO] Listen and repeat the following which means
+[NARRATION] Come, let's go out.
+[PHRASE] chum mir goend uus
+[WAIT] 4
+[NARRATION] Let's hear you say
+[NARRATION] Come, let's go out.
+[WAIT] 4
+[PHRASE] chum mir goend uus
+[WAIT] 4
+[NARRATION] How do you say
+[NARRATION] I don't know…
+[WAIT] 3
+[PHRASE] ich weiss nid
+[WAIT] 3
+[INTRO] Listen to the way you say
+[NARRATION] ... maybe to a Swiss restaurant?
+[PHRASE] vilicht ines schwiizer reschtorant
+[WAIT] 4
+[INTRO] Listen and repeat the following which means
+[NARRATION] maybe
+[WORD] vilicht
+[WAIT] 2
+[NARRATION] Let's hear you say
+[NARRATION] maybe
+[WAIT] 2
+[WORD] vilicht
+[INTRO] Let's learn how to say
+[NARRATION] Swissian
+[WORD] schwiizer
+[WAIT] 2
+[NARRATION] Let's hear you say
+[NARRATION] Swissian
+[WAIT] 2
+[WORD] schwiizer
+[INTRO] Listen and repeat the following which means
+[NARRATION] to a
+[WORD] ines
+[WAIT] 2
+[NARRATION] How do you say
+[NARRATION] to a
+[WAIT] 2
+[WORD] ines
+[NARRATION] How do you say
+[NARRATION] ... maybe to a Swiss restaurant?
+[WAIT] 4
+[PHRASE] vilicht ines schwiizer reschtorant
+[WAIT] 4
+[INTRO] Let's learn how to say
+[NARRATION] That sounds good.
+[PHRASE] das toenet guet
+[WAIT] 3
+[INTRO] Listen and repeat the following which means
+[NARRATION] the
+[WORD] das
+[WAIT] 2
+[NARRATION] Let's hear you say
+[NARRATION] the
+[WAIT] 2
+[WORD] das
+[INTRO] Let's learn how to say
+[NARRATION] sounds
+[WORD] toenet
+[WAIT] 2
+[NARRATION] Let's hear you say
+[NARRATION] sounds
+[WAIT] 2
+[WORD] toenet
+[NARRATION] How do you say
+[NARRATION] Come, let's go out.
+[WAIT] 4
+[PHRASE] chum mir goend uus
+[WAIT] 4
+[NARRATION] How do you say
+[NARRATION] That sounds good.
+[WAIT] 3
+[PHRASE] das toenet guet
+[WAIT] 3
+[INTRO] Listen to the way you say
+[NARRATION] I suggest we try a fondue.
+[PHRASE] ich schloh vor mir probiered es fondue
+[WAIT] 7
+[INTRO] Listen to the way you say
+[NARRATION] a
+[WORD] es
+[WAIT] 2
+[NARRATION] How do you say
+[NARRATION] a
+[WAIT] 2
+[WORD] es
+[INTRO] Let's learn how to say
+[NARRATION] before
+[WORD] vor
+[WAIT] 2
+[NARRATION] Let's hear you say
+[NARRATION] before
+[WAIT] 2
+[WORD] vor
+[INTRO] Let's learn how to say
+[NARRATION] I suggest
+[WORD] schloh
+[WAIT] 2
+[NARRATION] How do you say
+[NARRATION] I suggest
+[WAIT] 2
+[WORD] schloh
+[INTRO] Listen and repeat the following which means
+[NARRATION] try
+[WORD] probiered
+[WAIT] 2
+[NARRATION] How do you say
+[NARRATION] try
+[WAIT] 2
+[WORD] probiered
+[NARRATION] How do you say
+[NARRATION] Come, let's go out.
+[WAIT] 4
+[PHRASE] chum mir goend uus
+[WAIT] 4
+[NARRATION] Let's hear you say
+[NARRATION] I suggest we try a fondue.
+[WAIT] 7
+[PHRASE] ich schloh vor mir probiered es fondue
+[WAIT] 7
+[INTRO] Let's learn how to say
+[NARRATION] I've never had that before.
+[PHRASE] das hani no nie gha
+[WAIT] 5
+[NARRATION] How do you say
+[NARRATION] the
+[WAIT] 2
+[WORD] das
+[INTRO] Let's learn how to say
+[NARRATION] still
+[WORD] no
+[WAIT] 2
+[NARRATION] Let's hear you say
+[NARRATION] still
+[WAIT] 2
+[WORD] no
+[INTRO] Listen and repeat the following which means
+[NARRATION] never
+[WORD] nie
+[WAIT] 2
+[NARRATION] Let's hear you say
+[NARRATION] never
+[WAIT] 2
+[WORD] nie
+[INTRO] Let's learn how to say
+[NARRATION] I have
+[WORD] hani
+[WAIT] 2
+[NARRATION] Let's hear you say
+[NARRATION] I have
+[WAIT] 2
+[WORD] hani
+[NARRATION] Let's hear you say
+[NARRATION] Come, let's go out.
+[WAIT] 4
+[PHRASE] chum mir goend uus
+[WAIT] 4
+[NARRATION] How do you say
+[NARRATION] I've never had that before.
+[WAIT] 5
+[PHRASE] das hani no nie gha
+[WAIT] 5
+[INTRO] Listen to the way you say
+[NARRATION] And do you like the fondue?
+[PHRASE] und hesch s fondue gaern
+[WAIT] 5
+[INTRO] Listen to the way you say
+[NARRATION] the
+[WORD] s
+[WAIT] 2
+[NARRATION] How do you say
+[NARRATION] the
+[WAIT] 2
+[WORD] s
+[INTRO] Let's learn how to say
+[NARRATION] you have
+[WORD] hesch
+[WAIT] 2
+[NARRATION] How do you say
+[NARRATION] you have
+[WAIT] 2
+[WORD] hesch
+[INTRO] Listen to the way you say
+[NARRATION] and
+[WORD] und
+[WAIT] 2
+[NARRATION] Let's hear you say
+[NARRATION] and
+[WAIT] 2
+[WORD] und
+[INTRO] Let's learn how to say
+[NARRATION] fondue
+[WORD] fondue
+[WAIT] 2
+[NARRATION] Let's hear you say
+[NARRATION] fondue
+[WAIT] 2
+[WORD] fondue
+[NARRATION] Let's hear you say
+[NARRATION] And do you like the fondue?
+[WAIT] 5
+[PHRASE] und hesch s fondue gaern
+[WAIT] 5
+[INTRO] Listen and repeat the following which means
+[NARRATION] MMmmm, it's very good.
+[PHRASE] mh es isch sehr guet
+[WAIT] 5
+[INTRO] Listen to the way you say
+[NARRATION] is
+[WORD] isch
+[WAIT] 2
+[NARRATION] How do you say
+[NARRATION] is
+[WAIT] 2
+[WORD] isch
+[NARRATION] Let's hear you say
+[NARRATION] a
+[WAIT] 2
+[WORD] es
+[INTRO] Listen and repeat the following which means
+[NARRATION] very
+[WORD] sehr
+[WAIT] 2
+[NARRATION] How do you say
+[NARRATION] very
+[WAIT] 2
+[WORD] sehr
+[INTRO] Let's learn how to say
+[NARRATION] mm
+[WORD] mh
+[WAIT] 2
+[NARRATION] Let's hear you say
+[NARRATION] mm
+[WAIT] 2
+[WORD] mh
+[NARRATION] Let's hear you say
+[NARRATION] MMmmm, it's very good.
+[WAIT] 5
+[PHRASE] mh es isch sehr guet
+[WAIT] 5
+[INTRO] Listen to the way you say
+[NARRATION] But I've had enough.
+[PHRASE] aber ich ha scho gnueg gha
+[WAIT] 6
+[NARRATION] How do you say
+[NARRATION] already
+[WAIT] 2
+[WORD] scho
+[INTRO] Listen to the way you say
+[NARRATION] but
+[WORD] aber
+[WAIT] 2
+[NARRATION] Let's hear you say
+[NARRATION] but
+[WAIT] 2
+[WORD] aber
+[INTRO] Listen to the way you say
+[NARRATION] I have
+[WORD] ha
+[WAIT] 2
+[NARRATION] How do you say
+[NARRATION] I have
+[WAIT] 2
+[WORD] ha
+[INTRO] Let's learn how to say
+[NARRATION] enough
+[WORD] gnueg
+[WAIT] 2
+[NARRATION] How do you say
+[NARRATION] enough
+[WAIT] 2
+[WORD] gnueg
+[INTRO] Listen and repeat the following which means
+[NARRATION] Come on quickly!
+[PHRASE] chum schnaell
+[WAIT] 2
+[NARRATION] Let's hear you say
+[NARRATION] Come on quickly!
+[WAIT] 2
+[PHRASE] chum schnaell
+[WAIT] 2
+[NARRATION] How do you say
+[NARRATION] But I've had enough.
+[WAIT] 6
+[PHRASE] aber ich ha scho gnueg gha
+[WAIT] 6
+[INTRO] Listen to the way you say
+[NARRATION] Would you like a little from me?
+[PHRASE] moechtisch no chli vo mir
+[WAIT] 5
+[INTRO] Listen and repeat the following which means
+[NARRATION] of
+[WORD] vo
+[WAIT] 2
+[NARRATION] How do you say
+[NARRATION] of
+[WAIT] 2
+[WORD] vo
+[NARRATION] How do you say
+[NARRATION] still
+[WAIT] 2
+[WORD] no
+[INTRO] Let's learn how to say
+[NARRATION] little
+[WORD] chli
+[WAIT] 2
+[NARRATION] How do you say
+[NARRATION] little
+[WAIT] 2
+[WORD] chli
+[INTRO] Listen to the way you say
+[NARRATION] you would like
+[WORD] moechtisch
+[WAIT] 2
+[NARRATION] Let's hear you say
+[NARRATION] you would like
+[WAIT] 2
+[WORD] moechtisch
+[NARRATION] Let's hear you say
+[NARRATION] Where do you want to go?
+[WAIT] 3
+[PHRASE] woaene wottsch goh
+[WAIT] 3
+[NARRATION] Let's hear you say
+[NARRATION] Would you like a little from me?
+[WAIT] 5
+[PHRASE] moechtisch no chli vo mir
+[WAIT] 5
+[INTRO] Let's learn how to say
+[NARRATION] No, thanks. I'm full too.
+[PHRASE] nei danke ich bi au voll
+[WAIT] 6
+[NARRATION] Let's hear you say
+[NARRATION] I am
+[WAIT] 2
+[WORD] bi
+[INTRO] Listen to the way you say
+[NARRATION] no
+[WORD] nei
+[WAIT] 2
+[NARRATION] How do you say
+[NARRATION] no
+[WAIT] 2
+[WORD] nei
+[INTRO] Listen and repeat the following which means
+[NARRATION] also
+[WORD] au
+[WAIT] 2
+[NARRATION] How do you say
+[NARRATION] also
+[WAIT] 2
+[WORD] au
+[INTRO] Listen to the way you say
+[NARRATION] thank you
+[WORD] danke
+[WAIT] 2
+[NARRATION] Let's hear you say
+[NARRATION] thank you
+[WAIT] 2
+[WORD] danke
+[NARRATION] Let's hear you say
+[NARRATION] No, thanks. I'm full too.
+[WAIT] 6
+[PHRASE] nei danke ich bi au voll
+[WAIT] 6
+[NARRATION] How do you say
+[NARRATION] Come, let's go out.
+[WAIT] 4
+[PHRASE] chum mir goend uus
+[WAIT] 4
+[NARRATION] How do you say
+[NARRATION] Come, let's go out.
+[WAIT] 4
+[PHRASE] chum mir goend uus
+[WAIT] 4
+[NARRATION] How do you say
+[NARRATION] Where do you want to go?
+[WAIT] 3
+[PHRASE] woaene wottsch goh
+[WAIT] 3
+[INTRO] Listen to the way you say
+[NARRATION] Do you like sushi?
+[PHRASE] hesch gaern sushi
+[WAIT] 3
+[NARRATION] Let's hear you say
+[NARRATION] you have
+[WAIT] 2
+[WORD] hesch
+[INTRO] Listen to the way you say
+[NARRATION] to like
+[WORD] gaern
+[WAIT] 2
+[NARRATION] How do you say
+[NARRATION] to like
+[WAIT] 2
+[WORD] gaern
+[NARRATION] Let's hear you say
+[NARRATION] Do you like sushi?
+[WAIT] 3
+[PHRASE] hesch gaern sushi
+[WAIT] 3
+[INTRO] Listen to the way you say
+[NARRATION] Yes, I love sushi!
+[PHRASE] jo ich liebe sushi
+[WAIT] 4
+[NARRATION] How do you say
+[NARRATION] yes
+[WAIT] 2
+[WORD] jo
+[INTRO] Listen and repeat the following which means
+[NARRATION] I love
+[WORD] liebe
+[WAIT] 2
+[NARRATION] Let's hear you say
+[NARRATION] I love
+[WAIT] 2
+[WORD] liebe
+[NARRATION] Let's hear you say
+[NARRATION] Come on quickly!
+[WAIT] 2
+[PHRASE] chum schnaell
+[WAIT] 2
+[NARRATION] How do you say
+[NARRATION] Yes, I love sushi!
+[WAIT] 4
+[PHRASE] jo ich liebe sushi
+[WAIT] 4
+[INTRO] Let's learn how to say
+[NARRATION] And ramen soup?
+[PHRASE] und ramensuppe
+[WAIT] 2
+[NARRATION] Let's hear you say
+[NARRATION] and
+[WAIT] 2
+[WORD] und
+[NARRATION] Let's hear you say
+[NARRATION] Come, let's go out.
+[WAIT] 4
+[PHRASE] chum mir goend uus
+[WAIT] 4
+[NARRATION] How do you say
+[NARRATION] And ramen soup?
+[WAIT] 2
+[PHRASE] und ramensuppe
+[WAIT] 2
+[INTRO] Listen to the way you say
+[NARRATION] I love that so much!
+[PHRASE] die hani fuer s laebe gaern
+[WAIT] 6
+[NARRATION] Let's hear you say
+[NARRATION] the
+[WAIT] 2
+[WORD] s
+[INTRO] Listen to the way you say
+[NARRATION] for
+[WORD] fuer
+[WAIT] 2
+[NARRATION] Let's hear you say
+[NARRATION] for
+[WAIT] 2
+[WORD] fuer
+[INTRO] Listen and repeat the following which means
+[NARRATION] the
+[WORD] die
+[WAIT] 2
+[NARRATION] Let's hear you say
+[NARRATION] the
+[WAIT] 2
+[WORD] die
+[INTRO] Listen to the way you say
+[NARRATION] life
+[WORD] laebe
+[WAIT] 2
+[NARRATION] Let's hear you say
+[NARRATION] life
+[WAIT] 2
+[WORD] laebe
+[NARRATION] Let's hear you say
+[NARRATION] I have
+[WAIT] 2
+[WORD] hani
+[NARRATION] Let's hear you say
+[NARRATION] I love that so much!
+[WAIT] 6
+[PHRASE] die hani fuer s laebe gaern
+[WAIT] 6
+[NARRATION] How do you say
+[NARRATION] Come, let's go out.
+[WAIT] 4
+[PHRASE] chum mir goend uus
+[WAIT] 4
+[NARRATION] How do you say
+[NARRATION] Come on quickly!
+[WAIT] 2
+[PHRASE] chum schnaell
+[WAIT] 2
+[INTRO] Listen and repeat the following which means
+[NARRATION] I'm really hungry.
+[PHRASE] ich ha scho richtig hunger
+[WAIT] 5
+[NARRATION] Let's hear you say
+[NARRATION] I have
+[WAIT] 2
+[WORD] ha
+[INTRO] Listen and repeat the following which means
+[NARRATION] right
+[WORD] richtig
+[WAIT] 2
+[NARRATION] Let's hear you say
+[NARRATION] right
+[WAIT] 2
+[WORD] richtig
+[NARRATION] How do you say
+[NARRATION] I'm really hungry.
+[WAIT] 5
+[PHRASE] ich ha scho richtig hunger
+[WAIT] 5
+[INTRO] Let's learn how to say
+[NARRATION] This is on me.
+[PHRASE] das goht uf mich
+[WAIT] 4
+[INTRO] Listen and repeat the following which means
+[NARRATION] he/she goes
+[WORD] goht
+[WAIT] 2
+[NARRATION] Let's hear you say
+[NARRATION] he/she goes
+[WAIT] 2
+[WORD] goht
+[NARRATION] How do you say
+[NARRATION] Where do you want to go?
+[WAIT] 3
+[PHRASE] woaene wottsch goh
+[WAIT] 3
+[NARRATION] How do you say
+[NARRATION] This is on me.
+[WAIT] 4
+[PHRASE] das goht uf mich
+[WAIT] 4
+[INTRO] Listen to the way you say
+[NARRATION] Is your sushi good?
+[PHRASE] isch diis sushi guet
+[WAIT] 4
+[NARRATION] Let's hear you say
+[NARRATION] is
+[WAIT] 2
+[WORD] isch
+[INTRO] Listen to the way you say
+[NARRATION] yours
+[WORD] diis
+[WAIT] 2
+[NARRATION] Let's hear you say
+[NARRATION] yours
+[WAIT] 2
+[WORD] diis
+[INTRO] Let's learn how to say
+[NARRATION] sushi
+[WORD] sushi
+[WAIT] 2
+[NARRATION] How do you say
+[NARRATION] sushi
+[WAIT] 2
+[WORD] sushi
+[NARRATION] How do you say
+[NARRATION] Is your sushi good?
+[WAIT] 4
+[PHRASE] isch diis sushi guet
+[WAIT] 4
+[INTRO] Listen to the way you say
+[NARRATION] It's really delicious!
+[PHRASE] es isch mega fein
+[WAIT] 4
+[INTRO] Listen to the way you say
+[NARRATION] mega
+[WORD] mega
+[WAIT] 2
+[NARRATION] How do you say
+[NARRATION] mega
+[WAIT] 2
+[WORD] mega
+[NARRATION] How do you say
+[NARRATION] It's really delicious!
+[WAIT] 4
+[PHRASE] es isch mega fein
+[WAIT] 4
+[INTRO] Listen and repeat the following which means
+[NARRATION] I haven't had such good sushi in a long time.
+[PHRASE] ich ha scho lang nuemm so guets sushi gha
+[WAIT] 9
+[INTRO] Let's learn how to say
+[NARRATION] so
+[WORD] so
+[WAIT] 2
+[NARRATION] How do you say
+[NARRATION] so
+[WAIT] 2
+[WORD] so
+[INTRO] Let's learn how to say
+[NARRATION] long
+[WORD] lang
+[WAIT] 2
+[NARRATION] How do you say
+[NARRATION] long
+[WAIT] 2
+[WORD] lang
+[INTRO] Let's learn how to say
+[NARRATION] no more
+[WORD] nuemm
+[WAIT] 2
+[NARRATION] Let's hear you say
+[NARRATION] no more
+[WAIT] 2
+[WORD] nuemm
+[NARRATION] Let's hear you say
+[NARRATION] sushi
+[WAIT] 2
+[WORD] sushi
+[INTRO] Listen to the way you say
+[NARRATION] good
+[WORD] guets
+[WAIT] 2
+[NARRATION] How do you say
+[NARRATION] good
+[WAIT] 2
+[WORD] guets
+[NARRATION] Let's hear you say
+[NARRATION] Where do you want to go?
+[WAIT] 3
+[PHRASE] woaene wottsch goh
+[WAIT] 3
+[NARRATION] How do you say
+[NARRATION] I haven't had such good sushi in a long time.
+[WAIT] 9
+[PHRASE] ich ha scho lang nuemm so guets sushi gha
+[WAIT] 9
+[INTRO] Listen to the way you say
+[NARRATION] Yes, it's really good.
+[PHRASE] jo es isch wuerklich fein
+[WAIT] 5
+[INTRO] Let's learn how to say
+[NARRATION] really
+[WORD] wuerklich
+[WAIT] 2
+[NARRATION] Let's hear you say
+[NARRATION] really
+[WAIT] 2
+[WORD] wuerklich
+[INTRO] Let's learn how to say
+[NARRATION] I'm not hungry anymore.
+[PHRASE] ich ha nuemm hunger
+[WAIT] 4
+[NARRATION] Let's hear you say
+[NARRATION] I'm not hungry anymore.
+[WAIT] 4
+[PHRASE] ich ha nuemm hunger
+[WAIT] 4
+[NARRATION] How do you say
+[NARRATION] Yes, it's really good.
+[WAIT] 5
+[PHRASE] jo es isch wuerklich fein
+[WAIT] 5
+[INTRO] Listen to the way you say
+[NARRATION] Thanks for the invitation.
+[PHRASE] merci fuer d iiladig
+[WAIT] 4
+[INTRO] Listen to the way you say
+[NARRATION] the
+[WORD] d
+[WAIT] 2
+[NARRATION] How do you say
+[NARRATION] the
+[WAIT] 2
+[WORD] d
+[NARRATION] How do you say
+[NARRATION] for
+[WAIT] 2
+[WORD] fuer
+[INTRO] Listen and repeat the following which means
+[NARRATION] thanks
+[WORD] merci
+[WAIT] 2
+[NARRATION] Let's hear you say
+[NARRATION] thanks
+[WAIT] 2
+[WORD] merci
+[NARRATION] How do you say
+[NARRATION] Thanks for the invitation.
+[WAIT] 4
+[PHRASE] merci fuer d iiladig
+[WAIT] 4
+[NARRATION] Let's hear you say
+[NARRATION] Come, let's go out.
+[WAIT] 4
+[PHRASE] chum mir goend uus
+[WAIT] 4
+[NARRATION] Let's hear you say
+[NARRATION] Come, let's go out.
+[WAIT] 4
+[PHRASE] chum mir goend uus
+[WAIT] 4
+[INTRO] Listen and repeat the following which means
+[NARRATION] Where to?
+[PHRASE] woaene
+[WAIT] 2
+[NARRATION] Let's hear you say
+[NARRATION] Come, let's go out.
+[WAIT] 4
+[PHRASE] chum mir goend uus
+[WAIT] 4
+[NARRATION] Let's hear you say
+[NARRATION] Where to?
+[WAIT] 2
+[PHRASE] woaene
+[WAIT] 2
+[NARRATION] Let's hear you say
+[NARRATION] no more
+[WAIT] 2
+[WORD] nuemm
+[NARRATION] How do you say
+[NARRATION] Come, let's go out.
+[WAIT] 4
+[PHRASE] chum mir goend uus
+[WAIT] 4
+[NARRATION] How do you say
+[NARRATION] I'm not hungry anymore.
+[WAIT] 4
+[PHRASE] ich ha nuemm hunger
+[WAIT] 4
+[INTRO] Listen to the way you say
+[NARRATION] I've already had sushi.
+[PHRASE] ich ha scho sushi gha
+[WAIT] 5
+[NARRATION] Let's hear you say
+[NARRATION] Come, let's go out.
+[WAIT] 4
+[PHRASE] chum mir goend uus
+[WAIT] 4
+[NARRATION] How do you say
+[NARRATION] I've already had sushi.
+[WAIT] 5
+[PHRASE] ich ha scho sushi gha
+[WAIT] 5
+[INTRO] Listen and repeat the following which means
+[NARRATION] But a glass of wine would be really good.
+[PHRASE] aber es glaesli wii waer wuerklich guet
+[WAIT] 7
+[NARRATION] Let's hear you say
+[NARRATION] but
+[WAIT] 2
+[WORD] aber
+[INTRO] Let's learn how to say
+[NARRATION] wine
+[WORD] wii
+[WAIT] 2
+[NARRATION] Let's hear you say
+[NARRATION] wine
+[WAIT] 2
+[WORD] wii
+[INTRO] Let's learn how to say
+[NARRATION] who
+[WORD] waer
+[WAIT] 2
+[NARRATION] Let's hear you say
+[NARRATION] who
+[WAIT] 2
+[WORD] waer
+[NARRATION] How do you say
+[NARRATION] really
+[WAIT] 2
+[WORD] wuerklich
+[INTRO] Listen to the way you say
+[NARRATION] small glass
+[WORD] glaesli
+[WAIT] 2
+[NARRATION] Let's hear you say
+[NARRATION] small glass
+[WAIT] 2
+[WORD] glaesli
+[NARRATION] How do you say
+[NARRATION] And ramen soup?
+[WAIT] 2
+[PHRASE] und ramensuppe
+[WAIT] 2
+[NARRATION] How do you say
+[NARRATION] But a glass of wine would be really good.
+[WAIT] 7
+[PHRASE] aber es glaesli wii waer wuerklich guet
+[WAIT] 7
+[INTRO] Listen and repeat the following which means
+[NARRATION] Come, this time it's my treat.
+[PHRASE] chum das mal lad ich di ii
+[WAIT] 7
+[INTRO] Listen and repeat the following which means
+[NARRATION] to you
+[WORD] di
+[WAIT] 2
+[NARRATION] How do you say
+[NARRATION] to you
+[WAIT] 2
+[WORD] di
+[INTRO] Listen to the way you say
+[NARRATION] time
+[WORD] mal
+[WAIT] 2
+[NARRATION] How do you say
+[NARRATION] time
+[WAIT] 2
+[WORD] mal
+[INTRO] Let's learn how to say
+[NARRATION] invite
+[WORD] lad
+[WAIT] 2
+[NARRATION] Let's hear you say
+[NARRATION] invite
+[WAIT] 2
+[WORD] lad
+[NARRATION] Let's hear you say
+[NARRATION] Come, this time it's my treat.
+[WAIT] 7
+[PHRASE] chum das mal lad ich di ii
+[WAIT] 7
+[INTRO] Let's learn how to say
+[NARRATION] Okay, that's nice of you.
+[PHRASE] okay das isch lieb vo dir
+[WAIT] 6
+[NARRATION] Let's hear you say
+[NARRATION] of
+[WAIT] 2
+[WORD] vo
+[INTRO] Listen and repeat the following which means
+[NARRATION] love
+[WORD] lieb
+[WAIT] 2
+[NARRATION] How do you say
+[NARRATION] love
+[WAIT] 2
+[WORD] lieb
+[INTRO] Let's learn how to say
+[NARRATION] okay
+[WORD] okay
+[WAIT] 2
+[NARRATION] Let's hear you say
+[NARRATION] okay
+[WAIT] 2
+[WORD] okay
+[NARRATION] How do you say
+[NARRATION] Okay, that's nice of you.
+[WAIT] 6
+[PHRASE] okay das isch lieb vo dir
+[WAIT] 6
+[INTRO] Listen and repeat the following which means
+[NARRATION] We could try different Swiss wines.
+[PHRASE] mir choennted verschideni schwizer wii probiere
+[WAIT] 6
+[NARRATION] Let's hear you say
+[NARRATION] wine
+[WAIT] 2
+[WORD] wii
+[INTRO] Listen and repeat the following which means
+[NARRATION] could
+[WORD] choennted
+[WAIT] 2
+[NARRATION] How do you say
+[NARRATION] could
+[WAIT] 2
+[WORD] choennted
+[INTRO] Let's learn how to say
+[NARRATION] different
+[WORD] verschideni
+[WAIT] 2
+[NARRATION] Let's hear you say
+[NARRATION] different
+[WAIT] 2
+[WORD] verschideni
+[INTRO] Let's learn how to say
+[NARRATION] Swiss
+[WORD] schwizer
+[WAIT] 2
+[NARRATION] How do you say
+[NARRATION] Swiss
+[WAIT] 2
+[WORD] schwizer
+[NARRATION] How do you say
+[NARRATION] Come, let's go out.
+[WAIT] 4
+[PHRASE] chum mir goend uus
+[WAIT] 4
+[NARRATION] Let's hear you say
+[NARRATION] We could try different Swiss wines.
+[WAIT] 6
+[PHRASE] mir choennted verschideni schwizer wii probiere
+[WAIT] 6
+[INTRO] Listen to the way you say
+[NARRATION] How do you like this wine?
+[PHRASE] wie gfallt dir dae wii
+[WAIT] 5
+[INTRO] Let's learn how to say
+[NARRATION] how
+[WORD] wie
+[WAIT] 2
+[NARRATION] Let's hear you say
+[NARRATION] how
+[WAIT] 2
+[WORD] wie
+[INTRO] Listen to the way you say
+[NARRATION] to you
+[WORD] dir
+[WAIT] 2
+[NARRATION] How do you say
+[NARRATION] to you
+[WAIT] 2
+[WORD] dir
+[INTRO] Listen to the way you say
+[NARRATION] there
+[WORD] dae
+[WAIT] 2
+[NARRATION] How do you say
+[NARRATION] there
+[WAIT] 2
+[WORD] dae
+[INTRO] Listen and repeat the following which means
+[NARRATION] falls
+[WORD] gfallt
+[WAIT] 2
+[NARRATION] How do you say
+[NARRATION] falls
+[WAIT] 2
+[WORD] gfallt
+[NARRATION] Let's hear you say
+[NARRATION] How do you like this wine?
+[WAIT] 5
+[PHRASE] wie gfallt dir dae wii
+[WAIT] 5
+[INTRO] Let's learn how to say
+[NARRATION] MMmmm. I like this one the most.
+[PHRASE] mh dae hani am liebschte
+[WAIT] 5
+[INTRO] Listen to the way you say
+[NARRATION] to the/at/on
+[WORD] am
+[WAIT] 2
+[NARRATION] How do you say
+[NARRATION] to the/at/on
+[WAIT] 2
+[WORD] am
+[NARRATION] How do you say
+[NARRATION] there
+[WAIT] 2
+[WORD] dae
+[NARRATION] Let's hear you say
+[NARRATION] mm
+[WAIT] 2
+[WORD] mh
+[NARRATION] Let's hear you say
+[NARRATION] Come on quickly!
+[WAIT] 2
+[PHRASE] chum schnaell
+[WAIT] 2
+[NARRATION] Let's hear you say
+[NARRATION] MMmmm. I like this one the most.
+[WAIT] 5
+[PHRASE] mh dae hani am liebschte
+[WAIT] 5
+[INTRO] Let's learn how to say
+[NARRATION] This one reminds me of a particularly fun evening...
+[PHRASE] dae erinneret mich ane bsunders luschtige obig
+[WAIT] 7
+[INTRO] Let's learn how to say
+[NARRATION] me
+[WORD] mich
+[WAIT] 2
+[NARRATION] Let's hear you say
+[NARRATION] me
+[WAIT] 2
+[WORD] mich
+[INTRO] Let's learn how to say
+[NARRATION] reminds
+[WORD] erinneret
+[WAIT] 2
+[NARRATION] How do you say
+[NARRATION] reminds
+[WAIT] 2
+[WORD] erinneret
+[INTRO] Listen and repeat the following which means
+[NARRATION] particularly
+[WORD] bsunders
+[WAIT] 2
+[NARRATION] Let's hear you say
+[NARRATION] particularly
+[WAIT] 2
+[WORD] bsunders
+[INTRO] Listen and repeat the following which means
+[NARRATION] of a
+[WORD] ane
+[WAIT] 2
+[NARRATION] Let's hear you say
+[NARRATION] of a
+[WAIT] 2
+[WORD] ane
+[INTRO] Let's learn how to say
+[NARRATION] fun
+[WORD] luschtige
+[WAIT] 2
+[NARRATION] How do you say
+[NARRATION] fun
+[WAIT] 2
+[WORD] luschtige
+[NARRATION] Let's hear you say
+[NARRATION] Come, let's go out.
+[WAIT] 4
+[PHRASE] chum mir goend uus
+[WAIT] 4
+[NARRATION] How do you say
+[NARRATION] This one reminds me of a particularly fun evening...
+[WAIT] 7
+[PHRASE] dae erinneret mich ane bsunders luschtige obig
+[WAIT] 7
+[NARRATION] Let's hear you say
+[NARRATION] Come, let's go out.
+[WAIT] 4
+[PHRASE] chum mir goend uus
+[WAIT] 4
+[INTRO] Let's learn how to say
+[NARRATION] Again? Where to?
+[PHRASE] scho wider woaene
+[WAIT] 3
+[INTRO] Listen and repeat the following which means
+[NARRATION] again
+[WORD] wider
+[WAIT] 2
+[NARRATION] How do you say
+[NARRATION] again
+[WAIT] 2
+[WORD] wider
+[NARRATION] How do you say
+[NARRATION] Come, let's go out.
+[WAIT] 4
+[PHRASE] chum mir goend uus
+[WAIT] 4
+[NARRATION] Let's hear you say
+[NARRATION] Again? Where to?
+[WAIT] 3
+[PHRASE] scho wider woaene
+[WAIT] 3
+[INTRO] Listen to the way you say
+[NARRATION] I'm really craving fast food.
+[PHRASE] ich ha mega luscht uf fastfuud
+[WAIT] 6
+[NARRATION] How do you say
+[NARRATION] mega
+[WAIT] 2
+[WORD] mega
+[INTRO] Let's learn how to say
+[NARRATION] lust
+[WORD] luscht
+[WAIT] 2
+[NARRATION] How do you say
+[NARRATION] lust
+[WAIT] 2
+[WORD] luscht
+[NARRATION] How do you say
+[NARRATION] Come, let's go out.
+[WAIT] 4
+[PHRASE] chum mir goend uus
+[WAIT] 4
+[NARRATION] Let's hear you say
+[NARRATION] I'm really craving fast food.
+[WAIT] 6
+[PHRASE] ich ha mega luscht uf fastfuud
+[WAIT] 6
+[INTRO] Listen to the way you say
+[NARRATION] Really?
+[PHRASE] wuerklich
+[WAIT] 2
+[NARRATION] How do you say
+[NARRATION] Come, let's go out.
+[WAIT] 4
+[PHRASE] chum mir goend uus
+[WAIT] 4
+[NARRATION] Let's hear you say
+[NARRATION] Really?
+[WAIT] 2
+[PHRASE] wuerklich
+[WAIT] 2
+[INTRO] Let's learn how to say
+[NARRATION] Yes. It brings back childhood memories for me.
+[PHRASE] jo das weckt i mir chindheitserinnerige
+[WAIT] 6
+[NARRATION] Let's hear you say
+[NARRATION] in
+[WAIT] 2
+[WORD] i
+[INTRO] Listen and repeat the following which means
+[NARRATION] wakes
+[WORD] weckt
+[WAIT] 2
+[NARRATION] How do you say
+[NARRATION] wakes
+[WAIT] 2
+[WORD] weckt
+[NARRATION] Let's hear you say
+[NARRATION] Yes. It brings back childhood memories for me.
+[WAIT] 6
+[PHRASE] jo das weckt i mir chindheitserinnerige
+[WAIT] 6
+[INTRO] Let's learn how to say
+[NARRATION] Are you sure?
+[PHRASE] bisch sicher
+[WAIT] 2
+[INTRO] Listen to the way you say
+[NARRATION] you are
+[WORD] bisch
+[WAIT] 2
+[NARRATION] How do you say
+[NARRATION] you are
+[WAIT] 2
+[WORD] bisch
+[NARRATION] Let's hear you say
+[NARRATION] Are you sure?
+[WAIT] 2
+[PHRASE] bisch sicher
+[WAIT] 2
+[INTRO] Listen to the way you say
+[NARRATION] Yes, once in a while, you can indulge a little, right?
+[PHRASE] jo all schaltjohr einisch daf mer doch chli ueber d schnuer haue oder
+[WAIT] 13
+[NARRATION] Let's hear you say
+[NARRATION] the
+[WAIT] 2
+[WORD] d
+[NARRATION] How do you say
+[NARRATION] once
+[WAIT] 2
+[WORD] einisch
+[NARRATION] Let's hear you say
+[NARRATION] little
+[WAIT] 2
+[WORD] chli
+[INTRO] Let's learn how to say
+[NARRATION] we
+[WORD] mer
+[WAIT] 2
+[NARRATION] Let's hear you say
+[NARRATION] we
+[WAIT] 2
+[WORD] mer
+[INTRO] Let's learn how to say
+[NARRATION] but
+[WORD] doch
+[WAIT] 2
+[NARRATION] How do you say
+[NARRATION] but
+[WAIT] 2
+[WORD] doch
+[INTRO] Let's learn how to say
+[NARRATION] about
+[WORD] ueber
+[WAIT] 2
+[NARRATION] Let's hear you say
+[NARRATION] about
+[WAIT] 2
+[WORD] ueber
+[INTRO] Let's learn how to say
+[NARRATION] unclear
+[WORD] daf
+[WAIT] 2
+[NARRATION] How do you say
+[NARRATION] unclear
+[WAIT] 2
+[WORD] daf
+[INTRO] Let's learn how to say
+[NARRATION] all
+[WORD] all
+[WAIT] 2
+[NARRATION] Let's hear you say
+[NARRATION] all
+[WAIT] 2
+[WORD] all
+[INTRO] Listen and repeat the following which means
+[NARRATION] laces
+[WORD] schnuer
+[WAIT] 2
+[NARRATION] How do you say
+[NARRATION] laces
+[WAIT] 2
+[WORD] schnuer
+[INTRO] Listen and repeat the following which means
+[NARRATION] leap year
+[WORD] schaltjohr
+[WAIT] 2
+[NARRATION] How do you say
+[NARRATION] leap year
+[WAIT] 2
+[WORD] schaltjohr
+[INTRO] Let's learn how to say
+[NARRATION] hit
+[WORD] haue
+[WAIT] 2
+[NARRATION] Let's hear you say
+[NARRATION] hit
+[WAIT] 2
+[WORD] haue
+[NARRATION] How do you say
+[NARRATION] Yes, once in a while, you can indulge a little, right?
+[WAIT] 13
+[PHRASE] jo all schaltjohr einisch daf mer doch chli ueber d schnuer haue oder
+[WAIT] 13
+[INTRO] Listen to the way you say
+[NARRATION] OK. But I don't know if that will turn out well.
+[PHRASE] ok aber ich weiss nid oeb das guet usechunnt
+[WAIT] 9
+[INTRO] Listen to the way you say
+[NARRATION] good
+[WORD] guet
+[WAIT] 2
+[NARRATION] How do you say
+[NARRATION] good
+[WAIT] 2
+[WORD] guet
+[NARRATION] How do you say
+[NARRATION] not
+[WAIT] 2
+[WORD] nid
+[NARRATION] How do you say
+[NARRATION] I know
+[WAIT] 2
+[WORD] weiss
+[INTRO] Let's learn how to say
+[NARRATION] ok
+[WORD] ok
+[WAIT] 2
+[NARRATION] Let's hear you say
+[NARRATION] ok
+[WAIT] 2
+[WORD] ok
+[INTRO] Listen and repeat the following which means
+[NARRATION] whether
+[WORD] oeb
+[WAIT] 2
+[NARRATION] How do you say
+[NARRATION] whether
+[WAIT] 2
+[WORD] oeb
+[NARRATION] Let's hear you say
+[NARRATION] Come, let's go out.
+[WAIT] 4
+[PHRASE] chum mir goend uus
+[WAIT] 4
+[NARRATION] Let's hear you say
+[NARRATION] OK. But I don't know if that will turn out well.
+[WAIT] 9
+[PHRASE] ok aber ich weiss nid oeb das guet usechunnt
+[WAIT] 9
+[INTRO] Listen and repeat the following which means
+[NARRATION] What do you like to eat when you go out?
+[PHRASE] was issisch du gaern wenn du uus gohsch
+[WAIT] 8
+[INTRO] Listen and repeat the following which means
+[NARRATION] you
+[WORD] du
+[WAIT] 2
+[NARRATION] How do you say
+[NARRATION] you
+[WAIT] 2
+[WORD] du
+[INTRO] Listen to the way you say
+[NARRATION] what
+[WORD] was
+[WAIT] 2
+[NARRATION] How do you say
+[NARRATION] what
+[WAIT] 2
+[WORD] was
+[NARRATION] How do you say
+[NARRATION] to like
+[WAIT] 2
+[WORD] gaern
+[NARRATION] How do you say
+[NARRATION] when/if
+[WAIT] 2
+[WORD] wenn
+[INTRO] Listen to the way you say
+[NARRATION] out
+[WORD] uus
+[WAIT] 2
+[NARRATION] How do you say
+[NARRATION] out
+[WAIT] 2
+[WORD] uus
+[INTRO] Listen to the way you say
+[NARRATION] you eat
+[WORD] issisch
+[WAIT] 2
+[NARRATION] Let's hear you say
+[NARRATION] you eat
+[WAIT] 2
+[WORD] issisch
+[NARRATION] How do you say
+[NARRATION] What do you like to eat when you go out?
+[WAIT] 8
+[PHRASE] was issisch du gaern wenn du uus gohsch
+[WAIT] 8
+[INTRO] Listen and repeat the following which means
+[NARRATION] What do you love with all your heart?
+[PHRASE] was hesch du fuer diis laebe gaern
+[WAIT] 7
+[NARRATION] How do you say
+[NARRATION] you
+[WAIT] 2
+[WORD] du
+[NARRATION] How do you say
+[NARRATION] what
+[WAIT] 2
+[WORD] was
+[NARRATION] Let's hear you say
+[NARRATION] yours
+[WAIT] 2
+[WORD] diis
+[NARRATION] How do you say
+[NARRATION] life
+[WAIT] 2
+[WORD] laebe
+[NARRATION] How do you say
+[NARRATION] What do you love with all your heart?
+[WAIT] 7
+[PHRASE] was hesch du fuer diis laebe gaern
+[WAIT] 7
+[INTRO] Let's learn how to say
+[NARRATION] Do you like to drink a little wine in the evening?
+[PHRASE] trinksch gaern chli wii am obig
+[WAIT] 6
+[NARRATION] Let's hear you say
+[NARRATION] to the/at/on
+[WAIT] 2
+[WORD] am
+[INTRO] Listen to the way you say
+[NARRATION] you drink
+[WORD] trinksch
+[WAIT] 2
+[NARRATION] Let's hear you say
+[NARRATION] you drink
+[WAIT] 2
+[WORD] trinksch
+[NARRATION] How do you say
+[NARRATION] Do you like to drink a little wine in the evening?
+[WAIT] 6
+[PHRASE] trinksch gaern chli wii am obig
+[WAIT] 6
+[INTRO] Listen to the way you say
+[NARRATION] What are you really craving at the moment?
+[PHRASE] uf was hesch du im momaent mega luscht
+[WAIT] 8
+[INTRO] Listen to the way you say
+[NARRATION] in the
+[WORD] im
+[WAIT] 2
+[NARRATION] Let's hear you say
+[NARRATION] in the
+[WAIT] 2
+[WORD] im
+[INTRO] Listen to the way you say
+[NARRATION] moment
+[WORD] momaent
+[WAIT] 2
+[NARRATION] How do you say
+[NARRATION] moment
+[WAIT] 2
+[WORD] momaent
+[NARRATION] How do you say
+[NARRATION] Come, let's go out.
+[WAIT] 4
+[PHRASE] chum mir goend uus
+[WAIT] 4
+[NARRATION] Let's hear you say
+[NARRATION] What are you really craving at the moment?
+[WAIT] 8
+[PHRASE] uf was hesch du im momaent mega luscht
+[WAIT] 8
+[INTRO] Let's learn how to say
+[NARRATION] Do you like Asian dishes? Which one do you like the most?
+[PHRASE] hesch gaern asiatischi gricht weles hesch am liebschte
+[WAIT] 8
+[INTRO] Listen and repeat the following which means
+[NARRATION] which
+[WORD] weles
+[WAIT] 2
+[NARRATION] Let's hear you say
+[NARRATION] which
+[WAIT] 2
+[WORD] weles
+[INTRO] Listen to the way you say
+[NARRATION] dishes
+[WORD] gricht
+[WAIT] 2
+[NARRATION] How do you say
+[NARRATION] dishes
+[WAIT] 2
+[WORD] gricht
+[INTRO] Listen to the way you say
+[NARRATION] Asian
+[WORD] asiatischi
+[WAIT] 2
+[NARRATION] How do you say
+[NARRATION] Asian
+[WAIT] 2
+[WORD] asiatischi
+[NARRATION] Let's hear you say
+[NARRATION] Do you like Asian dishes? Which one do you like the most?
+[WAIT] 8
+[PHRASE] hesch gaern asiatischi gricht weles hesch am liebschte
+[WAIT] 8
+[INTRO] Let's learn how to say
+[NARRATION] Do you take turns treating each other when you go out, or how do you pay?
+[PHRASE] tuend ir oeich gaegesiitig iilade wenn ir uus goend oder wie zahled ir
+[WAIT] 13
+[NARRATION] Let's hear you say
+[NARRATION] how
+[WAIT] 2
+[WORD] wie
+[INTRO] Let's learn how to say
+[NARRATION] or
+[WORD] oder
+[WAIT] 2
+[NARRATION] Let's hear you say
+[NARRATION] or
+[WAIT] 2
+[WORD] oder
+[INTRO] Let's learn how to say
+[NARRATION] you/they
+[WORD] ir
+[WAIT] 2
+[NARRATION] How do you say
+[NARRATION] you/they
+[WAIT] 2
+[WORD] ir
+[NARRATION] How do you say
+[NARRATION] out
+[WAIT] 2
+[WORD] uus
+[INTRO] Listen to the way you say
+[NARRATION] you (formal)
+[WORD] oeich
+[WAIT] 2
+[NARRATION] Let's hear you say
+[NARRATION] you (formal)
+[WAIT] 2
+[WORD] oeich
+[INTRO] Listen to the way you say
+[NARRATION] paid
+[WORD] zahled
+[WAIT] 2
+[NARRATION] Let's hear you say
+[NARRATION] paid
+[WAIT] 2
+[WORD] zahled
+[INTRO] Let's learn how to say
+[NARRATION] do
+[WORD] tuend
+[WAIT] 2
+[NARRATION] Let's hear you say
+[NARRATION] do
+[WAIT] 2
+[WORD] tuend
+[INTRO] Listen to the way you say
+[NARRATION] to invite
+[WORD] iilade
+[WAIT] 2
+[NARRATION] Let's hear you say
+[NARRATION] to invite
+[WAIT] 2
+[WORD] iilade
+[INTRO] Listen and repeat the following which means
+[NARRATION] treating
+[WORD] gaegesiitig
+[WAIT] 2
+[NARRATION] Let's hear you say
+[NARRATION] treating
+[WAIT] 2
+[WORD] gaegesiitig
+[NARRATION] Let's hear you say
+[NARRATION] Do you take turns treating each other when you go out, or how do you pay?
+[WAIT] 13
+[PHRASE] tuend ir oeich gaegesiitig iilade wenn ir uus goend oder wie zahled ir
+[WAIT] 13
+[INTRO] Listen and repeat the following which means
+[NARRATION] What effect does alcohol have on you? Do you get tipsy and funny or very tired?
+[PHRASE] was fuer e wirkig het de alkohol uf dich wirsch du uusglasse und luschtig oder sehr mueed
+[WAIT] 17
+[NARRATION] How do you say
+[NARRATION] the
+[WAIT] 2
+[WORD] de
+[INTRO] Listen and repeat the following which means
+[NARRATION] a
+[WORD] e
+[WAIT] 2
+[NARRATION] Let's hear you say
+[NARRATION] a
+[WAIT] 2
+[WORD] e
+[INTRO] Listen to the way you say
+[NARRATION] it has
+[WORD] het
+[WAIT] 2
+[NARRATION] How do you say
+[NARRATION] it has
+[WAIT] 2
+[WORD] het
+[NARRATION] How do you say
+[NARRATION] or
+[WAIT] 2
+[WORD] oder
+[NARRATION] How do you say
+[NARRATION] very
+[WAIT] 2
+[WORD] sehr
+[INTRO] Let's learn how to say
+[NARRATION] you
+[WORD] dich
+[WAIT] 2
+[NARRATION] How do you say
+[NARRATION] you
+[WAIT] 2
+[WORD] dich
+[INTRO] Listen to the way you say
+[NARRATION] funny
+[WORD] luschtig
+[WAIT] 2
+[NARRATION] Let's hear you say
+[NARRATION] funny
+[WAIT] 2
+[WORD] luschtig
+[INTRO] Let's learn how to say
+[NARRATION] alcohol
+[WORD] alkohol
+[WAIT] 2
+[NARRATION] Let's hear you say
+[NARRATION] alcohol
+[WAIT] 2
+[WORD] alkohol
+[INTRO] Listen and repeat the following which means
+[NARRATION] becomes
+[WORD] wirsch
+[WAIT] 2
+[NARRATION] Let's hear you say
+[NARRATION] becomes
+[WAIT] 2
+[WORD] wirsch
+[INTRO] Listen and repeat the following which means
+[NARRATION] effeect
+[WORD] wirkig
+[WAIT] 2
+[NARRATION] How do you say
+[NARRATION] effeect
+[WAIT] 2
+[WORD] wirkig
+[INTRO] Listen to the way you say
+[NARRATION] tipsy
+[WORD] uusglasse
+[WAIT] 2
+[NARRATION] Let's hear you say
+[NARRATION] tipsy
+[WAIT] 2
+[WORD] uusglasse
+[NARRATION] How do you say
+[NARRATION] What effect does alcohol have on you? Do you get tipsy and funny or very tired?
+[WAIT] 17
+[PHRASE] was fuer e wirkig het de alkohol uf dich wirsch du uusglasse und luschtig oder sehr mueed
+[WAIT] 17
+[INTRO] Let's learn how to say
+[NARRATION] Can you handle a lot of alcohol?
+[PHRASE] magsch vil alkohol vertraege
+[WAIT] 4
+[INTRO] Listen to the way you say
+[NARRATION] too much
+[WORD] vil
+[WAIT] 2
+[NARRATION] How do you say
+[NARRATION] too much
+[WAIT] 2
+[WORD] vil
+[NARRATION] How do you say
+[NARRATION] alcohol
+[WAIT] 2
+[WORD] alkohol
+[INTRO] Let's learn how to say
+[NARRATION] like
+[WORD] magsch
+[WAIT] 2
+[NARRATION] How do you say
+[NARRATION] like
+[WAIT] 2
+[WORD] magsch
+[NARRATION] How do you say
+[NARRATION] Come, let's go out.
+[WAIT] 4
+[PHRASE] chum mir goend uus
+[WAIT] 4
+[NARRATION] How do you say
+[NARRATION] Can you handle a lot of alcohol?
+[WAIT] 4
+[PHRASE] magsch vil alkohol vertraege
+[WAIT] 4
+[INTRO] Listen to the way you say
+[NARRATION] Is there a specific dish or drink that brings back special memories for you?
+[PHRASE] git s es beschtimmts moenue oder getraenk wo bsundrigi erinnerige i dir weckt
+[WAIT] 13
+[INTRO] Let's learn how to say
+[NARRATION] where
+[WORD] wo
+[WAIT] 2
+[NARRATION] Let's hear you say
+[NARRATION] where
+[WAIT] 2
+[WORD] wo
+[NARRATION] Let's hear you say
+[NARRATION] to you
+[WAIT] 2
+[WORD] dir
+[INTRO] Listen and repeat the following which means
+[NARRATION] gives
+[WORD] git
+[WAIT] 2
+[NARRATION] Let's hear you say
+[NARRATION] gives
+[WAIT] 2
+[WORD] git
+[INTRO] Listen to the way you say
+[NARRATION] specific
+[WORD] beschtimmts
+[WAIT] 2
+[NARRATION] Let's hear you say
+[NARRATION] specific
+[WAIT] 2
+[WORD] beschtimmts
+[INTRO] Listen to the way you say
+[NARRATION] menu
+[WORD] moenue
+[WAIT] 2
+[NARRATION] Let's hear you say
+[NARRATION] menu
+[WAIT] 2
+[WORD] moenue
+[INTRO] Listen to the way you say
+[NARRATION] memories
+[WORD] erinnerige
+[WAIT] 2
+[NARRATION] How do you say
+[NARRATION] memories
+[WAIT] 2
+[WORD] erinnerige
+[INTRO] Listen to the way you say
+[NARRATION] drink
+[WORD] getraenk
+[WAIT] 2
+[NARRATION] How do you say
+[NARRATION] drink
+[WAIT] 2
+[WORD] getraenk
+[INTRO] Listen and repeat the following which means
+[NARRATION] special
+[WORD] bsundrigi
+[WAIT] 2
+[NARRATION] How do you say
+[NARRATION] special
+[WAIT] 2
+[WORD] bsundrigi
+[NARRATION] How do you say
+[NARRATION] Where do you want to go?
+[WAIT] 3
+[PHRASE] woaene wottsch goh
+[WAIT] 3
+[NARRATION] How do you say
+[NARRATION] Is there a specific dish or drink that brings back special memories for you?
+[WAIT] 13
+[PHRASE] git s es beschtimmts moenue oder getraenk wo bsundrigi erinnerige i dir weckt
+[WAIT] 13
+[INTRO] Listen and repeat the following which means
+[NARRATION] What is your opinion on fast food?
+[PHRASE] wie schtohsch du zu fastfuud
+[WAIT] 5
+[INTRO] Listen and repeat the following which means
+[NARRATION] to
+[WORD] zu
+[WAIT] 2
+[NARRATION] Let's hear you say
+[NARRATION] to
+[WAIT] 2
+[WORD] zu
+[INTRO] Let's learn how to say
+[NARRATION] opinon
+[WORD] schtohsch
+[WAIT] 2
+[NARRATION] Let's hear you say
+[NARRATION] opinon
+[WAIT] 2
+[WORD] schtohsch
+[NARRATION] How do you say
+[NARRATION] What is your opinion on fast food?
+[WAIT] 5
+[PHRASE] wie schtohsch du zu fastfuud
+[WAIT] 5
+[INTRO] Let's learn how to say
+[NARRATION] Do you like fast food? How often do you eat it?
+[PHRASE] hesch gaern fastfuud wie huufig issisch es
+[WAIT] 7
+[NARRATION] How do you say
+[NARRATION] you eat
+[WAIT] 2
+[WORD] issisch
+[INTRO] Listen to the way you say
+[NARRATION] fast food
+[WORD] fastfuud
+[WAIT] 2
+[NARRATION] How do you say
+[NARRATION] fast food
+[WAIT] 2
+[WORD] fastfuud
+[INTRO] Let's learn how to say
+[NARRATION] often
+[WORD] huufig
+[WAIT] 2
+[NARRATION] How do you say
+[NARRATION] often
+[WAIT] 2
+[WORD] huufig
+[NARRATION] Let's hear you say
+[NARRATION] Come, let's go out.
+[WAIT] 4
+[PHRASE] chum mir goend uus
+[WAIT] 4
+[NARRATION] Let's hear you say
+[NARRATION] Do you like fast food? How often do you eat it?
+[WAIT] 7
+[PHRASE] hesch gaern fastfuud wie huufig issisch es
+[WAIT] 7
+[INTRO] Listen to the way you say
+[NARRATION] Do you take your kids to McDonald's or similar places if they ask for it?
+[PHRASE] gohsch du mit de chind in mcdonald oder so wenn si sich das wuensched
+[WAIT] 14
+[INTRO] Listen and repeat the following which means
+[NARRATION] she/they/to be
+[WORD] si
+[WAIT] 2
+[NARRATION] Let's hear you say
+[NARRATION] she/they/to be
+[WAIT] 2
+[WORD] si
+[NARRATION] How do you say
+[NARRATION] so
+[WAIT] 2
+[WORD] so
+[INTRO] Listen to the way you say
+[NARRATION] with
+[WORD] mit
+[WAIT] 2
+[NARRATION] How do you say
+[NARRATION] with
+[WAIT] 2
+[WORD] mit
+[INTRO] Let's learn how to say
+[NARRATION] itself
+[WORD] sich
+[WAIT] 2
+[NARRATION] Let's hear you say
+[NARRATION] itself
+[WAIT] 2
+[WORD] sich
+[INTRO] Listen to the way you say
+[NARRATION] you go
+[WORD] gohsch
+[WAIT] 2
+[NARRATION] How do you say
+[NARRATION] you go
+[WAIT] 2
+[WORD] gohsch
+[INTRO] Let's learn how to say
+[NARRATION] child
+[WORD] chind
+[WAIT] 2
+[NARRATION] How do you say
+[NARRATION] child
+[WAIT] 2
+[WORD] chind
+[INTRO] Listen and repeat the following which means
+[NARRATION] internet
+[WORD] in
+[WAIT] 2
+[NARRATION] How do you say
+[NARRATION] internet
+[WAIT] 2
+[WORD] in
+[INTRO] Listen and repeat the following which means
+[NARRATION] McDonald
+[WORD] mcdonald
+[WAIT] 2
+[NARRATION] How do you say
+[NARRATION] McDonald
+[WAIT] 2
+[WORD] mcdonald
+[NARRATION] Let's hear you say
+[NARRATION] Do you take your kids to McDonald's or similar places if they ask for it?
+[WAIT] 14
+[PHRASE] gohsch du mit de chind in mcdonald oder so wenn si sich das wuensched
+[WAIT] 14
+[INTRO] Listen to the way you say
+[NARRATION] What do you think about the aggressive marketing of McDonald's and similar companies
+[PHRASE] was daenksch du ueber das aggressive marketing vo mcdonalds und co
+[WAIT] 11
+[NARRATION] How do you say
+[NARRATION] about
+[WAIT] 2
+[WORD] ueber
+[INTRO] Listen to the way you say
+[NARRATION] thanks
+[WORD] daenksch
+[WAIT] 2
+[NARRATION] How do you say
+[NARRATION] thanks
+[WAIT] 2
+[WORD] daenksch
+[INTRO] Listen and repeat the following which means
+[NARRATION] aggressive
+[WORD] aggressive
+[WAIT] 2
+[NARRATION] Let's hear you say
+[NARRATION] aggressive
+[WAIT] 2
+[WORD] aggressive
+[INTRO] Let's learn how to say
+[NARRATION] marketing
+[WORD] marketing
+[WAIT] 2
+[NARRATION] How do you say
+[NARRATION] marketing
+[WAIT] 2
+[WORD] marketing
+[INTRO] Let's learn how to say
+[NARRATION] McDonals
+[WORD] mcdonalds
+[WAIT] 2
+[NARRATION] How do you say
+[NARRATION] McDonals
+[WAIT] 2
+[WORD] mcdonalds
+[NARRATION] How do you say
+[NARRATION] Come, let's go out.
+[WAIT] 4
+[PHRASE] chum mir goend uus
+[WAIT] 4
+[NARRATION] How do you say
+[NARRATION] What do you think about the aggressive marketing of McDonald's and similar companies
+[WAIT] 11
+[PHRASE] was daenksch du ueber das aggressive marketing vo mcdonalds und co
+[WAIT] 11
+[INTRO] Listen and repeat the following which means
+[NARRATION] Do you sometimes allow yourself to indulge a little?
+[PHRASE] erloubsch es dir amix e chli ueber d schnuer z houe
+[WAIT] 11
+[NARRATION] How do you say
+[NARRATION] a
+[WAIT] 2
+[WORD] e
+[INTRO] Let's learn how to say
+[NARRATION] to
+[WORD] z
+[WAIT] 2
+[NARRATION] How do you say
+[NARRATION] to
+[WAIT] 2
+[WORD] z
+[NARRATION] How do you say
+[NARRATION] laces
+[WAIT] 2
+[WORD] schnuer
+[INTRO] Listen to the way you say
+[NARRATION] sometimes
+[WORD] amix
+[WAIT] 2
+[NARRATION] How do you say
+[NARRATION] sometimes
+[WAIT] 2
+[WORD] amix
+[INTRO] Listen and repeat the following which means
+[NARRATION] You allow
+[WORD] erloubsch
+[WAIT] 2
+[NARRATION] Let's hear you say
+[NARRATION] You allow
+[WAIT] 2
+[WORD] erloubsch
+[NARRATION] How do you say
+[NARRATION] Do you sometimes allow yourself to indulge a little?
+[WAIT] 11
+[PHRASE] erloubsch es dir amix e chli ueber d schnuer z houe
+[WAIT] 11

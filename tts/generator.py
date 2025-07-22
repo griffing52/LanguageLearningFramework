@@ -17,7 +17,9 @@ def get_num_lines(file_path):
         return sum(1 for _ in fp)
 
 # Main processor
-def process_lesson(lesson_file, output_file="final_lesson.wav"):
+def process_lesson(lesson_file):#, output_file="final_lesson.wav"):
+    output_file = lesson_file.replace(".txt", ".wav")
+
     audio_sequence = []
     lessonName = lesson_file.split("/")[-1].split(".")[0]
     need_resampling = []

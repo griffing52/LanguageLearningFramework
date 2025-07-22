@@ -363,3 +363,6 @@ MigrationBackup/
 FodyWeavers.xsd
 tts/speaker_embeddings.pt
 /audio_cache
+/data
+final_lesson.wav
+final_lesson.wav

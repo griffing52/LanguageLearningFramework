@@ -48,29 +48,29 @@
 [WAIT] 2
 [WORD] mini
 [INTRO] Let's learn how to say
-[NARRATION] nine
-[WORD] nuen
+[NARRATION] telephone number
+[WORD] telefonnummere
 [WAIT] 2
 [NARRATION] Let's hear you say
+[NARRATION] telephone number
+[WAIT] 2
+[WORD] telefonnummere
+[INTRO] Let's learn how to say
+[NARRATION] nine
+[WORD] nuen
+[WAIT] 2
+[NARRATION] How do you say
 [NARRATION] nine
 [WAIT] 2
 [WORD] nuen
 [INTRO] Let's learn how to say
-[NARRATION] telephone number
-[WORD] telefonnummere
+[NARRATION] forty one
+[WORD] einevierzg
 [WAIT] 2
 [NARRATION] How do you say
-[NARRATION] telephone number
+[NARRATION] forty one
 [WAIT] 2
-[WORD] telefonnummere
-[INTRO] Let's learn how to say
-[NARRATION] fifty six
-[WORD] saechsefuefzg
-[WAIT] 2
-[NARRATION] How do you say
-[NARRATION] fifty six
-[WAIT] 2
-[WORD] saechsefuefzg
+[WORD] einevierzg
 [INTRO] Let's learn how to say
 [NARRATION] hundred
 [WORD] hundert
@@ -88,13 +88,13 @@
 [WAIT] 2
 [WORD] drueevierzg
 [INTRO] Listen and repeat the following which means
-[NARRATION] forty one
-[WORD] einevierzg
+[NARRATION] fifty six
+[WORD] saechsefuefzg
 [WAIT] 2
 [NARRATION] Let's hear you say
-[NARRATION] forty one
+[NARRATION] fifty six
 [WAIT] 2
-[WORD] einevierzg
+[WORD] saechsefuefzg
 [NARRATION] How do you say
 [NARRATION] My phone number is +41 943 56 78.
 [WAIT] 9
@@ -187,21 +187,21 @@
 [PHRASE] d eli het dir aagluute
 [WAIT] 5
 [INTRO] Listen to the way you say
-[NARRATION] the
-[WORD] d
+[NARRATION] it has
+[WORD] het
 [WAIT] 2
 [NARRATION] How do you say
+[NARRATION] it has
+[WAIT] 2
+[WORD] het
+[INTRO] Listen to the way you say
+[NARRATION] the
+[WORD] d
+[WAIT] 2
+[NARRATION] Let's hear you say
 [NARRATION] the
 [WAIT] 2
 [WORD] d
-[INTRO] Listen to the way you say
-[NARRATION] it has
-[WORD] het
-[WAIT] 2
-[NARRATION] Let's hear you say
-[NARRATION] it has
-[WAIT] 2
-[WORD] het
 [NARRATION] How do you say
 [NARRATION] to you
 [WAIT] 2
@@ -351,21 +351,21 @@
 [WAIT] 2
 [WORD] diis
 [INTRO] Listen and repeat the following which means
-[NARRATION] I can
-[WORD] chani
+[NARRATION] charging tray
+[WORD] uufladegraetli
 [WAIT] 2
 [NARRATION] Let's hear you say
+[NARRATION] charging tray
+[WAIT] 2
+[WORD] uufladegraetli
+[INTRO] Listen and repeat the following which means
+[NARRATION] I can
+[WORD] chani
+[WAIT] 2
+[NARRATION] How do you say
 [NARRATION] I can
 [WAIT] 2
 [WORD] chani
-[INTRO] Listen and repeat the following which means
-[NARRATION] charging tray
-[WORD] uufladegraetli
-[WAIT] 2
-[NARRATION] How do you say
-[NARRATION] charging tray
-[WAIT] 2
-[WORD] uufladegraetli
 [NARRATION] How do you say
 [NARRATION] Can I borrow your charger?
 [WAIT] 4
@@ -425,13 +425,13 @@
 [WAIT] 2
 [WORD] du
 [INTRO] Let's learn how to say
-[NARRATION] you are
-[WORD] bisch
+[NARRATION] to the/at/on
+[WORD] am
 [WAIT] 2
 [NARRATION] Let's hear you say
-[NARRATION] you are
+[NARRATION] to the/at/on
 [WAIT] 2
-[WORD] bisch
+[WORD] am
 [INTRO] Let's learn how to say
 [NARRATION] already
 [WORD] scho
@@ -441,45 +441,45 @@
 [WAIT] 2
 [WORD] scho
 [INTRO] Listen and repeat the following which means
-[NARRATION] to the/at/on
-[WORD] am
+[NARRATION] you are
+[WORD] bisch
 [WAIT] 2
 [NARRATION] Let's hear you say
-[NARRATION] to the/at/on
+[NARRATION] you are
 [WAIT] 2
-[WORD] am
+[WORD] bisch
 [INTRO] Let's learn how to say
-[NARRATION] to look
-[WORD] lueg
+[NARRATION] again
+[WORD] wider
 [WAIT] 2
 [NARRATION] Let's hear you say
-[NARRATION] to look
+[NARRATION] again
 [WAIT] 2
-[WORD] lueg
+[WORD] wider
 [INTRO] Listen to the way you say
-[NARRATION] again
-[WORD] wider
+[NARRATION] to look
+[WORD] lueg
 [WAIT] 2
 [NARRATION] Let's hear you say
-[NARRATION] again
+[NARRATION] to look
 [WAIT] 2
-[WORD] wider
+[WORD] lueg
 [INTRO] Let's learn how to say
-[NARRATION] towards someone?
-[WORD] aa
+[NARRATION] time
+[WORD] mol
 [WAIT] 2
 [NARRATION] How do you say
+[NARRATION] time
+[WAIT] 2
+[WORD] mol
+[INTRO] Listen to the way you say
+[NARRATION] towards someone?
+[WORD] aa
+[WAIT] 2
+[NARRATION] Let's hear you say
 [NARRATION] towards someone?
 [WAIT] 2
 [WORD] aa
-[INTRO] Listen to the way you say
-[NARRATION] time
-[WORD] mol
-[WAIT] 2
-[NARRATION] Let's hear you say
-[NARRATION] time
-[WAIT] 2
-[WORD] mol
 [NARRATION] How do you say
 [NARRATION] See, you're on your phone again?
 [WAIT] 9
@@ -498,21 +498,21 @@
 [WAIT] 2
 [WORD] es
 [INTRO] Listen and repeat the following which means
-[NARRATION] still
-[WORD] no
+[NARRATION] only
+[WORD] nur
 [WAIT] 2
 [NARRATION] How do you say
-[NARRATION] still
+[NARRATION] only
 [WAIT] 2
-[WORD] no
+[WORD] nur
 [INTRO] Let's learn how to say
-[NARRATION] only
-[WORD] nur
+[NARRATION] still
+[WORD] no
 [WAIT] 2
 [NARRATION] How do you say
-[NARRATION] only
+[NARRATION] still
 [WAIT] 2
-[WORD] nur
+[WORD] no
 [INTRO] Let's learn how to say
 [NARRATION] Only this…
 [PHRASE] nur no das
@@ -556,21 +556,21 @@
 [WAIT] 2
 [WORD] lueg
 [INTRO] Listen and repeat the following which means
-[NARRATION] Instagram
-[WORD] instagram
+[NARRATION] Adam
+[WORD] adam
 [WAIT] 2
 [NARRATION] How do you say
-[NARRATION] Instagram
+[NARRATION] Adam
 [WAIT] 2
-[WORD] instagram
+[WORD] adam
 [INTRO] Listen to the way you say
-[NARRATION] Adam
-[WORD] adam
+[NARRATION] Instagram
+[WORD] instagram
 [WAIT] 2
 [NARRATION] How do you say
-[NARRATION] Adam
+[NARRATION] Instagram
 [WAIT] 2
-[WORD] adam
+[WORD] instagram
 [NARRATION] How do you say
 [NARRATION] Only this…
 [WAIT] 3
@@ -670,13 +670,13 @@
 [PHRASE] tue diis haendy jetz bitte uf d siite
 [WAIT] 8
 [NARRATION] Let's hear you say
-[NARRATION] the
-[WAIT] 2
-[WORD] d
-[NARRATION] How do you say
 [NARRATION] to/for
 [WAIT] 2
 [WORD] uf
+[NARRATION] How do you say
+[NARRATION] the
+[WAIT] 2
+[WORD] d
 [INTRO] Listen to the way you say
 [NARRATION] now
 [WORD] jetz
@@ -731,21 +731,21 @@
 [WAIT] 2
 [WORD] guet
 [INTRO] Listen to the way you say
-[NARRATION] something
-[WORD] oeppis
+[NARRATION] I make
+[WORD] mache
 [WAIT] 2
 [NARRATION] Let's hear you say
+[NARRATION] I make
+[WAIT] 2
+[WORD] mache
+[INTRO] Listen and repeat the following which means
+[NARRATION] something
+[WORD] oeppis
+[WAIT] 2
+[NARRATION] How do you say
 [NARRATION] something
 [WAIT] 2
 [WORD] oeppis
-[INTRO] Listen and repeat the following which means
-[NARRATION] I make
-[WORD] mache
-[WAIT] 2
-[NARRATION] How do you say
-[NARRATION] I make
-[WAIT] 2
-[WORD] mache
 [NARRATION] Let's hear you say
 [NARRATION] Ok, I will do something else.
 [WAIT] 5
@@ -798,21 +798,21 @@
 [WAIT] 2
 [WORD] es
 [INTRO] Listen to the way you say
-[NARRATION] so
-[WORD] so
+[NARRATION] to
+[WORD] z
 [WAIT] 2
 [NARRATION] Let's hear you say
+[NARRATION] to
+[WAIT] 2
+[WORD] z
+[INTRO] Listen and repeat the following which means
+[NARRATION] so
+[WORD] so
+[WAIT] 2
+[NARRATION] How do you say
 [NARRATION] so
 [WAIT] 2
 [WORD] so
-[INTRO] Listen and repeat the following which means
-[NARRATION] to
-[WORD] z
-[WAIT] 2
-[NARRATION] How do you say
-[NARRATION] to
-[WAIT] 2
-[WORD] z
 [INTRO] Let's learn how to say
 [NARRATION] beautiful
 [WORD] schoen
@@ -937,13 +937,13 @@
 [PHRASE] ich mues das schnaell aaluege
 [WAIT] 5
 [NARRATION] Let's hear you say
-[NARRATION] still
-[WAIT] 2
-[WORD] no
-[NARRATION] Let's hear you say
 [NARRATION] only
 [WAIT] 2
 [WORD] nur
+[NARRATION] Let's hear you say
+[NARRATION] still
+[WAIT] 2
+[WORD] no
 [NARRATION] Let's hear you say
 [NARRATION] Only this…
 [WAIT] 3
@@ -1120,9 +1120,9 @@
 [PHRASE] du hesch nid uufpasst und bisch mit em haendy i fluss ine gheit
 [WAIT] 13
 [NARRATION] How do you say
-[NARRATION] in
+[NARRATION] not
 [WAIT] 2
-[WORD] i
+[WORD] nid
 [INTRO] Let's learn how to say
 [NARRATION] with
 [WORD] mit
@@ -1131,11 +1131,7 @@
 [NARRATION] with
 [WAIT] 2
 [WORD] mit
-[NARRATION] How do you say
-[NARRATION] not
-[WAIT] 2
-[WORD] nid
-[INTRO] Listen to the way you say
+[INTRO] Listen and repeat the following which means
 [NARRATION] and
 [WORD] und
 [WAIT] 2
@@ -1143,6 +1139,10 @@
 [NARRATION] and
 [WAIT] 2
 [WORD] und
+[NARRATION] How do you say
+[NARRATION] in
+[WAIT] 2
+[WORD] i
 [INTRO] Let's learn how to say
 [NARRATION] a
 [WORD] em
@@ -1269,13 +1269,13 @@
 [PHRASE] ich mues oeppis gaege mini sucht undernaeh
 [WAIT] 7
 [NARRATION] Let's hear you say
-[NARRATION] something
-[WAIT] 2
-[WORD] oeppis
-[NARRATION] Let's hear you say
 [NARRATION] I must
 [WAIT] 2
 [WORD] mues
+[NARRATION] Let's hear you say
+[NARRATION] something
+[WAIT] 2
+[WORD] oeppis
 [NARRATION] How do you say
 [NARRATION] my
 [WAIT] 2
@@ -1542,13 +1542,13 @@
 [PHRASE] findsch es entschpannend am haendy z sii
 [WAIT] 7
 [NARRATION] How do you say
-[NARRATION] to
-[WAIT] 2
-[WORD] z
-[NARRATION] How do you say
 [NARRATION] to the/at/on
 [WAIT] 2
 [WORD] am
+[NARRATION] How do you say
+[NARRATION] to
+[WAIT] 2
+[WORD] z
 [INTRO] Let's learn how to say
 [NARRATION] you find
 [WORD] findsch
@@ -1580,21 +1580,21 @@
 [PHRASE] koennsch oepper wo richtig suechtig noch siim smartphone isch
 [WAIT] 9
 [INTRO] Listen to the way you say
-[NARRATION] can
-[WORD] koennsch
+[NARRATION] someone
+[WORD] oepper
 [WAIT] 2
 [NARRATION] Let's hear you say
+[NARRATION] someone
+[WAIT] 2
+[WORD] oepper
+[INTRO] Let's learn how to say
+[NARRATION] can
+[WORD] koennsch
+[WAIT] 2
+[NARRATION] How do you say
 [NARRATION] can
 [WAIT] 2
 [WORD] koennsch
-[INTRO] Let's learn how to say
-[NARRATION] someone
-[WORD] oepper
-[WAIT] 2
-[NARRATION] How do you say
-[NARRATION] someone
-[WAIT] 2
-[WORD] oepper
 [INTRO] Listen to the way you say
 [NARRATION] right
 [WORD] richtig
@@ -1670,21 +1670,21 @@
 [WAIT] 2
 [WORD] aesse
 [INTRO] Listen to the way you say
-[NARRATION] you react
-[WORD] reagiersch
+[NARRATION] while
+[WORD] waehrend
 [WAIT] 2
 [NARRATION] Let's hear you say
-[NARRATION] you react
+[NARRATION] while
 [WAIT] 2
-[WORD] reagiersch
+[WORD] waehrend
 [INTRO] Let's learn how to say
-[NARRATION] while
-[WORD] waehrend
+[NARRATION] you react
+[WORD] reagiersch
 [WAIT] 2
 [NARRATION] Let's hear you say
-[NARRATION] while
+[NARRATION] you react
 [WAIT] 2
-[WORD] waehrend
+[WORD] reagiersch
 [NARRATION] How do you say
 [NARRATION] How do you react when someone is on their phone during a meal?
 [WAIT] 10
@@ -1776,22 +1776,22 @@
 [NARRATION] What do you do in order to not spend too much time on your cell phone?
 [PHRASE] was machsch dass d nid z vil ziit am haendy verbringsch
 [WAIT] 11
+[NARRATION] Let's hear you say
+[NARRATION] too much
+[WAIT] 2
+[WORD] vil
 [INTRO] Listen to the way you say
 [NARRATION] time
 [WORD] ziit
 [WAIT] 2
-[NARRATION] How do you say
+[NARRATION] Let's hear you say
 [NARRATION] time
 [WAIT] 2
 [WORD] ziit
-[NARRATION] Let's hear you say
+[NARRATION] How do you say
 [NARRATION] that
 [WAIT] 2
 [WORD] dass
-[NARRATION] How do you say
-[NARRATION] too much
-[WAIT] 2
-[WORD] vil
 [INTRO] Listen to the way you say
 [NARRATION] you make
 [WORD] machsch
@@ -1839,14 +1839,6 @@
 [WAIT] 2
 [WORD] ueber
 [INTRO] Listen to the way you say
-[NARRATION] thanks
-[WORD] daenksch
-[WAIT] 2
-[NARRATION] How do you say
-[NARRATION] thanks
-[WAIT] 2
-[WORD] daenksch
-[INTRO] Listen and repeat the following which means
 [NARRATION] people
 [WORD] luut
 [WAIT] 2
@@ -1855,13 +1847,21 @@
 [WAIT] 2
 [WORD] luut
 [INTRO] Listen and repeat the following which means
-[NARRATION] photos
-[WORD] foeteli
+[NARRATION] thanks
+[WORD] daenksch
 [WAIT] 2
 [NARRATION] How do you say
-[NARRATION] photos
+[NARRATION] thanks
 [WAIT] 2
-[WORD] foeteli
+[WORD] daenksch
+[INTRO] Listen and repeat the following which means
+[NARRATION] media
+[WORD] medie
+[WAIT] 2
+[NARRATION] How do you say
+[NARRATION] media
+[WAIT] 2
+[WORD] medie
 [INTRO] Let's learn how to say
 [NARRATION] constantly
 [WORD] schtaendig
@@ -1871,21 +1871,21 @@
 [WAIT] 2
 [WORD] schtaendig
 [INTRO] Listen and repeat the following which means
-[NARRATION] social
-[WORD] soziale
+[NARRATION] photos
+[WORD] foeteli
 [WAIT] 2
 [NARRATION] How do you say
-[NARRATION] social
+[NARRATION] photos
 [WAIT] 2
-[WORD] soziale
+[WORD] foeteli
 [INTRO] Listen and repeat the following which means
-[NARRATION] media
-[WORD] medie
+[NARRATION] social
+[WORD] soziale
 [WAIT] 2
 [NARRATION] How do you say
-[NARRATION] media
+[NARRATION] social
 [WAIT] 2
-[WORD] medie
+[WORD] soziale
 [NARRATION] Let's hear you say
 [NARRATION] What's your opinion on people who constantly post photos on social media?
 [WAIT] 12

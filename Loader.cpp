@@ -252,6 +252,7 @@ void loader::loadMemoryFile(vector<util::Phrase*>& phraseList, map<string, util:
 			if (i == ln || phrase->value[i] == ' ') {
 
 				string word = phrase->value.substr(prevSpaceIdx + 1, i - prevSpaceIdx - 1);
+				prevSpaceIdx = (int)i;
 
 				if (wordMap.count(word) <= 0) {
 					// cerr?
@@ -265,7 +266,6 @@ void loader::loadMemoryFile(vector<util::Phrase*>& phraseList, map<string, util:
 				phrase->complexity += w->complexity;
 				//phrase->dependencies.push((util::Phrase*) wordMap[word]);
 
-				prevSpaceIdx = (int)i;
 			}
 		}
 
