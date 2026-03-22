@@ -34,6 +34,7 @@ mkdocs serve
 - Use [Data Files](data-files.md) to understand input file formats.
 - Use [Architecture](architecture.md) for module responsibilities and data flow.
 - Use [Tooling](tooling.md) for scraping and TTS helpers.
+- Use [TTS Methods](tts-methods/index.md) for approach history, tradeoffs, and current direction.
 - Use [Development Notes](development.md) for extension guidance.
 
 ## Current project status

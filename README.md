@@ -49,4 +49,5 @@ mkdocs build
 - docs/data-files.md
 - docs/architecture.md
 - docs/tooling.md
+- docs/tts-methods/index.md
 - docs/development.md

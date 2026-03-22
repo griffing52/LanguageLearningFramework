@@ -30,4 +30,10 @@ nav:
   - Data Files: data-files.md
   - Architecture: architecture.md
   - Tooling: tooling.md
+  - TTS Methods:
+    - Overview: tts-methods/index.md
+    - Concatenative Recordings: tts-methods/concatenative-word-recordings.md
+    - IPA Pipeline: tts-methods/ipa-phoneme-pipeline.md
+    - Fine-tuned SpeechT5: tts-methods/finetuned-speecht5.md
+    - Method Comparison: tts-methods/comparison.md
   - Development Notes: development.md

@@ -21,6 +21,8 @@ These scripts are utility tools and are not part of the C++ build.
 
 Location: tts/
 
+See also: [TTS Methods](tts-methods/index.md) for historical approaches and why the current model direction was chosen.
+
 | Script | Purpose | Dependency highlights |
 | --- | --- | --- |
 | tts.py | Generate speech audio from text | transformers, torch, soundfile |
