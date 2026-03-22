@@ -1,0 +1,39 @@
+site_name: Language Learning Framework
+site_description: Documentation for the LanguageLearningFramework project.
+site_url: https://example.invalid/language-learning-framework/
+repo_name: griffing52/LanguageLearningFramework
+repo_url: https://github.com/griffing52/LanguageLearningFramework
+
+docs_dir: docs
+
+theme:
+  name: material
+  palette:
+    - scheme: default
+      primary: teal
+      accent: amber
+
+markdown_extensions:
+  - admonition
+  - attr_list
+  - def_list
+  - footnotes
+  - md_in_html
+  - tables
+  - toc:
+      permalink: true
+
+nav:
+  - Home: index.md
+  - Getting Started: getting-started.md
+  - CLI Reference: cli-reference.md
+  - Data Files: data-files.md
+  - Architecture: architecture.md
+  - Tooling: tooling.md
+  - TTS Methods:
+    - Overview: tts-methods/index.md
+    - Concatenative Recordings: tts-methods/concatenative-word-recordings.md
+    - IPA Pipeline: tts-methods/ipa-phoneme-pipeline.md
+    - Fine-tuned SpeechT5: tts-methods/finetuned-speecht5.md
+    - Method Comparison: tts-methods/comparison.md
+  - Development Notes: development.md

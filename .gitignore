@@ -362,3 +362,9 @@ MigrationBackup/
 # Fody - auto-generated XML schema
 FodyWeavers.xsd
 tts/speaker_embeddings.pt
+
+# MkDocs build output
+site/
+
+# Optional local virtual environment for docs tooling
+.venv/
