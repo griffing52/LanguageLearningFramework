@@ -25,16 +25,26 @@ markdown_extensions:
 
 nav:
   - Home: index.md
-  - Getting Started: getting-started.md
-  - Repository Layout: repo-layout.md
-  - CLI Reference: cli-reference.md
-  - Data Files: data-files.md
-  - Architecture: architecture.md
-  - Tooling: tooling.md
-  - TTS Methods:
-    - Overview: tts-methods/index.md
-    - Concatenative Recordings: tts-methods/concatenative-word-recordings.md
-    - IPA Pipeline: tts-methods/ipa-phoneme-pipeline.md
-    - Fine-tuned SpeechT5: tts-methods/finetuned-speecht5.md
-    - Method Comparison: tts-methods/comparison.md
-  - Development Notes: development.md
+  - Quick Start: quick-start.md
+  - Setup: setup.md
+  - Web UI:
+    - Backend Overview: backend/overview.md
+    - Frontend Overview: frontend/overview.md
+    - API Reference: api/reference.md
+  - Deployment:
+    - Docker & Deployment: deployment/docker.md
+  - Implementation: implementation.md
+  - Repository:
+    - Repository Layout: repo-layout.md
+    - CLI Reference: cli-reference.md
+    - Data Files: data-files.md
+  - Legacy:
+    - Architecture: architecture.md
+    - Tooling: tooling.md
+    - TTS Methods:
+      - Overview: tts-methods/index.md
+      - Concatenative Recordings: tts-methods/concatenative-word-recordings.md
+      - IPA Pipeline: tts-methods/ipa-phoneme-pipeline.md
+      - Fine-tuned SpeechT5: tts-methods/finetuned-speecht5.md
+      - Method Comparison: tts-methods/comparison.md
+    - Development Notes: development.md

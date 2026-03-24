@@ -1,46 +1,56 @@
 # Language Learning Framework
 
-LanguageLearningFramework is a local, file-driven language study toolkit focused on phrase learning.
+LanguageLearningFramework is a comprehensive language learning system combining a modern web UI, REST API backend, spaced repetition algorithm, and C++ data toolkit—all powered by local file-based architecture.
 
-!!! info "What this project is"
-    A C++ study engine with helper scripts for scraping and TTS, designed around plain-text data files for easy iteration.
+## What's Included
 
-The repository currently includes:
+### Web Application Stack
+- **React UI** - Interactive study interface with audio playback, confidence feedback, and progress tracking
+- **FastAPI Backend** - Professional 5-layer REST API with spaced repetition algorithm
+- **Docker Orchestration** - Complete containerized stack (UI, API, data initialization)
 
-- A C++ interactive CLI for loading words and phrase memory, inspecting dependencies, and adjusting metadata.
-- A scraping helper for collecting Swiss German lesson content.
-- Text-to-speech helper scripts for generating and composing audio assets.
+### Legacy C++ Toolkit
+- **CLI Application** - Interactive prompt for direct word/phrase data management
+- **Scraping Tools** - Swiss German lesson content collection and cleaning
+- **TTS System** - Audio generation and composition pipeline
 
-## At a glance
+## Technology Stack
 
-| Area | Stack | Purpose |
+| Component | Technology | Purpose |
 | --- | --- | --- |
-| Core app | C++ | Interactive prompt for word and phrase study data |
-| Scraping tools | JavaScript + Python | Collect and clean lesson source content |
-| Audio tools | Python | Generate and stitch spoken lesson assets |
-| Documentation | MkDocs | Project reference and onboarding |
+| Frontend | React 18 + TypeScript + Vite | Interactive study UI |
+| Backend | FastAPI + Pydantic + Uvicorn | REST API with spaced repetition |
+| Container | Docker + Nginx | Full-stack deployment |
+| C++ Legacy | C++ + CMake | CLI data tool |
+| Scraping | JavaScript + Python | Content acquisition |
+| Audio | Python (SpeechT5, Concatenative) | TTS generation |
+| Docs | MkDocs + Material | Documentation |
 
-## Quick start
+## Quick Start
 
-```powershell
-pip install -r requirements-docs.txt
-mkdocs serve
+Get everything running in 5 minutes:
+
+```bash
+# Windows
+.\start-dev.ps1
+
+# macOS/Linux
+./start-dev.sh
 ```
 
-## Documentation map
+Then open:
+- **UI**: http://localhost:3000
+- **API**: http://127.0.0.1:5000
+- **API Docs**: http://127.0.0.1:5000/api/docs
 
-- Use [Getting Started](getting-started.md) to set up build tools and run the app.
-- Use [Repository Layout](repo-layout.md) to understand where apps, data, and tools live.
-- Use [CLI Reference](cli-reference.md) for commands supported by the interactive prompt.
-- Use [Data Files](data-files.md) to understand input file formats.
-- Use [Architecture](architecture.md) for module responsibilities and data flow.
-- Use [Tooling](tooling.md) for scraping and TTS helpers.
-- Use [TTS Methods](tts-methods/index.md) for approach history, tradeoffs, and current direction.
-- Use [Development Notes](development.md) for extension guidance.
+## Documentation Map
 
-## Current project status
+**Getting Started** — Use [Quick Start](quick-start.md) to run the web stack in 5 minutes, then [Setup](setup.md) for detailed configuration and development guidance.
 
-The core CLI supports loading, inspection, memory save/load, and selected metadata updates. Several commands are placeholders and are documented as such.
+**Web Stack** — Explore [Backend Architecture](backend/overview.md) for API design, [Frontend Architecture](frontend/overview.md) for React components, and [API Reference](api/reference.md) for all endpoints.
 
-!!! warning "Implementation status"
-    Parser branches for add, remove, and list are currently placeholders in the CLI.
+**Deployment** — See [Docker & Deployment](deployment/docker.md) for containerization, Kubernetes, and production hosting options.
+
+**Repository & Legacy** — Use [Repository Layout](repo-layout.md) for project structure, [CLI Reference](cli-reference.md) for C++ commands, and [Data Files](data-files.md) for file formats.
+
+**Extended Reading** — Advanced topics: [Architecture](architecture.md), [Tooling](tooling.md), [TTS Methods](tts-methods/index.md), [Development Notes](development.md).
