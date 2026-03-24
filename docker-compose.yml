@@ -1,0 +1,68 @@
+version: '3.8'
+
+services:
+  api:
+    build:
+      context: ./apps/api
+      dockerfile: Dockerfile
+    container_name: llf-api
+    ports:
+      - "5000:5000"
+    environment:
+      API_HOST: 0.0.0.0
+      API_PORT: 5000
+      API_DEBUG: "False"
+      API_RELOAD: "True"
+      LOG_LEVEL: INFO
+      CORS_ORIGINS: '["http://localhost:3000", "http://127.0.0.1:3000"]'
+    volumes:
+      - ./data:/usr/src/app/data
+      - ./apps/api/app.py:/usr/src/app/app.py
+      - ./apps/api/config.py:/usr/src/app/config.py
+      - ./apps/api/core:/usr/src/app/core
+      - ./apps/api/services:/usr/src/app/services
+      - ./apps/api/data_access:/usr/src/app/data_access
+      - ./apps/api/api:/usr/src/app/api
+      - ./apps/api/utils:/usr/src/app/utils
+    networks:
+      - llf-network
+    depends_on:
+      - data-prepare
+    restart: unless-stopped
+
+  ui:
+    build:
+      context: ./apps/web-ui
+      dockerfile: Dockerfile
+      args:
+        VITE_API_URL: http://api:5000/api
+    container_name: llf-ui
+    ports:
+      - "3000:80"
+    environment:
+      VITE_API_URL: http://api:5000/api
+    networks:
+      - llf-network
+    depends_on:
+      - api
+    restart: unless-stopped
+
+  data-prepare:
+    image: busybox:latest
+    container_name: llf-data-prepare
+    volumes:
+      - ./data:/data
+    command: >
+      sh -c "
+      mkdir -p /data/seed /data/state /data/audio &&
+      echo 'Data directories ready'
+      "
+    networks:
+      - llf-network
+
+networks:
+  llf-network:
+    driver: bridge
+
+volumes:
+  data:
