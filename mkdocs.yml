@@ -26,6 +26,7 @@ markdown_extensions:
 nav:
   - Home: index.md
   - Getting Started: getting-started.md
+  - Repository Layout: repo-layout.md
   - CLI Reference: cli-reference.md
   - Data Files: data-files.md
   - Architecture: architecture.md

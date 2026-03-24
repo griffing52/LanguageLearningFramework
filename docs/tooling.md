@@ -2,7 +2,7 @@
 
 ## Scraping helpers
 
-Location: scraping/
+Location: tools/scraping/
 
 | Script | Type | Output |
 | --- | --- | --- |
@@ -19,7 +19,7 @@ These scripts are utility tools and are not part of the C++ build.
 
 ## TTS helpers
 
-Location: tts/
+Location: tools/tts/
 
 See also: [TTS Methods](tts-methods/index.md) for historical approaches and why the current model direction was chosen.
 
@@ -38,16 +38,16 @@ See also: [TTS Methods](tts-methods/index.md) for historical approaches and why 
 
 ## Notes
 
-- Paths in tts.py currently include local absolute paths and may need environment-specific updates.
-- tts/requirements.txt is present but currently empty.
+- Paths in tools/tts/tts.py currently include local absolute paths and may need environment-specific updates.
+- tools/tts/requirements.txt is present but currently empty.
 - save_files.py assumes ffmpeg is available on PATH.
 
 ## Useful commands
 
 ```powershell
-python scraping/dataCleaner.py
-python tts/tts.py
-python tts/save_files.py
+python tools/scraping/dataCleaner.py
+python tools/tts/tts.py
+python tools/tts/save_files.py
 ```
 
 !!! warning "Portability"

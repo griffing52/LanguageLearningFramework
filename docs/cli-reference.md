@@ -27,7 +27,7 @@ clear phrases
 exit
 ```
 
-- start loads default words file words.txt and default memory file mem0.
+- start loads default words file data/seed/words.txt and default memory file data/state/mem0.
 - load without args behaves like start.
 - load <file> is treated as a memory file.
 
@@ -35,8 +35,8 @@ exit
 
 ```text
 > start
-> load phrases lesson1.txt
-> save mem0
+> load phrases data/seed/lesson1.txt
+> save data/state/mem0
 ```
 
 ## Inspection commands

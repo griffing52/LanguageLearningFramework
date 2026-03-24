@@ -15,37 +15,47 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="LanguageLearningFramework.cpp">
+    <ClCompile Include="apps\cpp-cli\src\Main.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Loader.cpp">
+    <ClCompile Include="apps\cpp-cli\src\Loader.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Util.cpp">
+    <ClCompile Include="apps\cpp-cli\src\Util.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Debug.cpp">
+    <ClCompile Include="apps\cpp-cli\src\Debug.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Timer.cpp">
+    <ClCompile Include="apps\cpp-cli\src\Planner.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="apps\cpp-cli\src\Timer.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Loader.h">
+    <ClInclude Include="apps\cpp-cli\include\Loader.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Util.h">
+    <ClInclude Include="apps\cpp-cli\include\Util.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Debug.h">
+    <ClInclude Include="apps\cpp-cli\include\Debug.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="apps\cpp-cli\include\Planner.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="apps\cpp-cli\include\Timer.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <Text Include="lesson1.txt" />
-    <Text Include="words.txt" />
-    <Text Include="known_words.txt" />
-    <Text Include="known_phrases.txt" />
+    <Text Include="data\seed\lesson1.txt" />
+    <Text Include="data\seed\words.txt" />
+    <Text Include="data\seed\known_words.txt" />
+    <Text Include="data\seed\known_phrases.txt" />
+    <Text Include="data\state\mem0" />
   </ItemGroup>
 </Project>

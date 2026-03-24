@@ -10,9 +10,11 @@ This page covers the fastest path to run docs and the C++ app locally.
 
 ## Repository layout
 
-- C++ core: root-level .cpp/.h files and the Visual Studio solution.
-- Scraping helper: scraping/.
-- TTS helper scripts: tts/.
+- C++ core source: apps/cpp-cli/src and apps/cpp-cli/include.
+- Future browser UI area: apps/web-ui/.
+- Seed and runtime data: data/seed, data/state, data/audio.
+- Scraping helper: tools/scraping/.
+- TTS helper scripts: tools/tts/.
 - Documentation site: docs/ plus mkdocs.yml.
 
 ## Build and run the C++ app
@@ -20,6 +22,11 @@ This page covers the fastest path to run docs and the C++ app locally.
 1. Open LanguageLearningFramework.sln in Visual Studio.
 2. Build the solution in Debug or Release.
 3. Run the executable from Visual Studio or terminal.
+
+The default startup command `start` now loads:
+
+- `data/seed/words.txt`
+- `data/state/mem0`
 
 ## First-session CLI flow
 
@@ -58,7 +65,7 @@ The generated static site is written to the site/ folder.
 | --- | --- | --- |
 | mkdocs not found | Scripts path not on PATH | Run python -m mkdocs serve |
 | Empty phrase load | words not loaded first | Run start or load words <file> before load phrases <file> |
-| Missing TTS output | model assets not available | Check local model paths in tts/tts.py |
+| Missing TTS output | model assets not available | Check local model paths in tools/tts/tts.py |
 
 !!! tip "Recommended workflow"
     Keep one terminal for mkdocs serve and another terminal for CLI app testing.

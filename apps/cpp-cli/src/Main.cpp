@@ -5,8 +5,8 @@
 #include "Loader.h"
 #include "Debug.h"
 
-#define DEFAULT_WORD_FILE "words.txt"
-#define DEFAULT_MEM_FILE "mem0"
+#define DEFAULT_WORD_FILE "data/seed/words.txt"
+#define DEFAULT_MEM_FILE "data/state/mem0"
 
 using namespace std;
 

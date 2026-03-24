@@ -6,13 +6,13 @@ This project is data-first: most behavior depends on the structure and quality o
 
 | File | Purpose | Loaded by |
 | --- | --- | --- |
-| words.txt | Dictionary entries and synonyms | load words / start |
-| lesson1.txt | Phrase and translation pairs | load phrases |
-| mem0 | Serialized study state and dependencies | load mem / start |
+| data/seed/words.txt | Dictionary entries and synonyms | load words / start |
+| data/seed/lesson1.txt | Phrase and translation pairs | load phrases |
+| data/state/mem0 | Serialized study state and dependencies | load mem / start |
 
 ## Words file
 
-Default file: words.txt
+Default file: data/seed/words.txt
 
 Expected line structure:
 
@@ -39,7 +39,7 @@ Markers affect initial metadata:
 
 ## Phrase lesson file
 
-Default sample: lesson1.txt
+Default sample: data/seed/lesson1.txt
 
 Expected line structure:
 
@@ -60,7 +60,7 @@ du bisch da=you are here
 
 ## Memory file
 
-Default file: mem0
+Default file: data/state/mem0
 
 Saved memory format is line-based and includes:
 
@@ -99,5 +99,5 @@ This format is designed for compact load/save between sessions.
 
 ## Other data files in repository
 
-- known_words.txt and known_phrases.txt for reference vocab sets.
+- data/seed/known_words.txt and data/seed/known_phrases.txt for reference vocab sets.
 - listArray.json and other helper files used by scripts/tools.

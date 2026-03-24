@@ -16,21 +16,21 @@ The model is defined in Util.h.
 
 | Module | Responsibility |
 | --- | --- |
-| Main.cpp | Command parsing and dispatch |
-| Loader.cpp | File parsing and serialization |
-| Debug.cpp | Lookup and print helpers |
-| Planner.cpp | Study-target selection heuristics |
-| Timer.cpp | Time-related utilities |
+| apps/cpp-cli/src/Main.cpp | Command parsing and dispatch |
+| apps/cpp-cli/src/Loader.cpp | File parsing and serialization |
+| apps/cpp-cli/src/Debug.cpp | Lookup and print helpers |
+| apps/cpp-cli/src/Planner.cpp | Study-target selection heuristics |
+| apps/cpp-cli/src/Timer.cpp | Time-related utilities |
 
-- Main.cpp
+- apps/cpp-cli/src/Main.cpp
   - Interactive command loop and command dispatch.
-- Loader.cpp
+- apps/cpp-cli/src/Loader.cpp
   - Parsing words and phrases, dependency inference, memory save/load.
-- Debug.cpp
+- apps/cpp-cli/src/Debug.cpp
   - Print and lookup helpers for inspection commands.
-- Planner.cpp
+- apps/cpp-cli/src/Planner.cpp
   - Selection and cost heuristics for next learning target.
-- Timer.cpp
+- apps/cpp-cli/src/Timer.cpp
   - Timing-related utilities.
 
 ## High-level data flow
@@ -42,11 +42,11 @@ The model is defined in Util.h.
 5. Save phrase memory back to disk.
 
 ```text
-words.txt ---> Loader ---> Word list/map -------+
+data/seed/words.txt ---> Loader ---> Word list/map -------+
                                           |
-lesson1.txt -> Loader -> Phrase list -----+--> Debug/Planner/Main
+data/seed/lesson1.txt -> Loader -> Phrase list -----+--> Debug/Planner/Main
                                           |
-mem0 -------> Loader ----------------------+--> save/load cycle
+data/state/mem0 -------> Loader ----------------------+--> save/load cycle
 ```
 
 ## Dependency inference behavior

@@ -30,6 +30,7 @@ mkdocs serve
 ## Documentation map
 
 - Use [Getting Started](getting-started.md) to set up build tools and run the app.
+- Use [Repository Layout](repo-layout.md) to understand where apps, data, and tools live.
 - Use [CLI Reference](cli-reference.md) for commands supported by the interactive prompt.
 - Use [Data Files](data-files.md) to understand input file formats.
 - Use [Architecture](architecture.md) for module responsibilities and data flow.

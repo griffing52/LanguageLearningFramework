@@ -26,7 +26,7 @@ Use this page as a working checklist when extending the project.
 
 ## Suggested doc expansion areas
 
-- Learning algorithm details in Planner.cpp.
+- Learning algorithm details in apps/cpp-cli/src/Planner.cpp.
 - Formal memory file schema examples.
 - Contribution guide and coding standards.
 

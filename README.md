@@ -5,13 +5,20 @@ LanguageLearningFramework is a local, file-based language study project with:
 - A C++ interactive CLI for word and phrase memory management.
 - Scraping helpers for collecting lesson content.
 - Text-to-speech helper scripts for generating lesson audio.
+- A planned web UI that will interact with a local C++ service.
 
 ## Project structure
 
-- C++ core: root-level .cpp/.h files and Visual Studio solution files.
-- Scraping scripts: scraping/.
-- TTS scripts: tts/.
-- Documentation site: docs/ and mkdocs.yml.
+- `apps/cpp-cli/`: C++ source and headers.
+- `apps/web-ui/`: reserved for the future browser UI.
+- `data/seed/`: baseline dictionaries and lesson files.
+- `data/state/`: local runtime state such as `mem0`.
+- `data/audio/`: generated and source audio assets.
+- `tools/scraping/`: scraping scripts and source lists.
+- `tools/tts/`: TTS generation and audio assembly scripts.
+- `docs/` and `mkdocs.yml`: documentation site.
+
+Visual Studio solution and project files are currently kept at repository root to avoid breaking existing local workflows.
 
 ## Building the C++ solution
 
