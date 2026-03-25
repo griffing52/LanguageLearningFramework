@@ -43,3 +43,12 @@ async def get_lesson_plan(lesson_size: int = Query(10, ge=1, le=30)):
     Get a full lesson plan with multiple study items.
     """
     return service.get_lesson_plan(lesson_count=lesson_size)
+
+
+@router.get("/lesson/{lesson_id}", response_model=list)
+async def get_lesson_by_id(lesson_id: str):
+    """Get study targets for a user-defined lesson id."""
+    lesson_targets = service.get_lesson_by_id(lesson_id)
+    if not lesson_targets:
+        raise HTTPException(status_code=404, detail=f"Lesson '{lesson_id}' not found or empty")
+    return lesson_targets

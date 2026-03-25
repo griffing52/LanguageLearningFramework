@@ -17,4 +17,4 @@ ha=to have
 dich=you
 gärn=to like
 bi=am
-19i=19 years old
+19i=19 years oldhallo|hello|1|0|0

@@ -12,6 +12,8 @@ theme:
     - scheme: default
       primary: teal
       accent: amber
+  features:
+    - navigation.tabs
 
 markdown_extensions:
   - admonition

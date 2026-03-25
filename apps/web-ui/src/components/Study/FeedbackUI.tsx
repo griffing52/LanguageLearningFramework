@@ -3,7 +3,7 @@
  */
 
 import React, { useState } from 'react';
-import '../styles/components.css';
+import '@/styles/components.css';
 
 interface FeedbackUIProps {
   onSubmit: (correct: boolean, confidence: number, timeSpent: number) => Promise<void>;

@@ -12,6 +12,7 @@ export const config = {
       study: `${API_BASE_URL}/study`,
       audio: `${API_BASE_URL}/audio`,
       progress: `${API_BASE_URL}/progress`,
+      platform: `${API_BASE_URL}/platform`,
     }
   },
   study: {

@@ -50,5 +50,12 @@ export const studyApi = {
    */
   getLesson: async (lessonSize: number = 10): Promise<StudyTarget[]> => {
     return apiClient.get(`${endpoint}/lesson`, { lesson_size: lessonSize });
+  },
+
+  /**
+   * Get a specific lesson by lesson id
+   */
+  getLessonById: async (lessonId: string): Promise<StudyTarget[]> => {
+    return apiClient.get(`${endpoint}/lesson/${encodeURIComponent(lessonId)}`);
   }
 };

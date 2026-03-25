@@ -4,7 +4,7 @@
 
 import React, { useState, useEffect } from 'react';
 import { vocabularyApi, Word } from '@/api/vocabulary';
-import '../styles/components.css';
+import '@/styles/components.css';
 
 interface WordListProps {
   limit?: number;

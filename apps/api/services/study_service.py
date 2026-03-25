@@ -6,6 +6,7 @@ Recommends words/phrases for study based on spaced repetition heuristics.
 import random
 from typing import List, Optional
 from datetime import datetime
+import json
 from core.models import StudyTarget, StudyFeedback, PhraseDTO, WordDTO
 from core.constants import (
     FREQUENCY_THRESHOLD_LEARNED,
@@ -14,6 +15,7 @@ from core.constants import (
     COMPLEXITY_MAX
 )
 from data_access.repository import get_repository
+from config import settings
 from utils.logger import get_logger
 
 logger = get_logger(__name__)
@@ -210,3 +212,46 @@ class StudyService:
             List of StudyTarget objects for the lesson
         """
         return self.get_study_recommendation(batch_size=lesson_count)
+
+    def get_lesson_by_id(self, lesson_id: str) -> List[StudyTarget]:
+        """Load a lesson from lessons catalog and map to study targets."""
+        catalog_path = settings.LESSONS_CATALOG_FILE
+        if not catalog_path.exists():
+            return []
+
+        try:
+            with open(catalog_path, "r", encoding="utf-8") as handle:
+                payload = json.load(handle)
+
+            lessons = payload.get("lessons", [])
+            lesson = next((item for item in lessons if item.get("lesson_id") == lesson_id), None)
+            if not lesson:
+                return []
+
+            targets: List[StudyTarget] = []
+            for entry in lesson.get("items", []):
+                item_type = entry.get("item_type")
+                value = entry.get("value")
+                if not value or item_type not in {"word", "phrase"}:
+                    continue
+
+                item = self.repo.get_word(value) if item_type == "word" else self.repo.get_phrase(value)
+                if not item:
+                    continue
+
+                targets.append(
+                    StudyTarget(
+                        target_id=f"{item_type}-{item.value}",
+                        target_type=item_type,
+                        target_value=item.value,
+                        target_translation=item.translation,
+                        urgency_score=0.8,
+                        reason=f"Lesson '{lesson_id}'",
+                        audio_url=f"/api/audio/{item_type}-{item.value}.mp3",
+                    )
+                )
+
+            return targets
+        except Exception as exc:
+            logger.error("Failed to load lesson '%s': %s", lesson_id, exc)
+            return []

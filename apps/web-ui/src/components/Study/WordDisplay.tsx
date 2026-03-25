@@ -4,7 +4,7 @@
 
 import React from 'react';
 import { StudyTarget } from '@/api/study';
-import '../styles/components.css';
+import '@/styles/components.css';
 
 interface WordDisplayProps {
   target: StudyTarget;

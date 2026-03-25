@@ -138,3 +138,64 @@ class LessonItem(BaseModel):
     image_url: Optional[str] = None
     context_phrase: Optional[str] = None
     hints: List[str] = Field(default_factory=list)
+
+
+class CreateWordRequest(BaseModel):
+    """Request payload for creating a new word entry."""
+    value: str = Field(..., min_length=1)
+    translation: str = Field(..., min_length=1)
+    complexity: int = Field(default=1, ge=1)
+    frequency: int = Field(default=0, ge=0)
+    age: int = Field(default=0, ge=0)
+
+
+class CreatePhraseRequest(BaseModel):
+    """Request payload for creating a new phrase entry."""
+    value: str = Field(..., min_length=1)
+    translation: str = Field(..., min_length=1)
+    complexity: int = Field(default=1, ge=1)
+    frequency: int = Field(default=0, ge=0)
+    age: int = Field(default=0, ge=0)
+
+
+class LessonEntry(BaseModel):
+    """A lesson reference to a word or phrase item."""
+    item_type: str = Field(..., description="word or phrase")
+    value: str = Field(..., min_length=1)
+
+
+class LessonDefinition(BaseModel):
+    """A user-defined lesson containing item references."""
+    lesson_id: str = Field(..., min_length=1)
+    name: str = Field(..., min_length=1)
+    description: Optional[str] = None
+    items: List[LessonEntry] = Field(default_factory=list)
+
+
+class CreateLessonRequest(BaseModel):
+    """Request payload for creating a lesson."""
+    lesson_id: str = Field(..., min_length=1)
+    name: str = Field(..., min_length=1)
+    description: Optional[str] = None
+    items: List[LessonEntry] = Field(default_factory=list)
+
+
+class TtsProviderConfig(BaseModel):
+    """Configuration for a TTS provider endpoint."""
+    provider_id: str = Field(..., min_length=1)
+    name: str = Field(..., min_length=1)
+    base_url: str = Field(..., min_length=1)
+    synthesize_path: str = Field(default="/synthesize")
+    health_path: str = Field(default="/health")
+    api_key: Optional[str] = None
+    enabled: bool = True
+    extra_headers: dict = Field(default_factory=dict)
+
+
+class TtsInferenceRequest(BaseModel):
+    """Request payload for running TTS inference via a provider."""
+    provider_id: str = Field(..., min_length=1)
+    text: str = Field(..., min_length=1)
+    language: Optional[str] = None
+    voice: Optional[str] = None
+    options: dict = Field(default_factory=dict)

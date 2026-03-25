@@ -3,7 +3,7 @@
  */
 
 import React from 'react';
-import '../styles/components.css';
+import '@/styles/components.css';
 
 interface ProgressIndicatorProps {
   current: number;

@@ -2,17 +2,18 @@
  * Main App component
  */
 
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { Header } from '@/components/Layout/Header';
 import { StudyCard } from '@/components/Study/StudyCard';
 import { ProgressIndicator } from '@/components/Study/ProgressIndicator';
 import { WordList } from '@/components/Vocabulary/WordList';
 import { Dashboard } from '@/components/Progress/Dashboard';
+import { Workspace } from '@/components/Platform/Workspace';
 import { useStudy } from '@/hooks/useStudy';
 import '@/styles/globals.css';
 import '@/styles/components.css';
 
-type Page = 'study' | 'vocabulary' | 'progress';
+type Page = 'study' | 'vocabulary' | 'progress' | 'workspace';
 
 export function App() {
   const [currentPage, setCurrentPage] = useState<Page>('study');
@@ -64,6 +65,12 @@ export function App() {
         {currentPage === 'progress' && (
           <div className="progress-section">
             <Dashboard />
+          </div>
+        )}
+
+        {currentPage === 'workspace' && (
+          <div className="workspace-section">
+            <Workspace />
           </div>
         )}
       </main>

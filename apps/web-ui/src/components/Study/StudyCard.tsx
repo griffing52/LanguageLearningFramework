@@ -7,7 +7,7 @@ import { StudyTarget } from '@/api/study';
 import { WordDisplay } from './WordDisplay';
 import { AudioPlayer } from './AudioPlayer';
 import { FeedbackUI } from './FeedbackUI';
-import '../styles/components.css';
+import '@/styles/components.css';
 
 interface StudyCardProps {
   target: StudyTarget;

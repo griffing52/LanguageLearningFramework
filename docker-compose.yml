@@ -1,5 +1,3 @@
-version: '3.8'
-
 services:
   api:
     build:
@@ -12,7 +10,7 @@ services:
       API_HOST: 0.0.0.0
       API_PORT: 5000
       API_DEBUG: "False"
-      API_RELOAD: "True"
+      API_RELOAD: "False"
       LOG_LEVEL: INFO
       CORS_ORIGINS: '["http://localhost:3000", "http://127.0.0.1:3000"]'
     volumes:

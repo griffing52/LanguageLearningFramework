@@ -3,8 +3,8 @@
  */
 
 import React, { useState, useEffect } from 'react';
-import { progressApi, DetailedProgress } from '@/api/progress';
-import '../styles/components.css';
+import { progressApi, DetailedProgress } from '../../api/progress';
+import '@/styles/components.css';
 
 export const Dashboard: React.FC = () => {
   const [progress, setProgress] = useState<DetailedProgress | null>(null);

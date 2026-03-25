@@ -7,7 +7,7 @@ from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 from fastapi.responses import JSONResponse
 from config import settings
-from api import vocabulary, study, audio, progress
+from api import vocabulary, study, audio, progress, platform
 from utils.logger import get_logger
 
 logger = get_logger(__name__)
@@ -65,6 +65,7 @@ def create_app() -> FastAPI:
     app.include_router(study.router)
     app.include_router(audio.router)
     app.include_router(progress.router)
+    app.include_router(platform.router)
     
     # Exception handling
     @app.exception_handler(404)

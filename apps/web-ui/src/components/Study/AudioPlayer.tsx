@@ -4,7 +4,7 @@
 
 import React, { useState, useEffect } from 'react';
 import { audioService } from '@/services/audioService';
-import '../styles/components.css';
+import '@/styles/components.css';
 
 interface AudioPlayerProps {
   audioUrl?: string;
@@ -29,6 +29,12 @@ export const AudioPlayer: React.FC<AudioPlayerProps> = ({
       audioService.onComplete(onEnded);
     }
   }, [onEnded]);
+
+  useEffect(() => {
+    if (autoPlay && audioUrl) {
+      void handlePlay();
+    }
+  }, [autoPlay, audioUrl]);
 
   const handlePlay = async () => {
     if (!audioUrl) return;

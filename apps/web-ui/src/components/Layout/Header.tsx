@@ -3,11 +3,11 @@
  */
 
 import React from 'react';
-import '../styles/components.css';
+import '@/styles/components.css';
 
 interface HeaderProps {
-  currentPage: 'study' | 'vocabulary' | 'progress';
-  onNavigate: (page: 'study' | 'vocabulary' | 'progress') => void;
+  currentPage: 'study' | 'vocabulary' | 'progress' | 'workspace';
+  onNavigate: (page: 'study' | 'vocabulary' | 'progress' | 'workspace') => void;
 }
 
 export const Header: React.FC<HeaderProps> = ({ currentPage, onNavigate }) => {
@@ -37,6 +37,12 @@ export const Header: React.FC<HeaderProps> = ({ currentPage, onNavigate }) => {
             onClick={() => onNavigate('progress')}
           >
             📊 Progress
+          </button>
+          <button
+            className={`nav-btn ${currentPage === 'workspace' ? 'active' : ''}`}
+            onClick={() => onNavigate('workspace')}
+          >
+            🧩 Workspace
           </button>
         </nav>
       </div>

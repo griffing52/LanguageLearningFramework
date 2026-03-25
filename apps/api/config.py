@@ -3,6 +3,7 @@ Application configuration and settings.
 Centralizes environment variables and configuration management.
 """
 
+import json
 import os
 from pathlib import Path
 from typing import Optional
@@ -18,14 +19,21 @@ class Settings:
     API_RELOAD: bool = os.getenv("API_RELOAD", "False").lower() == "true"
     
     # CORS Configuration
-    CORS_ORIGINS: list = [
-        "http://localhost:3000",
-        "http://127.0.0.1:3000",
-        os.getenv("FRONTEND_URL", "http://localhost:3000"),
-    ]
+    _cors_env: str = os.getenv("CORS_ORIGINS", "")
+    if _cors_env:
+        try:
+            CORS_ORIGINS: list = json.loads(_cors_env)
+        except json.JSONDecodeError:
+            CORS_ORIGINS: list = [origin.strip() for origin in _cors_env.split(",") if origin.strip()]
+    else:
+        CORS_ORIGINS: list = [
+            "http://localhost:3000",
+            "http://127.0.0.1:3000",
+            os.getenv("FRONTEND_URL", "http://localhost:3000"),
+        ]
     
     # Data Paths
-    DATA_ROOT: Path = Path(__file__).parent.parent.parent / "data"
+    DATA_ROOT: Path = Path(__file__).resolve().parent / "data"
     SEED_DIR: Path = DATA_ROOT / "seed"
     STATE_DIR: Path = DATA_ROOT / "state"
     AUDIO_DIR: Path = DATA_ROOT / "audio"
@@ -33,7 +41,9 @@ class Settings:
     # File paths
     WORDS_FILE: Path = SEED_DIR / "words.txt"
     LESSONS_FILE: Path = SEED_DIR / "lesson1.txt"
+    LESSONS_CATALOG_FILE: Path = SEED_DIR / "lessons.json"
     MEMORY_FILE: Path = STATE_DIR / "mem0"
+    TTS_PROVIDERS_FILE: Path = STATE_DIR / "tts_providers.json"
     
     # Logging
     LOG_LEVEL: str = os.getenv("LOG_LEVEL", "INFO")
