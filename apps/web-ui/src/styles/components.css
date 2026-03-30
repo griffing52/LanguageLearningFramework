@@ -417,6 +417,32 @@
   grid-column: span 12;
 }
 
+.workspace-success {
+  background: #ecfdf3;
+  color: #065f46;
+  border: 1px solid #34d399;
+  border-radius: 0.5rem;
+  padding: 0.75rem 1rem;
+}
+
+.workspace-file-row {
+  display: grid;
+  grid-template-columns: minmax(140px, 180px) 1fr auto;
+  gap: 0.75rem;
+  align-items: center;
+}
+
+.workspace-label {
+  font-weight: 600;
+  color: var(--text-secondary);
+}
+
+.workspace-two-col {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1rem;
+}
+
 .pill {
   background: var(--success-color);
   color: white;
@@ -438,6 +464,11 @@
   }
 
   .workspace-inline {
+    grid-template-columns: 1fr;
+  }
+
+  .workspace-file-row,
+  .workspace-two-col {
     grid-template-columns: 1fr;
   }
 }

@@ -9,11 +9,12 @@ import { ProgressIndicator } from '@/components/Study/ProgressIndicator';
 import { WordList } from '@/components/Vocabulary/WordList';
 import { Dashboard } from '@/components/Progress/Dashboard';
 import { Workspace } from '@/components/Platform/Workspace';
+import { TtsWorkspace } from '@/components/Platform/TtsWorkspace';
 import { useStudy } from '@/hooks/useStudy';
 import '@/styles/globals.css';
 import '@/styles/components.css';
 
-type Page = 'study' | 'vocabulary' | 'progress' | 'workspace';
+type Page = 'study' | 'vocabulary' | 'progress' | 'workspace' | 'tts';
 
 export function App() {
   const [currentPage, setCurrentPage] = useState<Page>('study');
@@ -71,6 +72,12 @@ export function App() {
         {currentPage === 'workspace' && (
           <div className="workspace-section">
             <Workspace />
+          </div>
+        )}
+
+        {currentPage === 'tts' && (
+          <div className="workspace-section">
+            <TtsWorkspace />
           </div>
         )}
       </main>

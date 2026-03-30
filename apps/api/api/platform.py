@@ -2,7 +2,9 @@
 Platform API routes for cohesive management across vocabulary, lessons, and TTS providers.
 """
 
-from fastapi import APIRouter, HTTPException
+from typing import Optional
+
+from fastapi import APIRouter, File, Form, HTTPException, Query, UploadFile
 
 from core.models import (
     CreateLessonRequest,
@@ -104,3 +106,70 @@ async def run_tts_inference(payload: TtsInferenceRequest):
         raise HTTPException(status_code=502, detail=str(err)) from err
     except Exception as err:
         raise HTTPException(status_code=500, detail=str(err)) from err
+
+
+@router.post("/import/words", response_model=dict)
+async def import_words(file: UploadFile = File(...), mode: str = Form("replace")):
+    """Upload a word list file in CLI format and import into seed storage."""
+    try:
+        content = await file.read()
+        result = service.import_words(content=content, mode=mode)
+        return {"status": "success", "result": result}
+    except ValueError as err:
+        raise HTTPException(status_code=400, detail=str(err)) from err
+    except Exception as err:
+        raise HTTPException(status_code=500, detail=str(err)) from err
+
+
+@router.post("/import/phrases", response_model=dict)
+async def import_phrases(file: UploadFile = File(...), mode: str = Form("replace")):
+    """Upload a phrase list file in CLI format and import into seed storage."""
+    try:
+        content = await file.read()
+        result = service.import_phrases(content=content, mode=mode)
+        return {"status": "success", "result": result}
+    except ValueError as err:
+        raise HTTPException(status_code=400, detail=str(err)) from err
+    except Exception as err:
+        raise HTTPException(status_code=500, detail=str(err)) from err
+
+
+@router.post("/import/memory", response_model=dict)
+async def import_memory(file: UploadFile = File(...), mode: str = Form("replace")):
+    """Upload a memory file in JSON or key|frequency format."""
+    try:
+        content = await file.read()
+        result = service.import_memory(content=content, mode=mode)
+        return {"status": "success", "result": result}
+    except ValueError as err:
+        raise HTTPException(status_code=400, detail=str(err)) from err
+    except Exception as err:
+        raise HTTPException(status_code=500, detail=str(err)) from err
+
+
+@router.post("/memory/save", response_model=dict)
+async def save_memory_state(export_file_name: Optional[str] = Query(default=None)):
+    """Persist current in-memory frequencies and optionally export to an additional state file."""
+    try:
+        result = service.save_memory_state(export_file_name=export_file_name)
+        return {"status": "success", "result": result}
+    except Exception as err:
+        raise HTTPException(status_code=500, detail=str(err)) from err
+
+
+@router.post("/clear", response_model=dict)
+async def clear_dataset(target: str = Query(..., description="words|phrases|memory|all")):
+    """Clear one or more platform datasets."""
+    try:
+        result = service.clear_dataset(target=target)
+        return {"status": "success", "result": result}
+    except ValueError as err:
+        raise HTTPException(status_code=400, detail=str(err)) from err
+    except Exception as err:
+        raise HTTPException(status_code=500, detail=str(err)) from err
+
+
+@router.get("/statistics", response_model=dict)
+async def get_teaching_statistics(top_n: int = Query(10, ge=1, le=50)):
+    """Get aggregate and top-item teaching statistics for words and phrases."""
+    return service.get_teaching_statistics(top_n=top_n)

@@ -11,6 +11,7 @@ export interface PlatformStatus {
     phrases: number;
     lessons: number;
     tts_providers: number;
+    memory_entries: number;
   };
   paths: {
     words_file: string;
@@ -43,6 +44,38 @@ export interface TtsProviderConfig {
   api_key?: string;
   enabled: boolean;
   extra_headers: Record<string, string>;
+}
+
+export interface ImportResult {
+  kind: 'words' | 'phrases' | 'memory';
+  mode: 'replace' | 'append';
+  imported_entries: number;
+  target_file: string;
+  total_after_import: number;
+}
+
+export interface TeachingSummary {
+  total_words: number;
+  total_phrases: number;
+  taught_words: number;
+  taught_phrases: number;
+  total_word_frequency: number;
+  total_phrase_frequency: number;
+  total_taught_frequency: number;
+}
+
+export interface TeachingItem {
+  value: string;
+  translation: string;
+  frequency: number;
+  complexity: number;
+  age: number;
+}
+
+export interface TeachingStatistics {
+  summary: TeachingSummary;
+  top_words: TeachingItem[];
+  top_phrases: TeachingItem[];
 }
 
 const endpoint = config.api.endpoints.platform;
@@ -100,5 +133,39 @@ export const platformApi = {
     options?: Record<string, unknown>;
   }) => {
     return apiClient.post(`${endpoint}/tts/infer`, payload);
+  },
+
+  importWords: async (file: File, mode: 'replace' | 'append' = 'replace'): Promise<{ status: string; result: ImportResult }> => {
+    const form = new FormData();
+    form.append('file', file);
+    form.append('mode', mode);
+    return apiClient.postForm(`${endpoint}/import/words`, form);
+  },
+
+  importPhrases: async (file: File, mode: 'replace' | 'append' = 'replace'): Promise<{ status: string; result: ImportResult }> => {
+    const form = new FormData();
+    form.append('file', file);
+    form.append('mode', mode);
+    return apiClient.postForm(`${endpoint}/import/phrases`, form);
+  },
+
+  importMemory: async (file: File, mode: 'replace' | 'append' = 'replace'): Promise<{ status: string; result: ImportResult }> => {
+    const form = new FormData();
+    form.append('file', file);
+    form.append('mode', mode);
+    return apiClient.postForm(`${endpoint}/import/memory`, form);
+  },
+
+  saveMemoryState: async (exportFileName?: string): Promise<{ status: string; result: { entries: number; saved_file: string; export_file?: string } }> => {
+    const suffix = exportFileName ? `?export_file_name=${encodeURIComponent(exportFileName)}` : '';
+    return apiClient.post(`${endpoint}/memory/save${suffix}`);
+  },
+
+  clearDataset: async (target: 'words' | 'phrases' | 'memory' | 'all') => {
+    return apiClient.post(`${endpoint}/clear?target=${encodeURIComponent(target)}`);
+  },
+
+  getTeachingStatistics: async (topN: number = 10): Promise<TeachingStatistics> => {
+    return apiClient.get(`${endpoint}/statistics`, { top_n: topN });
   }
 };

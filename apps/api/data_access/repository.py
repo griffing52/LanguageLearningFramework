@@ -248,6 +248,59 @@ class VocabularyRepository:
             logger.error(f"Error saving memory: {e}")
             return False
 
+    def get_memory_snapshot(self) -> Dict[str, int]:
+        """Return a copy of the in-memory frequency map."""
+        self.initialize()
+        return dict(self._memory or {})
+
+    def get_teaching_statistics(self, top_n: int = 10) -> dict:
+        """Aggregate learning and teaching statistics across words and phrases."""
+        self.initialize()
+
+        words = list(self._words.values()) if self._words else []
+        phrases = list(self._phrases.values()) if self._phrases else []
+
+        total_word_frequency = sum(item.frequency for item in words)
+        total_phrase_frequency = sum(item.frequency for item in phrases)
+
+        taught_words = [item for item in words if item.frequency > 0]
+        taught_phrases = [item for item in phrases if item.frequency > 0]
+
+        top_words = sorted(words, key=lambda item: item.frequency, reverse=True)[:top_n]
+        top_phrases = sorted(phrases, key=lambda item: item.frequency, reverse=True)[:top_n]
+
+        return {
+            "summary": {
+                "total_words": len(words),
+                "total_phrases": len(phrases),
+                "taught_words": len(taught_words),
+                "taught_phrases": len(taught_phrases),
+                "total_word_frequency": total_word_frequency,
+                "total_phrase_frequency": total_phrase_frequency,
+                "total_taught_frequency": total_word_frequency + total_phrase_frequency,
+            },
+            "top_words": [
+                {
+                    "value": item.value,
+                    "translation": item.translation,
+                    "frequency": item.frequency,
+                    "complexity": item.complexity,
+                    "age": item.age,
+                }
+                for item in top_words
+            ],
+            "top_phrases": [
+                {
+                    "value": item.value,
+                    "translation": item.translation,
+                    "frequency": item.frequency,
+                    "complexity": item.complexity,
+                    "age": item.age,
+                }
+                for item in top_phrases
+            ],
+        }
+
 
 # Global repository instance
 _repository: Optional[VocabularyRepository] = None

@@ -105,6 +105,24 @@ The API will be available at `http://localhost:5000`
 - `GET /api/progress/snapshot` - Current progress snapshot
 - `GET /api/progress/detailed` - Detailed progress with breakdowns
 
+### Platform Manager (CLI parity + UI operations)
+
+- `GET /api/platform/status` - Platform status and file path summary
+- `POST /api/platform/words` - Create one word entry
+- `POST /api/platform/phrases` - Create one phrase entry
+- `GET /api/platform/lessons` - List user-defined lessons
+- `POST /api/platform/lessons` - Create a lesson from words/phrases
+- `POST /api/platform/import/words` - Upload full word list file (`multipart/form-data`)
+- `POST /api/platform/import/phrases` - Upload full phrase list file (`multipart/form-data`)
+- `POST /api/platform/import/memory` - Upload memory file (`.json` or `value|frequency` lines)
+- `POST /api/platform/memory/save` - Persist in-memory state (optional `export_file_name` query)
+- `POST /api/platform/clear?target=words|phrases|memory|all` - Clear selected datasets
+- `GET /api/platform/statistics` - Aggregate taught counts and top taught words/phrases
+- `GET /api/platform/tts/providers` - List configured TTS providers
+- `POST /api/platform/tts/providers` - Upsert a TTS provider
+- `POST /api/platform/tts/providers/{provider_id}/default` - Set default TTS provider
+- `POST /api/platform/tts/infer` - Run provider inference request
+
 ## Data Flow
 
 ```
@@ -134,6 +152,19 @@ Audio file management and serving
 
 ### ProgressService
 Learning progress tracking and reporting
+
+### PlatformService
+Unified platform operations for CRUD, uploads/imports, lesson planning, memory save/export, clear actions, teaching statistics, and TTS provider orchestration.
+
+## UI-first Workflow
+
+The UI now supports core CLI-equivalent operations through the platform routes:
+
+1. Upload/replace or append your `words`, `phrases`, and `memory` files
+2. Create or update vocabulary and lessons from forms
+3. Save current memory state to default `mem0` (and optional export file)
+4. View teaching statistics (total taught events and top words/phrases)
+5. Manage TTS from a dedicated UI page separate from data management
 
 ## Development
 

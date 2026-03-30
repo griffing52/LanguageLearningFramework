@@ -1,48 +1,37 @@
 /**
- * Workspace component for cohesive platform operations.
+ * Workspace component for data and planning operations.
  */
 
 import { FC, useEffect, useState } from 'react';
-import { platformApi, LessonDefinition, TtsProviderConfig, PlatformStatus } from '@/api/platform';
+import { platformApi, LessonDefinition, PlatformStatus, TeachingStatistics } from '@/api/platform';
 import '@/styles/components.css';
 
 export const Workspace: FC = () => {
   const [status, setStatus] = useState<PlatformStatus | null>(null);
   const [lessons, setLessons] = useState<LessonDefinition[]>([]);
-  const [providers, setProviders] = useState<TtsProviderConfig[]>([]);
-  const [defaultProvider, setDefaultProvider] = useState<string>('');
-  const [ttsResult, setTtsResult] = useState<string>('');
+  const [teachingStats, setTeachingStats] = useState<TeachingStatistics | null>(null);
   const [error, setError] = useState<string | null>(null);
+  const [message, setMessage] = useState<string | null>(null);
 
   const [wordForm, setWordForm] = useState({ value: '', translation: '', complexity: 1, frequency: 0, age: 0 });
   const [phraseForm, setPhraseForm] = useState({ value: '', translation: '', complexity: 1, frequency: 0, age: 0 });
   const [lessonForm, setLessonForm] = useState({ lesson_id: '', name: '', description: '', items_raw: '' });
-  const [providerForm, setProviderForm] = useState<TtsProviderConfig>({
-    provider_id: '',
-    name: '',
-    base_url: '',
-    synthesize_path: '/synthesize',
-    health_path: '/health',
-    api_key: '',
-    enabled: true,
-    extra_headers: {}
-  });
-  const [inferForm, setInferForm] = useState({ provider_id: '', text: '', language: '', voice: '' });
+  const [importMode, setImportMode] = useState<'replace' | 'append'>('replace');
+  const [wordsFile, setWordsFile] = useState<File | null>(null);
+  const [phrasesFile, setPhrasesFile] = useState<File | null>(null);
+  const [memoryFile, setMemoryFile] = useState<File | null>(null);
+  const [memoryExportName, setMemoryExportName] = useState('');
 
   const loadAll = async () => {
     try {
-      const [statusData, lessonsData, ttsData] = await Promise.all([
+      const [statusData, lessonsData, statsData] = await Promise.all([
         platformApi.getStatus(),
         platformApi.listLessons(),
-        platformApi.listTtsProviders()
+        platformApi.getTeachingStatistics(10)
       ]);
       setStatus(statusData);
       setLessons(lessonsData);
-      setProviders(ttsData.providers || []);
-      setDefaultProvider(ttsData.default_provider || '');
-      if (!inferForm.provider_id && ttsData.default_provider) {
-        setInferForm(prev => ({ ...prev, provider_id: ttsData.default_provider || '' }));
-      }
+      setTeachingStats(statsData);
       setError(null);
     } catch (err) {
       setError(err instanceof Error ? err.message : 'Failed to load workspace state');
@@ -60,6 +49,7 @@ export const Workspace: FC = () => {
       await loadAll();
     } catch (err) {
       setError(err instanceof Error ? err.message : 'Failed to add word');
+      setMessage(null);
     }
   };
 
@@ -70,6 +60,7 @@ export const Workspace: FC = () => {
       await loadAll();
     } catch (err) {
       setError(err instanceof Error ? err.message : 'Failed to add phrase');
+      setMessage(null);
     }
   };
 
@@ -93,58 +84,77 @@ export const Workspace: FC = () => {
 
       setLessonForm({ lesson_id: '', name: '', description: '', items_raw: '' });
       await loadAll();
-    } catch (err) {
-      setError(err instanceof Error ? err.message : 'Failed to create lesson');
-    }
-  };
-
-  const submitProvider = async () => {
-    try {
-      await platformApi.upsertTtsProvider(providerForm);
-      setProviderForm({
-        provider_id: '',
-        name: '',
-        base_url: '',
-        synthesize_path: '/synthesize',
-        health_path: '/health',
-        api_key: '',
-        enabled: true,
-        extra_headers: {}
-      });
-      await loadAll();
-    } catch (err) {
-      setError(err instanceof Error ? err.message : 'Failed to save provider');
-    }
-  };
-
-  const makeDefault = async (providerId: string) => {
-    try {
-      await platformApi.setDefaultProvider(providerId);
-      await loadAll();
-    } catch (err) {
-      setError(err instanceof Error ? err.message : 'Failed to set default provider');
-    }
-  };
-
-  const runInference = async () => {
-    try {
-      const result = await platformApi.runTtsInference({
-        provider_id: inferForm.provider_id,
-        text: inferForm.text,
-        language: inferForm.language || undefined,
-        voice: inferForm.voice || undefined,
-        options: {}
-      });
-      setTtsResult(JSON.stringify(result, null, 2));
+      setMessage('Lesson created successfully.');
       setError(null);
     } catch (err) {
-      setError(err instanceof Error ? err.message : 'Inference failed');
+      setError(err instanceof Error ? err.message : 'Failed to create lesson');
+      setMessage(null);
+    }
+  };
+
+  const runImport = async (kind: 'words' | 'phrases' | 'memory') => {
+    try {
+      const fileMap = {
+        words: wordsFile,
+        phrases: phrasesFile,
+        memory: memoryFile,
+      };
+      const selected = fileMap[kind];
+
+      if (!selected) {
+        setError(`Select a ${kind} file first.`);
+        setMessage(null);
+        return;
+      }
+
+      if (kind === 'words') {
+        await platformApi.importWords(selected, importMode);
+        setWordsFile(null);
+      } else if (kind === 'phrases') {
+        await platformApi.importPhrases(selected, importMode);
+        setPhrasesFile(null);
+      } else {
+        await platformApi.importMemory(selected, importMode);
+        setMemoryFile(null);
+      }
+
+      await loadAll();
+      setMessage(`${kind} import completed (${importMode}).`);
+      setError(null);
+    } catch (err) {
+      setError(err instanceof Error ? err.message : `Failed to import ${kind}`);
+      setMessage(null);
+    }
+  };
+
+  const saveMemory = async () => {
+    try {
+      await platformApi.saveMemoryState(memoryExportName.trim() || undefined);
+      await loadAll();
+      setMessage('Memory state saved.');
+      setError(null);
+    } catch (err) {
+      setError(err instanceof Error ? err.message : 'Failed to save memory state');
+      setMessage(null);
+    }
+  };
+
+  const clearData = async (target: 'words' | 'phrases' | 'memory' | 'all') => {
+    try {
+      await platformApi.clearDataset(target);
+      await loadAll();
+      setMessage(`Cleared ${target}.`);
+      setError(null);
+    } catch (err) {
+      setError(err instanceof Error ? err.message : `Failed to clear ${target}`);
+      setMessage(null);
     }
   };
 
   return (
     <section className="workspace-grid">
       {error && <div className="error-message workspace-alert">{error}</div>}
+      {message && <div className="workspace-success workspace-alert">{message}</div>}
 
       <div className="workspace-card workspace-status">
         <h2>Platform Status</h2>
@@ -152,7 +162,7 @@ export const Workspace: FC = () => {
           <div><strong>Words:</strong> {status?.counts.words ?? 0}</div>
           <div><strong>Phrases:</strong> {status?.counts.phrases ?? 0}</div>
           <div><strong>Lessons:</strong> {status?.counts.lessons ?? 0}</div>
-          <div><strong>TTS Providers:</strong> {status?.counts.tts_providers ?? 0}</div>
+          <div><strong>Memory Entries:</strong> {status?.counts.memory_entries ?? 0}</div>
         </div>
       </div>
 
@@ -195,6 +205,90 @@ export const Workspace: FC = () => {
       </div>
 
       <div className="workspace-card workspace-wide">
+        <h3>Import CLI Files</h3>
+        <div className="workspace-inline">
+          <label className="workspace-label">Import Mode</label>
+          <select value={importMode} onChange={e => setImportMode(e.target.value as 'replace' | 'append')}>
+            <option value="replace">Replace existing</option>
+            <option value="append">Append to existing</option>
+          </select>
+        </div>
+        <div className="workspace-file-row">
+          <label className="workspace-label">Words file</label>
+          <input type="file" accept=".txt,.csv" onChange={e => setWordsFile(e.target.files?.[0] || null)} />
+          <button className="btn btn-primary" onClick={() => runImport('words')}>Upload Words</button>
+        </div>
+        <div className="workspace-file-row">
+          <label className="workspace-label">Phrases file</label>
+          <input type="file" accept=".txt,.csv" onChange={e => setPhrasesFile(e.target.files?.[0] || null)} />
+          <button className="btn btn-primary" onClick={() => runImport('phrases')}>Upload Phrases</button>
+        </div>
+        <div className="workspace-file-row">
+          <label className="workspace-label">Memory file</label>
+          <input type="file" accept=".txt,.json" onChange={e => setMemoryFile(e.target.files?.[0] || null)} />
+          <button className="btn btn-primary" onClick={() => runImport('memory')}>Upload Memory</button>
+        </div>
+      </div>
+
+      <div className="workspace-card workspace-wide">
+        <h3>Memory and Dataset Controls</h3>
+        <div className="workspace-inline">
+          <input
+            placeholder="Optional export file name (example: mem_snapshot.json)"
+            value={memoryExportName}
+            onChange={e => setMemoryExportName(e.target.value)}
+          />
+          <button className="btn btn-success" onClick={saveMemory}>Save Memory State</button>
+        </div>
+        <div className="workspace-inline-actions">
+          <button className="btn btn-secondary" onClick={() => clearData('memory')}>Clear Memory</button>
+          <button className="btn btn-secondary" onClick={() => clearData('phrases')}>Clear Phrases</button>
+          <button className="btn btn-secondary" onClick={() => clearData('words')}>Clear Words</button>
+          <button className="btn btn-error" onClick={() => clearData('all')}>Clear All</button>
+        </div>
+      </div>
+
+      <div className="workspace-card workspace-wide">
+        <h3>Teaching Statistics</h3>
+        <div className="workspace-kpis">
+          <div><strong>Total taught events:</strong> {teachingStats?.summary.total_taught_frequency ?? 0}</div>
+          <div><strong>Word taught events:</strong> {teachingStats?.summary.total_word_frequency ?? 0}</div>
+          <div><strong>Phrase taught events:</strong> {teachingStats?.summary.total_phrase_frequency ?? 0}</div>
+          <div><strong>Taught items:</strong> {(teachingStats?.summary.taught_words ?? 0) + (teachingStats?.summary.taught_phrases ?? 0)}</div>
+        </div>
+        <div className="workspace-two-col">
+          <div>
+            <h4>Top Words</h4>
+            <div className="workspace-list">
+              {(teachingStats?.top_words || []).map(item => (
+                <div className="workspace-list-item" key={`word-${item.value}`}>
+                  <div>
+                    <strong>{item.value}</strong>
+                    <small>{item.translation}</small>
+                  </div>
+                  <span className="pill">{item.frequency}</span>
+                </div>
+              ))}
+            </div>
+          </div>
+          <div>
+            <h4>Top Phrases</h4>
+            <div className="workspace-list">
+              {(teachingStats?.top_phrases || []).map(item => (
+                <div className="workspace-list-item" key={`phrase-${item.value}`}>
+                  <div>
+                    <strong>{item.value}</strong>
+                    <small>{item.translation}</small>
+                  </div>
+                  <span className="pill">{item.frequency}</span>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div className="workspace-card workspace-wide">
         <h3>Lesson Catalog</h3>
         {lessons.length === 0 && <p className="empty-state">No lessons yet.</p>}
         {lessons.map(lesson => (
@@ -204,59 +298,6 @@ export const Workspace: FC = () => {
             <small>{lesson.items.length} items</small>
           </div>
         ))}
-      </div>
-
-      <div className="workspace-card workspace-wide">
-        <h3>TTS Provider Config</h3>
-        <input placeholder="Provider ID" value={providerForm.provider_id} onChange={e => setProviderForm({ ...providerForm, provider_id: e.target.value })} />
-        <input placeholder="Display Name" value={providerForm.name} onChange={e => setProviderForm({ ...providerForm, name: e.target.value })} />
-        <input placeholder="Base URL" value={providerForm.base_url} onChange={e => setProviderForm({ ...providerForm, base_url: e.target.value })} />
-        <div className="workspace-inline">
-          <input placeholder="Synthesize Path" value={providerForm.synthesize_path} onChange={e => setProviderForm({ ...providerForm, synthesize_path: e.target.value })} />
-          <input placeholder="Health Path" value={providerForm.health_path} onChange={e => setProviderForm({ ...providerForm, health_path: e.target.value })} />
-        </div>
-        <input placeholder="API key (optional)" value={providerForm.api_key || ''} onChange={e => setProviderForm({ ...providerForm, api_key: e.target.value })} />
-        <button className="btn btn-primary" onClick={submitProvider}>Save Provider</button>
-
-        <div className="workspace-list">
-          {providers.map(provider => (
-            <div className="workspace-list-item" key={provider.provider_id}>
-              <div>
-                <strong>{provider.name}</strong>
-                <span>{provider.provider_id}</span>
-              </div>
-              <div className="workspace-inline-actions">
-                {defaultProvider === provider.provider_id ? (
-                  <span className="pill">Default</span>
-                ) : (
-                  <button className="btn btn-secondary" onClick={() => makeDefault(provider.provider_id)}>Set Default</button>
-                )}
-              </div>
-            </div>
-          ))}
-        </div>
-      </div>
-
-      <div className="workspace-card workspace-wide">
-        <h3>TTS Inference</h3>
-        <select value={inferForm.provider_id} onChange={e => setInferForm({ ...inferForm, provider_id: e.target.value })}>
-          <option value="">Select provider</option>
-          {providers.map(provider => (
-            <option key={provider.provider_id} value={provider.provider_id}>{provider.name}</option>
-          ))}
-        </select>
-        <textarea
-          className="workspace-textarea"
-          placeholder="Text to synthesize"
-          value={inferForm.text}
-          onChange={e => setInferForm({ ...inferForm, text: e.target.value })}
-        />
-        <div className="workspace-inline">
-          <input placeholder="Language (optional)" value={inferForm.language} onChange={e => setInferForm({ ...inferForm, language: e.target.value })} />
-          <input placeholder="Voice (optional)" value={inferForm.voice} onChange={e => setInferForm({ ...inferForm, voice: e.target.value })} />
-        </div>
-        <button className="btn btn-primary" onClick={runInference}>Run Inference</button>
-        {ttsResult && <pre className="workspace-pre">{ttsResult}</pre>}
       </div>
     </section>
   );

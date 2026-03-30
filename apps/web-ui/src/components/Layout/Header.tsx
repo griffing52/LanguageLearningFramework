@@ -6,8 +6,8 @@ import React from 'react';
 import '@/styles/components.css';
 
 interface HeaderProps {
-  currentPage: 'study' | 'vocabulary' | 'progress' | 'workspace';
-  onNavigate: (page: 'study' | 'vocabulary' | 'progress' | 'workspace') => void;
+  currentPage: 'study' | 'vocabulary' | 'progress' | 'workspace' | 'tts';
+  onNavigate: (page: 'study' | 'vocabulary' | 'progress' | 'workspace' | 'tts') => void;
 }
 
 export const Header: React.FC<HeaderProps> = ({ currentPage, onNavigate }) => {
@@ -43,6 +43,12 @@ export const Header: React.FC<HeaderProps> = ({ currentPage, onNavigate }) => {
             onClick={() => onNavigate('workspace')}
           >
             🧩 Workspace
+          </button>
+          <button
+            className={`nav-btn ${currentPage === 'tts' ? 'active' : ''}`}
+            onClick={() => onNavigate('tts')}
+          >
+            🔊 TTS
           </button>
         </nav>
       </div>
