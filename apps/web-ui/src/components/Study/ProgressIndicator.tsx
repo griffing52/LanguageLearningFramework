@@ -24,7 +24,7 @@ export const ProgressIndicator: React.FC<ProgressIndicatorProps> = ({
         <span className="progress-text">
           {current} of {total}
         </span>
-        {isComplete && <span className="completion-badge">✓ Complete!</span>}
+        {isComplete && <span className="completion-badge">Complete</span>}
       </div>
       
       <div className="progress-bar">

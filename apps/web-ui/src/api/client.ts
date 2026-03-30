@@ -7,6 +7,7 @@
 
 import axios, { AxiosInstance, AxiosError } from 'axios';
 import { config } from '@/config';
+import { getUserFriendlyError, logErrorDetails } from '@/utils/errorHandler';
 
 export interface ApiResponse<T> {
   status: 'success' | 'error';
@@ -42,16 +43,12 @@ class ApiClient {
   }
 
   private handleError(error: AxiosError) {
-    if (error.response) {
-      // Server responded with error status
-      console.error(`API Error [${error.response.status}]:`, error.response.data);
-    } else if (error.request) {
-      // Request made but no response
-      console.error('No response from API:', error.message);
-    } else {
-      console.error('API Error:', error.message);
-    }
-    return Promise.reject(error);
+    const userMessage = getUserFriendlyError(error);
+    logErrorDetails(error, { action: 'API request' });
+    
+    // Create a custom error with the user-friendly message
+    const customError = new Error(userMessage);
+    return Promise.reject(customError);
   }
 
   async get<T>(endpoint: string, params?: Record<string, any>): Promise<T> {

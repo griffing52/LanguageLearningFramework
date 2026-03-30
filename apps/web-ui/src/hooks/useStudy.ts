@@ -5,6 +5,7 @@
 import { useState, useCallback, useEffect } from 'react';
 import { StudyTarget } from '@/api/study';
 import { studyService } from '@/services/studyService';
+import { getUserFriendlyError } from '@/utils/errorHandler';
 
 export interface StudyState {
   targets: StudyTarget[];
@@ -36,7 +37,7 @@ export function useStudy(lessonSize: number = 10) {
       } catch (error) {
         setState(prev => ({
           ...prev,
-          error: error instanceof Error ? error.message : 'Failed to load lesson',
+          error: getUserFriendlyError(error),
           isLoading: false
         }));
       }
@@ -71,11 +72,13 @@ export function useStudy(lessonSize: number = 10) {
         confidence,
         time_spent_seconds: timeSpent
       });
+      setState(prev => ({ ...prev, error: null }));
       return true;
     } catch (error) {
+      const message = getUserFriendlyError(error);
       setState(prev => ({
         ...prev,
-        error: error instanceof Error ? error.message : 'Failed to submit feedback'
+        error: message
       }));
       return false;
     }

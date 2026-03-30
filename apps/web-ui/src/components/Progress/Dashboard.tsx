@@ -34,14 +34,14 @@ export const Dashboard: React.FC = () => {
   if (error) return <div className="error-message">{error}</div>;
   if (!progress) return <div className="empty-state">No progress data</div>;
 
-  const getMilestoneEmoji = (achieved: boolean) => achieved ? '✅' : '⭕';
+  const getMilestoneStatus = (achieved: boolean) => achieved ? '✓' : '○';
 
   return (
     <div className="dashboard">
       <h2>Learning Progress</h2>
 
       <div className="stats-grid">
-        <div className="stat-card">
+        <div className="stat-card words-card">
           <h3>Vocabulary</h3>
           <div className="stat-value">{progress.vocabulary.words_learned}</div>
           <div className="stat-label">of {progress.vocabulary.total_words} words</div>
@@ -54,7 +54,7 @@ export const Dashboard: React.FC = () => {
           <div className="stat-percentage">{progress.vocabulary.words_percentage}%</div>
         </div>
 
-        <div className="stat-card">
+        <div className="stat-card phrases-card">
           <h3>Phrases</h3>
           <div className="stat-value">{progress.phrases.phrases_learned}</div>
           <div className="stat-label">of {progress.phrases.total_phrases} phrases</div>
@@ -67,7 +67,7 @@ export const Dashboard: React.FC = () => {
           <div className="stat-percentage">{progress.phrases.phrases_percentage}%</div>
         </div>
 
-        <div className="stat-card">
+        <div className="stat-card overall-card">
           <h3>Overall</h3>
           <div className="stat-value">{progress.overall.items_learned}</div>
           <div className="stat-label">of {progress.overall.total_items} total</div>
@@ -82,22 +82,22 @@ export const Dashboard: React.FC = () => {
       </div>
 
       <div className="milestones">
-        <h3>🏆 Milestones</h3>
+        <h3>Milestones</h3>
         <div className="milestone-list">
           <div className="milestone">
-            {getMilestoneEmoji(progress.milestones.first_words)} First Words (10+)
+            {getMilestoneStatus(progress.milestones.first_words)} First Words (10+)
           </div>
           <div className="milestone">
-            {getMilestoneEmoji(progress.milestones.first_phrases)} First Phrases (5+)
+            {getMilestoneStatus(progress.milestones.first_phrases)} First Phrases (5+)
           </div>
           <div className="milestone">
-            {getMilestoneEmoji(progress.milestones.quarter_vocabulary)} Quarter Learned (25%)
+            {getMilestoneStatus(progress.milestones.quarter_vocabulary)} Quarter Learned (25%)
           </div>
           <div className="milestone">
-            {getMilestoneEmoji(progress.milestones.half_vocabulary)} Half Learned (50%)
+            {getMilestoneStatus(progress.milestones.half_vocabulary)} Half Learned (50%)
           </div>
           <div className="milestone">
-            {getMilestoneEmoji(progress.milestones.nearly_done)} Nearly Done (90%)
+            {getMilestoneStatus(progress.milestones.nearly_done)} Nearly Done (90%)
           </div>
         </div>
       </div>

@@ -20,7 +20,7 @@ export const WordDisplay: React.FC<WordDisplayProps> = ({ target }) => {
         
         <div className="word-meta">
           <span className="item-type">
-            {isPhrase ? '📝 Phrase' : '💬 Word'}
+            {isPhrase ? 'Phrase' : 'Word'}
           </span>
           <span className="urgency">
             {target.urgency_score > 0.8 ? '🔴 Urgent' : 

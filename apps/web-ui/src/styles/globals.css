@@ -1,20 +1,66 @@
 /**
  * Global styles for the application
+ * Tropical light theme: clean layout with warm accents
  */
 
 :root {
-  --primary-color: #3b82f6;
-  --success-color: #10b981;
-  --error-color: #ef4444;
-  --warning-color: #f59e0b;
+  /* Tropical palette */
+  --primary-color: #069494;
+  --primary-dark: #057a7a;
+  --primary-light: #d8f2f2;
+  --accent-orange: #ff8243;
+  --accent-orange-soft: #ffe7db;
+  --accent-yellow: #fce883;
+  --accent-yellow-soft: #fff7d1;
+  --accent-pink: #ffc0cb;
+  --accent-pink-soft: #ffeaf0;
+
+  /* Semantic colors tuned to palette */
+  --success-color: #069494;
+  --success-dark: #057a7a;
+  --success-bg: #e2f5f5;
+  --error-color: #e2703a;
+  --error-dark: #ca5e2b;
+  --error-bg: #fff2eb;
+  --error-text: #7a3c1f;
+  --warning-color: #ff8243;
+  --warning-bg: #fff1e8;
+  --warning-text: #7d4021;
+  --info-color: #069494;
+  --info-bg: #e7f8f8;
+  --info-text: #0b5757;
+
+  /* Neutrals */
   --bg-primary: #ffffff;
-  --bg-secondary: #f3f4f6;
-  --text-primary: #1f2937;
-  --text-secondary: #6b7280;
-  --border-color: #e5e7eb;
-  --shadow: 0 1px 3px rgba(0,0,0,0.1);
-  --shadow-lg: 0 10px 25px rgba(0,0,0,0.1);
-  --transition: all 0.3s ease;
+  --bg-secondary: #f8fbfb;
+  --bg-tertiary: #f2f6f6;
+  --bg-hover: #edf3f3;
+  --text-primary: #1e293b;
+  --text-secondary: #475569;
+  --text-tertiary: #94a3b8;
+  --text-disabled: #cbd5e1;
+  --border-color: #dbe6e7;
+  --border-light: #eaf1f2;
+
+  --shadow-xs: 0 1px 2px rgba(2, 26, 26, 0.05);
+  --shadow-sm: 0 2px 6px rgba(2, 26, 26, 0.08);
+  --shadow-md: 0 8px 20px rgba(2, 26, 26, 0.1);
+  --shadow-lg: 0 16px 32px rgba(2, 26, 26, 0.12);
+  --shadow-xl: 0 24px 44px rgba(2, 26, 26, 0.14);
+
+  --transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+  --transition-fast: all 0.15s ease-out;
+
+  --space-xs: 0.25rem;
+  --space-sm: 0.5rem;
+  --space-md: 1rem;
+  --space-lg: 1.5rem;
+  --space-xl: 2rem;
+  --space-2xl: 3rem;
+
+  --radius-sm: 0.375rem;
+  --radius-md: 0.5rem;
+  --radius-lg: 0.75rem;
 }
 
 * {
@@ -23,34 +69,82 @@
   box-sizing: border-box;
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
 body {
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
     'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background-color: var(--bg-secondary);
+  background:
+    radial-gradient(circle at 15% -10%, var(--accent-yellow-soft) 0%, transparent 35%),
+    radial-gradient(circle at 85% -15%, var(--accent-pink-soft) 0%, transparent 35%),
+    var(--bg-secondary);
   color: var(--text-primary);
-  line-height: 1.6;
+  line-height: 1.5;
+  font-size: 1rem;
 }
 
-h1, h2, h3 {
+/* Typography */
+h1 {
+  font-size: 2rem;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  line-height: 1.2;
+  margin-bottom: var(--space-md);
+  color: var(--text-primary);
+}
+
+h2 {
+  font-size: 1.5rem;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+  line-height: 1.3;
+  margin-bottom: var(--space-md);
+  color: var(--text-primary);
+}
+
+h3 {
+  font-size: 1.125rem;
   font-weight: 600;
-  margin-bottom: 0.5rem;
+  letter-spacing: -0.005em;
+  line-height: 1.4;
+  margin-bottom: var(--space-sm);
+  color: var(--text-primary);
 }
 
+p {
+  line-height: 1.6;
+  margin-bottom: var(--space-md);
+  color: var(--text-secondary);
+}
+
+/* Buttons */
 button {
   cursor: pointer;
   border: none;
-  border-radius: 0.5rem;
+  border-radius: var(--radius-md);
   font-size: 1rem;
+  font-weight: 500;
   transition: var(--transition);
-  padding: 0.75rem 1.5rem;
+  padding: var(--space-md) var(--space-lg);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-sm);
+  outline: none;
+  letter-spacing: -0.01em;
 }
 
 button:hover:not(:disabled) {
-  transform: translateY(-2px);
-  box-shadow: var(--shadow);
+  transform: translateY(-0.0625rem);
+}
+
+button:active:not(:disabled) {
+  transform: translateY(0);
 }
 
 button:disabled {
@@ -58,37 +152,83 @@ button:disabled {
   cursor: not-allowed;
 }
 
-input {
-  padding: 0.75rem;
-  border: 1px solid var(--border-color);
-  border-radius: 0.5rem;
-  font-size: 1rem;
-  transition: var(--transition);
+button:focus-visible {
+  outline: 2px solid var(--primary-color);
+  outline-offset: 2px;
 }
 
-input:focus {
+/* Form Elements */
+input,
+textarea,
+select {
+  padding: var(--space-md);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-md);
+  font-size: 1rem;
+  font-family: inherit;
+  transition: var(--transition);
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+}
+
+input::placeholder,
+textarea::placeholder {
+  color: var(--text-tertiary);
+}
+
+input:focus,
+textarea:focus,
+select:focus {
   outline: none;
   border-color: var(--primary-color);
-  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
+  box-shadow: 0 0 0 3px rgba(6, 148, 148, 0.12);
+  background-color: var(--bg-primary);
 }
 
+/* Container */
+.app-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: var(--space-xl);
+}
+
+/* Utility Classes */
 .loading {
   text-align: center;
-  padding: 2rem;
+  padding: var(--space-2xl) var(--space-xl);
   color: var(--text-secondary);
+  font-weight: 500;
+}
+
+.loading::after {
+  content: '';
+  display: inline-block;
+  width: 1.5rem;
+  height: 1.5rem;
+  margin-left: var(--space-md);
+  border: 2px solid var(--border-color);
+  border-top-color: var(--primary-color);
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
 }
 
 .error-message {
-  background-color: #fecaca;
-  color: #991b1b;
-  padding: 1rem;
-  border-radius: 0.5rem;
-  margin-bottom: 1rem;
-  border-left: 4px solid var(--error-color);
+  background-color: var(--error-bg);
+  color: var(--error-text);
+  padding: var(--space-lg);
+  border-radius: var(--radius-lg);
+  margin-bottom: var(--space-md);
+  border-left: 4px solid var(--warning-color);
+  box-shadow: var(--shadow-xs);
 }
 
 .empty-state {
   text-align: center;
-  padding: 3rem 1rem;
+  padding: var(--space-2xl) var(--space-xl);
   color: var(--text-secondary);
+  font-weight: 500;
 }

@@ -1,8 +1,8 @@
-mier gönd das wuchenendi uf Italie weil mier luscht hend uf Pizza und SpaghettiBolognese=a
-mier gönd das wuchenendi=b
-mier gönd uf Italie=c
-mier hend luscht uf Pizza=d
-mier hend luscht=e
-Pizza und SpaghettiBolognese=f
-ich ha dich gärn=g
-ich bi 19i=h
+mier gönd das wuchenendi uf Italie weil mier luscht hend uf Pizza und SpaghettiBolognese=we are going this weekend to Italy because we want Pizza and Spaghetti Bolognese
+mier gönd das wuchenendi=we are going this weekend
+mier gönd uf Italie=we are going to Italy
+mier hend luscht uf Pizza=we want Pizza
+mier hend luscht=we want
+Pizza und SpaghettiBolognese=Pizza and Spaghetti Bolognese
+ich ha dich gärn=I like you
+ich bi 19i=I am 19 years old

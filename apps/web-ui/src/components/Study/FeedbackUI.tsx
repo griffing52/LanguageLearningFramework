@@ -71,14 +71,14 @@ export const FeedbackUI: React.FC<FeedbackUIProps> = ({
           onClick={handleCorrect}
           disabled={disabled || isSubmitting}
         >
-          ✓ Correct
+          Correct
         </button>
         <button
           className="btn btn-error"
           onClick={handleIncorrect}
           disabled={disabled || isSubmitting}
         >
-          ✗ Incorrect
+          Incorrect
         </button>
         {onSkip && (
           <button
@@ -86,7 +86,7 @@ export const FeedbackUI: React.FC<FeedbackUIProps> = ({
             onClick={onSkip}
             disabled={disabled || isSubmitting}
           >
-            ⊘ Skip
+            Skip
           </button>
         )}
       </div>

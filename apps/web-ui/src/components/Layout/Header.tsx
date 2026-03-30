@@ -15,7 +15,7 @@ export const Header: React.FC<HeaderProps> = ({ currentPage, onNavigate }) => {
     <header className="app-header">
       <div className="header-container">
         <div className="app-title">
-          <h1>🌍 Language Learning Framework</h1>
+          <h1>Language Learning Framework</h1>
           <p className="subtitle">Interactive learning with spaced repetition</p>
         </div>
 
@@ -24,31 +24,31 @@ export const Header: React.FC<HeaderProps> = ({ currentPage, onNavigate }) => {
             className={`nav-btn ${currentPage === 'study' ? 'active' : ''}`}
             onClick={() => onNavigate('study')}
           >
-            📚 Study
+            Study
           </button>
           <button
             className={`nav-btn ${currentPage === 'vocabulary' ? 'active' : ''}`}
             onClick={() => onNavigate('vocabulary')}
           >
-            📝 Vocabulary
+            Vocabulary
           </button>
           <button
             className={`nav-btn ${currentPage === 'progress' ? 'active' : ''}`}
             onClick={() => onNavigate('progress')}
           >
-            📊 Progress
+            Progress
           </button>
           <button
             className={`nav-btn ${currentPage === 'workspace' ? 'active' : ''}`}
             onClick={() => onNavigate('workspace')}
           >
-            🧩 Workspace
+            Workspace
           </button>
           <button
             className={`nav-btn ${currentPage === 'tts' ? 'active' : ''}`}
             onClick={() => onNavigate('tts')}
           >
-            🔊 TTS
+            TTS
           </button>
         </nav>
       </div>

@@ -60,8 +60,8 @@ export const WordList: React.FC<WordListProps> = ({ limit = 50 }) => {
             <div className="word-value">{word.value}</div>
             <div className="word-translation">{word.translation}</div>
             <div className="word-stats">
-              <span title="Frequency">📊 {word.frequency}</span>
-              <span title="Complexity">📈 {word.complexity}</span>
+              <span title="Frequency">Freq: {word.frequency}</span>
+              <span title="Complexity">Complex: {word.complexity}</span>
             </div>
           </div>
         ))}
