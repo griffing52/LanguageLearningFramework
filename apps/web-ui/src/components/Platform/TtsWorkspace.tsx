@@ -3,8 +3,15 @@
  */
 
 import { FC, useEffect, useState } from 'react';
-import { platformApi, TtsProviderConfig } from '@/api/platform';
+import { platformApi, TtsMethod, TtsProviderConfig } from '@/api/platform';
 import '@/styles/components.css';
+
+const TTS_METHOD_OPTIONS: Array<{ value: TtsMethod; label: string; description: string }> = [
+  { value: 'provider', label: 'Remote provider', description: 'Use a configured TTS server.' },
+  { value: 'speecht5', label: 'SpeechT5 local', description: 'Run the local fine-tuned SpeechT5 backend.' },
+  { value: 'legacy_stitched', label: 'Legacy stitched audio', description: 'Use the legacy recording stitcher.' },
+  { value: 'orpheus_lora', label: 'Orpheus LoRA', description: 'Run Orpheus LoRA via Hugging Face inference.' }
+];
 
 export const TtsWorkspace: FC = () => {
   const [providers, setProviders] = useState<TtsProviderConfig[]>([]);
@@ -22,16 +29,26 @@ export const TtsWorkspace: FC = () => {
     enabled: true,
     extra_headers: {}
   });
-  const [inferForm, setInferForm] = useState({ provider_id: '', text: '', language: '', voice: '' });
+  const [inferForm, setInferForm] = useState<{ provider_id: string; text: string; language: string; voice: string; tts_method: TtsMethod }>({
+    provider_id: '',
+    text: '',
+    language: '',
+    voice: '',
+    tts_method: 'provider'
+  });
 
   const loadTtsState = async () => {
     try {
       const ttsData = await platformApi.listTtsProviders();
       setProviders(ttsData.providers || []);
       setDefaultProvider(ttsData.default_provider || '');
-      if (!inferForm.provider_id && ttsData.default_provider) {
-        setInferForm(prev => ({ ...prev, provider_id: ttsData.default_provider || '' }));
-      }
+      setInferForm(prev => {
+        if (prev.provider_id || !ttsData.default_provider) {
+          return prev;
+        }
+
+        return { ...prev, provider_id: ttsData.default_provider || '' };
+      });
       setError(null);
     } catch (err) {
       setError(err instanceof Error ? err.message : 'Failed to load TTS state');
@@ -73,10 +90,11 @@ export const TtsWorkspace: FC = () => {
   const runInference = async () => {
     try {
       const result = await platformApi.runTtsInference({
-        provider_id: inferForm.provider_id,
+        provider_id: inferForm.provider_id || undefined,
         text: inferForm.text,
         language: inferForm.language || undefined,
         voice: inferForm.voice || undefined,
+        tts_method: inferForm.tts_method,
         options: {}
       });
       setTtsResult(JSON.stringify(result, null, 2));
@@ -125,8 +143,28 @@ export const TtsWorkspace: FC = () => {
 
       <div className="workspace-card workspace-wide">
         <h2>TTS Inference</h2>
+        <div className="workspace-inline">
+          <select
+            value={inferForm.tts_method}
+            onChange={e => {
+              const nextMethod = e.target.value as TtsMethod;
+              setInferForm(prev => ({
+                ...prev,
+                tts_method: nextMethod,
+                provider_id: prev.provider_id || defaultProvider || ''
+              }));
+            }}
+          >
+            {TTS_METHOD_OPTIONS.map(option => (
+              <option key={option.value} value={option.value}>{option.label}</option>
+            ))}
+          </select>
+          <small className="subtitle">
+            {TTS_METHOD_OPTIONS.find(option => option.value === inferForm.tts_method)?.description}
+          </small>
+        </div>
         <select value={inferForm.provider_id} onChange={e => setInferForm({ ...inferForm, provider_id: e.target.value })}>
-          <option value="">Select provider</option>
+          <option value="">Run on local API host</option>
           {providers.map(provider => (
             <option key={provider.provider_id} value={provider.provider_id}>{provider.name}</option>
           ))}

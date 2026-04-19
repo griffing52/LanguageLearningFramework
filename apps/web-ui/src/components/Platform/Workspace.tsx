@@ -3,8 +3,15 @@
  */
 
 import { FC, useEffect, useState } from 'react';
-import { platformApi, LessonDefinition, PlatformStatus, TeachingStatistics } from '@/api/platform';
+import { platformApi, LessonDefinition, PlatformStatus, TeachingStatistics, TtsMethod } from '@/api/platform';
 import '@/styles/components.css';
+
+const TTS_METHOD_OPTIONS: Array<{ value: TtsMethod; label: string }> = [
+  { value: 'provider', label: 'Remote provider' },
+  { value: 'speecht5', label: 'SpeechT5 local' },
+  { value: 'legacy_stitched', label: 'Legacy stitched audio' },
+  { value: 'orpheus_lora', label: 'Orpheus LoRA' }
+];
 
 export const Workspace: FC = () => {
   const [status, setStatus] = useState<PlatformStatus | null>(null);
@@ -15,7 +22,7 @@ export const Workspace: FC = () => {
 
   const [wordForm, setWordForm] = useState({ value: '', translation: '', complexity: 1, frequency: 0, age: 0 });
   const [phraseForm, setPhraseForm] = useState({ value: '', translation: '', complexity: 1, frequency: 0, age: 0 });
-  const [lessonForm, setLessonForm] = useState({ lesson_id: '', name: '', description: '', items_raw: '' });
+  const [lessonForm, setLessonForm] = useState({ lesson_id: '', name: '', description: '', items_raw: '', tts_method: 'provider' as TtsMethod });
   const [importMode, setImportMode] = useState<'replace' | 'append'>('replace');
   const [wordsFile, setWordsFile] = useState<File | null>(null);
   const [phrasesFile, setPhrasesFile] = useState<File | null>(null);
@@ -79,10 +86,11 @@ export const Workspace: FC = () => {
         lesson_id: lessonForm.lesson_id,
         name: lessonForm.name,
         description: lessonForm.description,
-        items
+        items,
+        tts_method: lessonForm.tts_method
       });
 
-      setLessonForm({ lesson_id: '', name: '', description: '', items_raw: '' });
+      setLessonForm({ lesson_id: '', name: '', description: '', items_raw: '', tts_method: 'provider' });
       await loadAll();
       setMessage('Lesson created successfully.');
       setError(null);
@@ -195,6 +203,11 @@ export const Workspace: FC = () => {
         <input placeholder="Lesson ID" value={lessonForm.lesson_id} onChange={e => setLessonForm({ ...lessonForm, lesson_id: e.target.value })} />
         <input placeholder="Lesson name" value={lessonForm.name} onChange={e => setLessonForm({ ...lessonForm, name: e.target.value })} />
         <input placeholder="Description" value={lessonForm.description} onChange={e => setLessonForm({ ...lessonForm, description: e.target.value })} />
+        <select value={lessonForm.tts_method} onChange={e => setLessonForm({ ...lessonForm, tts_method: e.target.value as TtsMethod })}>
+          {TTS_METHOD_OPTIONS.map(option => (
+            <option key={option.value} value={option.value}>{option.label}</option>
+          ))}
+        </select>
         <textarea
           className="workspace-textarea"
           placeholder="Items (one per line): word:Gruezi or phrase:Guten Morgen"
@@ -293,9 +306,14 @@ export const Workspace: FC = () => {
         {lessons.length === 0 && <p className="empty-state">No lessons yet.</p>}
         {lessons.map(lesson => (
           <div className="workspace-list-item" key={lesson.lesson_id}>
-            <strong>{lesson.name}</strong>
-            <span>{lesson.lesson_id}</span>
-            <small>{lesson.items.length} items</small>
+            <div>
+              <strong>{lesson.name}</strong>
+              <span>{lesson.lesson_id}</span>
+            </div>
+            <div className="workspace-inline-actions">
+              <span className="pill">{lesson.tts_method}</span>
+              <small>{lesson.items.length} items</small>
+            </div>
           </div>
         ))}
       </div>

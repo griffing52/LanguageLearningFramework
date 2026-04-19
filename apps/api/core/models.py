@@ -164,12 +164,23 @@ class LessonEntry(BaseModel):
     value: str = Field(..., min_length=1)
 
 
+class TtsMethod(str, Enum):
+    """Supported TTS synthesis methods."""
+
+    PROVIDER = "provider"
+    SPEECHT5 = "speecht5"
+    LEGACY_STITCHED = "legacy_stitched"
+    ORPHEUS_LORA = "orpheus_lora"
+
+
 class LessonDefinition(BaseModel):
     """A user-defined lesson containing item references."""
     lesson_id: str = Field(..., min_length=1)
     name: str = Field(..., min_length=1)
     description: Optional[str] = None
     items: List[LessonEntry] = Field(default_factory=list)
+    tts_method: TtsMethod = Field(default=TtsMethod.PROVIDER)
+    tts_provider_id: Optional[str] = None
 
 
 class CreateLessonRequest(BaseModel):
@@ -178,6 +189,8 @@ class CreateLessonRequest(BaseModel):
     name: str = Field(..., min_length=1)
     description: Optional[str] = None
     items: List[LessonEntry] = Field(default_factory=list)
+    tts_method: TtsMethod = Field(default=TtsMethod.PROVIDER)
+    tts_provider_id: Optional[str] = None
 
 
 class TtsProviderConfig(BaseModel):
@@ -194,8 +207,9 @@ class TtsProviderConfig(BaseModel):
 
 class TtsInferenceRequest(BaseModel):
     """Request payload for running TTS inference via a provider."""
-    provider_id: str = Field(..., min_length=1)
+    provider_id: Optional[str] = None
     text: str = Field(..., min_length=1)
     language: Optional[str] = None
     voice: Optional[str] = None
+    tts_method: TtsMethod = Field(default=TtsMethod.PROVIDER)
     options: dict = Field(default_factory=dict)

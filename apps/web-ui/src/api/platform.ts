@@ -28,11 +28,24 @@ export interface LessonEntry {
   value: string;
 }
 
+export type TtsMethod = 'provider' | 'speecht5' | 'legacy_stitched' | 'orpheus_lora';
+
 export interface LessonDefinition {
   lesson_id: string;
   name: string;
   description?: string;
   items: LessonEntry[];
+  tts_method: TtsMethod;
+  tts_provider_id?: string | null;
+}
+
+export interface CreateLessonRequest {
+  lesson_id: string;
+  name: string;
+  description?: string;
+  items: LessonEntry[];
+  tts_method: TtsMethod;
+  tts_provider_id?: string | null;
 }
 
 export interface TtsProviderConfig {
@@ -109,7 +122,7 @@ export const platformApi = {
     return apiClient.get(`${endpoint}/lessons`);
   },
 
-  createLesson: async (payload: LessonDefinition) => {
+  createLesson: async (payload: CreateLessonRequest) => {
     return apiClient.post(`${endpoint}/lessons`, payload);
   },
 
@@ -126,10 +139,11 @@ export const platformApi = {
   },
 
   runTtsInference: async (payload: {
-    provider_id: string;
+    provider_id?: string;
     text: string;
     language?: string;
     voice?: string;
+    tts_method: TtsMethod;
     options?: Record<string, unknown>;
   }) => {
     return apiClient.post(`${endpoint}/tts/infer`, payload);

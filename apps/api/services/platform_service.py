@@ -6,7 +6,9 @@ from __future__ import annotations
 
 from pathlib import Path
 from typing import Dict, List, Optional
+import hashlib
 import json
+import os
 import urllib.request
 import urllib.error
 
@@ -16,6 +18,7 @@ from core.models import (
     CreatePhraseRequest,
     CreateWordRequest,
     LessonDefinition,
+    TtsMethod,
     TtsInferenceRequest,
     TtsProviderConfig,
     WordDTO,
@@ -25,6 +28,48 @@ from data_access.repository import get_repository, reset_repository
 from utils.logger import get_logger
 
 logger = get_logger(__name__)
+
+
+def _env_default_tts_provider() -> dict | None:
+    provider_id = os.getenv("TTS_REMOTE_PROVIDER_ID", "").strip()
+    base_url = os.getenv("TTS_REMOTE_BASE_URL", "").strip()
+    if not provider_id or not base_url:
+        return None
+
+    synthesize_path = os.getenv("TTS_REMOTE_SYNTHESIZE_PATH", "/synthesize").strip() or "/synthesize"
+    health_path = os.getenv("TTS_REMOTE_HEALTH_PATH", "/health").strip() or "/health"
+    provider_name = os.getenv("TTS_REMOTE_PROVIDER_NAME", provider_id).strip() or provider_id
+    api_key = os.getenv("TTS_REMOTE_API_KEY", "").strip() or None
+
+    extra_headers_raw = os.getenv("TTS_REMOTE_EXTRA_HEADERS", "").strip()
+    extra_headers: dict = {}
+    if extra_headers_raw:
+        try:
+            extra_headers = json.loads(extra_headers_raw)
+        except json.JSONDecodeError:
+            logger.warning("Invalid TTS_REMOTE_EXTRA_HEADERS JSON; ignoring value")
+
+    return {
+        "default_provider": provider_id,
+        "providers": [
+            {
+                "provider_id": provider_id,
+                "name": provider_name,
+                "base_url": base_url,
+                "synthesize_path": synthesize_path,
+                "health_path": health_path,
+                "api_key": api_key,
+                "enabled": True,
+                "extra_headers": extra_headers,
+            }
+        ],
+    }
+
+
+def _load_local_tts_adapter():
+    from services import tts_adapter
+
+    return tts_adapter
 
 
 class PlatformService:
@@ -316,11 +361,22 @@ class PlatformService:
             if entry.item_type == "phrase" and not self.repo.get_phrase(entry.value):
                 raise ValueError(f"Phrase '{entry.value}' not found")
 
+        tts_method = TtsMethod(request.tts_method)
+        tts_provider_id = request.tts_provider_id
+        if tts_method == TtsMethod.PROVIDER and not tts_provider_id:
+            tts_payload = self.list_tts_providers()
+            tts_provider_id = tts_payload.get("default_provider")
+
+        if tts_method == TtsMethod.PROVIDER and not tts_provider_id:
+            raise ValueError("No default TTS provider is configured")
+
         lesson = LessonDefinition(
             lesson_id=request.lesson_id,
             name=request.name,
             description=request.description,
             items=request.items,
+            tts_method=tts_method,
+            tts_provider_id=tts_provider_id,
         )
         lessons.append(lesson.model_dump())
         payload["lessons"] = lessons
@@ -328,7 +384,15 @@ class PlatformService:
         return lesson
 
     def list_tts_providers(self) -> dict:
-        return self._load_json(settings.TTS_PROVIDERS_FILE, {"default_provider": None, "providers": []})
+        payload = self._load_json(settings.TTS_PROVIDERS_FILE, {"default_provider": None, "providers": []})
+        if payload.get("providers"):
+            return payload
+
+        env_provider = _env_default_tts_provider()
+        if env_provider:
+            return env_provider
+
+        return payload
 
     def upsert_tts_provider(self, provider: TtsProviderConfig) -> dict:
         payload = self.list_tts_providers()
@@ -361,15 +425,42 @@ class PlatformService:
         return payload
 
     def run_tts_inference(self, request: TtsInferenceRequest) -> dict:
+        method = TtsMethod(request.tts_method)
+        if method != TtsMethod.PROVIDER and not request.provider_id:
+            adapter = _load_local_tts_adapter()
+            options = dict(request.options or {})
+            output_dir = Path(options.pop("output_dir", settings.AUDIO_DIR / "tts" / method.value))
+            output_dir.mkdir(parents=True, exist_ok=True)
+            text_hash = hashlib.sha1(
+                f"{method.value}:{request.text}:{request.language or ''}:{request.voice or ''}".encode("utf-8")
+            ).hexdigest()[:16]
+            output_path = output_dir / f"{text_hash}.wav"
+            audio_path = adapter.synthesize_local_tts(
+                method.value,
+                request.text,
+                output_path,
+                options=options,
+            )
+            return {
+                "status": "success",
+                "tts_method": method.value,
+                "provider_id": request.provider_id,
+                "audio_file": audio_path,
+                "text": request.text,
+            }
+
         payload = self.list_tts_providers()
         providers = payload.get("providers", [])
+        provider_id = request.provider_id or payload.get("default_provider")
+        if not provider_id:
+            raise ValueError("No default TTS provider is configured")
         provider: Optional[dict] = next(
-            (item for item in providers if item.get("provider_id") == request.provider_id and item.get("enabled", True)),
+            (item for item in providers if item.get("provider_id") == provider_id and item.get("enabled", True)),
             None,
         )
 
         if not provider:
-            raise ValueError(f"Provider '{request.provider_id}' not found or disabled")
+            raise ValueError(f"Provider '{provider_id}' not found or disabled")
 
         base_url = provider.get("base_url", "").rstrip("/")
         synthesize_path = provider.get("synthesize_path", "/synthesize")
@@ -384,6 +475,7 @@ class PlatformService:
             "text": request.text,
             "language": request.language,
             "voice": request.voice,
+            "tts_method": method.value,
             "options": request.options,
         }
 
@@ -401,6 +493,7 @@ class PlatformService:
                 parsed = json.loads(raw) if "application/json" in content_type else {"raw": raw}
                 return {
                     "status": "success",
+                    "tts_method": method.value,
                     "provider_id": provider.get("provider_id"),
                     "url": url,
                     "response": parsed,
