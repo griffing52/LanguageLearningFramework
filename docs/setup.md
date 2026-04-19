@@ -180,11 +180,13 @@ docker-compose -e API_PORT=5000 -e LOG_LEVEL=INFO up
 
 The API automatically loads:
 1. **Words** from `data/seed/words.txt`
-   - Format: `word|translation|complexity|frequency|age` (one per line)
+   - Format: `word=translation` (one per line)
+   - Also supports comma-separated spellings: `wordA,wordB=translation` where the last spelling is canonical
+   - Optional markers: `*word=translation` (known), `!word=translation` (important)
 2. **Phrases** from `data/seed/lesson1.txt`
-   - Format: `phrase|translation|complexity` (one per line)
+   - Format: `phrase text=translation` (one per line)
 3. **Progress** from `data/state/mem0`
-   - JSON or simple line format
+   - Structured line-based format (primary), with JSON/simple formats still accepted for compatibility
 
 ### Saving Progress
 
@@ -248,7 +250,7 @@ Place pronunciation audio in `data/audio/`:
 1. Verify files exist:
    - `data/seed/words.txt`
    - `data/seed/lesson1.txt`
-2. Check file format (pipe-delimited, UTF-8)
+2. Check file format (equals-delimited, UTF-8)
 3. Review API logs: `LOG_LEVEL=DEBUG` in `.env`
 
 ### Performance Issues

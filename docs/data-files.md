@@ -26,6 +26,8 @@ word1,word2,word3=translation
 Notes:
 
 - Synonyms map to the same Word object.
+- For comma-separated spellings, the spelling closest to `=` is the canonical value used by the API.
+   Example: `goh,gah=to go` maps both spellings to one word whose primary value is `gah`.
 - *word marks a known word.
 - !word marks an important word.
 
@@ -34,8 +36,9 @@ Notes:
 
 Markers affect initial metadata:
 
-- \* sets low complexity and known/aged values.
-- ! increases complexity and age for prioritization.
+- Regular words initialize with `complexity=1`, `frequency=0`, `age=0`.
+- \* sets known defaults: `complexity=1`, `frequency=1`, `age=100`.
+- ! sets important defaults: `complexity=2`, `frequency=0`, `age=0`.
 
 ## Phrase lesson file
 
@@ -47,9 +50,9 @@ Expected line structure:
 phrase text=translation
 ```
 
-A phrase is split by spaces. Every token in the phrase must exist in the loaded word map.
+A phrase is split by spaces and matched against loaded words case-insensitively.
 
-If a token is missing from words, phrase loading stops with an error message.
+When a phrase token matches a synonym spelling, the canonical word value is used internally.
 
 ### Phrase example
 

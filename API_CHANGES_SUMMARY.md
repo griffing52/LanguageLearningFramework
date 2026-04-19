@@ -98,11 +98,13 @@ The memory file supports multiple formats:
 - **Input:** Accepts both equals format (primary) and pipe format (legacy)
 - **Output:** Stores in equals format for consistency with seed files
 - **Marker Handling:** Preserves `*` and `!` markers from input to output
+- **Synonyms/Spellings:** Comma-separated spellings map to one word object; the last spelling is canonical
 - Examples:
   - Input: `hello=hallo` → Output: `hello=hallo`
   - Input: `*hello=hallo` → Output: `*hello=hallo`
   - Input: `!important=wichtig` → Output: `!important=wichtig`
-  - Input: `hello|hallo|1|0|0` → Output: `hello|hallo`
+  - Input: `hello|hallo|1|0|0` → Output: `hello=hallo`
+  - Input: `goh,gah=to go` → Canonical value used by API: `gah`
 
 ---
 

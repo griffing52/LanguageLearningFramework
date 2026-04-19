@@ -299,6 +299,84 @@ Get overall vocabulary learning progress snapshot.
 
 ---
 
+## Platform API
+
+### Import Words File
+
+```http
+POST /platform/import/words
+```
+
+Upload a UTF-8 text words file and replace or append to `data/seed/words.txt`.
+
+**Form Fields:**
+- `file` (required) - Words file content
+- `mode` (optional, default: `replace`) - `replace` or `append`
+
+**Accepted Word Line Formats:**
+- `word=translation`
+- `wordA,wordB=translation` (comma spellings/synonyms)
+- `*word=translation` (known)
+- `!word=translation` (important)
+- Legacy compatibility: `word|translation|...` is accepted and normalized
+
+**Canonical Spelling Rule:**
+- For comma-separated spellings, the spelling closest to `=` is canonical.
+- Example: `goh,gah=to go` loads as one word with primary value `gah`.
+
+**Response:**
+```json
+{
+  "status": "success",
+  "result": {
+    "kind": "words",
+    "mode": "replace",
+    "imported_entries": 120,
+    "target_file": "data/seed/words.txt",
+    "total_after_import": 120
+  }
+}
+```
+
+---
+
+### Import Phrases File
+
+```http
+POST /platform/import/phrases
+```
+
+Upload a UTF-8 text phrases file.
+
+**Form Fields:**
+- `file` (required)
+- `mode` (optional, default: `replace`) - `replace` or `append`
+
+**Accepted Phrase Line Formats:**
+- `phrase text=translation`
+- Legacy compatibility: `phrase|translation|...` is accepted and normalized
+
+---
+
+### Import Memory File
+
+```http
+POST /platform/import/memory
+```
+
+Upload memory/progress state.
+
+**Form Fields:**
+- `file` (required)
+- `mode` (optional, default: `replace`) - `replace` or `append`
+
+**Accepted Memory Formats:**
+- Structured line-based format (`count`, per-item records, dependency indices)
+- JSON map format
+- Legacy `value|frequency` lines
+
+---
+
 ## Audio API
 
 ### Serve Audio File

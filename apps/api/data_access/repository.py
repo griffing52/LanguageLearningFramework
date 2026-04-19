@@ -69,11 +69,21 @@ class VocabularyRepository:
         """Get a word by its value."""
         self.initialize()
         return self._words.get(value)
+
+    def _unique_words(self) -> List[WordDTO]:
+        """Return unique words when aliases map to the same WordDTO."""
+        if not self._words:
+            return []
+
+        unique_by_value: Dict[str, WordDTO] = {}
+        for word in self._words.values():
+            unique_by_value[word.value] = word
+        return list(unique_by_value.values())
     
     def get_all_words(self) -> List[WordDTO]:
         """Get all words."""
         self.initialize()
-        return list(self._words.values()) if self._words else []
+        return self._unique_words()
     
     def get_words_page(self, page: int = 1, page_size: int = 20) -> tuple:
         """
@@ -95,14 +105,20 @@ class VocabularyRepository:
         """Search words by value or translation."""
         self.initialize()
         query_lower = query.lower()
-        
-        results = [
-            w for w in self._words.values()
-            if query_lower in w.value.lower()
-            or query_lower in w.translation.lower()
-        ]
-        
-        return results
+
+        if not self._words:
+            return []
+
+        matched_by_value: Dict[str, WordDTO] = {}
+        for alias, word in self._words.items():
+            if (
+                query_lower in alias.lower()
+                or query_lower in word.value.lower()
+                or query_lower in word.translation.lower()
+            ):
+                matched_by_value[word.value] = word
+
+        return list(matched_by_value.values())
     
     # Phrase operations
     
@@ -149,8 +165,8 @@ class VocabularyRepository:
             return None
         
         return VocabularyStats(
-            id=f"word-{value}",
-            value=value,
+            id=f"word-{word.value}",
+            value=word.value,
             item_type="word",
             frequency=word.frequency,
             age=word.age,
@@ -177,8 +193,8 @@ class VocabularyRepository:
     def get_all_stats(self) -> tuple:
         """Get overall learning statistics."""
         self.initialize()
-        
-        words = self._words.values() if self._words else []
+
+        words = self._unique_words()
         phrases = self._phrases.values() if self._phrases else []
         
         total_words = len(words)
@@ -222,8 +238,9 @@ class VocabularyRepository:
         
         try:
             if item_type == "word" and value in self._words:
-                self._words[value].frequency = new_frequency
-                self._memory[value] = new_frequency
+                word = self._words[value]
+                word.frequency = new_frequency
+                self._memory[word.value] = new_frequency
                 return True
             elif item_type == "phrase" and value in self._phrases:
                 self._phrases[value].frequency = new_frequency
@@ -257,7 +274,7 @@ class VocabularyRepository:
         """Aggregate learning and teaching statistics across words and phrases."""
         self.initialize()
 
-        words = list(self._words.values()) if self._words else []
+        words = self._unique_words()
         phrases = list(self._phrases.values()) if self._phrases else []
 
         total_word_frequency = sum(item.frequency for item in words)

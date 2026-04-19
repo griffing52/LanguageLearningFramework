@@ -58,13 +58,21 @@ class DataLoader:
                         continue
                     
                     try:
-                        value, translation = line.split('=', 1)
-                        value = value.strip()
+                        value_raw, translation = line.split('=', 1)
+                        value_raw = value_raw.strip()
                         translation = translation.strip()
                         
-                        if not value or not translation:
+                        if not value_raw or not translation:
                             logger.warning(f"Skipping empty value/translation on line {line_num}")
                             continue
+                        
+                        # Support comma-separated spellings/synonyms on the left side.
+                        # The spelling closest to '=' (last in list) is canonical.
+                        spellings = [part.strip() for part in value_raw.split(',') if part.strip()]
+                        if not spellings:
+                            logger.warning(f"Skipping empty spelling list on line {line_num}")
+                            continue
+                        canonical_value = spellings[-1]
                         
                         # Determine complexity and initial state based on markers
                         # Word complexity is simple (1) by default
@@ -84,19 +92,23 @@ class DataLoader:
                             age = 0         # Brand new
                         
                         word = WordDTO(
-                            value=value,
+                            value=canonical_value,
                             translation=translation,
                             complexity=complexity,
                             frequency=frequency,
                             age=age
                         )
-                        words[value] = word
+                        for spelling in spellings:
+                            words[spelling] = word
                     
                     except (ValueError, IndexError) as e:
                         logger.warning(f"Error parsing line {line_num}: {line}. Error: {e}")
                         continue
             
-            logger.info(f"Loaded {len(words)} words from {file_path}")
+            unique_word_count = len({id(word): word for word in words.values()})
+            logger.info(
+                f"Loaded {unique_word_count} unique words ({len(words)} spellings/aliases) from {file_path}"
+            )
         
         except Exception as e:
             logger.error(f"Error loading words from {file_path}: {e}")
@@ -128,6 +140,11 @@ class DataLoader:
             logger.warning(f"Phrases file not found: {file_path}")
             return phrases, dependencies
         
+        alias_to_canonical = {
+            alias.lower(): word.value
+            for alias, word in words_map.items()
+        }
+
         try:
             with open(file_path, 'r', encoding='utf-8') as f:
                 for line_num, line in enumerate(f, 1):
@@ -156,13 +173,9 @@ class DataLoader:
                         
                         for token in phrase_tokens:
                             clean_token = token.lower()
-                            # Match against known words (case-insensitive)
-                            matching_word = next(
-                                (w for w in words_map.keys() if w.lower() == clean_token),
-                                None
-                            )
-                            if matching_word:
-                                phrase_word_set.add(matching_word)
+                            canonical_word = alias_to_canonical.get(clean_token)
+                            if canonical_word:
+                                phrase_word_set.add(canonical_word)
                         
                         phrase_words[value] = phrase_word_set
                         

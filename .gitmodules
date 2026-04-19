@@ -1,0 +1,3 @@
+[submodule "tools/tts/SwissGermanLanguage"]
+	path = tools/tts/SwissGermanLanguage
+	url = https://github.com/griffing52/SwissGermanLanguage

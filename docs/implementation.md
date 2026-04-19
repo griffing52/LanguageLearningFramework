@@ -167,11 +167,11 @@ Interactive documentation at `/api/docs` (Swagger UI) and `/api/redoc` (ReDoc)
 ```
 data/
 ├── seed/                    # Static vocabulary
-│   ├── words.txt           # word|translation|complexity (pipe-delimited)
-│   ├── lesson1.txt         # phrase|translation|complexity
+│   ├── words.txt           # word=translation (supports comma spellings and * / ! markers)
+│   ├── lesson1.txt         # phrase=translation
 │   └── known_phrases.txt   # Dependency mappings
 ├── state/                  # Runtime data
-│   └── mem0                # Progress tracking (JSON)
+│   └── mem0                # Progress tracking (structured line-based, JSON-compatible loader)
 └── audio/                  # Pronunciation files
     ├── word-Grüezi.mp3
     ├── phrase-Guten Morgen.mp3
