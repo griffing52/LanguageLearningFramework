@@ -18,6 +18,7 @@ export const TtsWorkspace: FC = () => {
   const [providers, setProviders] = useState<TtsProviderConfig[]>([]);
   const [defaultProvider, setDefaultProvider] = useState<string>('');
   const [ttsResult, setTtsResult] = useState<string>('');
+  const [audioSrc, setAudioSrc] = useState<string>('');
   const [error, setError] = useState<string | null>(null);
 
   const [providerForm, setProviderForm] = useState<TtsProviderConfig>({
@@ -116,8 +117,23 @@ export const TtsWorkspace: FC = () => {
         options: {}
       });
       setTtsResult(JSON.stringify(result, null, 2));
+
+      const responsePayload = (result as { response?: { audio_base64?: string; audio_file?: string } }).response;
+      const topLevel = result as { audio_base64?: string; audio_file?: string };
+      const audioBase64 = topLevel.audio_base64 || responsePayload?.audio_base64 || '';
+      const audioFile = topLevel.audio_file || responsePayload?.audio_file || '';
+
+      if (audioBase64) {
+        const extension = audioFile.split('.').pop()?.toLowerCase() || 'wav';
+        const mimeType = extension === 'mp3' ? 'audio/mpeg' : extension === 'ogg' ? 'audio/ogg' : 'audio/wav';
+        setAudioSrc(`data:${mimeType};base64,${audioBase64}`);
+      } else {
+        setAudioSrc('');
+      }
+
       setError(null);
     } catch (err) {
+      setAudioSrc('');
       setError(err instanceof Error ? err.message : 'Inference failed');
     }
   };
@@ -198,6 +214,11 @@ export const TtsWorkspace: FC = () => {
           <input placeholder="Voice (optional)" value={inferForm.voice} onChange={e => setInferForm({ ...inferForm, voice: e.target.value })} />
         </div>
         <button className="btn btn-primary" onClick={runInference}>Run Inference</button>
+        {audioSrc && (
+          <div className="workspace-inline" style={{ marginTop: '0.75rem' }}>
+            <audio controls src={audioSrc} style={{ width: '100%' }} />
+          </div>
+        )}
         {ttsResult && <pre className="workspace-pre">{ttsResult}</pre>}
       </div>
     </section>

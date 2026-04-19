@@ -517,13 +517,19 @@ class PlatformService:
                 raw = response.read().decode("utf-8")
                 content_type = response.headers.get("Content-Type", "")
                 parsed = json.loads(raw) if "application/json" in content_type else {"raw": raw}
-                return {
+                result = {
                     "status": "success",
                     "tts_method": method.value,
                     "provider_id": provider.get("provider_id"),
                     "url": url,
                     "response": parsed,
                 }
+                if isinstance(parsed, dict):
+                    if "audio_file" in parsed:
+                        result["audio_file"] = parsed.get("audio_file")
+                    if "audio_base64" in parsed:
+                        result["audio_base64"] = parsed.get("audio_base64")
+                return result
         except urllib.error.HTTPError as err:
             detail = err.read().decode("utf-8", errors="ignore")
             logger.error("TTS HTTP error from %s: %s", url, detail)
