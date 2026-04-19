@@ -63,7 +63,9 @@ def generate_audio(
     resolved_model_name = model_name or DEFAULT_MODEL_NAME
     resolved_vocoder_name = vocoder_name or DEFAULT_VOCODER_NAME
     resolved_sample_rate = sample_rate or DEFAULT_SAMPLE_RATE
-    embeddings_path = _resolve_path(speaker_embeddings_path, DEFAULT_SPEAKER_EMBEDDINGS_PATH)
+    # TODO REMOVE REMOVE after fix
+    # embeddings_path = _resolve_path(speaker_embeddings_path, DEFAULT_SPEAKER_EMBEDDINGS_PATH)
+    embeddings_path = _resolve_path("data/audio/tts/speecht5/speaker_embeddings.pt", "data/audio/tts/speecht5/speaker_embeddings.pt")
 
     if not embeddings_path.exists():
         raise FileNotFoundError(f"Speaker embeddings file not found: {embeddings_path}")

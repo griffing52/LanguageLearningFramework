@@ -2,7 +2,7 @@
 
 from __future__ import annotations
 
-from speecht5_backend import generate_audio as _generate_audio
+from .speecht5_backend import generate_audio as _generate_audio
 
 
 def generate_audio(text, output_path="output.wav", **options):
