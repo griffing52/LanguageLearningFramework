@@ -19,39 +19,50 @@ if (-not (Get-Command node -ErrorAction SilentlyContinue)) {
     exit 1
 }
 
-Write-Host "✓ Prerequisites OK" -ForegroundColor Green
+if (-not (Get-Command npm.cmd -ErrorAction SilentlyContinue)) {
+    Write-Host "Error: npm.cmd was not found in PATH" -ForegroundColor Red
+    exit 1
+}
+
+Write-Host "Prerequisites OK" -ForegroundColor Green
 Write-Host ""
+
+$repoRoot = Split-Path -Parent $MyInvocation.MyCommand.Path
+$apiDir = Join-Path $repoRoot "apps\api"
+$uiDir = Join-Path $repoRoot "apps\web-ui"
+$venvDir = Join-Path $repoRoot ".venv"
+# $venvDir = Join-Path $apiDir ".venv"
+$venvPython = Join-Path $venvDir "Scripts\python.exe"
+$npmExe = (Get-Command npm.cmd).Source
 
 # Setup API
 Write-Host "Setting up API..." -ForegroundColor Yellow
-Push-Location "apps/api"
-
-if (-not (Test-Path "venv")) {
+if (-not (Test-Path $venvDir)) {
     Write-Host "Creating Python virtual environment..."
-    python -m venv venv
+    & python -m venv $venvDir
 }
 
-# Activate venv
-& .\venv\Scripts\Activate.ps1
+if (-not (Test-Path $venvPython)) {
+    Write-Host "Error: API virtual environment python not found at $venvPython" -ForegroundColor Red
+    exit 1
+}
 
 Write-Host "Installing API dependencies..."
-pip install -q -r requirements.txt
+& $venvPython -m pip install -q -r (Join-Path $apiDir "requirements.txt")
 
-Pop-Location
-Write-Host "✓ API ready" -ForegroundColor Green
+Write-Host "API ready" -ForegroundColor Green
 Write-Host ""
 
 # Setup UI
 Write-Host "Setting up UI..." -ForegroundColor Yellow
-Push-Location "apps/web-ui"
-
-if (-not (Test-Path "node_modules")) {
+if (-not (Test-Path (Join-Path $uiDir "node_modules"))) {
     Write-Host "Installing UI dependencies..."
-    npm install -q
+    Push-Location $uiDir
+    & $npmExe install -q
+    Pop-Location
 }
 
-Pop-Location
-Write-Host "✓ UI ready" -ForegroundColor Green
+Write-Host "UI ready" -ForegroundColor Green
 Write-Host ""
 
 # Start services
@@ -60,22 +71,17 @@ Write-Host ""
 
 # Start API in background
 Write-Host "Starting API on http://127.0.0.1:5000..." -ForegroundColor Cyan
-Push-Location "apps/api"
-$pythonExe = (Resolve-Path ".\venv\Scripts\python.exe").Path
-Start-Process $pythonExe -ArgumentList "app.py" -NoNewWindow
-Pop-Location
+Start-Process -FilePath $venvPython -WorkingDirectory $apiDir -ArgumentList @("app.py")
 
-Start-Sleep -Seconds 2
+Start-Sleep -Seconds 3
 
 # Start UI in background
 Write-Host "Starting UI on http://localhost:3000..." -ForegroundColor Cyan
-Push-Location "apps/web-ui"
-Start-Process npm -ArgumentList "run dev" -NoNewWindow
-Pop-Location
+Start-Process -FilePath $npmExe -WorkingDirectory $uiDir -ArgumentList @("run", "dev")
 
 Write-Host ""
 Write-Host "========================================" -ForegroundColor Green
-Write-Host "✓ Services started!" -ForegroundColor Green
+Write-Host "Services started" -ForegroundColor Green
 Write-Host "========================================" -ForegroundColor Green
 Write-Host ""
 Write-Host "API:  http://127.0.0.1:5000" -ForegroundColor Cyan
@@ -83,4 +89,4 @@ Write-Host "  - Docs: http://127.0.0.1:5000/api/docs" -ForegroundColor Gray
 Write-Host ""
 Write-Host "UI:   http://localhost:3000" -ForegroundColor Cyan
 Write-Host ""
-Write-Host "Press Ctrl+C in each terminal window to stop services" -ForegroundColor Yellow
+Write-Host "Use Task Manager or Stop-Process to stop spawned services" -ForegroundColor Yellow
