@@ -8,6 +8,16 @@ import os
 from pathlib import Path
 from typing import Optional
 
+from dotenv import load_dotenv
+
+
+_CURRENT_DIR = Path(__file__).resolve().parent
+_REPO_ROOT = _CURRENT_DIR.parents[1]
+
+# Load environment values from repo root first, then local override in apps/api/.env.
+load_dotenv(_REPO_ROOT / ".env", override=False)
+load_dotenv(_CURRENT_DIR / ".env", override=True)
+
 # Environment configurations
 class Settings:
     """Application settings with sensible defaults."""

@@ -88,11 +88,14 @@ if __name__ == "__main__":
     import uvicorn
     
     logger.info(f"Starting API server on {settings.API_HOST}:{settings.API_PORT}")
-    
+
+    # Uvicorn requires an import string target when reload is enabled.
+    uvicorn_target = "app:app" if settings.API_RELOAD else app
+
     uvicorn.run(
-        app,
+        uvicorn_target,
         host=settings.API_HOST,
         port=settings.API_PORT,
         reload=settings.API_RELOAD,
-        log_level=settings.LOG_LEVEL.lower()
+        log_level=settings.LOG_LEVEL.lower(),
     )

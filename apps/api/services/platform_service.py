@@ -29,6 +29,8 @@ from utils.logger import get_logger
 
 logger = get_logger(__name__)
 
+_REMOTE_METHOD_ENV_KEYS = ("TTS_REMOTE_DEFAULT_METHOD", "TTS_SERVER_DEFAULT_METHOD")
+
 
 def _env_default_tts_provider() -> dict | None:
     provider_id = os.getenv("TTS_REMOTE_PROVIDER_ID", "").strip()
@@ -70,6 +72,26 @@ def _load_local_tts_adapter():
     from services import tts_adapter
 
     return tts_adapter
+
+
+def _resolve_remote_method(method: TtsMethod) -> TtsMethod | None:
+    """Resolve the concrete method sent to a remote inference server."""
+    if method != TtsMethod.PROVIDER:
+        return method
+
+    for env_key in _REMOTE_METHOD_ENV_KEYS:
+        candidate = os.getenv(env_key, "").strip().lower()
+        if not candidate:
+            continue
+        try:
+            resolved = TtsMethod(candidate)
+        except ValueError:
+            logger.warning("Ignoring invalid %s value '%s'", env_key, candidate)
+            continue
+        if resolved != TtsMethod.PROVIDER:
+            return resolved
+
+    return None
 
 
 class PlatformService:
@@ -475,9 +497,13 @@ class PlatformService:
             "text": request.text,
             "language": request.language,
             "voice": request.voice,
-            "tts_method": method.value,
             "options": request.options,
         }
+        remote_method = _resolve_remote_method(method)
+        # "provider" is an API-level routing mode. If configured, map it to a
+        # concrete remote method; otherwise omit and let the remote default apply.
+        if remote_method:
+            body["tts_method"] = remote_method.value
 
         req = urllib.request.Request(
             url=url,

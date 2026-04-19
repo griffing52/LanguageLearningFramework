@@ -71,13 +71,33 @@ Write-Host ""
 
 # Start API in background
 Write-Host "Starting API on http://127.0.0.1:5000..." -ForegroundColor Cyan
-Start-Process -FilePath $venvPython -WorkingDirectory $apiDir -ArgumentList @("app.py")
+$apiCommand = "Set-Location -LiteralPath '{0}'; & '{1}' app.py" -f $apiDir, $venvPython
+Start-Process -FilePath "powershell.exe" -ArgumentList @(
+    "-NoExit",
+    "-Command",
+    $apiCommand
+)
+
+Start-Sleep -Seconds 2
+try {
+    Invoke-RestMethod -Method Get -Uri "http://127.0.0.1:5000/health" -TimeoutSec 3 | Out-Null
+    Write-Host "API health check passed." -ForegroundColor Green
+} catch {
+    Write-Host "Warning: API health check did not pass yet. Check the API terminal window for details." -ForegroundColor Yellow
+}
 
 Start-Sleep -Seconds 3
 
 # Start UI in background
 Write-Host "Starting UI on http://localhost:3000..." -ForegroundColor Cyan
-Start-Process -FilePath $npmExe -WorkingDirectory $uiDir -ArgumentList @("run", "dev")
+$uiCommand = "Set-Location -LiteralPath '{0}'; & '{1}' run dev" -f $uiDir, $npmExe
+Start-Process -FilePath "powershell.exe" -ArgumentList @(
+    "-NoExit",
+    "-Command",
+    $uiCommand
+)
+
+Start-Sleep -Seconds 2
 
 Write-Host ""
 Write-Host "========================================" -ForegroundColor Green
@@ -89,4 +109,4 @@ Write-Host "  - Docs: http://127.0.0.1:5000/api/docs" -ForegroundColor Gray
 Write-Host ""
 Write-Host "UI:   http://localhost:3000" -ForegroundColor Cyan
 Write-Host ""
-Write-Host "Use Task Manager or Stop-Process to stop spawned services" -ForegroundColor Yellow
+Write-Host "Use Ctrl+C in each service terminal to stop services" -ForegroundColor Yellow

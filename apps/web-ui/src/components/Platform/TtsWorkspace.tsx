@@ -6,11 +6,12 @@ import { FC, useEffect, useState } from 'react';
 import { platformApi, TtsMethod, TtsProviderConfig } from '@/api/platform';
 import '@/styles/components.css';
 
-const TTS_METHOD_OPTIONS: Array<{ value: TtsMethod; label: string; description: string }> = [
-  { value: 'provider', label: 'Remote provider', description: 'Use a configured TTS server.' },
+type InferenceTtsMethod = Exclude<TtsMethod, 'provider'>;
+
+const TTS_METHOD_OPTIONS: Array<{ value: InferenceTtsMethod; label: string; description: string }> = [
   { value: 'speecht5', label: 'SpeechT5 local', description: 'Run the local fine-tuned SpeechT5 backend.' },
   { value: 'legacy_stitched', label: 'Legacy stitched audio', description: 'Use the legacy recording stitcher.' },
-  { value: 'orpheus_lora', label: 'Orpheus LoRA', description: 'Run Orpheus LoRA via Hugging Face inference.' }
+  { value: 'orpheus_lora', label: 'Orpheus LoRA', description: 'Run Orpheus LoRA backend (requires server-side support).' }
 ];
 
 export const TtsWorkspace: FC = () => {
@@ -20,34 +21,50 @@ export const TtsWorkspace: FC = () => {
   const [error, setError] = useState<string | null>(null);
 
   const [providerForm, setProviderForm] = useState<TtsProviderConfig>({
-    provider_id: '',
-    name: '',
-    base_url: '',
+    provider_id: 'remote-tts',
+    name: 'Remote TTS Server',
+    base_url: 'http://127.0.0.1:7001',
     synthesize_path: '/synthesize',
     health_path: '/health',
     api_key: '',
     enabled: true,
     extra_headers: {}
   });
-  const [inferForm, setInferForm] = useState<{ provider_id: string; text: string; language: string; voice: string; tts_method: TtsMethod }>({
+  const [inferForm, setInferForm] = useState<{ provider_id: string; text: string; language: string; voice: string; tts_method: InferenceTtsMethod }>({
     provider_id: '',
     text: '',
     language: '',
     voice: '',
-    tts_method: 'provider'
+    tts_method: 'speecht5'
   });
 
   const loadTtsState = async () => {
     try {
       const ttsData = await platformApi.listTtsProviders();
-      setProviders(ttsData.providers || []);
-      setDefaultProvider(ttsData.default_provider || '');
+      const nextProviders = ttsData.providers || [];
+      const resolvedDefaultProvider = ttsData.default_provider || nextProviders[0]?.provider_id || '';
+      setProviders(nextProviders);
+      setDefaultProvider(resolvedDefaultProvider);
+      if (resolvedDefaultProvider) {
+        const selected = nextProviders.find(provider => provider.provider_id === resolvedDefaultProvider);
+        if (selected) {
+          setProviderForm(prev => ({
+            ...prev,
+            provider_id: selected.provider_id,
+            name: selected.name,
+            base_url: selected.base_url,
+            synthesize_path: selected.synthesize_path,
+            health_path: selected.health_path,
+            api_key: selected.api_key || ''
+          }));
+        }
+      }
       setInferForm(prev => {
-        if (prev.provider_id || !ttsData.default_provider) {
+        if (prev.provider_id || !resolvedDefaultProvider) {
           return prev;
         }
 
-        return { ...prev, provider_id: ttsData.default_provider || '' };
+        return { ...prev, provider_id: resolvedDefaultProvider };
       });
       setError(null);
     } catch (err) {
@@ -63,9 +80,9 @@ export const TtsWorkspace: FC = () => {
     try {
       await platformApi.upsertTtsProvider(providerForm);
       setProviderForm({
-        provider_id: '',
-        name: '',
-        base_url: '',
+        provider_id: 'remote-tts',
+        name: 'Remote TTS Server',
+        base_url: 'http://127.0.0.1:7001',
         synthesize_path: '/synthesize',
         health_path: '/health',
         api_key: '',
@@ -89,8 +106,9 @@ export const TtsWorkspace: FC = () => {
 
   const runInference = async () => {
     try {
+      const selectedProvider = inferForm.provider_id || defaultProvider || undefined;
       const result = await platformApi.runTtsInference({
-        provider_id: inferForm.provider_id || undefined,
+        provider_id: selectedProvider,
         text: inferForm.text,
         language: inferForm.language || undefined,
         voice: inferForm.voice || undefined,
@@ -147,7 +165,7 @@ export const TtsWorkspace: FC = () => {
           <select
             value={inferForm.tts_method}
             onChange={e => {
-              const nextMethod = e.target.value as TtsMethod;
+              const nextMethod = e.target.value as InferenceTtsMethod;
               setInferForm(prev => ({
                 ...prev,
                 tts_method: nextMethod,
@@ -164,7 +182,7 @@ export const TtsWorkspace: FC = () => {
           </small>
         </div>
         <select value={inferForm.provider_id} onChange={e => setInferForm({ ...inferForm, provider_id: e.target.value })}>
-          <option value="">Run on local API host</option>
+          <option value="">Use default provider from API (.env)</option>
           {providers.map(provider => (
             <option key={provider.provider_id} value={provider.provider_id}>{provider.name}</option>
           ))}
