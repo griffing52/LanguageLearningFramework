@@ -11,7 +11,7 @@ import soundfile as sf
 import torch
 from transformers import SpeechT5ForTextToSpeech, SpeechT5HifiGan, SpeechT5Processor
 
-from helper import format_text
+from .helper import format_text
 
 
 DEFAULT_CHECKPOINT = os.getenv("TTS_SPEECHT5_CHECKPOINT", "microsoft/speecht5_tts")

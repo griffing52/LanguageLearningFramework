@@ -1,0 +1,15 @@
+{
+  "default_provider": "j",
+  "providers": [
+    {
+      "provider_id": "j",
+      "name": "k",
+      "base_url": "localhost:7001",
+      "synthesize_path": "/synthesize",
+      "health_path": "/health",
+      "api_key": "",
+      "enabled": true,
+      "extra_headers": {}
+    }
+  ]
+}

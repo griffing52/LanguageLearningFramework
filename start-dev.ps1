@@ -61,7 +61,8 @@ Write-Host ""
 # Start API in background
 Write-Host "Starting API on http://127.0.0.1:5000..." -ForegroundColor Cyan
 Push-Location "apps/api"
-Start-Process powershell -ArgumentList "& .\venv\Scripts\Activate.ps1; python app.py" -NoNewWindow
+$pythonExe = (Resolve-Path ".\venv\Scripts\python.exe").Path
+Start-Process $pythonExe -ArgumentList "app.py" -NoNewWindow
 Pop-Location
 
 Start-Sleep -Seconds 2

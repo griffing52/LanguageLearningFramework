@@ -42,13 +42,25 @@ def is_local_method(method: str | None) -> bool:
     return normalize_method(method) in LOCAL_METHODS
 
 
+def _import_backend_module(module_name: str):
+    """Import backend modules in both package and flat-module execution contexts."""
+    if __package__:
+        try:
+            return import_module(f".{module_name}", package=__package__)
+        except ModuleNotFoundError:
+            # Fall back to flat imports for direct script usage.
+            pass
+
+    return import_module(module_name)
+
+
 def load_local_backend(method: str):
     normalized = normalize_method(method)
     if normalized == SPEECHT5_METHOD:
-        return import_module("speecht5_backend")
+        return _import_backend_module("speecht5_backend")
     if normalized == LEGACY_STITCHED_METHOD:
-        return import_module("legacy_backend")
+        return _import_backend_module("legacy_backend")
     if normalized == ORPHEUS_LORA_METHOD:
-        return import_module("orpheus_backend")
+        return _import_backend_module("orpheus_backend")
     raise ValueError(f"Method '{method}' is not a local TTS backend")
 
