@@ -44,12 +44,17 @@ def is_local_method(method: str | None) -> bool:
 
 def _import_backend_module(module_name: str):
     """Import backend modules in both package and flat-module execution contexts."""
-    if __package__:
-        try:
-            return import_module(f".{module_name}", package=__package__)
-        except ModuleNotFoundError:
-            # Fall back to flat imports for direct script usage.
-            pass
+    package_name = __package__ or "tools.tts"
+    package_target = f"{package_name}.{module_name}"
+
+    try:
+        return import_module(package_target)
+    except ModuleNotFoundError as err:
+        # Only fall back when the backend module itself is missing in package mode.
+        # If a dependency inside the backend is missing (for example `snac`),
+        # re-raise that original error so troubleshooting is accurate.
+        if err.name != package_target:
+            raise
 
     return import_module(module_name)
 
