@@ -2,6 +2,8 @@
 
 Guide for containerizing and deploying the Language Learning Framework.
 
+For split-machine inference where TTS runs on a separate device, see [Remote TTS Server](remote-tts-server.md).
+
 ## Docker Compose (Quick Start)
 
 ### Prerequisites
@@ -52,6 +54,17 @@ API_DEBUG=False
 LOG_LEVEL=INFO
 CORS_ORIGINS=http://localhost:3000
 ```
+
+If using a remote TTS server, also set:
+
+```env
+TTS_REMOTE_PROVIDER_ID=remote-tts
+TTS_REMOTE_BASE_URL=http://INFERENCE_HOST:7001
+TTS_REMOTE_SYNTHESIZE_PATH=/synthesize
+TTS_REMOTE_HEALTH_PATH=/health
+```
+
+See [Remote TTS Server](remote-tts-server.md) for full setup and validation.
 
 ## Individual Containers
 

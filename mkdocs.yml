@@ -35,6 +35,7 @@ nav:
     - API Reference: api/reference.md
   - Deployment:
     - Docker & Deployment: deployment/docker.md
+    - Remote TTS Server: deployment/remote-tts-server.md
   - Implementation: implementation.md
   - Repository:
     - Repository Layout: repo-layout.md

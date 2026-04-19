@@ -48,8 +48,16 @@ pip install -r tools/tts/requirements.txt
 
 3. Start the server:
 
-```powershell
+**Option A: Direct uvicorn (recommended)**
+
+```bash
 uvicorn tools.tts.server:app --host 0.0.0.0 --port 7001
+```
+
+**Option B: Python module (if Option A fails with import error)**
+
+```bash
+python -m uvicorn tools.tts.server:app --host 0.0.0.0 --port 7001
 ```
 
 ## Connect API Machine To Remote Server

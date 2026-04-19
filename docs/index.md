@@ -49,7 +49,7 @@ Then open:
 
 **Web Stack** — Explore [Backend Architecture](backend/overview.md) for API design, [Frontend Architecture](frontend/overview.md) for React components, and [API Reference](api/reference.md) for all endpoints.
 
-**Deployment** — See [Docker & Deployment](deployment/docker.md) for containerization, Kubernetes, and production hosting options.
+**Deployment** — See [Docker & Deployment](deployment/docker.md) for containerization, Kubernetes, and production hosting options. For split-machine inference, use [Remote TTS Server](deployment/remote-tts-server.md).
 
 **Repository & Legacy** — Use [Repository Layout](repo-layout.md) for project structure, [CLI Reference](cli-reference.md) for C++ commands, and [Data Files](data-files.md) for file formats.
 

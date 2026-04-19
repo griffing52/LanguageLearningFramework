@@ -23,11 +23,14 @@ Location: tools/tts/
 
 See also: [TTS Methods](tts-methods/index.md) for historical approaches and why the current model direction was chosen.
 
+For running inference on a separate machine, see [Remote TTS Server](deployment/remote-tts-server.md).
+
 | Script | Purpose | Dependency highlights |
 | --- | --- | --- |
 | tts.py | Generate speech audio from text | transformers, torch, soundfile |
 | helper.py | Normalize and clean text input | Python standard library |
 | save_files.py | Concatenate lesson audio assets | ffmpeg, pydub |
+| server.py | Serve inference endpoints for remote execution | fastapi, uvicorn, backend adapters |
 
 - tts.py
   - Uses Hugging Face SpeechT5 model artifacts to synthesize audio.
@@ -35,11 +38,12 @@ See also: [TTS Methods](tts-methods/index.md) for historical approaches and why 
   - Text normalization helpers including number and character conversions.
 - save_files.py
   - Builds lesson audio tracks from tagged script files and ffmpeg concatenation.
+- server.py
+  - Runs standalone HTTP endpoints for synthesis, health checks, and method listing.
 
 ## Notes
 
-- Paths in tools/tts/tts.py currently include local absolute paths and may need environment-specific updates.
-- tools/tts/requirements.txt is present but currently empty.
+- Configure model and server settings with environment variables from `.env.example`.
 - save_files.py assumes ffmpeg is available on PATH.
 
 ## Useful commands

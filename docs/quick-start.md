@@ -97,6 +97,7 @@ Audio files go to `data/audio/`.
 ## Next Steps
 
 - See [Setup Guide](setup.md) for detailed configuration
+- For split-machine inference setup, see [Remote TTS Server](deployment/remote-tts-server.md)
 - Check [API Reference](api/reference.md) for endpoints
 - Visit [Backend Architecture](backend/overview.md) for internals
 - Visit [Frontend Architecture](frontend/overview.md) for UI details

@@ -142,6 +142,14 @@ Key variables:
 - `VITE_API_URL` - Frontend API endpoint
 - `CORS_ORIGINS` - Allowed frontend origins
 - `LOG_LEVEL` - Logging verbosity
+- `TTS_REMOTE_*` - Optional remote TTS provider bootstrap for split-machine inference
+
+### Remote Inference Server
+
+To run TTS on a separate device, configure the `TTS_REMOTE_*` variables in `.env` on the API machine and run the standalone TTS service on the inference machine.
+
+Full guide:
+- [Remote TTS Server](deployment/remote-tts-server.md)
 
 ## Production Setup (Docker)
 
@@ -173,6 +181,15 @@ Set variables in `.env` or pass with `-e`:
 ```bash
 docker-compose -e API_PORT=5000 -e LOG_LEVEL=INFO up
 ```
+
+If you are using a remote inference machine, also set:
+
+- `TTS_REMOTE_PROVIDER_ID`
+- `TTS_REMOTE_BASE_URL`
+- `TTS_REMOTE_SYNTHESIZE_PATH`
+- `TTS_REMOTE_HEALTH_PATH`
+
+See [Remote TTS Server](deployment/remote-tts-server.md) for complete machine-by-machine setup.
 
 ## Data Management
 

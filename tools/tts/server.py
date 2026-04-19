@@ -14,7 +14,7 @@ from typing import Any
 from fastapi import FastAPI, HTTPException
 from pydantic import BaseModel, Field
 
-from backends import (
+from .backends import (
     LEGACY_STITCHED_METHOD,
     ORPHEUS_LORA_METHOD,
     SPEECHT5_METHOD,
