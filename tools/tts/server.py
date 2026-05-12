@@ -39,6 +39,14 @@ class TtsSynthesizeRequest(BaseModel):
     options: dict[str, Any] = Field(default_factory=dict)
 
 
+class TtsLoadModelRequest(BaseModel):
+    tts_method: str = Field(default=SERVER_DEFAULT_METHOD)
+    warmup_text: str | None = Field(default=None)
+    language: str | None = None
+    voice: str | None = None
+    options: dict[str, Any] = Field(default_factory=dict)
+
+
 app = FastAPI(title="LanguageLearningFramework TTS Server", version="0.1.0")
 
 
@@ -71,6 +79,30 @@ def _clean_options(options: dict[str, Any]) -> dict[str, Any]:
     return {key: value for key, value in options.items() if value not in (None, "")}
 
 
+def _preload_backend(method: str, request_options: dict[str, Any] | None = None) -> dict[str, Any]:
+    normalized_method = normalize_method(method)
+    if not is_local_method(normalized_method):
+        raise HTTPException(status_code=400, detail=f"Unsupported method '{method}'")
+
+    try:
+        backend = load_local_backend(normalized_method)
+    except Exception as err:  # pragma: no cover
+        raise HTTPException(status_code=500, detail=str(err)) from err
+
+    preload_options = _method_defaults(normalized_method)
+    if request_options:
+        preload_options.update(request_options)
+    preload_options = _clean_options(preload_options)
+
+    if hasattr(backend, "load_model"):
+        return backend.load_model(**preload_options)
+
+    return {
+        "status": "loaded",
+        "tts_method": normalized_method,
+    }
+
+
 @app.get("/health")
 def health() -> dict[str, Any]:
     return {
@@ -87,6 +119,31 @@ def methods() -> dict[str, Any]:
         "methods": [SPEECHT5_METHOD, LEGACY_STITCHED_METHOD, ORPHEUS_LORA_METHOD],
         "default_method": SERVER_DEFAULT_METHOD,
     }
+
+
+@app.post("/load-model")
+def load_model(request: TtsLoadModelRequest) -> dict[str, Any]:
+    """Preload a model into memory before the first synthesis request."""
+    preload_result = _preload_backend(request.tts_method, request.options)
+
+    response: dict[str, Any] = {
+        "status": "success",
+        "tts_method": normalize_method(request.tts_method),
+        "preload": preload_result,
+    }
+
+    if request.warmup_text:
+        warmup_request = TtsSynthesizeRequest(
+            text=request.warmup_text,
+            tts_method=request.tts_method,
+            language=request.language,
+            voice=request.voice,
+            options=request.options,
+        )
+        synth_result = synthesize(warmup_request)
+        response["warmup"] = synth_result
+
+    return response
 
 
 @app.post("/synthesize")

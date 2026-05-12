@@ -12,6 +12,7 @@ The server exposes:
 
 - `GET /health`
 - `GET /methods`
+- `POST /load-model`
 - `POST /synthesize`
 
 ## Request Format
@@ -58,6 +59,22 @@ uvicorn tools.tts.server:app --host 0.0.0.0 --port 7001
 
 ```bash
 python -m uvicorn tools.tts.server:app --host 0.0.0.0 --port 7001
+```
+
+4. Preload a model before the first real inference request:
+
+```bash
+curl -X POST http://127.0.0.1:7001/load-model \
+  -H "Content-Type: application/json" \
+  -d '{"tts_method":"orpheus_lora"}'
+```
+
+Optional warm-up call that also runs a tiny inference:
+
+```bash
+curl -X POST http://127.0.0.1:7001/load-model \
+  -H "Content-Type: application/json" \
+  -d '{"tts_method":"orpheus_lora","warmup_text":"Hoi zame","voice":"tara"}'
 ```
 
 ## Connect API Machine To Remote Server

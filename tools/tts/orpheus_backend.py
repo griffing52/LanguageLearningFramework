@@ -96,6 +96,42 @@ _MODEL_CACHE: dict[tuple[str, str, str], tuple[Any, Any]] = {}
 _SNAC_CACHE: dict[str, Any] = {}
 
 
+def load_model(
+    *,
+    model_id: str | None = None,
+    api_token: str | None = None,
+    endpoint_url: str | None = None,
+    voice: str | None = None,
+    language: str | None = None,
+    **_: Any,
+) -> dict[str, str]:
+    """Preload Orpheus model, tokenizer, and SNAC decoder into cache."""
+    resolved_model = model_id or endpoint_url or DEFAULT_ORPHEUS_MODEL_ID
+    resolved_token = api_token or DEFAULT_HF_TOKEN or None
+
+    if not resolved_model:
+        raise ValueError("Orpheus model id must be configured")
+
+    device = _resolve_device()
+    dtype = _resolve_dtype(device)
+    _get_model_and_tokenizer(
+        model_id=resolved_model,
+        api_token=resolved_token,
+        dtype=dtype,
+        device=device,
+    )
+    _get_snac(device)
+
+    return {
+        "status": "loaded",
+        "model_id": resolved_model,
+        "device": device,
+        "dtype": str(dtype),
+        "voice": voice or "",
+        "language": language or "",
+    }
+
+
 def _get_model_and_tokenizer(model_id: str, api_token: str | None, dtype: torch.dtype, device: str):
     cache_key = (model_id, str(dtype), device)
     if cache_key not in _MODEL_CACHE:

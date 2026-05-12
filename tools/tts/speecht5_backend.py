@@ -32,6 +32,33 @@ def _load_components(checkpoint: str, model_name: str, vocoder_name: str):
     return processor, model, vocoder
 
 
+def load_model(
+    *,
+    checkpoint: str | None = None,
+    model_name: str | None = None,
+    vocoder_name: str | None = None,
+    speaker_embeddings_path: str | None = None,
+) -> dict[str, str]:
+    """Preload SpeechT5 components and speaker embeddings into cache."""
+    resolved_checkpoint = checkpoint or DEFAULT_CHECKPOINT
+    resolved_model_name = model_name or DEFAULT_MODEL_NAME
+    resolved_vocoder_name = vocoder_name or DEFAULT_VOCODER_NAME
+    embeddings_path = _resolve_path(speaker_embeddings_path, DEFAULT_SPEAKER_EMBEDDINGS_PATH)
+
+    if not embeddings_path.exists():
+        raise FileNotFoundError(f"Speaker embeddings file not found: {embeddings_path}")
+
+    _load_components(resolved_checkpoint, resolved_model_name, resolved_vocoder_name)
+    _load_speaker_embeddings(str(embeddings_path))
+    return {
+        "status": "loaded",
+        "checkpoint": resolved_checkpoint,
+        "model_name": resolved_model_name,
+        "vocoder_name": resolved_vocoder_name,
+        "speaker_embeddings_path": str(embeddings_path),
+    }
+
+
 @lru_cache(maxsize=2)
 def _load_speaker_embeddings(embeddings_path: str):
     return torch.load(embeddings_path, map_location="cpu")
@@ -63,9 +90,7 @@ def generate_audio(
     resolved_model_name = model_name or DEFAULT_MODEL_NAME
     resolved_vocoder_name = vocoder_name or DEFAULT_VOCODER_NAME
     resolved_sample_rate = sample_rate or DEFAULT_SAMPLE_RATE
-    # TODO REMOVE REMOVE after fix
-    # embeddings_path = _resolve_path(speaker_embeddings_path, DEFAULT_SPEAKER_EMBEDDINGS_PATH)
-    embeddings_path = _resolve_path("data/audio/tts/speecht5/speaker_embeddings.pt", "data/audio/tts/speecht5/speaker_embeddings.pt")
+    embeddings_path = _resolve_path(speaker_embeddings_path, DEFAULT_SPEAKER_EMBEDDINGS_PATH)
 
     if not embeddings_path.exists():
         raise FileNotFoundError(f"Speaker embeddings file not found: {embeddings_path}")
